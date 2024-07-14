@@ -19,11 +19,14 @@ import HorizontalFooter from '@components/layout/horizontal/Footer'
 import ScrollToTop from '@core/components/scroll-to-top'
 
 // Util Imports
+import { getDictionary } from '@/utils/getDictionary'
 import { getMode, getSystemMode } from '@core/utils/serverHelpers'
 
 const Layout = async ({ children }: ChildrenType) => {
   // Vars
   const direction = 'ltr'
+
+  const dictionary = await getDictionary('en')
   const mode = getMode()
   const systemMode = getSystemMode()
 
@@ -33,7 +36,7 @@ const Layout = async ({ children }: ChildrenType) => {
         systemMode={systemMode}
         verticalLayout={
           <VerticalLayout
-            navigation={<Navigation mode={mode} systemMode={systemMode} />}
+            navigation={<Navigation dictionary={dictionary} mode={mode} systemMode={systemMode} />}
             navbar={<Navbar />}
             footer={<VerticalFooter />}
           >
