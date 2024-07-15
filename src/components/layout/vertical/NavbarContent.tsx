@@ -25,4 +25,4 @@ const NavbarContent = () => {
   )
 }
 
-export default NavbarContent
+export default NavbarContent;
