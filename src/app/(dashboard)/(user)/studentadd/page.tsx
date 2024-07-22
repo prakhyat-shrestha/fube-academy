@@ -32,7 +32,12 @@ type FormDataType = {
   language: string[]
   date: Date | null
   phoneNumber: string
+  address1:string,
+  address2:string,
+  postal:string,
   username: string
+  studylevel:string,
+  gender:string,
   email: string
   password: string
   isPasswordShown: boolean
@@ -58,8 +63,13 @@ const AddStudent = () => {
     date: null,
     phoneNumber: '',
     username: '',
+    studylevel:'',
+    gender:'',
     email: '',
     password: '',
+    address1:'',
+    address2:'',
+    postal:'',
     isPasswordShown: false,
     confirmPassword: '',
     setIsConfirmPasswordShown: false,
@@ -88,7 +98,12 @@ const AddStudent = () => {
       language: [],
       date: null,
       phoneNumber: '',
+      address1:'',
+      address2:'',
+      postal:'',
       username: '',
+      studylevel:'',
+      gender:'',
       email: '',
       password: '',
       isPasswordShown: false,
@@ -160,6 +175,7 @@ const AddStudent = () => {
                       onChange: e => setFormData({ ...formData, language: e.target.value as string[] })
                     }}
                   >
+                    <MenuItem value=''>Select Language</MenuItem>
                     <MenuItem value='English'>English</MenuItem>
                     <MenuItem value='Nepali'>Nepali</MenuItem>
                     <MenuItem value='Spanish'>Spanish</MenuItem>
@@ -189,6 +205,36 @@ const AddStudent = () => {
                     onChange={e => setFormData({ ...formData, phoneNumber: e.target.value })}
                   />
                 </Grid>
+                <Grid item xs={12} sm={6}>
+                  <CustomTextField
+                    fullWidth
+                    label='Address 1'
+                    type='number'
+                    placeholder='Enter address 1'
+                    value={formData.address1}
+                    onChange={e => setFormData({ ...formData, address1: e.target.value })}
+                  />
+                </Grid> <Grid item xs={12} sm={6}>
+                  <CustomTextField
+                    fullWidth
+                    label='Address 2'
+                    type='number'
+                    placeholder='Enter address 2'
+                    value={formData.address2}
+                    onChange={e => setFormData({ ...formData, address2: e.target.value })}
+                  />
+                </Grid>
+                <Grid item xs={12} sm={6}>
+                  <CustomTextField
+                    fullWidth
+                    label='Postal code'
+                    type='number'
+                    placeholder='Enter postal code'
+                    value={formData.postal}
+                    onChange={e => setFormData({ ...formData, postal: e.target.value })}
+                  />
+                </Grid>
+
               </Grid>
             </TabPanel>
             <TabPanel value='account_details'>
@@ -211,6 +257,37 @@ const AddStudent = () => {
                     value={formData.email}
                     onChange={e => setFormData({ ...formData, email: e.target.value })}
                   />
+                </Grid>
+                <Grid item xs={12} sm={6}>
+                  <CustomTextField
+                    select
+                    fullWidth
+                    label='Study level'
+                    value={formData.studylevel}
+                    onChange={e => setFormData({ ...formData, studylevel: e.target.value })}
+                  >
+                    <MenuItem value=''>Select Study</MenuItem>
+                    <MenuItem value='PrePrimary'>Pre Primary</MenuItem>
+                    <MenuItem value='Primary'>Primary</MenuItem>
+                    <MenuItem value='LowerSecondary'>Lower Secondary</MenuItem>
+                    <MenuItem value='HighSecondary'>High Secondary</MenuItem>
+                    
+                  </CustomTextField>
+                </Grid>
+                <Grid item xs={12} sm={6}>
+                  <CustomTextField
+                    select
+                    fullWidth
+                    label='Gender'
+                    value={formData.gender}
+                    onChange={e => setFormData({ ...formData, gender: e.target.value })}
+                  >
+                    <MenuItem value=''>Select Gender</MenuItem>
+                    <MenuItem value='Male'>Male</MenuItem>
+                    <MenuItem value='Female'>Female</MenuItem>
+                
+                    
+                  </CustomTextField>
                 </Grid>
                 <Grid item xs={12} sm={6}>
                   <CustomTextField
@@ -319,7 +396,7 @@ const AddStudent = () => {
 
           <CardActions>
 
-            <Button type='submit' variant='contained' className='mie-2'>
+            <Button type='submit' variant='contained' sx={{ marginLeft: 'auto' }}>
               Submit
             </Button>
 
