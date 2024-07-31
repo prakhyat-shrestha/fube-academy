@@ -1,7 +1,8 @@
 
+// const formData=formData;
 // export async function GET(){
+// return Response.json(formData)
 
-//     return Response.json(formData)
 // }
 
 export async function POST(e,request:Request){
@@ -21,6 +22,6 @@ export async function POST(e,request:Request){
         headers:{"Content-Type":"application/json"},status:201,
 
     })
-    return 
+    
 
 }

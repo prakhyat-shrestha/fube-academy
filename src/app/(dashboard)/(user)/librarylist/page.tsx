@@ -1,16 +1,9 @@
-import Booklist from "@/views/(library)/book";
+import Booklist from '@/views/library/book'
 
-
-export default function BookLibrary(){
-
-    return (
-
-        <>
-        <Booklist/>
-        </>
-
-
-    );
-
-
+export default function BookLibrary() {
+  return (
+    <>
+      <Booklist />
+    </>
+  )
 }
