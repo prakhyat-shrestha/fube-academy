@@ -20,6 +20,8 @@ import InputAdornment from '@mui/material/InputAdornment'
 import IconButton from '@mui/material/IconButton'
 
 // Components Imports
+import { Typography } from '@mui/material'
+
 import CustomTextField from '@core/components/mui/TextField'
 
 // Styled Component Imports
@@ -32,12 +34,12 @@ type FormDataType = {
   language: string[]
   date: Date | null
   phoneNumber: string
-  address1:string,
-  address2:string,
-  postal:string,
+  address1: string
+  address2: string
+  postal: string
   username: string
-  studylevel:string,
-  gender:string,
+  studylevel: string
+  gender: string
   email: string
   password: string
   isPasswordShown: boolean
@@ -63,13 +65,13 @@ const AddStudent = () => {
     date: null,
     phoneNumber: '',
     username: '',
-    studylevel:'',
-    gender:'',
+    studylevel: '',
+    gender: '',
     email: '',
     password: '',
-    address1:'',
-    address2:'',
-    postal:'',
+    address1: '',
+    address2: '',
+    postal: '',
     isPasswordShown: false,
     confirmPassword: '',
     setIsConfirmPasswordShown: false,
@@ -98,12 +100,12 @@ const AddStudent = () => {
       language: [],
       date: null,
       phoneNumber: '',
-      address1:'',
-      address2:'',
-      postal:'',
+      address1: '',
+      address2: '',
+      postal: '',
       username: '',
-      studylevel:'',
-      gender:'',
+      studylevel: '',
+      gender: '',
       email: '',
       password: '',
       isPasswordShown: false,
@@ -120,124 +122,139 @@ const AddStudent = () => {
 
   return (
     <Card>
+      <Typography variant='h3'></Typography>
       <TabContext value={value}>
         <TabList variant='scrollable' onChange={handleTabChange} className='border-be'>
-          <Tab label='Personal Info' value='personal_info' />
-          <Tab label='Account Details' value='account_details' />
-          <Tab label='Social Links' value='social_links' />
+          <Tab label='PERSONAL INFO' value='personal_info' />
+          <Tab label='PARENTS & GUARDIAN INFO' value='parentsandguardian_info' />
+          <Tab label='DOCUMENT INFO' value='document_info' />
+          <Tab label='PREVIOUS SCHOOL INFORMATION' value='previous school_info' />
+          <Tab label='OTHER INFO' value='other_info' />
+          <Tab label='CUSTOM FIELD' value='custom_field' />
         </TabList>
         <form onSubmit={e => e.preventDefault()}>
           <CardContent>
             <TabPanel value='personal_info'>
-              <Grid container spacing={6}>
-                <Grid item xs={12} sm={6}>
-                  <CustomTextField
-                    fullWidth
-                    label='First Name'
-                    placeholder='Mister'
-                    value={formData.firstName}
-                    onChange={e => setFormData({ ...formData, firstName: e.target.value })}
-                  />
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                  <CustomTextField
-                    fullWidth
-                    label='Last Name'
-                    placeholder='Cat'
-                    value={formData.lastName}
-                    onChange={e => setFormData({ ...formData, lastName: e.target.value })}
-                  />
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                  <CustomTextField
-                    select
-                    fullWidth
-                    label='Country'
-                    value={formData.country}
-                    onChange={e => setFormData({ ...formData, country: e.target.value })}
-                  >
-                    <MenuItem value=''>Select Country</MenuItem>
-                    <MenuItem value='UK'>UK</MenuItem>
-                    <MenuItem value='USA'>USA</MenuItem>
-                    <MenuItem value='Nepal'>Nepal</MenuItem>
-                    <MenuItem value='Australia'>Australia</MenuItem>
-                    <MenuItem value='Germany'>Germany</MenuItem>
-                  </CustomTextField>
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                  <CustomTextField
-                    select
-                    fullWidth
-                    label='Language'
-                    value={formData.language}
-                    SelectProps={{
-                      multiple: true,
-                      onChange: e => setFormData({ ...formData, language: e.target.value as string[] })
-                    }}>
-                    
-                    <MenuItem value=''>Select Language</MenuItem>
-                    <MenuItem value='English'>English</MenuItem>
-                    <MenuItem value='Nepali'>Nepali</MenuItem>
-                    <MenuItem value='Spanish'>Spanish</MenuItem>
-                    <MenuItem value='Chinese'>Chinese</MenuItem>
-                    <MenuItem value='Italian'>Italian</MenuItem>
-                    <MenuItem value='German'>German</MenuItem>
-                    <MenuItem value='Arabic'>Arabic</MenuItem>
-                  </CustomTextField>
-                </Grid>
-                {/* <Grid item xs={12} sm={6}>
-                  <AppReactDatepicker
-                    selected={formData.date}
-                    showYearDropdown
-                    showMonthDropdown
-                    onChange={(date: Date) => setFormData({ ...formData, date })}
-                    placeholderText='MM/DD/YYYY'
-                    customInput={<CustomTextField fullWidth label='Birth Date' placeholder='MM-DD-YYYY' />}
-                  />
-                </Grid> */}
-                <Grid item xs={12} sm={6}>
-                  <CustomTextField
-                    fullWidth
-                    label='Phone Number'
-                    type='number'
-                    placeholder='123-456-7890'
-                    value={formData.phoneNumber}
-                    onChange={e => setFormData({ ...formData, phoneNumber: e.target.value })}
-                  />
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                  <CustomTextField
-                    fullWidth
-                    label='Address 1'
-                    type='number'
-                    placeholder='Enter address 1'
-                    value={formData.address1}
-                    onChange={e => setFormData({ ...formData, address1: e.target.value })}
-                  />
-                </Grid> <Grid item xs={12} sm={6}>
-                  <CustomTextField
-                    fullWidth
-                    label='Address 2'
-                    type='number'
-                    placeholder='Enter address 2'
-                    value={formData.address2}
-                    onChange={e => setFormData({ ...formData, address2: e.target.value })}
-                  />
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                  <CustomTextField
-                    fullWidth
-                    label='Postal code'
-                    type='number'
-                    placeholder='Enter postal code'
-                    value={formData.postal}
-                    onChange={e => setFormData({ ...formData, postal: e.target.value })}
-                  />
-                </Grid>
+              <Typography variant='h5'>ACADEMIC INFORMATION</Typography>
 
-              </Grid>
+              <div className='flex'>
+                <div>
+                  <CustomTextField select label='ACADEMIC YEAR*'>
+                    <MenuItem value=''>Select the year.</MenuItem>
+                    <MenuItem value='2080'>2080[Baishakh-Chaitra]</MenuItem>
+                  </CustomTextField>
+                  <CustomTextField label='class' value={formData.class} />
+                  <CustomTextField label='class' value={formData.section} />
+                  <CustomTextField label='class' value={formData.iemisno} />
+                  <CustomTextField label='class' value={formData.admisdate} />
+                  <CustomTextField label='class' value={formData.roll} />
+                  <CustomTextField label='class' value={formData.group} />
+                </div>
+                <div>
+                  <Typography variant='h5'>PERSONAL INFO </Typography>
+                  <br />
+
+                  <Grid container spacing={6}>
+                    <Grid item xs={12} sm={6}>
+                      <CustomTextField
+                        fullWidth
+                        label='First Name'
+                        placeholder='Mister'
+                        value={formData.firstName}
+                        onChange={e => setFormData({ ...formData, firstName: e.target.value })}
+                      />
+                    </Grid>
+                    <Grid item xs={12} sm={6}>
+                      <CustomTextField
+                        fullWidth
+                        label='Last Name'
+                        placeholder='Cat'
+                        value={formData.lastName}
+                        onChange={e => setFormData({ ...formData, lastName: e.target.value })}
+                      />
+                    </Grid>
+                    <Grid item xs={12} sm={6}>
+                      <CustomTextField
+                        select
+                        fullWidth
+                        label='Country'
+                        value={formData.country}
+                        onChange={e => setFormData({ ...formData, country: e.target.value })}
+                      >
+                        <MenuItem value=''>Select Country</MenuItem>
+                        <MenuItem value='UK'>UK</MenuItem>
+                        <MenuItem value='USA'>USA</MenuItem>
+                        <MenuItem value='Nepal'>Nepal</MenuItem>
+                        <MenuItem value='Australia'>Australia</MenuItem>
+                        <MenuItem value='Germany'>Germany</MenuItem>
+                      </CustomTextField>
+                    </Grid>
+                    <Grid item xs={12} sm={6}>
+                      <CustomTextField
+                        select
+                        fullWidth
+                        label='Language'
+                        value={formData.language}
+                        SelectProps={{
+                          multiple: true,
+                          onChange: e => setFormData({ ...formData, language: e.target.value as string[] })
+                        }}
+                      >
+                        <MenuItem value=''>Select Language</MenuItem>
+                        <MenuItem value='English'>English</MenuItem>
+                        <MenuItem value='Nepali'>Nepali</MenuItem>
+                        <MenuItem value='Spanish'>Spanish</MenuItem>
+                        <MenuItem value='Chinese'>Chinese</MenuItem>
+                        <MenuItem value='Italian'>Italian</MenuItem>
+                        <MenuItem value='German'>German</MenuItem>
+                        <MenuItem value='Arabic'>Arabic</MenuItem>
+                      </CustomTextField>
+                    </Grid>
+                    <Grid item xs={12} sm={6}>
+                      <CustomTextField
+                        fullWidth
+                        label='Phone Number'
+                        type='number'
+                        placeholder='123-456-7890'
+                        value={formData.phoneNumber}
+                        onChange={e => setFormData({ ...formData, phoneNumber: e.target.value })}
+                      />
+                    </Grid>
+                    <Grid item xs={12} sm={6}>
+                      <CustomTextField
+                        fullWidth
+                        label='Address 1'
+                        type='number'
+                        placeholder='Enter address 1'
+                        value={formData.address1}
+                        onChange={e => setFormData({ ...formData, address1: e.target.value })}
+                      />
+                    </Grid>{' '}
+                    <Grid item xs={12} sm={6}>
+                      <CustomTextField
+                        fullWidth
+                        label='Address 2'
+                        type='number'
+                        placeholder='Enter address 2'
+                        value={formData.address2}
+                        onChange={e => setFormData({ ...formData, address2: e.target.value })}
+                      />
+                    </Grid>
+                    <Grid item xs={12} sm={6}>
+                      <CustomTextField
+                        fullWidth
+                        label='Postal code'
+                        type='number'
+                        placeholder='Enter postal code'
+                        value={formData.postal}
+                        onChange={e => setFormData({ ...formData, postal: e.target.value })}
+                      />
+                    </Grid>
+                  </Grid>
+                </div>
+              </div>
             </TabPanel>
-            <TabPanel value='account_details'>
+            <TabPanel value='personal_info'>
               <Grid container spacing={6}>
                 <Grid item xs={12} sm={6}>
                   <CustomTextField
@@ -271,7 +288,6 @@ const AddStudent = () => {
                     <MenuItem value='Primary'>Primary</MenuItem>
                     <MenuItem value='LowerSecondary'>Lower Secondary</MenuItem>
                     <MenuItem value='HighSecondary'>High Secondary</MenuItem>
-                    
                   </CustomTextField>
                 </Grid>
                 <Grid item xs={12} sm={6}>
@@ -285,8 +301,6 @@ const AddStudent = () => {
                     <MenuItem value=''>Select Gender</MenuItem>
                     <MenuItem value='Male'>Male</MenuItem>
                     <MenuItem value='Female'>Female</MenuItem>
-                
-                    
                   </CustomTextField>
                 </Grid>
                 <Grid item xs={12} sm={6}>
@@ -341,7 +355,7 @@ const AddStudent = () => {
                 </Grid>
               </Grid>
             </TabPanel>
-            <TabPanel value='social_links'>
+            <TabPanel value='document_info'>
               <Grid container spacing={6}>
                 <Grid item xs={12} sm={6}>
                   <CustomTextField
@@ -361,7 +375,7 @@ const AddStudent = () => {
                     onChange={e => setFormData({ ...formData, facebook: e.target.value })}
                   />
                 </Grid>
-                
+
                 <Grid item xs={12} sm={6}>
                   <CustomTextField
                     fullWidth
@@ -395,7 +409,6 @@ const AddStudent = () => {
           <Divider />
 
           <CardActions>
-
             <Button type='submit' variant='contained' sx={{ marginLeft: 'auto' }}>
               Submit
             </Button>
@@ -403,14 +416,11 @@ const AddStudent = () => {
             <Button type='reset' variant='tonal' color='secondary' onClick={() => handleReset()}>
               Reset
             </Button>
-
           </CardActions>
-
         </form>
-
       </TabContext>
     </Card>
   )
 }
 
-export default AddStudent;
+export default AddStudent

@@ -84,9 +84,18 @@ const VerticalMenu = ({ dictionary, scrollMenu }: Props) => {
           <MenuItem href={`/studentadd`}>Add Student</MenuItem>
           <MenuItem href={`/studentli`}>Student List</MenuItem>
         </SubMenu>
-        <SubMenu label={dictionary['navigation'].library} icon={<i className='tabler-star'/>}>
+        <SubMenu label={dictionary['navigation'].library} icon={<i className='tabler-star' />}>
           <MenuItem href={'/librarylist'}>Booklist</MenuItem>
           <MenuItem href={'/libraryadd'}>Add Books</MenuItem>
+          <MenuItem href={'/librarycat'}>Book Category</MenuItem>
+          <MenuItem href={'/librarymember'}>Book Member</MenuItem>
+          <MenuItem href={'/libraryissue'}>Book Issue/Return</MenuItem>
+          <MenuItem href={'/libraryissued'}>All Issued Books</MenuItem>
+          <MenuItem>Subjects</MenuItem>
+        </SubMenu>
+
+        <SubMenu label={dictionary['navigation'].fee} icon={<i className='tabler-star' />}>
+          <MenuItem href={'/feedemo'}>Fee Group</MenuItem>
         </SubMenu>
       </Menu>
       {/* <Menu
