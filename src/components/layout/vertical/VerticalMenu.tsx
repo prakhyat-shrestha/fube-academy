@@ -80,13 +80,25 @@ const VerticalMenu = ({ dictionary, scrollMenu }: Props) => {
         <MenuItem href='/contact' icon={<i className='tabler-info-circle' />}>
           Contact
         </MenuItem>
-        <SubMenu label={dictionary['navigation'].student} icon={<i className='tabler-star' />}>
+        <SubMenu label={dictionary['navigation'].student} icon={<i className='tabler-user-square' />}>
           <MenuItem href={`/studentadd`}>Add Student</MenuItem>
           <MenuItem href={`/studentli`}>Student List</MenuItem>
         </SubMenu>
-        <SubMenu label={dictionary['navigation'].library} icon={<i className='tabler-star'/>}>
+        <SubMenu label={dictionary['navigation'].library} icon={<i className='tabler-books' />}>
           <MenuItem href={'/librarylist'}>Booklist</MenuItem>
           <MenuItem href={'/libraryadd'}>Add Books</MenuItem>
+        </SubMenu>
+        <SubMenu label={dictionary['navigation'].fee} icon={<i className='tabler-cash-banknote' />}>
+          <MenuItem href={'/feesgroup'}>Fees Group</MenuItem>
+          <MenuItem href={'/feestype'}>Fees Type</MenuItem>
+          <MenuItem href={'/feesinvoice'}>Fees Invoice</MenuItem>
+          <MenuItem href={'/bankpayment'}>Bank Payment</MenuItem>
+          <MenuItem href={'/feescarryforward'}>Fees Carry Forward</MenuItem>
+        </SubMenu>
+        <SubMenu label={dictionary['navigation'].homework} icon={<i className='tabler-book' />}>
+          <MenuItem href={'/addHomework'}>Add Homework</MenuItem>
+          <MenuItem href={'/homeworkList'}>Homework List</MenuItem>
+          <MenuItem href={'/homeworkReport'}>Homework Report</MenuItem>
         </SubMenu>
       </Menu>
       {/* <Menu
