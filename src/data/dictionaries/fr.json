@@ -83,6 +83,8 @@
     "student": "Utilisateur",
     "library": "Bibliothèque",
     "fee": "Frais",
-    "homework": "Devoirs"
+    "homework": "Devoirs",
+    "transport": "Transport",
+    "adminsection": "Section Administrateur"
   }
 }

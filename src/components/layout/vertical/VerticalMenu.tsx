@@ -80,6 +80,19 @@ const VerticalMenu = ({ dictionary, scrollMenu }: Props) => {
         <MenuItem href='/contact' icon={<i className='tabler-info-circle' />}>
           Contact
         </MenuItem>
+        <SubMenu label={dictionary['navigation'].adminsection} icon={<i className='tabler-brand-amigo' />}>
+          <MenuItem href={'/admissionquery'}>Admission Query</MenuItem>
+          <MenuItem href={'/visitorbook'}>Visitor Book</MenuItem>
+          <MenuItem href={'/complaint'}>Complaint</MenuItem>
+          <MenuItem href={'/postalreceive'}>Postal Receive</MenuItem>
+          <MenuItem href={'/postaldispatch'}>Postal Dispatch</MenuItem>
+          <MenuItem href={'/phonecalllog'}>Phone Call Log</MenuItem>
+          <MenuItem href={'/adminsetup'}>Admin Setup</MenuItem>
+          <MenuItem href={'/idcard'}>ID Card</MenuItem>
+          <MenuItem href={'/certificatess'}>Certificate</MenuItem>
+          <MenuItem href={'/generatecertificate'}>Generate Certificate</MenuItem>
+          <MenuItem href={'/generateidcard'}>Generate ID Card</MenuItem>
+        </SubMenu>
         <SubMenu label={dictionary['navigation'].student} icon={<i className='tabler-user-square' />}>
           <MenuItem href={`/studentadd`}>Add Student</MenuItem>
           <MenuItem href={`/studentli`}>Student List</MenuItem>
@@ -99,6 +112,11 @@ const VerticalMenu = ({ dictionary, scrollMenu }: Props) => {
           <MenuItem href={'/addHomework'}>Add Homework</MenuItem>
           <MenuItem href={'/homeworkList'}>Homework List</MenuItem>
           <MenuItem href={'/homeworkReport'}>Homework Report</MenuItem>
+        </SubMenu>
+        <SubMenu label={dictionary['navigation'].transport} icon={<i className='tabler-bus' />}>
+          <MenuItem href={'/route'}>Routes</MenuItem>
+          <MenuItem href={'/vehicle'}>Vehicle</MenuItem>
+          <MenuItem href={'/assignVehicle'}>Assign Vehicle</MenuItem>
         </SubMenu>
       </Menu>
       {/* <Menu

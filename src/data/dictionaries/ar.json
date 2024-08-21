@@ -83,6 +83,8 @@
     "student": "المستعمل",
     "library": "مكتبة",
     "fee": "مصاريف",
-    "homework": "العمل في المنزل"
+    "homework": "العمل في المنزل",
+    "transport": "ينقل",
+    "adminsection": "مسؤلقسم المشرف"
   }
 }

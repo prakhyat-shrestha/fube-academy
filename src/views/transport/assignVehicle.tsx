@@ -5,7 +5,7 @@ import CardActions from '@mui/material/CardActions'
 import CardContent from '@mui/material/CardContent'
 import Button from '@mui/material/Button'
 import CustomTextField from '@/@core/components/mui/TextField'
-import Typography from '@mui/material/Typography'
+import { Typography, MenuItem } from '@mui/material'
 import CheckSharpIcon from '@mui/icons-material/CheckSharp'
 import { TextField, InputAdornment } from '@mui/material'
 import SearchSharpIcon from '@mui/icons-material/SearchSharp'
@@ -16,9 +16,13 @@ import { Icon } from '@iconify/react/dist/iconify.js'
 import { createTheme } from '@mui/material/styles'
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack'
+import Radio from '@mui/material/Radio'
+import RadioGroup from '@mui/material/RadioGroup'
+import FormControl from '@mui/material/FormControl'
+import FormControlLabel from '@mui/material/FormControlLabel'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
 
-const FeesGroupList = () => {
+const AssignVehicleList = () => {
   const textFieldRef = useRef<HTMLInputElement>(null)
 
   const handleFocus = () => {
@@ -40,41 +44,53 @@ const FeesGroupList = () => {
       }
     }
   })
-
   return (
     <>
       <div className='flex '>
         <Typography variant='h6' component='h3'>
-          Fees Group
+          Assign Vehicle
         </Typography>
         <nav style={{ marginLeft: '70%' }}>
           <Typography variant='h6' component='h3' style={{ display: 'flex', alignItems: 'center' }}>
-            <Link href='#' style={{ marginRight: '25px' }}>
+            <Link href='#' style={{ marginRight: '10px' }}>
               Dashboard
             </Link>
             <span style={{ marginRight: '10px' }}>|</span>
-            <Link href='#' style={{ marginRight: '25px' }}>
-              Fees
+            <Link href='#' style={{ marginRight: '10px' }}>
+              Transport
             </Link>
-            <span style={{ marginRight: '25px' }}>|</span>
-            <Link href='#'>Fees Group</Link>
+            <span style={{ marginRight: '10px' }}>|</span>
+            <Link href='#'>Assign Vehicle</Link>
           </Typography>
         </nav>
       </div>
       <div className='flex' style={{ display: 'flex' }}>
         {/* Add fees group first card */}
         <div className='feesGroup mt-7'>
-          <Card sx={{ width: 280, height: 390 }}>
+          <Card sx={{ width: 280, height: 260 }}>
             <CardContent>
               <Typography variant='h6' component='h3'>
-                Add Fees Group
+                Add Assign Vehicle
               </Typography>
-              <Typography variant='body2' component='div'>
-                <CustomTextField required label='NAME' style={{ marginTop: 20 }} />
-              </Typography>
-              <Typography variant='body2' component='div'>
-                <CustomTextField label='DESCRIPTION' multiline rows={5} style={{ marginTop: 20 }} />
-              </Typography>
+              <CustomTextField
+                select
+                fullWidth
+                defaultValue='SELECT ROUTES'
+                label='SELECT ROUTES*'
+                id='custom-select'
+                style={{ marginTop: '20px', width: '100%' }}
+              >
+                <CustomTextField placeholder='Search...' style={{ padding: '0 6px 8px 6px', width: '100%' }} />
+                <MenuItem value='SELECT ROUTES'>
+                  <span style={{ fontStyle: 'normal' }}>SELECT ROUTES *</span>
+                </MenuItem>
+              </CustomTextField>
+              <FormControl className='flex-wrap flex-row mt-3'>
+                <RadioGroup row defaultValue='checked' name='basic-radio' aria-label='basic-radio'>
+                  <FormControlLabel value='checked' control={<Radio />} label='Checked' />
+                  <FormControlLabel value='unchecked' control={<Radio />} label='Unchecked' />
+                </RadioGroup>
+              </FormControl>
             </CardContent>
             <CardActions style={{ justifyContent: 'center' }}>
               <Button variant='contained'>
@@ -87,11 +103,11 @@ const FeesGroupList = () => {
 
         {/* Fees Group list 2nd card */}
         <div className='feesList mt-7 mx-6' style={{ flex: 1 }}>
-          <Card sx={{ width: '102%', height: 370 }}>
+          <Card sx={{ width: '102%', height: 230 }}>
             <CardContent>
               <div style={{ display: 'flex', alignItems: 'center' }}>
                 <Typography variant='h6' component='h3' style={{ flex: 1, marginRight: '16%' }}>
-                  Fees Group List
+                  Assigned Vehicle List
                 </Typography>
                 <div style={{ flexGrow: 1 }}>
                   <TextField
@@ -171,7 +187,7 @@ const FeesGroupList = () => {
                       >
                         <div style={{ display: 'flex', alignItems: 'center' }}>
                           <ArrowDownwardIcon style={{ marginRight: '8px' }} />
-                          <span>Name</span>
+                          <span>Route</span>
                         </div>
                       </th>
                       <th
@@ -183,7 +199,7 @@ const FeesGroupList = () => {
                       >
                         <div style={{ display: 'flex', alignItems: 'center' }}>
                           <ArrowDownwardIcon style={{ marginRight: '8px' }} />
-                          <span>Description</span>
+                          <span>Vehicle</span>
                         </div>
                       </th>
                       <th
@@ -203,31 +219,9 @@ const FeesGroupList = () => {
                   </thead>
                   <tbody>
                     <tr style={{ borderBottom: '1px solid #ddd' }}>
-                      <td style={{ padding: '8px' }}>Sample Name 1</td>
-                      <td style={{ padding: '8px' }}>Sample Description 1</td>
-                      <td style={{ padding: '8px' }}>
-                        <Button variant='outlined' size='small' style={{ borderRadius: '20px' }}>
-                          SELECT <ArrowDownwardIcon />
-                        </Button>
-                      </td>
-                    </tr>
-                    <tr style={{ borderBottom: '1px solid #ddd' }}>
-                      <td style={{ padding: '8px' }}>Sample Name 2</td>
-                      <td style={{ padding: '8px' }}>Sample Description 2</td>
-                      <td style={{ padding: '8px' }}>
-                        <Button variant='outlined' size='small' style={{ borderRadius: '20px' }}>
-                          SELECT <ArrowDownwardIcon />
-                        </Button>
-                      </td>
-                    </tr>
-                    <tr style={{ borderBottom: '1px solid #ddd' }}>
-                      <td style={{ padding: '8px' }}>Sample Name 3</td>
-                      <td style={{ padding: '8px' }}>Sample Description 3</td>
-                      <td style={{ padding: '8px' }}>
-                        <Button variant='outlined' size='small' style={{ borderRadius: '20px' }}>
-                          SELECT <ArrowDownwardIcon />
-                        </Button>
-                      </td>
+                      <td style={{ padding: '8px' }}></td>
+                      <td style={{ padding: '8px' }}>No Data Availabe in Table</td>
+                      <td style={{ padding: '8px' }}></td>
                     </tr>
                   </tbody>
                 </table>
@@ -236,7 +230,7 @@ const FeesGroupList = () => {
             {/* Pagination */}
             <div style={{ display: 'flex', justifyContent: 'space-between', padding: '16px' }}>
               <Typography variant='body2' style={{ marginLeft: '16px' }}>
-                Showing 1 to 3 of 3 entries
+                Showing 0 to 0 of 0 entries
               </Typography>
               <div
                 style={{
@@ -294,4 +288,4 @@ const FeesGroupList = () => {
   )
 }
 
-export default FeesGroupList
+export default AssignVehicleList

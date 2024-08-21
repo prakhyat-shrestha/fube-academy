@@ -83,6 +83,8 @@
     "student": "Student",
     "library": "Library",
     "fee": "Fees",
-    "homework": "Homework"
+    "homework": "Homework",
+    "transport": "Transport",
+    "adminsection": "Admin Section"
   }
 }

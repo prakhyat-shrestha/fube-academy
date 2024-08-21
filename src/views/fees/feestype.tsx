@@ -103,7 +103,7 @@ const FeesGroupList = () => {
               </Typography>
             </CardContent>
             <CardActions style={{ justifyContent: 'center' }}>
-              <Button variant='contained' style={{ marginTop: 10 }}>
+              <Button variant='contained'>
                 <CheckSharpIcon style={{ marginRight: 5 }} />
                 SAVE
               </Button>

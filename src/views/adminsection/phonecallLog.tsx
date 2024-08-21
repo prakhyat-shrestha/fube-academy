@@ -1,103 +1,116 @@
 'use client'
-import * as React from 'react'
-import Card from '@mui/material/Card'
-import CardActions from '@mui/material/CardActions'
-import CardContent from '@mui/material/CardContent'
-import Button from '@mui/material/Button'
+import { CardContent, Typography, Card, InputAdornment, Button, CardActions, MenuItem, TextField } from '@mui/material'
+import Link from 'next/link'
 import CustomTextField from '@/@core/components/mui/TextField'
-import Typography from '@mui/material/Typography'
 import CheckSharpIcon from '@mui/icons-material/CheckSharp'
-import { TextField, InputAdornment } from '@mui/material'
 import SearchSharpIcon from '@mui/icons-material/SearchSharp'
 import ButtonGroup from '@mui/material/ButtonGroup'
-import { useRef } from 'react'
-import Link from 'next/link'
-import { Icon } from '@iconify/react/dist/iconify.js'
-import { createTheme } from '@mui/material/styles'
+import { Icon } from '@iconify/react'
+import { createTheme, ThemeProvider } from '@mui/material/styles'
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
+import { useRef, useState, useEffect } from 'react'
+import { FormControl, FormControlLabel, Radio, RadioGroup } from '@mui/material'
 
-const FeesGroupList = () => {
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: '#1976d2'
+    }
+  }
+})
+const PhoneCallLogLayout = () => {
   const textFieldRef = useRef<HTMLInputElement>(null)
+  const [placeholder, setPlaceholder] = useState('QUICK SEARCH')
+
+  useEffect(() => {
+    // Ensure placeholder is set on mount
+    if (textFieldRef.current) {
+      textFieldRef.current.placeholder = placeholder
+    }
+  }, [placeholder])
 
   const handleFocus = () => {
-    if (textFieldRef.current) {
-      textFieldRef.current.placeholder = ''
-    }
+    setPlaceholder('')
   }
 
   const handleBlur = () => {
     if (textFieldRef.current && textFieldRef.current.value === '') {
-      textFieldRef.current.placeholder = 'SEARCH'
+      setPlaceholder('SEARCH')
     }
   }
-
-  const theme = createTheme({
-    palette: {
-      primary: {
-        main: '#1976d2'
-      }
-    }
-  })
-
   return (
     <>
-      <div className='flex '>
-        <Typography variant='h6' component='h3'>
-          Fees Group
+      <div className='flex'>
+        <Typography variant='h6' component='h4'>
+          Phone Call Log
         </Typography>
-        <nav style={{ marginLeft: '70%' }}>
-          <Typography variant='h6' component='h3' style={{ display: 'flex', alignItems: 'center' }}>
+        <nav style={{ marginLeft: 'auto' }}>
+          <Typography variant='h6' component='h4' style={{ display: 'flex', alignItems: 'center' }}>
             <Link href='#' style={{ marginRight: '25px' }}>
               Dashboard
             </Link>
             <span style={{ marginRight: '10px' }}>|</span>
             <Link href='#' style={{ marginRight: '25px' }}>
-              Fees
+              Admin Section
             </Link>
             <span style={{ marginRight: '25px' }}>|</span>
-            <Link href='#'>Fees Group</Link>
+            <Link href='#'>Phone Call Log</Link>
           </Typography>
         </nav>
       </div>
       <div className='flex' style={{ display: 'flex' }}>
         {/* Add fees group first card */}
-        <div className='feesGroup mt-7'>
-          <Card sx={{ width: 280, height: 390 }}>
+        <div className='feesGroup mt-4'>
+          <Card sx={{ width: 280, height: 'auto' }}>
             <CardContent>
-              <Typography variant='h6' component='h3'>
-                Add Fees Group
+              <Typography variant='h6' component='h4'>
+                Add Phone Call
               </Typography>
-              <Typography variant='body2' component='div'>
-                <CustomTextField required label='NAME' style={{ marginTop: 20 }} />
-              </Typography>
-              <Typography variant='body2' component='div'>
-                <CustomTextField label='DESCRIPTION' multiline rows={5} style={{ marginTop: 20 }} />
-              </Typography>
+              <CustomTextField label='NAME' required fullWidth sx={{ marginTop: '20px' }} />
+              <CustomTextField label='PHONE' required fullWidth sx={{ marginTop: '20px' }} />
+
+              <CustomTextField label='DATE' type='date' fullWidth sx={{ marginTop: '20px' }} />
+
+              <CustomTextField label='FOLLOW UP DATE' type='date' fullWidth sx={{ marginTop: '20px' }} />
+              <CustomTextField label='CALL DURATION' fullWidth sx={{ marginTop: '20px' }} />
+              <CustomTextField label='DESCRIPTION' multiline rows={3} fullWidth sx={{ marginTop: '20px' }} />
+              <div style={{ display: 'flex', marginTop: '12px' }}>
+                <span style={{ paddingRight: '30px' }}>TYPE</span>
+                <RadioGroup
+                  row
+                  aria-label='sizes'
+                  name='sizes'
+                  defaultValue='incoming'
+                  style={{ flexDirection: 'column', marginTop: '-8px' }}
+                >
+                  <FormControlLabel value='incoming' control={<Radio />} label='Incoming' />
+                  <FormControlLabel value='outgoing' control={<Radio />} label='Outgoing' />
+                </RadioGroup>
+              </div>
             </CardContent>
-            <CardActions style={{ justifyContent: 'center' }}>
-              <Button variant='contained'>
-                <CheckSharpIcon style={{ marginRight: 5 }} />
-                SAVE
+            <CardActions sx={{ justifyContent: 'center' }}>
+              <Button variant='contained' sx={{ display: 'flex', alignItems: 'center', fontSize: 'small' }}>
+                <CheckSharpIcon sx={{ marginRight: 1 }} />
+                SAVE PHONE CALL
               </Button>
             </CardActions>
           </Card>
         </div>
-
-        {/* Fees Group list 2nd card */}
-        <div className='feesList mt-7 mx-6' style={{ flex: 1 }}>
-          <Card sx={{ width: '102%', height: 370 }}>
+        {/*  2nd card */}
+        <div className='feesList mt-4 mx-6' style={{ flex: 1 }}>
+          <Card sx={{ width: '102%', height: '40%' }}>
             <CardContent>
               <div style={{ display: 'flex', alignItems: 'center' }}>
                 <Typography variant='h6' component='h3' style={{ flex: 1, marginRight: '16%' }}>
-                  Fees Group List
+                  Phone Call List
                 </Typography>
                 <div style={{ flexGrow: 1 }}>
                   <TextField
                     id='standard-search'
                     variant='standard'
-                    placeholder='SEARCH'
+                    placeholder={placeholder}
                     inputRef={textFieldRef}
                     onFocus={handleFocus}
                     onBlur={handleBlur}
@@ -183,7 +196,67 @@ const FeesGroupList = () => {
                       >
                         <div style={{ display: 'flex', alignItems: 'center' }}>
                           <ArrowDownwardIcon style={{ marginRight: '8px' }} />
+                          <span>Phone</span>
+                        </div>
+                      </th>
+                      <th
+                        style={{
+                          padding: '8px',
+                          textAlign: 'left',
+                          backgroundColor: 'lightgray'
+                        }}
+                      >
+                        <div style={{ display: 'flex', alignItems: 'center' }}>
+                          <ArrowDownwardIcon style={{ marginRight: '8px' }} />
+                          <span>Date</span>
+                        </div>
+                      </th>
+                      <th
+                        style={{
+                          padding: '8px',
+                          textAlign: 'left',
+                          backgroundColor: 'lightgray'
+                        }}
+                      >
+                        <div style={{ display: 'flex', alignItems: 'center' }}>
+                          <ArrowDownwardIcon style={{ marginRight: '8px' }} />
+                          <span>Follow Up Date</span>
+                        </div>
+                      </th>
+                      <th
+                        style={{
+                          padding: '8px',
+                          textAlign: 'left',
+                          backgroundColor: 'lightgray'
+                        }}
+                      >
+                        <div style={{ display: 'flex', alignItems: 'center' }}>
+                          <ArrowDownwardIcon style={{ marginRight: '8px' }} />
+                          <span>Call Duration</span>
+                        </div>
+                      </th>
+                      <th
+                        style={{
+                          padding: '8px',
+                          textAlign: 'left',
+                          backgroundColor: 'lightgray'
+                        }}
+                      >
+                        <div style={{ display: 'flex', alignItems: 'center' }}>
+                          <ArrowDownwardIcon style={{ marginRight: '8px' }} />
                           <span>Description</span>
+                        </div>
+                      </th>
+                      <th
+                        style={{
+                          padding: '8px',
+                          textAlign: 'left',
+                          backgroundColor: 'lightgray'
+                        }}
+                      >
+                        <div style={{ display: 'flex', alignItems: 'center' }}>
+                          <ArrowDownwardIcon style={{ marginRight: '8px' }} />
+                          <span>Call Type</span>
                         </div>
                       </th>
                       <th
@@ -196,38 +269,21 @@ const FeesGroupList = () => {
                       >
                         <div style={{ display: 'flex', alignItems: 'center' }}>
                           <ArrowDownwardIcon style={{ marginRight: '8px' }} />
-                          <span>Action</span>
+                          <span>Actions</span>
                         </div>
                       </th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr style={{ borderBottom: '1px solid #ddd' }}>
-                      <td style={{ padding: '8px' }}>Sample Name 1</td>
-                      <td style={{ padding: '8px' }}>Sample Description 1</td>
-                      <td style={{ padding: '8px' }}>
-                        <Button variant='outlined' size='small' style={{ borderRadius: '20px' }}>
-                          SELECT <ArrowDownwardIcon />
-                        </Button>
-                      </td>
-                    </tr>
-                    <tr style={{ borderBottom: '1px solid #ddd' }}>
-                      <td style={{ padding: '8px' }}>Sample Name 2</td>
-                      <td style={{ padding: '8px' }}>Sample Description 2</td>
-                      <td style={{ padding: '8px' }}>
-                        <Button variant='outlined' size='small' style={{ borderRadius: '20px' }}>
-                          SELECT <ArrowDownwardIcon />
-                        </Button>
-                      </td>
-                    </tr>
-                    <tr style={{ borderBottom: '1px solid #ddd' }}>
-                      <td style={{ padding: '8px' }}>Sample Name 3</td>
-                      <td style={{ padding: '8px' }}>Sample Description 3</td>
-                      <td style={{ padding: '8px' }}>
-                        <Button variant='outlined' size='small' style={{ borderRadius: '20px' }}>
-                          SELECT <ArrowDownwardIcon />
-                        </Button>
-                      </td>
+                      <td style={{ padding: '5px' }}></td>
+                      <td style={{ padding: '5px' }}></td>
+                      <td style={{ padding: '5px' }}></td>
+                      <td style={{ padding: '5px' }}></td>
+                      <td style={{ padding: '5px' }}>No Data Available in Table</td>
+                      <td style={{ padding: '5px' }}></td>
+                      <td style={{ padding: '5px' }}></td>
+                      <td style={{ padding: '5px' }}></td>
                     </tr>
                   </tbody>
                 </table>
@@ -236,7 +292,7 @@ const FeesGroupList = () => {
             {/* Pagination */}
             <div style={{ display: 'flex', justifyContent: 'space-between', padding: '16px' }}>
               <Typography variant='body2' style={{ marginLeft: '16px' }}>
-                Showing 1 to 3 of 3 entries
+                Showing 0 to 0 of 0 entries
               </Typography>
               <div
                 style={{
@@ -294,4 +350,4 @@ const FeesGroupList = () => {
   )
 }
 
-export default FeesGroupList
+export default PhoneCallLogLayout

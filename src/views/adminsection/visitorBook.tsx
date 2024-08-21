@@ -10,71 +10,107 @@ import CheckSharpIcon from '@mui/icons-material/CheckSharp'
 import { TextField, InputAdornment } from '@mui/material'
 import SearchSharpIcon from '@mui/icons-material/SearchSharp'
 import ButtonGroup from '@mui/material/ButtonGroup'
-import { useRef } from 'react'
+import { useRef, useState, useEffect } from 'react'
 import Link from 'next/link'
-import { Icon } from '@iconify/react/dist/iconify.js'
-import { createTheme } from '@mui/material/styles'
+import { Icon } from '@iconify/react'
+import { createTheme, ThemeProvider } from '@mui/material/styles'
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
 
-const FeesGroupList = () => {
+// Define a theme
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: '#1976d2'
+    }
+  }
+})
+
+const VisitorLayout = () => {
   const textFieldRef = useRef<HTMLInputElement>(null)
+  const [placeholder, setPlaceholder] = useState('SEARCH')
+
+  useEffect(() => {
+    // Ensure placeholder is set on mount
+    if (textFieldRef.current) {
+      textFieldRef.current.placeholder = placeholder
+    }
+  }, [placeholder])
 
   const handleFocus = () => {
-    if (textFieldRef.current) {
-      textFieldRef.current.placeholder = ''
-    }
+    setPlaceholder('')
   }
 
   const handleBlur = () => {
     if (textFieldRef.current && textFieldRef.current.value === '') {
-      textFieldRef.current.placeholder = 'SEARCH'
+      setPlaceholder('SEARCH')
     }
   }
 
-  const theme = createTheme({
-    palette: {
-      primary: {
-        main: '#1976d2'
-      }
-    }
-  })
-
   return (
     <>
-      <div className='flex '>
-        <Typography variant='h6' component='h3'>
-          Fees Group
+      <div className='flex'>
+        <Typography variant='h6' component='h4'>
+          Visitor Book
         </Typography>
-        <nav style={{ marginLeft: '70%' }}>
-          <Typography variant='h6' component='h3' style={{ display: 'flex', alignItems: 'center' }}>
+        <nav style={{ marginLeft: 'auto' }}>
+          <Typography variant='h6' component='h4' style={{ display: 'flex', alignItems: 'center' }}>
             <Link href='#' style={{ marginRight: '25px' }}>
               Dashboard
             </Link>
             <span style={{ marginRight: '10px' }}>|</span>
             <Link href='#' style={{ marginRight: '25px' }}>
-              Fees
+              Admin Section
             </Link>
             <span style={{ marginRight: '25px' }}>|</span>
-            <Link href='#'>Fees Group</Link>
+            <Link href='#'>Visitor Book</Link>
           </Typography>
         </nav>
       </div>
       <div className='flex' style={{ display: 'flex' }}>
         {/* Add fees group first card */}
-        <div className='feesGroup mt-7'>
-          <Card sx={{ width: 280, height: 390 }}>
+        <div className='feesGroup mt-4'>
+          <Card sx={{ width: 280, height: '102%' }}>
             <CardContent>
-              <Typography variant='h6' component='h3'>
-                Add Fees Group
+              <Typography variant='h6' component='h4'>
+                Add Visitor
               </Typography>
-              <Typography variant='body2' component='div'>
-                <CustomTextField required label='NAME' style={{ marginTop: 20 }} />
-              </Typography>
-              <Typography variant='body2' component='div'>
-                <CustomTextField label='DESCRIPTION' multiline rows={5} style={{ marginTop: 20 }} />
-              </Typography>
+              <CustomTextField
+                label='PURPOSE'
+                placeholder='Purpose'
+                required
+                style={{ width: '100%', marginTop: '20px' }}
+              />
+              <CustomTextField required label='NAME' placeholder='Name' style={{ marginTop: '20px', width: '100%' }} />
+              <CustomTextField label='PHONE' placeholder='Phone' style={{ width: '100%', marginTop: '20px' }} />
+              <CustomTextField label='ID' placeholder='ID' required style={{ marginTop: '20px', width: '100%' }} />
+              <CustomTextField
+                label='NO OF PERSON'
+                placeholder='No of Person'
+                required
+                style={{ marginTop: '20px', width: '100%' }}
+              />
+              <CustomTextField label='DATE FROM' type='date' style={{ width: '100%', marginTop: '20px' }} />
+              <CustomTextField label='IN TIME' required type='time' style={{ marginTop: '20px', width: '100%' }} />
+              <CustomTextField label='OUT TIME' required type='time' style={{ marginTop: '20px', width: '100%' }} />
+              <CustomTextField
+                required
+                label='FILE'
+                value='Attach File'
+                style={{ marginTop: 20, width: '100%' }}
+                InputProps={{
+                  endAdornment: (
+                    <InputAdornment position='end'>
+                      <Button variant='contained' style={{ height: '25px', width: '90px', fontSize: '0.75rem' }}>
+                        BROWSE
+                      </Button>
+                    </InputAdornment>
+                  )
+                }}
+              />
+              <p>(PDF,DOC,DOCX,JPG,JPEG,PNG,</p>
+              <p>TXT are allowed for upload)</p>
             </CardContent>
             <CardActions style={{ justifyContent: 'center' }}>
               <Button variant='contained'>
@@ -85,9 +121,9 @@ const FeesGroupList = () => {
           </Card>
         </div>
 
-        {/* Fees Group list 2nd card */}
-        <div className='feesList mt-7 mx-6' style={{ flex: 1 }}>
-          <Card sx={{ width: '102%', height: 370 }}>
+        {/*  2nd card */}
+        <div className='feesList mt-4 mx-6' style={{ flex: 1 }}>
+          <Card sx={{ width: '102%', height: '35%' }}>
             <CardContent>
               <div style={{ display: 'flex', alignItems: 'center' }}>
                 <Typography variant='h6' component='h3' style={{ flex: 1, marginRight: '16%' }}>
@@ -97,7 +133,7 @@ const FeesGroupList = () => {
                   <TextField
                     id='standard-search'
                     variant='standard'
-                    placeholder='SEARCH'
+                    placeholder={placeholder}
                     inputRef={textFieldRef}
                     onFocus={handleFocus}
                     onBlur={handleBlur}
@@ -171,6 +207,18 @@ const FeesGroupList = () => {
                       >
                         <div style={{ display: 'flex', alignItems: 'center' }}>
                           <ArrowDownwardIcon style={{ marginRight: '8px' }} />
+                          <span>SL</span>
+                        </div>
+                      </th>
+                      <th
+                        style={{
+                          padding: '8px',
+                          textAlign: 'left',
+                          backgroundColor: 'lightgray'
+                        }}
+                      >
+                        <div style={{ display: 'flex', alignItems: 'center' }}>
+                          <ArrowDownwardIcon style={{ marginRight: '8px' }} />
                           <span>Name</span>
                         </div>
                       </th>
@@ -183,7 +231,79 @@ const FeesGroupList = () => {
                       >
                         <div style={{ display: 'flex', alignItems: 'center' }}>
                           <ArrowDownwardIcon style={{ marginRight: '8px' }} />
-                          <span>Description</span>
+                          <span>No Of Person</span>
+                        </div>
+                      </th>
+                      <th
+                        style={{
+                          padding: '8px',
+                          textAlign: 'left',
+                          backgroundColor: 'lightgray'
+                        }}
+                      >
+                        <div style={{ display: 'flex', alignItems: 'center' }}>
+                          <ArrowDownwardIcon style={{ marginRight: '8px' }} />
+                          <span>Phone</span>
+                        </div>
+                      </th>
+                      <th
+                        style={{
+                          padding: '8px',
+                          textAlign: 'left',
+                          backgroundColor: 'lightgray'
+                        }}
+                      >
+                        <div style={{ display: 'flex', alignItems: 'center' }}>
+                          <ArrowDownwardIcon style={{ marginRight: '8px' }} />
+                          <span>Purpose</span>
+                        </div>
+                      </th>
+                      <th
+                        style={{
+                          padding: '8px',
+                          textAlign: 'left',
+                          backgroundColor: 'lightgray'
+                        }}
+                      >
+                        <div style={{ display: 'flex', alignItems: 'center' }}>
+                          <ArrowDownwardIcon style={{ marginRight: '8px' }} />
+                          <span>Date</span>
+                        </div>
+                      </th>
+                      <th
+                        style={{
+                          padding: '8px',
+                          textAlign: 'left',
+                          backgroundColor: 'lightgray'
+                        }}
+                      >
+                        <div style={{ display: 'flex', alignItems: 'center' }}>
+                          <ArrowDownwardIcon style={{ marginRight: '8px' }} />
+                          <span>In Time</span>
+                        </div>
+                      </th>
+                      <th
+                        style={{
+                          padding: '8px',
+                          textAlign: 'left',
+                          backgroundColor: 'lightgray'
+                        }}
+                      >
+                        <div style={{ display: 'flex', alignItems: 'center' }}>
+                          <ArrowDownwardIcon style={{ marginRight: '8px' }} />
+                          <span>Out Time</span>
+                        </div>
+                      </th>
+                      <th
+                        style={{
+                          padding: '8px',
+                          textAlign: 'left',
+                          backgroundColor: 'lightgray'
+                        }}
+                      >
+                        <div style={{ display: 'flex', alignItems: 'center' }}>
+                          <ArrowDownwardIcon style={{ marginRight: '8px' }} />
+                          <span>Created By</span>
                         </div>
                       </th>
                       <th
@@ -196,38 +316,23 @@ const FeesGroupList = () => {
                       >
                         <div style={{ display: 'flex', alignItems: 'center' }}>
                           <ArrowDownwardIcon style={{ marginRight: '8px' }} />
-                          <span>Action</span>
+                          <span>Actions</span>
                         </div>
                       </th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr style={{ borderBottom: '1px solid #ddd' }}>
-                      <td style={{ padding: '8px' }}>Sample Name 1</td>
-                      <td style={{ padding: '8px' }}>Sample Description 1</td>
-                      <td style={{ padding: '8px' }}>
-                        <Button variant='outlined' size='small' style={{ borderRadius: '20px' }}>
-                          SELECT <ArrowDownwardIcon />
-                        </Button>
-                      </td>
-                    </tr>
-                    <tr style={{ borderBottom: '1px solid #ddd' }}>
-                      <td style={{ padding: '8px' }}>Sample Name 2</td>
-                      <td style={{ padding: '8px' }}>Sample Description 2</td>
-                      <td style={{ padding: '8px' }}>
-                        <Button variant='outlined' size='small' style={{ borderRadius: '20px' }}>
-                          SELECT <ArrowDownwardIcon />
-                        </Button>
-                      </td>
-                    </tr>
-                    <tr style={{ borderBottom: '1px solid #ddd' }}>
-                      <td style={{ padding: '8px' }}>Sample Name 3</td>
-                      <td style={{ padding: '8px' }}>Sample Description 3</td>
-                      <td style={{ padding: '8px' }}>
-                        <Button variant='outlined' size='small' style={{ borderRadius: '20px' }}>
-                          SELECT <ArrowDownwardIcon />
-                        </Button>
-                      </td>
+                      <td style={{ padding: '8px' }}>SL</td>
+                      <td style={{ padding: '8px' }}>Sample Name</td>
+                      <td style={{ padding: '5px' }}>No Of Person</td>
+                      <td style={{ padding: '5px' }}>Phone</td>
+                      <td style={{ padding: '5px' }}>Purpose</td>
+                      <td style={{ padding: '5px' }}>Date </td>
+                      <td style={{ padding: '5px' }}>In time</td>
+                      <td style={{ padding: '5px' }}>Out time</td>
+                      <td style={{ padding: '5px' }}>Created By</td>
+                      <td style={{ padding: '5px' }}>Actions</td>
                     </tr>
                   </tbody>
                 </table>
@@ -236,7 +341,7 @@ const FeesGroupList = () => {
             {/* Pagination */}
             <div style={{ display: 'flex', justifyContent: 'space-between', padding: '16px' }}>
               <Typography variant='body2' style={{ marginLeft: '16px' }}>
-                Showing 1 to 3 of 3 entries
+                Showing 1 to 1 of 1 entries
               </Typography>
               <div
                 style={{
@@ -294,4 +399,4 @@ const FeesGroupList = () => {
   )
 }
 
-export default FeesGroupList
+export default VisitorLayout
