@@ -1,21 +1,15 @@
 'use client'
-import { Typography, MenuItem, TextField, InputAdornment } from '@mui/material'
+import { Typography, Card, CardContent, MenuItem, TextField, InputAdornment, ButtonGroup, Button } from '@mui/material'
 import Link from 'next/link'
-import Card from '@mui/material/Card'
-import CardContent from '@mui/material/CardContent'
-import CustomTextField from '@core/components/mui/TextField'
-import 'react-datepicker/dist/react-datepicker.css'
-import { useRef } from 'react'
-import Button from '@mui/material/Button'
-import SearchSharpIcon from '@mui/icons-material/SearchSharp'
-import ButtonGroup from '@mui/material/ButtonGroup'
 import { Icon } from '@iconify/react/dist/iconify.js'
-import { createTheme } from '@mui/material/styles'
+import SearchSharpIcon from '@mui/icons-material/SearchSharp'
+import CustomTextField from '@/@core/components/mui/TextField'
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
+import { useRef } from 'react'
 
-export const BankPaymentList = () => {
+const FeesDue = () => {
   const textFieldRef = useRef<HTMLInputElement>(null)
 
   const handleFocus = () => {
@@ -29,127 +23,93 @@ export const BankPaymentList = () => {
       textFieldRef.current.placeholder = 'SEARCH'
     }
   }
-  const theme = createTheme({
-    palette: {
-      primary: {
-        main: '#1976d2'
-      }
-    }
-  })
   return (
     <>
       <div className='flex'>
-        <Typography variant='h6' component='h3'>
-          Bank Payment
+        <Typography variant='h6' component='h4'>
+          Fees Due
         </Typography>
-        <nav style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center' }}>
-          <Typography variant='h6' component='h3' style={{ display: 'flex', alignItems: 'center' }}>
-            <Link href='#' style={{ marginRight: '35px' }}>
+        <nav style={{ marginLeft: 'auto' }}>
+          <Typography variant='h6' component='h4' style={{ display: 'flex', alignItems: 'center' }}>
+            <Link href='#' style={{ marginRight: '25px' }}>
               Dashboard
             </Link>
             <span style={{ marginRight: '10px' }}>|</span>
-            <Link href='#' style={{ marginRight: '35px' }}>
-              Fees Collection
+            <Link href='#' style={{ marginRight: '25px' }}>
+              Fees Report
             </Link>
-            <span style={{ marginRight: '35px' }}>|</span>
-            <Link href='#'>Bank Payment</Link>
+            <span style={{ marginRight: '25px' }}>|</span>
+            <Link href='#'>Fees Due </Link>
           </Typography>
         </nav>
       </div>
-      <div className='feesList mt-4' style={{ flex: 1 }}>
-        <Card sx={{ width: '100%', height: '105%' }}>
+
+      {/*  2nd card */}
+      <div className='feesList mt-4  ' style={{ flex: 1 }}>
+        <Card sx={{ width: '100%', height: '35%' }}>
           <CardContent>
             <Typography variant='h6' component='h4'>
               Select Criteria
             </Typography>
-
-            <div className='container' style={{ display: 'flex' }}>
-              <Typography variant='body2' component='div' style={{ margin: '1.75% 14% 0 0 ' }}>
-                <CustomTextField
-                  label='FROM'
-                  type='date'
-                  style={{ width: '170%' }}
-                  InputLabelProps={{
-                    shrink: true
-                  }}
-                />
-              </Typography>
-
-              <Typography variant='body2' component='div' style={{ margin: '1.75% 14% 0 0  ' }}>
-                <CustomTextField
-                  label='TO'
-                  type='date'
-                  style={{ width: '170%' }}
-                  InputLabelProps={{
-                    shrink: true
-                  }}
-                />
-              </Typography>
+            <div className='flex' style={{ gap: 30 }}>
               <CustomTextField
-                select
+                label='DATE FROM'
+                type='date'
+                required
                 fullWidth
-                defaultValue='Fees Group'
-                label='CLASS'
-                id='custom-select'
-                style={{ margin: '20px 50px 0 0 ', width: '20%' }}
-              >
-                <CustomTextField placeholder='Search...' style={{ padding: '0 6px 8px 6px' }} />
-                <MenuItem value='Fees Group'>
-                  <span style={{ fontStyle: 'normal' }}>Fees Group</span>
-                </MenuItem>
-                <MenuItem value={'School Fee'}>School Fee</MenuItem>
-                <MenuItem value={'Plus Two Fee'}>Plus Two Fee</MenuItem>
-                <MenuItem value={'Bachelor Fee'}>Bachelor Fee</MenuItem>
-              </CustomTextField>
+                style={{ marginTop: '20px', width: '180%' }}
+              />
               <CustomTextField
-                select
+                label='DATE TO'
+                type='date'
+                required
                 fullWidth
-                defaultValue='Fees Group'
-                label='SECTION'
-                id='custom-select'
-                style={{ margin: '20px 50px 0 0 ', width: '20%' }}
-              >
-                <CustomTextField placeholder='Search...' style={{ padding: '0 6px 8px 6px' }} />
-                <MenuItem value='Fees Group'>
-                  <span style={{ fontStyle: 'normal' }}>Fees Group</span>
+                style={{ marginTop: '20px', width: '180%' }}
+              />
+              <CustomTextField label='CLASS' defaultValue='select' select fullWidth style={{ marginTop: '20px' }}>
+                <CustomTextField placeholder='Search' fullWidth style={{ padding: '0 6px 8px 6px' }} />
+                <MenuItem value='select'>
+                  <span>Select Class</span>
                 </MenuItem>
-                <MenuItem value={'School Fee'}>School Fee</MenuItem>
-                <MenuItem value={'Plus Two Fee'}>Plus Two Fee</MenuItem>
-                <MenuItem value={'Bachelor Fee'}>Bachelor Fee</MenuItem>
+                <MenuItem value='eced'>ECED</MenuItem>
+                <MenuItem value='1'>1</MenuItem>
+                <MenuItem value='2'>2</MenuItem>2
               </CustomTextField>
-              <CustomTextField
-                select
-                fullWidth
-                defaultValue='Fees Group'
-                label='STATUS'
-                id='custom-select'
-                style={{ marginTop: '20px', width: '20%' }}
-              >
-                <CustomTextField placeholder='Search...' style={{ padding: '0 6px 8px 6px' }} />
-                <MenuItem value='Fees Group'>
-                  <span style={{ fontStyle: 'normal' }}>Fees Group</span>
+              <CustomTextField label='SECTION' defaultValue={'select'} select fullWidth style={{ marginTop: '20px' }}>
+                <CustomTextField placeholder='Search' fullWidth style={{ padding: '0 6px 8px 6px' }} />
+                <MenuItem value='select'>Select Section</MenuItem>
+              </CustomTextField>
+              <CustomTextField label='STUDENT' select defaultValue={'select'} fullWidth style={{ marginTop: '20px' }}>
+                <CustomTextField placeholder='Search' fullWidth style={{ padding: '0 6px 8px 6px' }} />
+                <MenuItem value='select'>
+                  <span>Select Student</span>
                 </MenuItem>
-                <MenuItem value={'School Fee'}>School Fee</MenuItem>
-                <MenuItem value={'Plus Two Fee'}>Plus Two Fee</MenuItem>
-                <MenuItem value={'Bachelor Fee'}>Bachelor Fee</MenuItem>
               </CustomTextField>
+            </div>
+            <div
+              className='container mt-6'
+              style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'flex-end' }}
+            >
+              <Button variant='contained' startIcon={<SearchSharpIcon />}>
+                SEARCH
+              </Button>
             </div>
           </CardContent>
         </Card>
       </div>
       {/* ---- Table Section ----*/}
-      <div className='feesList mt-4 ' style={{ flex: 1 }}>
+      <div className='feesList mt-7 ' style={{ flex: 1 }}>
         <Card sx={{ width: '100%', height: '105%' }}>
           <CardContent>
             <div style={{ display: 'flex', alignItems: 'center' }}>
               <Typography variant='h6' component='h3' style={{ flex: 1, marginRight: '16%' }}>
-                Bank Payment List
+                Fees Due List
               </Typography>
               <div style={{ flexGrow: 1 }}>
                 <TextField
                   id='standard-search'
                   variant='standard'
-                  placeholder='SEARCH'
+                  placeholder='QUICK SEARCH'
                   inputRef={textFieldRef}
                   onFocus={handleFocus}
                   onBlur={handleBlur}
@@ -162,6 +122,7 @@ export const BankPaymentList = () => {
                   }}
                 />
               </div>
+              {/*---------- Button Group Section ----------- */}
               <div style={{ display: 'flex', justifyContent: 'center' }}>
                 <ButtonGroup
                   variant='outlined'
@@ -217,12 +178,52 @@ export const BankPaymentList = () => {
                         padding: '8px',
                         textAlign: 'left',
                         backgroundColor: 'lightgray',
+                        position: 'relative',
+                        borderRadius: '5px 0 0 5px'
+                      }}
+                    >
+                      <div style={{ display: 'flex', alignItems: 'center' }}>
+                        <ArrowDownwardIcon style={{ marginRight: '8px' }} />
+                        <span>EMIS No </span>
+                      </div>
+                    </th>
+                    <th
+                      style={{
+                        padding: '8px',
+                        textAlign: 'left',
+                        backgroundColor: 'lightgray',
                         position: 'relative'
                       }}
                     >
                       <div style={{ display: 'flex', alignItems: 'center' }}>
                         <ArrowDownwardIcon style={{ marginRight: '8px' }} />
-                        <span>Student Name </span>
+                        <span>Roll No </span>
+                      </div>
+                    </th>
+                    <th
+                      style={{
+                        padding: '8px',
+                        textAlign: 'left',
+                        backgroundColor: 'lightgray',
+                        position: 'relative'
+                      }}
+                    >
+                      <div style={{ display: 'flex', alignItems: 'center' }}>
+                        <ArrowDownwardIcon style={{ marginRight: '8px' }} />
+                        <span>Name </span>
+                      </div>
+                    </th>
+                    <th
+                      style={{
+                        padding: '8px',
+                        textAlign: 'left',
+                        backgroundColor: 'lightgray',
+                        position: 'relative'
+                      }}
+                    >
+                      <div style={{ display: 'flex', alignItems: 'center' }}>
+                        <ArrowDownwardIcon style={{ marginRight: '8px' }} />
+                        <span>Due Date </span>
                       </div>
                     </th>
                     <th
@@ -234,7 +235,7 @@ export const BankPaymentList = () => {
                     >
                       <div style={{ display: 'flex', alignItems: 'center' }}>
                         <ArrowDownwardIcon style={{ marginRight: '8px' }} />
-                        <span>View Transaction</span>
+                        <span>Amounts (Rs)</span>
                       </div>
                     </th>
                     <th
@@ -246,7 +247,7 @@ export const BankPaymentList = () => {
                     >
                       <div style={{ display: 'flex', alignItems: 'center' }}>
                         <ArrowDownwardIcon style={{ marginRight: '8px' }} />
-                        <span>Date</span>
+                        <span>Paid (Rs)</span>
                       </div>
                     </th>
                     <th
@@ -257,20 +258,8 @@ export const BankPaymentList = () => {
                       }}
                     >
                       <div style={{ display: 'flex', alignItems: 'center' }}>
-                        <ArrowDownwardIcon style={{ marginLeft: '40px' }} />
-                        <span>Amount</span>
-                      </div>
-                    </th>
-                    <th
-                      style={{
-                        padding: '8px',
-                        textAlign: 'left',
-                        backgroundColor: 'lightgray'
-                      }}
-                    >
-                      <div style={{ display: 'flex', alignItems: 'center' }}>
-                        <ArrowDownwardIcon style={{ marginRight: '8px' }} />
-                        <span>Note</span>
+                        <ArrowDownwardIcon style={{ marginLeft: '8px' }} />
+                        <span>Waiver (Rs)</span>
                       </div>
                     </th>
                     <th
@@ -282,22 +271,9 @@ export const BankPaymentList = () => {
                     >
                       <div style={{ display: 'flex', alignItems: 'center' }}>
                         <ArrowDownwardIcon style={{ marginRight: '8px' }} />
-                        <span>File</span>
+                        <span>Fine (Rs)</span>
                       </div>
                     </th>
-                    <th
-                      style={{
-                        padding: '8px',
-                        textAlign: 'left',
-                        backgroundColor: 'lightgray'
-                      }}
-                    >
-                      <div style={{ display: 'flex', alignItems: 'center' }}>
-                        <ArrowDownwardIcon style={{ marginRight: '8px' }} />
-                        <span>Status</span>
-                      </div>
-                    </th>
-
                     <th
                       style={{
                         padding: '8px',
@@ -308,7 +284,7 @@ export const BankPaymentList = () => {
                     >
                       <div style={{ display: 'flex', alignItems: 'center' }}>
                         <ArrowDownwardIcon style={{ marginRight: '8px' }} />
-                        <span>Actions</span>
+                        <span>Balance (Rs)</span>
                       </div>
                     </th>
                   </tr>
@@ -319,27 +295,11 @@ export const BankPaymentList = () => {
                     <td style={{ padding: '8px' }}></td>
                     <td style={{ padding: '8px' }}></td>
                     <td style={{ padding: '8px' }}></td>
-                    <td style={{ padding: '10px' }}>No Data Available in the table</td>
                     <td style={{ padding: '8px' }}></td>
+                    <td style={{ padding: '8px' }}>No Data Availabe in Table</td>
                     <td style={{ padding: '8px' }}></td>
-                    <td style={{ padding: '5px' }}></td>
                     <td style={{ padding: '8px' }}></td>
                   </tr>
-                  {/*
-                  <tr style={{ borderBottom: '1px solid #ddd' }}>
-                    <td style={{ padding: '8px' }}>STUDENT NAME</td>
-                    <td style={{ padding: '8px' }}>AMOUNT</td>
-                    <td style={{ padding: '8px' }}>WAIVER</td>
-                    <td style={{ padding: '8px' }}>FINE </td>
-                    <td style={{ padding: '8px' }}>PAID</td>
-                    <td style={{ padding: '8px' }}>BALANCE</td>
-                    <td style={{ padding: '5px' }}>
-                      <Button variant='outlined' size='small' style={{ borderRadius: '5px' }}>
-                        STATUS
-                      </Button>
-                    </td>
-                    <td style={{ padding: '8px' }}>DATE</td>
-                  </tr> */}
                 </tbody>
               </table>
             </div>
@@ -391,3 +351,5 @@ export const BankPaymentList = () => {
     </>
   )
 }
+
+export default FeesDue

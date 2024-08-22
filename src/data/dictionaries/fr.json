@@ -85,6 +85,7 @@
     "fee": "Frais",
     "homework": "Devoirs",
     "transport": "Transport",
-    "adminsection": "Section Administrateur"
+    "adminsection": "Section Administrateur",
+    "feesreport": "Rapport des frais"
   }
 }
