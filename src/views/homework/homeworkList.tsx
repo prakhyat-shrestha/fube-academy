@@ -47,7 +47,7 @@ const HomeworkListGroup = () => {
           </Typography>
         </nav>
       </div>
-      <div className='feesList mt-7' style={{ flex: 1 }}>
+      <div className='feesList mt-4' style={{ flex: 1 }}>
         <Card sx={{ width: '100%', height: '105%' }}>
           <CardContent>
             <div className='container' style={{ display: 'flex', gap: '75.25%' }}>

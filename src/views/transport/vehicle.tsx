@@ -48,14 +48,14 @@ const VehicleList = () => {
         </Typography>
         <nav style={{ marginLeft: '70%' }}>
           <Typography variant='h6' component='h3' style={{ display: 'flex', alignItems: 'center' }}>
-            <Link href='#' style={{ marginRight: '50px' }}>
+            <Link href='#' style={{ marginRight: '30px' }}>
               Dashboard
             </Link>
             <span style={{ marginRight: '10px' }}>|</span>
-            <Link href='#' style={{ marginRight: '50px' }}>
+            <Link href='#' style={{ marginRight: '30px' }}>
               Transport
             </Link>
-            <span style={{ marginRight: '50px' }}>|</span>
+            <span style={{ marginRight: '30px' }}>|</span>
             <Link href='#'>Vehicle</Link>
           </Typography>
         </nav>

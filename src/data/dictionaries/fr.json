@@ -86,6 +86,11 @@
     "homework": "Devoirs",
     "transport": "Transport",
     "adminsection": "Section Administrateur",
-    "feesreport": "Rapport des frais"
+    "feesreport": "Rapport des frais",
+    "academics": "Universitaires",
+    "studymaterial": "Matériel d'étude",
+    "lessonplan": "Plan de cours",
+    "bulkprint": "Impression en masse",
+    "downloadcenter": "Centre de téléchargement"
   }
 }

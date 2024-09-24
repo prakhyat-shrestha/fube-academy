@@ -86,6 +86,11 @@
     "homework": "Homework",
     "transport": "Transport",
     "adminsection": "Admin Section",
-    "feesreport": "Fees Report"
+    "feesreport": "Fees Report",
+    "academics": "Academics",
+    "studymaterial": "Study Material",
+    "lessonplan": "Lesson Plan",
+    "bulkprint": "Bulk Print",
+    "downloadcenter": "Download Center"
   }
 }

@@ -93,6 +93,42 @@ const VerticalMenu = ({ dictionary, scrollMenu }: Props) => {
           <MenuItem href={'/generatecertificate'}>Generate Certificate</MenuItem>
           <MenuItem href={'/generateidcard'}>Generate ID Card</MenuItem>
         </SubMenu>
+        <SubMenu label={dictionary['navigation'].academics} icon={<i className='tabler-school' />}>
+          <MenuItem href={'/optionalsubject'}>Optional Subject</MenuItem>
+          <MenuItem href={'/section'}>Section</MenuItem>
+          <MenuItem href={'/classGroup'}>Class</MenuItem>
+          <MenuItem href={'/subjects'}>Subjects</MenuItem>
+          <MenuItem href={'/assignclassteacher'}>Assign Class Teacher</MenuItem>
+          <MenuItem href={'/assignsubject'}>Assign Subject</MenuItem>
+          <MenuItem href={'/classroom'}>Class Room</MenuItem>
+          <MenuItem href={'/classroutine'}>Class Routine</MenuItem>
+        </SubMenu>
+        <SubMenu label={dictionary['navigation'].studymaterial} icon={<i className='tabler-download' />}>
+          <MenuItem href={'/uploadcontent'}>Upload Content</MenuItem>
+          <MenuItem href={'/assignment'}>Assignment</MenuItem>
+          <MenuItem href={'/syllabus'}>Syllabus</MenuItem>
+          <MenuItem href={'/otherdownloads'}>Other Downloads</MenuItem>
+        </SubMenu>
+        <SubMenu label={dictionary['navigation'].lessonplan} icon={<i className='tabler-list-details' />}>
+          <MenuItem href={'/lesson'}>Lesson</MenuItem>
+          <MenuItem href={'/topic'}>Topic</MenuItem>
+          <MenuItem href={'/topicoverview'}>Topic Overview</MenuItem>
+          <MenuItem href={'/lessonplan'}>Lesson Plan</MenuItem>
+          <MenuItem href={'/lessonplanoverview'}>Lesson Plan Overview</MenuItem>
+        </SubMenu>
+        <SubMenu label={dictionary['navigation'].bulkprint} icon={<i className='tabler-printer' />}>
+          <MenuItem href={'/idcardprint'}>ID Card</MenuItem>
+          <MenuItem href={'/certificateprint'}>Certificate</MenuItem>
+          <MenuItem href={'/payrollbulk'}>Payroll Bulk Print</MenuItem>
+          <MenuItem href={'/feesinvoicebulk'}>Fees Invoice Bulk Print</MenuItem>
+          <MenuItem href={'/feesinvoicesetting'}>Fees Invoice Bulk Print Setting</MenuItem>
+        </SubMenu>
+        <SubMenu label={dictionary['navigation'].downloadcenter} icon={<i className='tabler-download' />}>
+          <MenuItem href={'/contenttype'}>Content Type</MenuItem>
+          <MenuItem href={'/contentlist'}>Content List</MenuItem>
+          <MenuItem href={'/sharedcontentlist'}>Shared Content List</MenuItem>
+          <MenuItem href={'/videolist'}>Video List</MenuItem>
+        </SubMenu>
         <SubMenu label={dictionary['navigation'].student} icon={<i className='tabler-user-square' />}>
           <MenuItem href={`/studentadd`}>Add Student</MenuItem>
           <MenuItem href={`/studentli`}>Student List</MenuItem>

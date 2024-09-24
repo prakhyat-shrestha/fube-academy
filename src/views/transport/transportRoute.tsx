@@ -46,7 +46,7 @@ const TransportRouteList = () => {
         <Typography variant='h6' component='h3'>
           Tansport Route
         </Typography>
-        <nav style={{ marginLeft: '70%' }}>
+        <nav style={{ marginLeft: '65%' }}>
           <Typography variant='h6' component='h3' style={{ display: 'flex', alignItems: 'center' }}>
             <Link href='#' style={{ marginRight: '10px' }}>
               Dashboard

@@ -29,7 +29,7 @@ const AddHomeworkList = () => {
           </Typography>
         </nav>
       </div>
-      <div className='feesList mt-7' style={{ flex: 1 }}>
+      <div className=' mt-4' style={{ flex: 1 }}>
         <Card sx={{ width: '100%', height: '105%' }}>
           <CardContent>
             <Typography variant='h6' component='h4'>
@@ -40,42 +40,42 @@ const AddHomeworkList = () => {
               <CustomTextField
                 select
                 fullWidth
-                defaultValue='Fees Group'
+                defaultValue='class'
                 label='CLASS*'
                 id='custom-select'
                 style={{ margin: '20px 40px 0 0 ', width: '60%' }}
               >
                 <CustomTextField placeholder='Search...' style={{ padding: '0 6px 8px 6px', width: '100%' }} />
-                <MenuItem value='Fees Group'>
-                  <span style={{ fontStyle: 'normal' }}>Fees Group</span>
+                <MenuItem value='class'>
+                  <span style={{ fontStyle: 'normal' }}>SELECT CLASS *</span>
                 </MenuItem>
-                <MenuItem value={'School Fee'}>School Fee</MenuItem>
-                <MenuItem value={'Plus Two Fee'}>Plus Two Fee</MenuItem>
-                <MenuItem value={'Bachelor Fee'}>Bachelor Fee</MenuItem>
+                <MenuItem value={'eced'}>ECED</MenuItem>
+                <MenuItem value={'one'}>1</MenuItem>
+                <MenuItem value={'two'}>2</MenuItem>
               </CustomTextField>
               <CustomTextField
                 select
                 fullWidth
-                defaultValue='Fees Group'
+                defaultValue='subject'
                 label='SUBJECT*'
                 id='custom-select'
                 style={{ margin: '20px 40px 0 0 ', width: '60%' }}
               >
                 <CustomTextField placeholder='Search...' style={{ padding: '0 6px 8px 6px', width: '100%' }} />
-                <MenuItem value='Fees Group'>
-                  <span style={{ fontStyle: 'normal' }}>Fees Group</span>
+                <MenuItem value='subject'>
+                  <span style={{ fontStyle: 'normal' }}>SELECT SUBJECTS*</span>
                 </MenuItem>
               </CustomTextField>
               <CustomTextField
                 select
                 fullWidth
-                defaultValue='Fees Group'
+                defaultValue='select'
                 label='SECTION*'
                 id='custom-select'
                 style={{ marginTop: '20px', width: '60%' }}
               >
                 <CustomTextField placeholder='Search...' style={{ padding: '0 6px 8px 6px', width: '100%' }} />
-                <MenuItem value='Fees Group'>
+                <MenuItem value='select'>
                   <span style={{ fontStyle: 'normal' }}>UNSELECT ALL</span>
                 </MenuItem>
               </CustomTextField>
@@ -83,7 +83,7 @@ const AddHomeworkList = () => {
             <div className='container' style={{ display: 'flex' }}>
               <Typography variant='body2' component='div' style={{ margin: '1.75% 20.6% 0 0 ' }}>
                 <CustomTextField
-                  label='FROM'
+                  label='HOMEWORK DATE'
                   type='date'
                   style={{ width: '225%' }}
                   InputLabelProps={{
@@ -94,7 +94,7 @@ const AddHomeworkList = () => {
 
               <Typography variant='body2' component='div' style={{ margin: '1.75% 20.6% 0 0  ' }}>
                 <CustomTextField
-                  label='TO'
+                  label='SUBMISSION DATE'
                   type='date'
                   style={{ width: '225%' }}
                   InputLabelProps={{
@@ -103,14 +103,14 @@ const AddHomeworkList = () => {
                 />
               </Typography>
               <Typography variant='body2' component='div'>
-                <CustomTextField required label='NAME' style={{ marginTop: 20, width: '170%' }} />
+                <CustomTextField required label='MARKS *' style={{ marginTop: 20, width: '170%' }} />
               </Typography>
             </div>
             <div className='container' style={{ display: 'flex', color: 'white' }}>
               <Typography variant='body2' component='div'>
                 <CustomTextField
                   required
-                  label='NAME'
+                  label='ATTACH FILE'
                   value='Attach File'
                   style={{ marginTop: 20, width: '116.5%' }}
                   InputProps={{

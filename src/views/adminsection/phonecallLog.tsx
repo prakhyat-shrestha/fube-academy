@@ -6,12 +6,12 @@ import CheckSharpIcon from '@mui/icons-material/CheckSharp'
 import SearchSharpIcon from '@mui/icons-material/SearchSharp'
 import ButtonGroup from '@mui/material/ButtonGroup'
 import { Icon } from '@iconify/react'
-import { createTheme, ThemeProvider } from '@mui/material/styles'
+import { createTheme } from '@mui/material/styles'
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
 import { useRef, useState, useEffect } from 'react'
-import { FormControl, FormControlLabel, Radio, RadioGroup } from '@mui/material'
+import { FormControlLabel, Radio, RadioGroup } from '@mui/material'
 
 const theme = createTheme({
   palette: {
@@ -25,7 +25,6 @@ const PhoneCallLogLayout = () => {
   const [placeholder, setPlaceholder] = useState('QUICK SEARCH')
 
   useEffect(() => {
-    // Ensure placeholder is set on mount
     if (textFieldRef.current) {
       textFieldRef.current.placeholder = placeholder
     }

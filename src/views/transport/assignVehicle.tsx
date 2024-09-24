@@ -50,7 +50,7 @@ const AssignVehicleList = () => {
         <Typography variant='h6' component='h3'>
           Assign Vehicle
         </Typography>
-        <nav style={{ marginLeft: '70%' }}>
+        <nav style={{ marginLeft: '67%' }}>
           <Typography variant='h6' component='h3' style={{ display: 'flex', alignItems: 'center' }}>
             <Link href='#' style={{ marginRight: '10px' }}>
               Dashboard
@@ -106,7 +106,7 @@ const AssignVehicleList = () => {
           <Card sx={{ width: '102%', height: 230 }}>
             <CardContent>
               <div style={{ display: 'flex', alignItems: 'center' }}>
-                <Typography variant='h6' component='h3' style={{ flex: 1, marginRight: '16%' }}>
+                <Typography variant='h6' component='h3' style={{ flex: 1, marginRight: '14%' }}>
                   Assigned Vehicle List
                 </Typography>
                 <div style={{ flexGrow: 1 }}>

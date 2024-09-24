@@ -86,6 +86,11 @@
     "homework": "العمل في المنزل",
     "transport": "ينقل",
     "adminsection": "مسؤلقسم المشرف",
-    "feesreport": "تقرير الرسوم"
+    "feesreport": "تقرير الرسوم",
+    "academics": "الأكاديميين",
+    "studymaterial": "المواد الدراسية",
+    "lessonplan": "خطة الدرس",
+    "bulkprint": "طباعة بالجملة",
+    "downloadcenter": "مركز التحميل"
   }
 }
