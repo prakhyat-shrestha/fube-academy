@@ -133,9 +133,14 @@ const VerticalMenu = ({ dictionary, scrollMenu }: Props) => {
           <MenuItem href={`/studentadd`}>Add Student</MenuItem>
           <MenuItem href={`/studentli`}>Student List</MenuItem>
         </SubMenu>
-        <SubMenu label={dictionary['navigation'].library} icon={<i className='tabler-books' />}>
-          <MenuItem href={'/librarylist'}>Booklist</MenuItem>
-          <MenuItem href={'/libraryadd'}>Add Books</MenuItem>
+        <SubMenu label={dictionary['navigation'].behaviourrecords} icon={<i className='tabler-clipboard-list' />}>
+          <MenuItem href={'/incidents'}>Incidents</MenuItem>
+          <MenuItem href={'/assignincident'}>Assign Incident</MenuItem>
+          <MenuItem href={'/studentincidentreport'}>Student Incident Report</MenuItem>
+          <MenuItem href={'/behaviourreport'}>Behaviour Report</MenuItem>
+          <MenuItem href={'/classsectionreport'}>Class Section Report</MenuItem>
+          <MenuItem href={'/incidentwisereport'}>Incident Wise Report</MenuItem>
+          <MenuItem href={'/behavioursettings'}>Settings</MenuItem>
         </SubMenu>
         <SubMenu label={dictionary['navigation'].fee} icon={<i className='tabler-cash-banknote' />}>
           <MenuItem href={'/feesgroup'}>Fees Group</MenuItem>
@@ -149,10 +154,19 @@ const VerticalMenu = ({ dictionary, scrollMenu }: Props) => {
           <MenuItem href={'/homeworkList'}>Homework List</MenuItem>
           <MenuItem href={'/homeworkReport'}>Homework Report</MenuItem>
         </SubMenu>
+        <SubMenu label={dictionary['navigation'].library} icon={<i className='tabler-books' />}>
+          <MenuItem href={'/librarylist'}>Booklist</MenuItem>
+          <MenuItem href={'/libraryadd'}>Add Books</MenuItem>
+        </SubMenu>
         <SubMenu label={dictionary['navigation'].transport} icon={<i className='tabler-bus' />}>
           <MenuItem href={'/route'}>Routes</MenuItem>
           <MenuItem href={'/vehicle'}>Vehicle</MenuItem>
           <MenuItem href={'/assignVehicle'}>Assign Vehicle</MenuItem>
+        </SubMenu>
+        <SubMenu label={dictionary['navigation'].dormitory} icon={<i className='tabler-bed' />}>
+          <MenuItem href={'/dormitoryrooms'}>Dormitory Rooms</MenuItem>
+          <MenuItem href={'/dormitory'}>Dormitory</MenuItem>
+          <MenuItem href={'/roomtype'}>Room Type</MenuItem>
         </SubMenu>
         <SubMenu label={dictionary['navigation'].feesreport} icon={<i className='tabler-report' />}>
           <MenuItem href={'/feesdue'}>Fees Due Report</MenuItem>

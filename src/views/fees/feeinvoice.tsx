@@ -41,7 +41,7 @@ const FeesInvoiceList = () => {
         <Typography variant='h6' component='h3'>
           Fees Invoice
         </Typography>
-        <nav style={{ marginLeft: '65%' }}>
+        <nav style={{ marginLeft: '66%' }}>
           <Typography variant='h6' component='h3' style={{ display: 'flex', alignItems: 'center' }}>
             <Link href='#' style={{ marginRight: '35px' }}>
               Dashboard

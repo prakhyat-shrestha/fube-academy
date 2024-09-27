@@ -18,7 +18,7 @@ import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
 
-const FeesGroupList = () => {
+const ContentTypeLayout = () => {
   const textFieldRef = useRef<HTMLInputElement>(null)
 
   const handleFocus = () => {
@@ -45,38 +45,38 @@ const FeesGroupList = () => {
     <>
       <div className='flex '>
         <Typography variant='h6' component='h3'>
-          Fees Group
+          Content Type
         </Typography>
-        <nav style={{ marginLeft: '70%' }}>
+        <nav style={{ marginLeft: '61%' }}>
           <Typography variant='h6' component='h3' style={{ display: 'flex', alignItems: 'center' }}>
             <Link href='#' style={{ marginRight: '25px' }}>
               Dashboard
             </Link>
             <span style={{ marginRight: '10px' }}>|</span>
             <Link href='#' style={{ marginRight: '25px' }}>
-              Fees
+              Download Center
             </Link>
             <span style={{ marginRight: '25px' }}>|</span>
-            <Link href='#'>Fees Group</Link>
+            <Link href='#'>Content Type</Link>
           </Typography>
         </nav>
       </div>
       <div className='flex' style={{ display: 'flex' }}>
-        {/* Add fees group first card */}
-        <div className='feesGroup mt-4'>
-          <Card sx={{ width: 280, height: 390 }}>
+        {/* Add contentType first card */}
+        <div className='contentType mt-4'>
+          <Card sx={{ width: 280, height: 325 }}>
             <CardContent>
               <Typography variant='h6' component='h3'>
-                Add Fees Group
+                Add Content Type
               </Typography>
               <Typography variant='body2' component='div'>
-                <CustomTextField required label='NAME' style={{ marginTop: 20, width: '100%' }} />
+                <CustomTextField required label='NAME' style={{ marginTop: 20 }} />
               </Typography>
               <Typography variant='body2' component='div'>
-                <CustomTextField label='DESCRIPTION' multiline rows={5} style={{ marginTop: 20, width: '100%' }} />
+                <CustomTextField label='DESCRIPTION' multiline rows={3} style={{ marginTop: 20 }} />
               </Typography>
             </CardContent>
-            <CardActions style={{ justifyContent: 'center' }}>
+            <CardActions style={{ display: 'flex', justifyContent: 'center' }}>
               <Button variant='contained'>
                 <CheckSharpIcon style={{ marginRight: 5 }} />
                 SAVE
@@ -85,13 +85,13 @@ const FeesGroupList = () => {
           </Card>
         </div>
 
-        {/* Fees Group list 2nd card */}
-        <div className='feesList mt-4 mx-6' style={{ flex: 1 }}>
+        {/* Content Type list 2nd card */}
+        <div className='contentList mt-4 mx-6' style={{ flex: 1 }}>
           <Card sx={{ width: '102%', height: 370 }}>
             <CardContent>
               <div style={{ display: 'flex', alignItems: 'center' }}>
                 <Typography variant='h6' component='h3' style={{ flex: 1, marginRight: '16%' }}>
-                  Fees Group List
+                  Content Type List
                 </Typography>
                 <div style={{ flexGrow: 1 }}>
                   <TextField
@@ -248,6 +248,7 @@ const FeesGroupList = () => {
                 }}
               >
                 <Button
+                  title='Previous'
                   size='small'
                   style={{
                     color: 'black',
@@ -274,6 +275,7 @@ const FeesGroupList = () => {
                 </Typography>
                 <Button
                   size='small'
+                  title='Next'
                   style={{
                     color: 'black',
                     marginLeft: '10px',
@@ -294,4 +296,4 @@ const FeesGroupList = () => {
   )
 }
 
-export default FeesGroupList
+export default ContentTypeLayout

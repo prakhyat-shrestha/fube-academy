@@ -1,24 +1,28 @@
 'use client'
 import * as React from 'react'
-import Card from '@mui/material/Card'
-import CardActions from '@mui/material/CardActions'
-import CardContent from '@mui/material/CardContent'
-import Button from '@mui/material/Button'
-import CustomTextField from '@/@core/components/mui/TextField'
-import Typography from '@mui/material/Typography'
-import CheckSharpIcon from '@mui/icons-material/CheckSharp'
-import { TextField, InputAdornment } from '@mui/material'
-import SearchSharpIcon from '@mui/icons-material/SearchSharp'
-import ButtonGroup from '@mui/material/ButtonGroup'
-import { useRef } from 'react'
+import {
+  Button,
+  Card,
+  CardActions,
+  CardContent,
+  TextField,
+  InputAdornment,
+  ButtonGroup,
+  createTheme,
+  Typography,
+  MenuItem
+} from '@mui/material'
 import Link from 'next/link'
+import CustomTextField from '@core/components/mui/TextField'
+import SearchSharpIcon from '@mui/icons-material/SearchSharp'
+import CheckSharpIcon from '@mui/icons-material/CheckSharp'
+import { useRef } from 'react'
 import { Icon } from '@iconify/react/dist/iconify.js'
-import { createTheme } from '@mui/material/styles'
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
 
-const FeesGroupList = () => {
+const ContentListLayout = () => {
   const textFieldRef = useRef<HTMLInputElement>(null)
 
   const handleFocus = () => {
@@ -40,41 +44,104 @@ const FeesGroupList = () => {
       }
     }
   })
-
   return (
     <>
-      <div className='flex '>
+      {/* Content List First Card*/}
+      <div className='flex'>
         <Typography variant='h6' component='h3'>
-          Fees Group
+          Content
         </Typography>
-        <nav style={{ marginLeft: '70%' }}>
+        <nav style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center' }}>
           <Typography variant='h6' component='h3' style={{ display: 'flex', alignItems: 'center' }}>
-            <Link href='#' style={{ marginRight: '25px' }}>
+            <Link href='#' style={{ marginRight: '35px' }}>
               Dashboard
             </Link>
             <span style={{ marginRight: '10px' }}>|</span>
-            <Link href='#' style={{ marginRight: '25px' }}>
-              Fees
+            <Link href='#' style={{ marginRight: '35px' }}>
+              Download Center
             </Link>
-            <span style={{ marginRight: '25px' }}>|</span>
-            <Link href='#'>Fees Group</Link>
+            <span style={{ marginRight: '35px' }}>|</span>
+            <Link href='#'>Content </Link>
           </Typography>
         </nav>
       </div>
+      <div className='content mt-4' style={{ flex: 1 }}>
+        <Card sx={{ width: '100%', height: '105%' }}>
+          <CardContent>
+            <div className='container' style={{ display: 'flex', gap: '75.25%' }}>
+              <Typography variant='h6' component='h4'>
+                Search
+              </Typography>
+            </div>
+
+            <div className='container' style={{ display: 'flex' }}>
+              <CustomTextField
+                fullWidth
+                placeholder='Name'
+                label='NAME'
+                id='custom-select'
+                style={{ marginTop: '20px', width: '100%' }}
+              />
+            </div>
+            <div
+              className='container mt-6'
+              style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'flex-end' }}
+            >
+              <Button variant='contained' startIcon={<SearchSharpIcon />}>
+                SEARCH
+              </Button>
+            </div>
+          </CardContent>
+        </Card>
+      </div>
+      {/* Content List Second Card */}
       <div className='flex' style={{ display: 'flex' }}>
-        {/* Add fees group first card */}
-        <div className='feesGroup mt-4'>
-          <Card sx={{ width: 280, height: 390 }}>
+        <div className='class mt-4'>
+          <Card sx={{ width: 300, height: 405 }}>
             <CardContent>
               <Typography variant='h6' component='h3'>
-                Add Fees Group
+                Add Content
               </Typography>
-              <Typography variant='body2' component='div'>
-                <CustomTextField required label='NAME' style={{ marginTop: 20, width: '100%' }} />
-              </Typography>
-              <Typography variant='body2' component='div'>
-                <CustomTextField label='DESCRIPTION' multiline rows={5} style={{ marginTop: 20, width: '100%' }} />
-              </Typography>
+              <CustomTextField
+                select
+                fullWidth
+                defaultValue='contenttype'
+                label='CONTENT TYPE*'
+                id='custom-select'
+                style={{ margin: '20px 40px 0 0 ', width: '100%' }}
+              >
+                <CustomTextField placeholder='Search...' style={{ padding: '0 6px 8px 6px', width: '100%' }} />
+                <MenuItem value='contenttype'>
+                  <span style={{ fontStyle: 'normal' }}>CONTENT TYPE *</span>
+                </MenuItem>
+              </CustomTextField>
+              <CustomTextField
+                fullWidth
+                label='YOUTUBE LINK'
+                id='custom-select'
+                style={{ margin: '20px 40px 0 0 ', width: '100%' }}
+              />
+              <div style={{ display: 'flex', alignItems: 'center', marginTop: '5%' }}>
+                <hr style={{ flexGrow: '1', border: 'none', borderTop: '1px solid #D3D3D3' }} />
+                <span style={{ padding: '0 10px' }}>OR</span>
+                <hr style={{ flexGrow: 1, border: 'none', borderTop: '1px solid #D3D3D3' }} />
+              </div>
+
+              <CustomTextField
+                required
+                value='File'
+                style={{ margin: '10px 40px 0 0 ', width: '100%' }}
+                InputProps={{
+                  endAdornment: (
+                    <InputAdornment position='end'>
+                      <Button variant='contained' style={{ height: '25px', width: '90px', fontSize: '0.75rem' }}>
+                        BROWSE
+                      </Button>
+                    </InputAdornment>
+                  )
+                }}
+              />
+              <span>(jpg,png,jpeg,pdf,doc,docx,mp4,mp3, txt are allowed for upload)</span>
             </CardContent>
             <CardActions style={{ justifyContent: 'center' }}>
               <Button variant='contained'>
@@ -85,14 +152,17 @@ const FeesGroupList = () => {
           </Card>
         </div>
 
-        {/* Fees Group list 2nd card */}
-        <div className='feesList mt-4 mx-6' style={{ flex: 1 }}>
-          <Card sx={{ width: '102%', height: 370 }}>
+        {/* Content List 2nd card */}
+        <div className='contentlist mt-4 mx-6' style={{ flex: 1 }}>
+          <Card sx={{ width: '102%', height: 270 }}>
             <CardContent>
+              <Typography variant='h6' component='h3' style={{ flex: 1, marginRight: '10%' }}>
+                Content List
+              </Typography>
               <div style={{ display: 'flex', alignItems: 'center' }}>
-                <Typography variant='h6' component='h3' style={{ flex: 1, marginRight: '16%' }}>
-                  Fees Group List
-                </Typography>
+                <div className='buttonGroup' style={{ marginTop: '10px', paddingRight: '10%' }}>
+                  <Button variant='contained'>SHARE</Button> <Button variant='contained'>GENERATE URL</Button>
+                </div>
                 <div style={{ flexGrow: 1 }}>
                   <TextField
                     id='standard-search'
@@ -166,24 +236,82 @@ const FeesGroupList = () => {
                           textAlign: 'left',
                           backgroundColor: 'lightgray',
                           borderRadius: '5px 0 0 5px',
-                          position: 'relative' // Required for rounded corners
+                          position: 'relative'
                         }}
                       >
                         <div style={{ display: 'flex', alignItems: 'center' }}>
                           <ArrowDownwardIcon style={{ marginRight: '8px' }} />
-                          <span>Name</span>
+                          <span>SL</span>
                         </div>
                       </th>
                       <th
                         style={{
                           padding: '8px',
                           textAlign: 'left',
-                          backgroundColor: 'lightgray'
+                          backgroundColor: 'lightgray',
+                          borderRadius: '0',
+                          position: 'relative'
                         }}
                       >
                         <div style={{ display: 'flex', alignItems: 'center' }}>
                           <ArrowDownwardIcon style={{ marginRight: '8px' }} />
-                          <span>Description</span>
+                          <span>Document</span>
+                        </div>
+                      </th>
+                      <th
+                        style={{
+                          padding: '8px',
+                          textAlign: 'left',
+                          backgroundColor: 'lightgray',
+                          borderRadius: '0',
+                          position: 'relative'
+                        }}
+                      >
+                        <div style={{ display: 'flex', alignItems: 'center' }}>
+                          <ArrowDownwardIcon style={{ marginRight: '8px' }} />
+                          <span>Content Type</span>
+                        </div>
+                      </th>
+                      <th
+                        style={{
+                          padding: '8px',
+                          textAlign: 'left',
+                          backgroundColor: 'lightgray',
+                          borderRadius: '0',
+                          position: 'relative'
+                        }}
+                      >
+                        <div style={{ display: 'flex', alignItems: 'center' }}>
+                          <ArrowDownwardIcon style={{ marginRight: '8px' }} />
+                          <span>Size</span>
+                        </div>
+                      </th>
+                      <th
+                        style={{
+                          padding: '8px',
+                          textAlign: 'left',
+                          backgroundColor: 'lightgray',
+                          borderRadius: '0',
+                          position: 'relative'
+                        }}
+                      >
+                        <div style={{ display: 'flex', alignItems: 'center' }}>
+                          <ArrowDownwardIcon style={{ marginRight: '8px' }} />
+                          <span>Uploaded By </span>
+                        </div>
+                      </th>
+                      <th
+                        style={{
+                          padding: '8px',
+                          textAlign: 'left',
+                          backgroundColor: 'lightgray',
+                          borderRadius: '0',
+                          position: 'relative'
+                        }}
+                      >
+                        <div style={{ display: 'flex', alignItems: 'center' }}>
+                          <ArrowDownwardIcon style={{ marginRight: '8px' }} />
+                          <span>Created On</span>
                         </div>
                       </th>
                       <th
@@ -203,31 +331,12 @@ const FeesGroupList = () => {
                   </thead>
                   <tbody>
                     <tr style={{ borderBottom: '1px solid #ddd' }}>
-                      <td style={{ padding: '8px' }}>Sample Name 1</td>
-                      <td style={{ padding: '8px' }}>Sample Description 1</td>
-                      <td style={{ padding: '8px' }}>
-                        <Button variant='outlined' size='small' style={{ borderRadius: '20px' }}>
-                          SELECT <ArrowDownwardIcon />
-                        </Button>
-                      </td>
-                    </tr>
-                    <tr style={{ borderBottom: '1px solid #ddd' }}>
-                      <td style={{ padding: '8px' }}>Sample Name 2</td>
-                      <td style={{ padding: '8px' }}>Sample Description 2</td>
-                      <td style={{ padding: '8px' }}>
-                        <Button variant='outlined' size='small' style={{ borderRadius: '20px' }}>
-                          SELECT <ArrowDownwardIcon />
-                        </Button>
-                      </td>
-                    </tr>
-                    <tr style={{ borderBottom: '1px solid #ddd' }}>
-                      <td style={{ padding: '8px' }}>Sample Name 3</td>
-                      <td style={{ padding: '8px' }}>Sample Description 3</td>
-                      <td style={{ padding: '8px' }}>
-                        <Button variant='outlined' size='small' style={{ borderRadius: '20px' }}>
-                          SELECT <ArrowDownwardIcon />
-                        </Button>
-                      </td>
+                      <td style={{ paddingLeft: '4%' }}></td>
+                      <td style={{ padding: '8px' }}></td>
+                      <td style={{ padding: '8px' }}></td>
+                      <td style={{ padding: '8px' }}>No Data Available In Table</td>
+                      <td style={{ padding: '8px' }}></td>
+                      <td style={{ padding: '8px' }}></td>
                     </tr>
                   </tbody>
                 </table>
@@ -236,7 +345,7 @@ const FeesGroupList = () => {
             {/* Pagination */}
             <div style={{ display: 'flex', justifyContent: 'space-between', padding: '16px' }}>
               <Typography variant='body2' style={{ marginLeft: '16px' }}>
-                Showing 1 to 3 of 3 entries
+                Showing 0 to 0 of 0 entries
               </Typography>
               <div
                 style={{
@@ -270,7 +379,7 @@ const FeesGroupList = () => {
                     cursor: 'pointer'
                   }}
                 >
-                  1
+                  0
                 </Typography>
                 <Button
                   size='small'
@@ -294,4 +403,4 @@ const FeesGroupList = () => {
   )
 }
 
-export default FeesGroupList
+export default ContentListLayout

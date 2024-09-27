@@ -20,7 +20,6 @@ const Option = () => {
                 label='Parent/Student'
                 control={
                   <Checkbox
-                    defaultChecked
                     name='size-small'
                     checkedIcon={<i className='tabler-circle-check-filled' />}
                     icon={<i className='tabler-circle' />}
@@ -33,7 +32,6 @@ const Option = () => {
                 label='Casier'
                 control={
                   <Checkbox
-                    defaultChecked
                     name='size-small'
                     checkedIcon={<i className='tabler-circle-check-filled' />}
                     icon={<i className='tabler-circle' />}
@@ -45,7 +43,6 @@ const Option = () => {
               label='Office'
               control={
                 <Checkbox
-                  defaultChecked
                   name='size-small'
                   checkedIcon={<i className='tabler-circle-check-filled' />}
                   icon={<i className='tabler-circle' />}
