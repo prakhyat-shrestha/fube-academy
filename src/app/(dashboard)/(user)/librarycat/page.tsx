@@ -1,7 +1,7 @@
-import BookCategory from '@/views/library/bookcat'
+import BookCategoryLayout from '@/views/library/bookcat'
 
 const BookCatDisplay = () => {
-  return <BookCategory />
+  return <BookCategoryLayout />
 }
 
 export default BookCatDisplay

@@ -1,432 +1,343 @@
 'use client'
 import * as React from 'react'
 
-import { useState } from 'react'
+import { useRef } from 'react'
 
-import Autocomplete from '@mui/material/Autocomplete'
+import Link from 'next/link'
 
-import {
-  Card,
-  CardActions,
-  CardContent,
-  Grid,
-  Button,
-  Typography,
-  Box,
-  TableCell,
-  TableHead,
-  TableRow,
-  TableSortLabel,
-  alpha,
-  IconButton,
-  Toolbar,
-  Tooltip,
-  Paper,
-  TableContainer
-} from '@mui/material'
-import DeleteIcon from '@mui/icons-material/Delete'
-import Table from '@mui/material/Table'
-import TableBody from '@mui/material/TableBody'
-import FilterListIcon from '@mui/icons-material/FilterList'
-import TablePagination from '@mui/material/TablePagination'
-import { visuallyHidden } from '@mui/utils'
+import Typography from '@mui/material/Typography'
+import CheckSharpIcon from '@mui/icons-material/CheckSharp'
+import { TextField, InputAdornment, Menu, MenuItem } from '@mui/material'
+import SearchSharpIcon from '@mui/icons-material/SearchSharp'
+import ButtonGroup from '@mui/material/ButtonGroup'
+
+import Button from '@mui/material/Button'
+import CardContent from '@mui/material/CardContent'
+import CardActions from '@mui/material/CardActions'
+import Card from '@mui/material/Card'
+import { Icon } from '@iconify/react/dist/iconify.js'
+import { createTheme } from '@mui/material/styles'
+import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward'
+import ArrowBackIcon from '@mui/icons-material/ArrowBack'
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
 
 import CustomTextField from '@/@core/components/mui/TextField'
 
-interface Data {
-  sl: number
-  subject: string
-  categoryname: string
-  subjectcode: number
-  action: string
-}
+const BookSubjectLayout = () => {
+  const textFieldRef = useRef<HTMLInputElement>(null)
 
-function createData(sl: number, subject: string, categoryname: string, subjectcode: number, action: string): Data {
-  return {
-    sl,
-    subject,
-    categoryname,
-    subjectcode,
-    action
-  }
-}
-
-const rows = [
-  createData(1, 'Cupcake', 'Student', 3.7, 'done'),
-  createData(2, 'Donut', 'Student', 25.0, 'done'),
-  createData(3, 'Eclair', 'Student', 16.0, 'done'),
-  createData(4, 'Frozen yoghurt', 'Student', 6.0, 'done'),
-  createData(5, 'Gingerbread', 'Student', 16.0, 'done'),
-  createData(6, 'Honeycomb', 'Student', 3.2, 'done'),
-  createData(7, 'Ice cream sandwich', 'Teacher', 9.0, 'done'),
-  createData(8, 'Jelly Bean', 'Teacher', 0.0, 'done'),
-  createData(9, 'KitKat', 'Teacher', 26.0, 'done'),
-  createData(10, 'Lollipop', 'Student', 0.2, 'done'),
-  createData(11, 'Marshmallow', 'Teacher', 0, 'done'),
-  createData(12, 'Nougat', 'Student', 19.0, 'done'),
-  createData(13, 'Oreo', 'Student', 18.0, 'done')
-]
-
-function descendingComparator<T>(a: T, b: T, orderBy: keyof T) {
-  if (b[orderBy] < a[orderBy]) {
-    return -1
-  }
-
-  if (b[orderBy] > a[orderBy]) {
-    return 1
-  }
-
-  return 0
-}
-
-type Order = 'asc' | 'desc'
-
-function getComparator<Key extends keyof any>(
-  order: Order,
-  orderBy: Key
-): (a: { [key in Key]: number | string }, b: { [key in Key]: number | string }) => number {
-  return order === 'desc'
-    ? (a, b) => descendingComparator(a, b, orderBy)
-    : (a, b) => -descendingComparator(a, b, orderBy)
-}
-
-function stableSort<T>(array: readonly T[], comparator: (a: T, b: T) => number) {
-  const stabilizedThis = array.map((el, index) => [el, index] as [T, number])
-
-  stabilizedThis.sort((a, b) => {
-    const order = comparator(a[0], b[0])
-
-    if (order !== 0) {
-      return order
+  const handleFocus = () => {
+    if (textFieldRef.current) {
+      textFieldRef.current.placeholder = ''
     }
+  }
 
-    return a[1] - b[1]
+  const handleBlur = () => {
+    if (textFieldRef.current && textFieldRef.current.value === '') {
+      textFieldRef.current.placeholder = 'SEARCH'
+    }
+  }
+
+  const theme = createTheme({
+    palette: {
+      primary: {
+        main: '#1976d2'
+      }
+    }
   })
 
-  return stabilizedThis.map(el => el[0])
-}
-
-interface HeadCell {
-  disablePadding: boolean
-  id: keyof Data
-  label: string
-  numeric: boolean
-}
-
-const headCells: readonly HeadCell[] = [
-  {
-    id: 'sl',
-    numeric: false,
-    disablePadding: true,
-    label: 'SL'
-  },
-  {
-    id: 'subject',
-    numeric: true,
-    disablePadding: false,
-    label: 'Subject'
-  },
-  {
-    id: 'categoryname',
-    numeric: true,
-    disablePadding: false,
-    label: 'Member Type'
-  },
-  {
-    id: 'subjectcode',
-    numeric: true,
-    disablePadding: false,
-    label: 'Subject Code'
-  },
-
-  {
-    id: 'action',
-    numeric: true,
-    disablePadding: false,
-    label: 'Action'
-  }
-]
-
-interface EnhancedTableProps {
-  numSelected: number
-  onRequestSort: (event: React.MouseEvent<unknown>, property: keyof Data) => void
-  onSelectAllClick: (event: React.ChangeEvent<HTMLInputElement>) => void
-  order: Order
-  orderBy: string
-  rowCount: number
-}
-
-function EnhancedTableHead(props: EnhancedTableProps) {
-  const { onSelectAllClick, order, orderBy, numSelected, rowCount, onRequestSort } = props
-
-  const createSortHandler = (property: keyof Data) => (event: React.MouseEvent<unknown>) => {
-    onRequestSort(event, property)
-  }
-
   return (
-    <TableHead>
-      <TableRow>
-        <TableCell></TableCell>
-        {headCells.map(headCell => (
-          <TableCell
-            key={headCell.id}
-            align={headCell.numeric ? 'right' : 'left'}
-            padding={headCell.disablePadding ? 'none' : 'normal'}
-            sortDirection={orderBy === headCell.id ? order : false}
-          >
-            <TableSortLabel
-              active={orderBy === headCell.id}
-              direction={orderBy === headCell.id ? order : 'asc'}
-              onClick={createSortHandler(headCell.id)}
-            >
-              {headCell.label}
-              {orderBy === headCell.id ? (
-                <Box component='span' sx={visuallyHidden}>
-                  {order === 'desc' ? 'sorted descending' : 'sorted ascending'}
-                </Box>
-              ) : null}
-            </TableSortLabel>
-          </TableCell>
-        ))}
-      </TableRow>
-    </TableHead>
-  )
-}
-
-interface EnhancedTableToolbarProps {
-  numSelected: number
-}
-
-function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
-  const { numSelected } = props
-
-  return (
-    <Toolbar
-      sx={{
-        pl: { sm: 2 },
-        pr: { xs: 1, sm: 1 },
-        ...(numSelected > 0 && {
-          bgcolor: theme => alpha(theme.palette.primary.main, theme.palette.action.activatedOpacity)
-        })
-      }}
-    >
-      {numSelected > 0 ? (
-        <Typography sx={{ flex: '1 1 100%' }} color='inherit' variant='subtitle1' component='div'>
-          {numSelected} selected
+    <>
+      <div className='flex '>
+        <Typography variant='h5' component='h3'>
+          Subject
         </Typography>
-      ) : (
-        <Typography sx={{ flex: '1 1 100%' }} variant='h5' id='tableTitle' component='div'>
-          Book Issue
-        </Typography>
-      )}
-      {numSelected > 0 ? (
-        <Tooltip title='Delete'>
-          <IconButton>
-            <DeleteIcon />
-          </IconButton>
-        </Tooltip>
-      ) : (
-        <Tooltip title='Filter list'>
-          <IconButton>
-            <FilterListIcon />
-          </IconButton>
-        </Tooltip>
-      )}
-    </Toolbar>
-  )
-}
-
-const BookSubjects = () => {
-  const [order, setOrder] = React.useState<Order>('asc')
-  const [orderBy, setOrderBy] = React.useState<keyof Data>('sl')
-  const [selected, setSelected] = React.useState<readonly number[]>([])
-  const [page, setPage] = React.useState(0)
-  const [dense, setDense] = React.useState(false)
-  const [rowsPerPage, setRowsPerPage] = React.useState(5)
-
-  const handleRequestSort = (event: React.MouseEvent<unknown>, property: keyof Data) => {
-    const isAsc = orderBy === property && order === 'asc'
-
-    setOrder(isAsc ? 'desc' : 'asc')
-    setOrderBy(property)
-  }
-
-  const handleSelectAllClick = (event: React.ChangeEvent<HTMLInputElement>) => {
-    if (event.target.checked) {
-      const newSelected = rows.map(n => n.sl)
-
-      setSelected(newSelected)
-
-      return
-    }
-
-    setSelected([])
-  }
-
-  const handleClick = (event: React.MouseEvent<unknown>, id: number) => {
-    const selectedIndex = selected.indexOf(id)
-    let newSelected: readonly number[] = []
-
-    if (selectedIndex === -1) {
-      newSelected = newSelected.concat(selected, id)
-    } else if (selectedIndex === 0) {
-      newSelected = newSelected.concat(selected.slice(1))
-    } else if (selectedIndex === selected.length - 1) {
-      newSelected = newSelected.concat(selected.slice(0, -1))
-    } else if (selectedIndex > 0) {
-      newSelected = newSelected.concat(selected.slice(0, selectedIndex), selected.slice(selectedIndex + 1))
-    }
-
-    setSelected(newSelected)
-  }
-
-  const handleChangePage = (event: unknown, newPage: number) => {
-    setPage(newPage)
-  }
-
-  const handleChangeRowsPerPage = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setRowsPerPage(parseInt(event.target.value, 10))
-    setPage(0)
-  }
-
-  const handleChangeDense = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setDense(event.target.checked)
-  }
-
-  const isSelected = (id: number) => selected.indexOf(id) !== -1
-
-  // Avoid a layout jump when reaching the last page with empty rows.
-  const emptyRows = page > 0 ? Math.max(0, (1 + page) * rowsPerPage - rows.length) : 0
-
-  const visibleRows = React.useMemo(
-    () => stableSort(rows, getComparator(order, orderBy)).slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage),
-    [order, orderBy, page, rowsPerPage]
-  )
-
-  //dummy value for search in select tag
-  const fruits = [
-    { value: 'apple', label: 'Apple' },
-    { value: 'banana', label: 'Banana' },
-    { value: 'cherry', label: 'Cherry' }
-  ]
-
-  return (
-    <div>
-      <h3>Subject</h3>
-      <div className='flex gap-10'>
-        <div>
-          <Card sx={{ maxWidth: 280 }}>
+        <nav style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center' }}>
+          <Typography variant='h6' component='h3' style={{ display: 'flex', alignItems: 'center' }}>
+            <Link href='#' style={{ marginRight: '35px' }}>
+              Dashboard
+            </Link>
+            <span style={{ marginRight: '10px' }}>|</span>
+            <Link href='#' style={{ marginRight: '35px' }}>
+              Library
+            </Link>
+            <span style={{ marginRight: '35px' }}>|</span>
+            <Link href='#'>Subject</Link>
+          </Typography>
+        </nav>
+      </div>
+      <div className='flex' style={{ display: 'flex' }}>
+        {/* Add category first card */}
+        <div className='libraryGroup mt-4'>
+          <Card sx={{ width: 300, height: 370 }}>
             <CardContent>
-              <h3>
-                <b>Add Subject</b>
-              </h3>
-              <Grid container spacing={6}>
-                <Grid item xs={12}>
-                  <CustomTextField required label='SUBJECT NAME' />
-                </Grid>
-
-                <Grid item xs={12}>
-                  <Autocomplete
-                    options={fruits}
-                    getOptionLabel={option => option.label}
-                    renderInput={params => <CustomTextField {...params} label='Select a fruit' />}
-                    isOptionEqualToValue={(option, value) => option.value === value.value}
-                    disableClearable
-                  />
-                </Grid>
-
-                <Grid item xs={12}>
-                  <CustomTextField required label='SUBJECT CODE' />
-                </Grid>
-
-                <CardActions>
-                  <Button variant='contained'>Save Subject</Button>
-                </CardActions>
-              </Grid>
+              <Typography variant='h5' component='h3'>
+                Add Subject
+              </Typography>
+              <Typography variant='body2' component='div'>
+                <CustomTextField required label='SUBJECT NAME' style={{ marginTop: 20, width: '100%' }} />
+              </Typography>
+              <Typography variant='body2' component='div'>
+                <CustomTextField
+                  select
+                  defaultValue={'category'}
+                  required
+                  label='CATEGORY'
+                  style={{ marginTop: 20, width: '100%' }}
+                >
+                  <MenuItem value='category'>Category Name</MenuItem>
+                </CustomTextField>
+              </Typography>
+              <Typography variant='body2' component='div'>
+                <CustomTextField required label='SUBJECT CODE' style={{ marginTop: 20, width: '100%' }} />
+              </Typography>
             </CardContent>
+            <CardActions style={{ justifyContent: 'center' }}>
+              <Button variant='contained'>
+                <CheckSharpIcon style={{ marginRight: 5 }} />
+                SAVE SUBJECT
+              </Button>
+            </CardActions>
           </Card>
         </div>
-        <div>
-          <Card sx={{ maxWidth: 800 }}>
-            <CardContent>
-              <div className='flex gap-8'>
-                <h3>Subject List</h3>
-                <Typography variant='body2'>
-                  <CustomTextField required label='Search' />
-                </Typography>
-              </div>
-              <div>
-                <br />
-              </div>
-              <Box sx={{ width: '100%' }}>
-                <Paper sx={{ width: '100%', mb: 2 }}>
-                  <EnhancedTableToolbar numSelected={selected.length} />
-                  <TableContainer>
-                    <Table sx={{ minWidth: 750 }} aria-labelledby='tableTitle' size={dense ? 'small' : 'medium'}>
-                      <EnhancedTableHead
-                        numSelected={selected.length}
-                        order={order}
-                        orderBy={orderBy}
-                        onSelectAllClick={handleSelectAllClick}
-                        onRequestSort={handleRequestSort}
-                        rowCount={rows.length}
-                      />
-                      <TableBody>
-                        {visibleRows.map((row, index) => {
-                          const isItemSelected = isSelected(row.sl)
-                          const labelId = `enhanced-table-checkbox-${index}`
 
-                          return (
-                            <TableRow
-                              hover
-                              onClick={event => handleClick(event, row.sl)}
-                              role='checkbox'
-                              aria-checked={isItemSelected}
-                              tabIndex={-1}
-                              key={row.sl}
-                              selected={isItemSelected}
-                              sx={{ cursor: 'pointer' }}
-                            >
-                              <TableCell></TableCell>
-                              <TableCell component='th' id={labelId} scope='row' padding='none'>
-                                {row.sl}
-                              </TableCell>
-                              <TableCell align='right'>{row.subject}</TableCell>
-                              <TableCell align='right'>{row.categoryname}</TableCell>
-                              <TableCell align='right'>{row.subjectcode}</TableCell>
-                              <TableCell align='right'>{row.action}</TableCell>
-                            </TableRow>
-                          )
-                        })}
-                        {emptyRows > 0 && (
-                          <TableRow
-                            style={{
-                              height: (dense ? 33 : 53) * emptyRows
-                            }}
-                          >
-                            <TableCell colSpan={6} />
-                          </TableRow>
-                        )}
-                      </TableBody>
-                    </Table>
-                  </TableContainer>
-                  <TablePagination
-                    rowsPerPageOptions={[5, 10, 25]}
-                    component='div'
-                    count={rows.length}
-                    rowsPerPage={rowsPerPage}
-                    page={page}
-                    onPageChange={handleChangePage}
-                    onRowsPerPageChange={handleChangeRowsPerPage}
+        {/* Fees Group list 2nd card */}
+        <div className='studentCategoryList mt-4 mx-6' style={{ flex: 1 }}>
+          <Card sx={{ width: '102%', height: 370 }}>
+            <CardContent>
+              <div style={{ display: 'flex', alignItems: 'center' }}>
+                <Typography variant='h6' component='h3' style={{ flex: 1, marginRight: '12%' }}>
+                  Subject List
+                </Typography>
+                <div style={{ flexGrow: 1 }}>
+                  <TextField
+                    id='standard-search'
+                    variant='standard'
+                    placeholder='SEARCH'
+                    inputRef={textFieldRef}
+                    onFocus={handleFocus}
+                    onBlur={handleBlur}
+                    InputProps={{
+                      startAdornment: (
+                        <InputAdornment position='start'>
+                          <SearchSharpIcon />
+                        </InputAdornment>
+                      )
+                    }}
                   />
-                </Paper>
-              </Box>
+                </div>
+                <div style={{ display: 'flex', justifyContent: 'center' }}>
+                  <ButtonGroup
+                    variant='outlined'
+                    aria-label='Basic button group'
+                    sx={{
+                      '& .MuiButton-root': {
+                        fontSize: '1.2rem',
+                        padding: '4px 8px',
+                        backgroundColor: 'transparent',
+                        borderColor: 'currentColor',
+                        color: 'currentColor',
+                        '&:hover': {
+                          backgroundColor: 'rgba(0, 0, 0, 0.08)',
+                          borderColor: 'currentColor'
+                        },
+                        boxShadow: 'none'
+                      }
+                    }}
+                  >
+                    <Button title='Copy Table'>
+                      <Icon icon='material-symbols:file-copy-outline-sharp' />
+                    </Button>
+                    <Button title='Export to Excel'>
+                      <Icon icon='mdi:file-excel-outline' />
+                    </Button>
+                    <Button title='Export to CSV'>
+                      <Icon icon='mdi:file-document-outline' />
+                    </Button>
+                    <Button title='Export to PDF'>
+                      <Icon icon='mdi:file-pdf-outline' />
+                    </Button>
+                    <Button title='Print'>
+                      <Icon icon='fa:print' style={{ fontSize: '1rem' }} />
+                    </Button>
+                    <Button title='Action'>
+                      <Icon
+                        icon='mdi:table'
+                        style={{
+                          fontSize: '1.3rem'
+                        }}
+                      />
+                    </Button>
+                  </ButtonGroup>
+                </div>
+              </div>
+              {/* Table */}
+              <div style={{ marginTop: '20px' }}>
+                <table style={{ width: '100%', borderCollapse: 'collapse' }}>
+                  <thead>
+                    <tr>
+                      <th
+                        style={{
+                          padding: '8px',
+                          textAlign: 'left',
+                          backgroundColor: 'lightgray',
+                          borderRadius: '5px 0 0 5px',
+                          position: 'relative' // Required for rounded corners
+                        }}
+                      >
+                        <div style={{ display: 'flex', alignItems: 'center' }}>
+                          <ArrowDownwardIcon style={{ marginRight: '8px' }} />
+                          <span>SL</span>
+                        </div>
+                      </th>
+                      <th
+                        style={{
+                          padding: '8px',
+                          textAlign: 'left',
+                          backgroundColor: 'lightgray'
+                        }}
+                      >
+                        <div style={{ display: 'flex', alignItems: 'center' }}>
+                          <ArrowDownwardIcon style={{ marginRight: '8px' }} />
+                          <span>Subject</span>
+                        </div>
+                      </th>
+                      <th
+                        style={{
+                          padding: '8px',
+                          textAlign: 'left',
+                          backgroundColor: 'lightgray'
+                        }}
+                      >
+                        <div style={{ display: 'flex', alignItems: 'center' }}>
+                          <ArrowDownwardIcon style={{ marginRight: '8px' }} />
+                          <span>Category Name</span>
+                        </div>
+                      </th>
+                      <th
+                        style={{
+                          padding: '8px',
+                          textAlign: 'left',
+                          backgroundColor: 'lightgray'
+                        }}
+                      >
+                        <div style={{ display: 'flex', alignItems: 'center' }}>
+                          <ArrowDownwardIcon style={{ marginRight: '8px' }} />
+                          <span>Subject Code</span>
+                        </div>
+                      </th>
+                      <th
+                        style={{
+                          padding: '8px',
+                          textAlign: 'left',
+                          backgroundColor: 'lightgray',
+                          borderRadius: '0 5px 5px 0'
+                        }}
+                      >
+                        <div style={{ display: 'flex', alignItems: 'center' }}>
+                          <ArrowDownwardIcon style={{ marginRight: '8px' }} />
+                          <span>Action</span>
+                        </div>
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr style={{ borderBottom: '1px solid #ddd' }}>
+                      <td style={{ padding: '8px' }}></td>
+                      <td style={{ padding: '8px' }}></td>
+                      <td style={{ padding: '8px' }}></td>
+                      <td style={{ padding: '8px' }}></td>
+                      <td style={{ padding: '8px' }}>
+                        <Button variant='outlined' size='small' style={{ borderRadius: '20px' }}>
+                          SELECT <ArrowDownwardIcon />
+                        </Button>
+                      </td>
+                    </tr>
+                    <tr style={{ borderBottom: '1px solid #ddd' }}>
+                      <td style={{ padding: '8px' }}></td>
+                      <td style={{ padding: '8px' }}></td>
+                      <td style={{ padding: '8px' }}></td>
+                      <td style={{ padding: '8px' }}></td>
+                      <td style={{ padding: '8px' }}>
+                        <Button variant='outlined' size='small' style={{ borderRadius: '20px' }}>
+                          SELECT <ArrowDownwardIcon />
+                        </Button>
+                      </td>
+                    </tr>
+                    <tr style={{ borderBottom: '1px solid #ddd' }}>
+                      <td style={{ padding: '8px' }}></td>
+                      <td style={{ padding: '8px' }}></td>
+                      <td style={{ padding: '8px' }}></td>
+                      <td style={{ padding: '8px' }}></td>
+                      <td style={{ padding: '8px' }}>
+                        <Button variant='outlined' size='small' style={{ borderRadius: '20px' }}>
+                          SELECT <ArrowDownwardIcon />
+                        </Button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </CardContent>
+            {/* Pagination */}
+            <div style={{ display: 'flex', justifyContent: 'space-between', padding: '16px' }}>
+              <Typography variant='body2' style={{ marginLeft: '16px' }}>
+                Showing 1 to 3 of 3 entries
+              </Typography>
+              <div
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  margin: 'auto',
+                  cursor: 'pointer'
+                }}
+              >
+                <Button
+                  size='small'
+                  style={{
+                    color: 'black',
+                    marginRight: '10px',
+                    padding: '4px 8px',
+                    width: '30px',
+                    minWidth: 'auto',
+                    border: 'none'
+                  }}
+                >
+                  <ArrowBackIcon style={{ fontSize: '16px' }} />
+                </Button>
+                <Typography
+                  variant='body2'
+                  sx={{
+                    color: 'white',
+                    padding: '4px 16px',
+                    borderRadius: '4px',
+                    background: theme.palette.primary.main,
+                    cursor: 'pointer'
+                  }}
+                >
+                  1
+                </Typography>
+                <Button
+                  size='small'
+                  style={{
+                    color: 'black',
+                    marginLeft: '10px',
+                    padding: '4px 8px',
+                    width: '30px',
+                    minWidth: 'auto',
+                    border: 'none'
+                  }}
+                >
+                  <ArrowForwardIcon style={{ transform: 'scale(0.8)' }} />
+                </Button>
+              </div>
+            </div>
           </Card>
         </div>
       </div>
-    </div>
+    </>
   )
 }
 
-export default BookSubjects
+export default BookSubjectLayout

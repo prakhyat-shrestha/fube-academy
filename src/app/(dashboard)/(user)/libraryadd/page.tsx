@@ -1,9 +1,9 @@
-import AddBooklist from '@/views/library/addbook'
+import AddBookLayout from '@/views/library/addbook'
 
 export default function AddBook() {
   return (
     <>
-      <AddBooklist />
+      <AddBookLayout />
     </>
   )
 }

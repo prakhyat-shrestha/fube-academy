@@ -1,7 +1,7 @@
-import BookMember from '@/views/library/bookmember'
+import BookMemberLayout from '@/views/library/bookmember'
 
 const BookMemberDisplay = () => {
-  return <BookMember />
+  return <BookMemberLayout />
 }
 
 export default BookMemberDisplay
