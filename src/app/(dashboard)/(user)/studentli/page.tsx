@@ -1,9 +1,9 @@
-export default function StudentDisplay(){
+import StudentList from '@/views/student/student-list'
 
-    return (
-        <div>
-            <h2>List of students</h2>
-        </div>
-    
-    );
+export default function StudentDisplay() {
+  return (
+    <div>
+      <StudentList />
+    </div>
+  )
 }

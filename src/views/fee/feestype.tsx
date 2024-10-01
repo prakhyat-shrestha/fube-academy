@@ -1,10 +1,7 @@
 'use client'
 import * as React from 'react'
 
-import { useState } from 'react'
-
 import Autocomplete from '@mui/material/Autocomplete'
-
 import {
   Card,
   CardActions,
@@ -34,37 +31,35 @@ import { visuallyHidden } from '@mui/utils'
 import CustomTextField from '@/@core/components/mui/TextField'
 
 interface Data {
-  sl: number
-  subject: string
-  categoryname: string
-  subjectcode: number
+  name: string
+  feesgroup: string
+  description: string
   action: string
 }
 
-function createData(sl: number, subject: string, categoryname: string, subjectcode: number, action: string): Data {
+function createData(name: string, feesgroup: string, description: string, action: string): Data {
   return {
-    sl,
-    subject,
-    categoryname,
-    subjectcode,
+    name,
+    feesgroup,
+    description,
     action
   }
 }
 
 const rows = [
-  createData(1, 'Cupcake', 'Student', 3.7, 'done'),
-  createData(2, 'Donut', 'Student', 25.0, 'done'),
-  createData(3, 'Eclair', 'Student', 16.0, 'done'),
-  createData(4, 'Frozen yoghurt', 'Student', 6.0, 'done'),
-  createData(5, 'Gingerbread', 'Student', 16.0, 'done'),
-  createData(6, 'Honeycomb', 'Student', 3.2, 'done'),
-  createData(7, 'Ice cream sandwich', 'Teacher', 9.0, 'done'),
-  createData(8, 'Jelly Bean', 'Teacher', 0.0, 'done'),
-  createData(9, 'KitKat', 'Teacher', 26.0, 'done'),
-  createData(10, 'Lollipop', 'Student', 0.2, 'done'),
-  createData(11, 'Marshmallow', 'Teacher', 0, 'done'),
-  createData(12, 'Nougat', 'Student', 19.0, 'done'),
-  createData(13, 'Oreo', 'Student', 18.0, 'done')
+  createData('Cupcake', 'Tuition', 'Math Tuition', 'done'),
+  createData('Donut', 'Exam', 'Science Exam', 'done'),
+  createData('Eclair', 'Academic', 'Yearly Fee', 'done'),
+  createData('Frozen yoghurt', 'Lab', 'Computer', 'done'),
+  createData('Gingerbread', 'Exam', '1st Terminal', 'done'),
+  createData('Honeycomb', 'Tuition', 'Nepali Tuition', 'done'),
+  createData('Ice cream sandwich', 'Academic', 'Monthly Fee', 'done'),
+  createData('Jelly Bean', 'Exam', '1st Terminal', 'done'),
+  createData('KitKat', 'Lab', 'Science', 'done'),
+  createData('Lollipop', 'Tuition', 'Nepali', 'done'),
+  createData('Marshmallow', 'Academic', 'Yearly', 'done'),
+  createData('Nougat', 'Exam', '1st Terminal', 'done'),
+  createData('Oreo', 'Lab', 'Computer Lab', 'done')
 ]
 
 function descendingComparator<T>(a: T, b: T, orderBy: keyof T) {
@@ -115,28 +110,22 @@ interface HeadCell {
 
 const headCells: readonly HeadCell[] = [
   {
-    id: 'sl',
+    id: 'name',
     numeric: false,
     disablePadding: true,
-    label: 'SL'
+    label: 'Name'
   },
   {
-    id: 'subject',
+    id: 'feesgroup',
+    numeric: false,
+    disablePadding: true,
+    label: 'Fees Group'
+  },
+  {
+    id: 'description',
     numeric: true,
     disablePadding: false,
     label: 'Subject'
-  },
-  {
-    id: 'categoryname',
-    numeric: true,
-    disablePadding: false,
-    label: 'Member Type'
-  },
-  {
-    id: 'subjectcode',
-    numeric: true,
-    disablePadding: false,
-    label: 'Subject Code'
   },
 
   {
@@ -215,9 +204,7 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
           {numSelected} selected
         </Typography>
       ) : (
-        <Typography sx={{ flex: '1 1 100%' }} variant='h5' id='tableTitle' component='div'>
-          Book Issue
-        </Typography>
+        <Typography sx={{ flex: '1 1 100%' }} variant='h5' id='tableTitle' component='div'></Typography>
       )}
       {numSelected > 0 ? (
         <Tooltip title='Delete'>
@@ -236,9 +223,9 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
   )
 }
 
-const BookSubjects = () => {
+const FeesType = () => {
   const [order, setOrder] = React.useState<Order>('asc')
-  const [orderBy, setOrderBy] = React.useState<keyof Data>('sl')
+  const [orderBy, setOrderBy] = React.useState<keyof Data>('name')
   const [selected, setSelected] = React.useState<readonly number[]>([])
   const [page, setPage] = React.useState(0)
   const [dense, setDense] = React.useState(false)
@@ -253,7 +240,7 @@ const BookSubjects = () => {
 
   const handleSelectAllClick = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.checked) {
-      const newSelected = rows.map(n => n.sl)
+      const newSelected = rows.map(n => n.name)
 
       setSelected(newSelected)
 
@@ -306,25 +293,26 @@ const BookSubjects = () => {
   //dummy value for search in select tag
   const fruits = [
     { value: 'apple', label: 'Apple' },
-    { value: 'banana', label: 'Banana' },
-    { value: 'cherry', label: 'Cherry' }
+    { value: 'avocado', label: 'Banana' },
+    { value: 'mangosteen', label: 'Cherry' }
   ]
 
   return (
     <div>
-      <h3>Subject</h3>
+      <Typography variant='h5' gutterBottom>
+        Fees Group
+      </Typography>
       <div className='flex gap-10'>
         <div>
           <Card sx={{ maxWidth: 280 }}>
             <CardContent>
               <h3>
-                <b>Add Subject</b>
+                <b>Add Fees Group</b>
               </h3>
               <Grid container spacing={6}>
                 <Grid item xs={12}>
-                  <CustomTextField required label='SUBJECT NAME' />
+                  <CustomTextField required label='NAME' />
                 </Grid>
-
                 <Grid item xs={12}>
                   <Autocomplete
                     options={fruits}
@@ -334,13 +322,12 @@ const BookSubjects = () => {
                     disableClearable
                   />
                 </Grid>
-
                 <Grid item xs={12}>
-                  <CustomTextField required label='SUBJECT CODE' />
+                  <CustomTextField required label='DESCRIPTION' />
                 </Grid>
 
                 <CardActions>
-                  <Button variant='contained'>Save Subject</Button>
+                  <Button variant='contained'>Save</Button>
                 </CardActions>
               </Grid>
             </CardContent>
@@ -350,7 +337,9 @@ const BookSubjects = () => {
           <Card sx={{ maxWidth: 800 }}>
             <CardContent>
               <div className='flex gap-8'>
-                <h3>Subject List</h3>
+                <Typography variant='h5' gutterBottom>
+                  Fees Group List
+                </Typography>
                 <Typography variant='body2'>
                   <CustomTextField required label='Search' />
                 </Typography>
@@ -373,27 +362,27 @@ const BookSubjects = () => {
                       />
                       <TableBody>
                         {visibleRows.map((row, index) => {
-                          const isItemSelected = isSelected(row.sl)
+                          const isItemSelected = isSelected(row.name)
                           const labelId = `enhanced-table-checkbox-${index}`
 
                           return (
                             <TableRow
                               hover
-                              onClick={event => handleClick(event, row.sl)}
+                              onClick={event => handleClick(event, row.name)}
                               role='checkbox'
                               aria-checked={isItemSelected}
                               tabIndex={-1}
-                              key={row.sl}
+                              key={row.name}
                               selected={isItemSelected}
                               sx={{ cursor: 'pointer' }}
                             >
                               <TableCell></TableCell>
                               <TableCell component='th' id={labelId} scope='row' padding='none'>
-                                {row.sl}
+                                {row.name}
                               </TableCell>
-                              <TableCell align='right'>{row.subject}</TableCell>
-                              <TableCell align='right'>{row.categoryname}</TableCell>
-                              <TableCell align='right'>{row.subjectcode}</TableCell>
+                              <TableCell align='left'>{row.feesgroup}</TableCell>
+                              <TableCell align='right'>{row.description}</TableCell>
+
                               <TableCell align='right'>{row.action}</TableCell>
                             </TableRow>
                           )
@@ -429,4 +418,4 @@ const BookSubjects = () => {
   )
 }
 
-export default BookSubjects
+export default FeesType

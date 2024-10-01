@@ -1,9 +1,9 @@
-import FeeGroup from '@/views/fee/feegroup'
+import FeesGroup from '@/views/fee/feesgroup'
 
 const FeeDisplay = () => {
   return (
     <>
-      <FeeGroup />
+      <FeesGroup />
     </>
   )
 }

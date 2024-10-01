@@ -1,67 +1,62 @@
 'use client'
 import * as React from 'react'
 
-import { alpha } from '@mui/material/styles'
-import Box from '@mui/material/Box'
+import {
+  Card,
+  CardActions,
+  CardContent,
+  Grid,
+  Button,
+  Typography,
+  Box,
+  TableCell,
+  TableHead,
+  TableRow,
+  TableSortLabel,
+  alpha,
+  IconButton,
+  Toolbar,
+  Tooltip,
+  Paper,
+  TableContainer
+} from '@mui/material'
+import DeleteIcon from '@mui/icons-material/Delete'
 import Table from '@mui/material/Table'
 import TableBody from '@mui/material/TableBody'
-import TableCell from '@mui/material/TableCell'
-import TableContainer from '@mui/material/TableContainer'
-import TableHead from '@mui/material/TableHead'
-import TablePagination from '@mui/material/TablePagination'
-import TableRow from '@mui/material/TableRow'
-import TableSortLabel from '@mui/material/TableSortLabel'
-import Toolbar from '@mui/material/Toolbar'
-import Typography from '@mui/material/Typography'
-import Paper from '@mui/material/Paper'
-import IconButton from '@mui/material/IconButton'
-import Tooltip from '@mui/material/Tooltip'
-
-import DeleteIcon from '@mui/icons-material/Delete'
 import FilterListIcon from '@mui/icons-material/FilterList'
+import TablePagination from '@mui/material/TablePagination'
 import { visuallyHidden } from '@mui/utils'
 
+import CustomTextField from '@/@core/components/mui/TextField'
+
 interface Data {
-  memberid: number
-  fullname: string
-  membertype: string
-  phone: number
-  email: string
+  name: string
+  description: string
   action: string
 }
 
-function createData(
-  memberid: number,
-  fullname: string,
-  membertype: string,
-  phone: number,
-  email: string,
-  action: string
-): Data {
+function createData(name: string, description: string, action: string): Data {
   return {
-    memberid,
-    fullname,
-    membertype,
-    phone,
-    email,
+    name,
+    description,
     action
   }
 }
 
 const rows = [
-  createData(1, 'Cupcake', 'Student', 3.7, 'cat1@mail.com', 'done'),
-  createData(2, 'Donut', 'Student', 25.0, 'cat1@mail.com', 'done'),
-  createData(3, 'Eclair', 'Student', 16.0, 'cat1@mail.com', 'done'),
-  createData(4, 'Frozen yoghurt', 'Student', 6.0, 'cat1@mail.com', 'done'),
-  createData(5, 'Gingerbread', 'Student', 16.0, 'cat1@mail.com', 'done'),
-  createData(6, 'Honeycomb', 'Student', 3.2, 'cat1@mail.com', 'done'),
-  createData(7, 'Ice cream sandwich', 'Teacher', 9.0, 'cat1@mail.com', 'done'),
-  createData(8, 'Jelly Bean', 'Teacher', 0.0, 'cat1@mail.com', 'done'),
-  createData(9, 'KitKat', 'Teacher', 26.0, 'cat1@mail.com', 'done'),
-  createData(10, 'Lollipop', 'Student', 0.2, 'cat1@mail.com', 'done'),
-  createData(11, 'Marshmallow', 'Teacher', 0, 'cat1@mail.com', 'done'),
-  createData(12, 'Nougat', 'Student', 19.0, 'cat1@mail.com', 'done'),
-  createData(13, 'Oreo', 'Student', 18.0, 'cat1@mail.com', 'done')
+  createData('Cupcake', 'Student', 'done'),
+  createData('Donut', 'Student', 'done'),
+  createData('Eclair', 'Student', 'done'),
+  createData('Frozen yoghurt', 'Student', 'done'),
+  createData('Gingerbread', 'Student', 'done'),
+  createData('Honeycomb', 'Student', 'done'),
+  createData('Ice cream sandwich', 'Teacher', 'done'),
+  createData('Jelly Bean', 'Teacher', 'done'),
+  createData('KitKat', 'Teacher', 'done'),
+  createData('Lollipop', 'Student', 'done'),
+  createData('Marshmallow', 'Teacher', 'done'),
+  createData('Nougat', 'Student', 'done'),
+  createData('Oreo', 'Student', 'done')
 ]
 
 function descendingComparator<T>(a: T, b: T, orderBy: keyof T) {
@@ -87,10 +82,6 @@ function getComparator<Key extends keyof any>(
     : (a, b) => -descendingComparator(a, b, orderBy)
 }
 
-// Since 2020 all major browsers ensure sort stability with Array.prototype.sort().
-// stableSort() brings sort stability to non-modern browsers (notably IE11). If you
-// only support modern browsers you can replace stableSort(exampleArray, exampleComparator)
-// with exampleArray.slice().sort(exampleComparator)
 function stableSort<T>(array: readonly T[], comparator: (a: T, b: T) => number) {
   const stabilizedThis = array.map((el, index) => [el, index] as [T, number])
 
@@ -116,35 +107,18 @@ interface HeadCell {
 
 const headCells: readonly HeadCell[] = [
   {
-    id: 'memberid',
+    id: 'name',
     numeric: false,
     disablePadding: true,
-    label: 'Member ID'
+    label: 'Name'
   },
   {
-    id: 'fullname',
+    id: 'description',
     numeric: true,
     disablePadding: false,
-    label: 'Full Name'
+    label: 'Subject'
   },
-  {
-    id: 'membertype',
-    numeric: true,
-    disablePadding: false,
-    label: 'Member Type'
-  },
-  {
-    id: 'phone',
-    numeric: true,
-    disablePadding: false,
-    label: 'Phone'
-  },
-  {
-    id: 'email',
-    numeric: true,
-    disablePadding: false,
-    label: 'Email'
-  },
+
   {
     id: 'action',
     numeric: true,
@@ -221,9 +195,7 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
           {numSelected} selected
         </Typography>
       ) : (
-        <Typography sx={{ flex: '1 1 100%' }} variant='h5' id='tableTitle' component='div'>
-          Book Issue
-        </Typography>
+        <Typography sx={{ flex: '1 1 100%' }} variant='h5' id='tableTitle' component='div'></Typography>
       )}
       {numSelected > 0 ? (
         <Tooltip title='Delete'>
@@ -242,9 +214,9 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
   )
 }
 
-export default function BookIssue() {
+const FeeGroup = () => {
   const [order, setOrder] = React.useState<Order>('asc')
-  const [orderBy, setOrderBy] = React.useState<keyof Data>('fullname')
+  const [orderBy, setOrderBy] = React.useState<keyof Data>('name')
   const [selected, setSelected] = React.useState<readonly number[]>([])
   const [page, setPage] = React.useState(0)
   const [dense, setDense] = React.useState(false)
@@ -259,7 +231,7 @@ export default function BookIssue() {
 
   const handleSelectAllClick = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.checked) {
-      const newSelected = rows.map(n => n.memberid)
+      const newSelected = rows.map(n => n.name)
 
       setSelected(newSelected)
 
@@ -310,69 +282,115 @@ export default function BookIssue() {
   )
 
   return (
-    <Box sx={{ width: '100%' }}>
-      <Paper sx={{ width: '100%', mb: 2 }}>
-        <EnhancedTableToolbar numSelected={selected.length} />
-        <TableContainer>
-          <Table sx={{ minWidth: 750 }} aria-labelledby='tableTitle' size={dense ? 'small' : 'medium'}>
-            <EnhancedTableHead
-              numSelected={selected.length}
-              order={order}
-              orderBy={orderBy}
-              onSelectAllClick={handleSelectAllClick}
-              onRequestSort={handleRequestSort}
-              rowCount={rows.length}
-            />
-            <TableBody>
-              {visibleRows.map((row, index) => {
-                const isItemSelected = isSelected(row.memberid)
-                const labelId = `enhanced-table-checkbox-${index}`
+    <div>
+      <Typography variant='h5' gutterBottom>
+        Fees Group
+      </Typography>
+      <div className='flex gap-10'>
+        <div>
+          <Card sx={{ maxWidth: 280 }}>
+            <CardContent>
+              <h3>
+                <b>Add Fees Group</b>
+              </h3>
+              <Grid container spacing={6}>
+                <Grid item xs={12}>
+                  <CustomTextField required label='NAME' />
+                </Grid>
 
-                return (
-                  <TableRow
-                    hover
-                    onClick={event => handleClick(event, row.memberid)}
-                    role='checkbox'
-                    aria-checked={isItemSelected}
-                    tabIndex={-1}
-                    key={row.memberid}
-                    selected={isItemSelected}
-                    sx={{ cursor: 'pointer' }}
-                  >
-                    <TableCell></TableCell>
-                    <TableCell component='th' id={labelId} scope='row' padding='none'>
-                      {row.memberid}
-                    </TableCell>
-                    <TableCell align='right'>{row.membertype}</TableCell>
-                    <TableCell align='right'>{row.fullname}</TableCell>
-                    <TableCell align='right'>{row.phone}</TableCell>
-                    <TableCell align='right'>{row.email}</TableCell>
-                    <TableCell align='right'>{row.action}</TableCell>
-                  </TableRow>
-                )
-              })}
-              {emptyRows > 0 && (
-                <TableRow
-                  style={{
-                    height: (dense ? 33 : 53) * emptyRows
-                  }}
-                >
-                  <TableCell colSpan={6} />
-                </TableRow>
-              )}
-            </TableBody>
-          </Table>
-        </TableContainer>
-        <TablePagination
-          rowsPerPageOptions={[5, 10, 25]}
-          component='div'
-          count={rows.length}
-          rowsPerPage={rowsPerPage}
-          page={page}
-          onPageChange={handleChangePage}
-          onRowsPerPageChange={handleChangeRowsPerPage}
-        />
-      </Paper>
-    </Box>
+                <Grid item xs={12}>
+                  <CustomTextField required label='DESCRIPTION' />
+                </Grid>
+
+                <CardActions>
+                  <Button variant='contained'>Save</Button>
+                </CardActions>
+              </Grid>
+            </CardContent>
+          </Card>
+        </div>
+        <div>
+          <Card sx={{ maxWidth: 800 }}>
+            <CardContent>
+              <div className='flex gap-8'>
+                <Typography variant='h5' gutterBottom>
+                  Fees Group List
+                </Typography>
+                <Typography variant='body2'>
+                  <CustomTextField required label='Search' />
+                </Typography>
+              </div>
+              <div>
+                <br />
+              </div>
+              <Box sx={{ width: '100%' }}>
+                <Paper sx={{ width: '100%', mb: 2 }}>
+                  <EnhancedTableToolbar numSelected={selected.length} />
+                  <TableContainer>
+                    <Table sx={{ minWidth: 750 }} aria-labelledby='tableTitle' size={dense ? 'small' : 'medium'}>
+                      <EnhancedTableHead
+                        numSelected={selected.length}
+                        order={order}
+                        orderBy={orderBy}
+                        onSelectAllClick={handleSelectAllClick}
+                        onRequestSort={handleRequestSort}
+                        rowCount={rows.length}
+                      />
+                      <TableBody>
+                        {visibleRows.map((row, index) => {
+                          const isItemSelected = isSelected(row.name)
+                          const labelId = `enhanced-table-checkbox-${index}`
+
+                          return (
+                            <TableRow
+                              hover
+                              onClick={event => handleClick(event, row.name)}
+                              role='checkbox'
+                              aria-checked={isItemSelected}
+                              tabIndex={-1}
+                              key={row.name}
+                              selected={isItemSelected}
+                              sx={{ cursor: 'pointer' }}
+                            >
+                              <TableCell></TableCell>
+                              <TableCell component='th' id={labelId} scope='row' padding='none'>
+                                {row.name}
+                              </TableCell>
+                              <TableCell align='right'>{row.description}</TableCell>
+
+                              <TableCell align='right'>{row.action}</TableCell>
+                            </TableRow>
+                          )
+                        })}
+                        {emptyRows > 0 && (
+                          <TableRow
+                            style={{
+                              height: (dense ? 33 : 53) * emptyRows
+                            }}
+                          >
+                            <TableCell colSpan={6} />
+                          </TableRow>
+                        )}
+                      </TableBody>
+                    </Table>
+                  </TableContainer>
+                  <TablePagination
+                    rowsPerPageOptions={[5, 10, 25]}
+                    component='div'
+                    count={rows.length}
+                    rowsPerPage={rowsPerPage}
+                    page={page}
+                    onPageChange={handleChangePage}
+                    onRowsPerPageChange={handleChangeRowsPerPage}
+                  />
+                </Paper>
+              </Box>
+            </CardContent>
+          </Card>
+        </div>
+      </div>
+    </div>
   )
 }
+
+export default FeeGroup

@@ -1,6 +1,12 @@
 // MUI Imports
 import { useTheme } from '@mui/material/styles'
 
+//Icon Imports MUI
+import ArticleIcon from '@mui/icons-material/Article'
+import DialpadIcon from '@mui/icons-material/Dialpad'
+import SchoolIcon from '@mui/icons-material/School'
+import CurrencyRupeeIcon from '@mui/icons-material/CurrencyRupee'
+
 // Third-party Imports
 import PerfectScrollbar from 'react-perfect-scrollbar'
 
@@ -77,25 +83,44 @@ const VerticalMenu = ({ dictionary, scrollMenu }: Props) => {
         <MenuItem href='/about' icon={<i className='tabler-info-circle' />}>
           About
         </MenuItem>
-        <MenuItem href='/contact' icon={<i className='tabler-info-circle' />}>
+        <MenuItem href='/contact' icon={<DialpadIcon />}>
           Contact
         </MenuItem>
-        <SubMenu label={dictionary['navigation'].student} icon={<i className='tabler-star' />}>
+        <SubMenu label={dictionary['navigation'].student} icon={<SchoolIcon />}>
+          <MenuItem href={`/studentcategory`}>Student Category</MenuItem>
           <MenuItem href={`/studentadd`}>Add Student</MenuItem>
           <MenuItem href={`/studentli`}>Student List</MenuItem>
+          <MenuItem href={`/multiclassstudent`}>Multi Class Student</MenuItem>
+          <MenuItem href={`/deletestudentrecord`}>Delete Student Record</MenuItem>
+          <MenuItem href={`/unassignedstudent`}>Unassigned Student</MenuItem>
+          <MenuItem href={`/studentattendance`}>Student Attendance</MenuItem>
+          <MenuItem href={`/studentgroup`}>Student Group</MenuItem>
+          <MenuItem href={`/studentpromote`}>Student Promote</MenuItem>
+          <MenuItem href={`/disabledstudents`}>Disabled Students</MenuItem>
+          <MenuItem href={`/subjectwiseattendance`}>Subject Wise Attendance</MenuItem>
+          <MenuItem href={`/studentexport`}>Student Export</MenuItem>
+          <MenuItem href={`/smssendingtime`}>SMS Sending Time</MenuItem>
         </SubMenu>
-        <SubMenu label={dictionary['navigation'].library} icon={<i className='tabler-star' />}>
-          <MenuItem href={'/librarylist'}>Booklist</MenuItem>
+        <SubMenu label={dictionary['navigation'].behaviourrecords} icon={<SchoolIcon />}>
+          <MenuItem href={'/brecincidents'}>Incidents</MenuItem>
+          <MenuItem href={'/assignincident'}>Assign Incident</MenuItem>
+          <MenuItem href={'/behaviourreport'}>Behaviour Report</MenuItem>
+          <MenuItem href={'/classreport'}>Class Section Report</MenuItem>
+          <MenuItem href={'/incidentreport'}>Incident Wise Report</MenuItem>
+          <MenuItem href={'/behavsetting'}>Settings</MenuItem>
+        </SubMenu>
+        <SubMenu label={dictionary['navigation'].library} icon={<ArticleIcon />}>
           <MenuItem href={'/libraryadd'}>Add Books</MenuItem>
-          <MenuItem href={'/librarycat'}>Book Category</MenuItem>
-          <MenuItem href={'/librarymember'}>Book Member</MenuItem>
-          <MenuItem href={'/libraryissue'}>Book Issue/Return</MenuItem>
+          <MenuItem href={'/librarylist'}>Booklist</MenuItem>
+          <MenuItem href={'/librarycat'}>Book Categories</MenuItem>
+          <MenuItem href={'/librarymember'}>Add Member</MenuItem>
+          <MenuItem href={'/libraryissue'}>Issue/Return Book</MenuItem>
           <MenuItem href={'/libraryissued'}>All Issued Books</MenuItem>
-          <MenuItem>Subjects</MenuItem>
+          <MenuItem href={'/librarysubject'}>Subject</MenuItem>
         </SubMenu>
-
-        <SubMenu label={dictionary['navigation'].fee} icon={<i className='tabler-star' />}>
-          <MenuItem href={'/feedemo'}>Fee Group</MenuItem>
+        <SubMenu label={dictionary['navigation'].fee} icon={<CurrencyRupeeIcon />}>
+          <MenuItem href={'/feesdemo'}>Fees Group</MenuItem>
+          <MenuItem href={'/feestype'}>Fees Type</MenuItem>
         </SubMenu>
       </Menu>
       {/* <Menu
