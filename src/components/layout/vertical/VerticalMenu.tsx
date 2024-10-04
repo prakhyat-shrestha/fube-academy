@@ -6,6 +6,9 @@ import ArticleIcon from '@mui/icons-material/Article'
 import DialpadIcon from '@mui/icons-material/Dialpad'
 import SchoolIcon from '@mui/icons-material/School'
 import CurrencyRupeeIcon from '@mui/icons-material/CurrencyRupee'
+import QuizIcon from '@mui/icons-material/Quiz'
+import OnlinePredictionIcon from '@mui/icons-material/OnlinePrediction'
+import SensorOccupiedIcon from '@mui/icons-material/SensorOccupied'
 
 // Third-party Imports
 import PerfectScrollbar from 'react-perfect-scrollbar'
@@ -118,9 +121,27 @@ const VerticalMenu = ({ dictionary, scrollMenu }: Props) => {
           <MenuItem href={'/libraryissued'}>All Issued Books</MenuItem>
           <MenuItem href={'/librarysubject'}>Subject</MenuItem>
         </SubMenu>
+        <SubMenu label={dictionary['navigation'].examplan} icon={<QuizIcon />}>
+          <MenuItem href={'/examadmitcard'}>Admit Card</MenuItem>
+          <MenuItem href={'/examseatplan'}>Seat Plan</MenuItem>
+        </SubMenu>
+        <SubMenu label={dictionary['navigation'].onlineexam} icon={<OnlinePredictionIcon />}>
+          <MenuItem href={'/onlinequestiongroup'}>Question Group</MenuItem>
+          <MenuItem href={'/onlinequestionbank'}>Question Bank</MenuItem>
+          <MenuItem href={'/onlineexam'}>Online Exam</MenuItem>
+        </SubMenu>
+
         <SubMenu label={dictionary['navigation'].fee} icon={<CurrencyRupeeIcon />}>
           <MenuItem href={'/feesdemo'}>Fees Group</MenuItem>
           <MenuItem href={'/feestype'}>Fees Type</MenuItem>
+        </SubMenu>
+        <SubMenu label={dictionary['navigation'].hr} icon={<SensorOccupiedIcon />}>
+          <MenuItem href={'/humandesignation'}>Designation</MenuItem>
+          <MenuItem href={'/humandepartment'}>Department</MenuItem>
+          <MenuItem href={'/humanaddstaff'}>Add Staff</MenuItem>
+          <MenuItem href={'/humanstaffdir'}>Staff Directory</MenuItem>
+          <MenuItem href={'/humanstafattend'}>Staff Attendance</MenuItem>
+          <MenuItem href={'/humanpayroll'}>Payroll</MenuItem>
         </SubMenu>
       </Menu>
       {/* <Menu

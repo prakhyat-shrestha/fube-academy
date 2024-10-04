@@ -7,7 +7,7 @@ import Link from 'next/link'
 
 import Typography from '@mui/material/Typography'
 import CheckSharpIcon from '@mui/icons-material/CheckSharp'
-import { TextField, InputAdornment, Menu, MenuItem } from '@mui/material'
+import { TextField, InputAdornment, MenuItem } from '@mui/material'
 import SearchSharpIcon from '@mui/icons-material/SearchSharp'
 import ButtonGroup from '@mui/material/ButtonGroup'
 
@@ -23,7 +23,7 @@ import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
 
 import CustomTextField from '@/@core/components/mui/TextField'
 
-const BookSubjectLayout = () => {
+const QuestionBankLayout = () => {
   const textFieldRef = useRef<HTMLInputElement>(null)
 
   const handleFocus = () => {
@@ -49,8 +49,8 @@ const BookSubjectLayout = () => {
   return (
     <>
       <div className='flex '>
-        <Typography variant='h5' component='h3'>
-          Subject
+        <Typography variant='h6' component='h3'>
+          Add Question Bank
         </Typography>
         <nav style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center' }}>
           <Typography variant='h6' component='h3' style={{ display: 'flex', alignItems: 'center' }}>
@@ -59,43 +59,92 @@ const BookSubjectLayout = () => {
             </Link>
             <span style={{ marginRight: '10px' }}>|</span>
             <Link href='#' style={{ marginRight: '35px' }}>
-              Library
+              Online Exam
             </Link>
             <span style={{ marginRight: '35px' }}>|</span>
-            <Link href='#'>Subject</Link>
+            <Link href='#'>Question Bank</Link>
           </Typography>
         </nav>
       </div>
       <div className='flex' style={{ display: 'flex' }}>
         {/* Add category first card */}
-        <div className='libraryGroup mt-4'>
-          <Card sx={{ width: 300, height: 370 }}>
+        <div className='questionGroup mt-4'>
+          <Card sx={{ width: 400, height: 700 }}>
             <CardContent>
               <Typography variant='h5' component='h3'>
-                Add Subject
+                Add Question Bank
               </Typography>
-              <Typography variant='body2' component='div'>
-                <CustomTextField required label='SUBJECT NAME' style={{ marginTop: 20, width: '100%' }} />
-              </Typography>
+
               <Typography variant='body2' component='div'>
                 <CustomTextField
-                  select
-                  defaultValue={'category'}
                   required
-                  label='CATEGORY'
+                  label='GROUP'
+                  select
+                  defaultValue={'group'}
                   style={{ marginTop: 20, width: '100%' }}
                 >
-                  <MenuItem value='category'>Category Name</MenuItem>
+                  <CustomTextField placeholder='Search...' style={{ padding: '0 6px 8px 6px', width: '100%' }} />
+                  <MenuItem value='group'>Select Group*</MenuItem>
                 </CustomTextField>
               </Typography>
               <Typography variant='body2' component='div'>
-                <CustomTextField required label='SUBJECT CODE' style={{ marginTop: 20, width: '100%' }} />
+                <CustomTextField
+                  required
+                  label='CLASS'
+                  select
+                  defaultValue={'class'}
+                  style={{ marginTop: 20, width: '100%' }}
+                >
+                  <CustomTextField placeholder='Search...' style={{ padding: '0 6px 8px 6px', width: '100%' }} />
+                  <MenuItem value='class'>Select Class*</MenuItem>
+                  <MenuItem value='ECED'>ECED</MenuItem>
+                  <MenuItem value='1'>1</MenuItem>
+                  <MenuItem value='2'>2</MenuItem>
+                  <MenuItem value='3'>3</MenuItem>
+                  <MenuItem value='4'>4</MenuItem>
+                </CustomTextField>
+              </Typography>
+
+              <Typography variant='body2' component='div'>
+                <CustomTextField
+                  required
+                  label='SECTION'
+                  select
+                  defaultValue={'section'}
+                  style={{ marginTop: 20, width: '100%' }}
+                >
+                  <CustomTextField placeholder='Search...' style={{ padding: '0 6px 8px 6px', width: '100%' }} />
+                  <MenuItem value='section'>Select</MenuItem>
+                  <MenuItem value='unselect'>Unselect All</MenuItem>
+                </CustomTextField>
+              </Typography>
+
+              <Typography variant='body2' component='div'>
+                <CustomTextField
+                  required
+                  select
+                  label='QUESTION TYPE'
+                  defaultValue={'select'}
+                  style={{ marginTop: 20, width: '100%' }}
+                >
+                  <CustomTextField placeholder='Search...' style={{ padding: '0 6px 8px 6px', width: '100%' }} />
+                  <MenuItem value='select'>Question Type*</MenuItem>
+                  <MenuItem value='multiplechoice'>Multiple Choice</MenuItem>
+                  <MenuItem value='truefalse'>True False</MenuItem>
+                  <MenuItem value='fillin'>Fill in the Blanks</MenuItem>
+                </CustomTextField>
+              </Typography>
+              <Typography variant='body2' component='div' style={{ display: 'flex', width: '100%', marginTop: '20px' }}>
+                <CustomTextField required label='QUESTION' variant='outlined' multiline rows={4} fullWidth />
+              </Typography>
+              <Typography variant='body2' component='div' style={{ display: 'flex', width: '100%', marginTop: '7px' }}>
+                <CustomTextField required label='MARKS' style={{ marginTop: 20, width: '100%' }} />
               </Typography>
             </CardContent>
             <CardActions style={{ justifyContent: 'center' }}>
               <Button variant='contained'>
                 <CheckSharpIcon style={{ marginRight: 5 }} />
-                SAVE SUBJECT
+                SAVE QUESTION
               </Button>
             </CardActions>
           </Card>
@@ -103,11 +152,11 @@ const BookSubjectLayout = () => {
 
         {/* Fees Group list 2nd card */}
         <div className='studentCategoryList mt-4 mx-6' style={{ flex: 1 }}>
-          <Card sx={{ width: '102%', height: 270 }}>
+          <Card sx={{ width: '105%', height: 270 }}>
             <CardContent>
               <div style={{ display: 'flex', alignItems: 'center' }}>
                 <Typography variant='h6' component='h3' style={{ flex: 1, marginRight: '12%' }}>
-                  Subject List
+                  Question Bank List
                 </Typography>
                 <div style={{ flexGrow: 1 }}>
                   <TextField
@@ -181,13 +230,12 @@ const BookSubjectLayout = () => {
                           padding: '8px',
                           textAlign: 'left',
                           backgroundColor: 'lightgray',
-                          borderRadius: '5px 0 0 5px',
-                          position: 'relative' // Required for rounded corners
+                          borderRadius: '5px 0 0 5px'
                         }}
                       >
                         <div style={{ display: 'flex', alignItems: 'center' }}>
                           <ArrowDownwardIcon style={{ marginRight: '8px' }} />
-                          <span>SL</span>
+                          <span>Group</span>
                         </div>
                       </th>
                       <th
@@ -199,7 +247,7 @@ const BookSubjectLayout = () => {
                       >
                         <div style={{ display: 'flex', alignItems: 'center' }}>
                           <ArrowDownwardIcon style={{ marginRight: '8px' }} />
-                          <span>Subject</span>
+                          <span>Class (Section)</span>
                         </div>
                       </th>
                       <th
@@ -211,7 +259,7 @@ const BookSubjectLayout = () => {
                       >
                         <div style={{ display: 'flex', alignItems: 'center' }}>
                           <ArrowDownwardIcon style={{ marginRight: '8px' }} />
-                          <span>Category Name</span>
+                          <span>Question</span>
                         </div>
                       </th>
                       <th
@@ -223,9 +271,10 @@ const BookSubjectLayout = () => {
                       >
                         <div style={{ display: 'flex', alignItems: 'center' }}>
                           <ArrowDownwardIcon style={{ marginRight: '8px' }} />
-                          <span>Subject Code</span>
+                          <span>Type</span>
                         </div>
                       </th>
+
                       <th
                         style={{
                           padding: '8px',
@@ -242,12 +291,8 @@ const BookSubjectLayout = () => {
                     </tr>
                   </thead>
                   <tbody>
-                    <tr style={{ borderBottom: '1px solid #ddd' }}>
-                      <td style={{ padding: '8px' }}></td>
-                      <td style={{ padding: '8px' }}></td>
-                      <td style={{ padding: '8px' }}>No Data Available</td>
-                      <td style={{ padding: '8px' }}></td>
-                      <td style={{ padding: '8px' }}></td>
+                    <tr>
+                      <td>No Data Available</td>
                     </tr>
                   </tbody>
                 </table>
@@ -314,4 +359,4 @@ const BookSubjectLayout = () => {
   )
 }
 
-export default BookSubjectLayout
+export default QuestionBankLayout

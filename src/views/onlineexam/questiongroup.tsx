@@ -7,7 +7,7 @@ import Link from 'next/link'
 
 import Typography from '@mui/material/Typography'
 import CheckSharpIcon from '@mui/icons-material/CheckSharp'
-import { TextField, InputAdornment, Menu, MenuItem } from '@mui/material'
+import { TextField, InputAdornment } from '@mui/material'
 import SearchSharpIcon from '@mui/icons-material/SearchSharp'
 import ButtonGroup from '@mui/material/ButtonGroup'
 
@@ -23,7 +23,7 @@ import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
 
 import CustomTextField from '@/@core/components/mui/TextField'
 
-const BookSubjectLayout = () => {
+const QuestionGroupLayout = () => {
   const textFieldRef = useRef<HTMLInputElement>(null)
 
   const handleFocus = () => {
@@ -49,8 +49,8 @@ const BookSubjectLayout = () => {
   return (
     <>
       <div className='flex '>
-        <Typography variant='h5' component='h3'>
-          Subject
+        <Typography variant='h6' component='h3'>
+          Question Group
         </Typography>
         <nav style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center' }}>
           <Typography variant='h6' component='h3' style={{ display: 'flex', alignItems: 'center' }}>
@@ -59,43 +59,29 @@ const BookSubjectLayout = () => {
             </Link>
             <span style={{ marginRight: '10px' }}>|</span>
             <Link href='#' style={{ marginRight: '35px' }}>
-              Library
+              Online Exam
             </Link>
             <span style={{ marginRight: '35px' }}>|</span>
-            <Link href='#'>Subject</Link>
+            <Link href='#'>Question Group</Link>
           </Typography>
         </nav>
       </div>
       <div className='flex' style={{ display: 'flex' }}>
         {/* Add category first card */}
-        <div className='libraryGroup mt-4'>
-          <Card sx={{ width: 300, height: 370 }}>
+        <div className='questionGroup mt-4'>
+          <Card sx={{ width: 280, height: 200 }}>
             <CardContent>
               <Typography variant='h5' component='h3'>
-                Add Subject
+                Add Question Group
               </Typography>
               <Typography variant='body2' component='div'>
-                <CustomTextField required label='SUBJECT NAME' style={{ marginTop: 20, width: '100%' }} />
-              </Typography>
-              <Typography variant='body2' component='div'>
-                <CustomTextField
-                  select
-                  defaultValue={'category'}
-                  required
-                  label='CATEGORY'
-                  style={{ marginTop: 20, width: '100%' }}
-                >
-                  <MenuItem value='category'>Category Name</MenuItem>
-                </CustomTextField>
-              </Typography>
-              <Typography variant='body2' component='div'>
-                <CustomTextField required label='SUBJECT CODE' style={{ marginTop: 20, width: '100%' }} />
+                <CustomTextField required label='TITLE' style={{ marginTop: 20, width: '100%' }} />
               </Typography>
             </CardContent>
             <CardActions style={{ justifyContent: 'center' }}>
               <Button variant='contained'>
                 <CheckSharpIcon style={{ marginRight: 5 }} />
-                SAVE SUBJECT
+                SAVE GROUP
               </Button>
             </CardActions>
           </Card>
@@ -106,8 +92,8 @@ const BookSubjectLayout = () => {
           <Card sx={{ width: '102%', height: 270 }}>
             <CardContent>
               <div style={{ display: 'flex', alignItems: 'center' }}>
-                <Typography variant='h6' component='h3' style={{ flex: 1, marginRight: '12%' }}>
-                  Subject List
+                <Typography variant='h5' component='h3' style={{ flex: 1, marginRight: '12%' }}>
+                  Question Group List
                 </Typography>
                 <div style={{ flexGrow: 1 }}>
                   <TextField
@@ -187,45 +173,10 @@ const BookSubjectLayout = () => {
                       >
                         <div style={{ display: 'flex', alignItems: 'center' }}>
                           <ArrowDownwardIcon style={{ marginRight: '8px' }} />
-                          <span>SL</span>
+                          <span>Title</span>
                         </div>
                       </th>
-                      <th
-                        style={{
-                          padding: '8px',
-                          textAlign: 'left',
-                          backgroundColor: 'lightgray'
-                        }}
-                      >
-                        <div style={{ display: 'flex', alignItems: 'center' }}>
-                          <ArrowDownwardIcon style={{ marginRight: '8px' }} />
-                          <span>Subject</span>
-                        </div>
-                      </th>
-                      <th
-                        style={{
-                          padding: '8px',
-                          textAlign: 'left',
-                          backgroundColor: 'lightgray'
-                        }}
-                      >
-                        <div style={{ display: 'flex', alignItems: 'center' }}>
-                          <ArrowDownwardIcon style={{ marginRight: '8px' }} />
-                          <span>Category Name</span>
-                        </div>
-                      </th>
-                      <th
-                        style={{
-                          padding: '8px',
-                          textAlign: 'left',
-                          backgroundColor: 'lightgray'
-                        }}
-                      >
-                        <div style={{ display: 'flex', alignItems: 'center' }}>
-                          <ArrowDownwardIcon style={{ marginRight: '8px' }} />
-                          <span>Subject Code</span>
-                        </div>
-                      </th>
+
                       <th
                         style={{
                           padding: '8px',
@@ -242,12 +193,8 @@ const BookSubjectLayout = () => {
                     </tr>
                   </thead>
                   <tbody>
-                    <tr style={{ borderBottom: '1px solid #ddd' }}>
-                      <td style={{ padding: '8px' }}></td>
-                      <td style={{ padding: '8px' }}></td>
-                      <td style={{ padding: '8px' }}>No Data Available</td>
-                      <td style={{ padding: '8px' }}></td>
-                      <td style={{ padding: '8px' }}></td>
+                    <tr>
+                      <td>No Data Available</td>
                     </tr>
                   </tbody>
                 </table>
@@ -314,4 +261,4 @@ const BookSubjectLayout = () => {
   )
 }
 
-export default BookSubjectLayout
+export default QuestionGroupLayout

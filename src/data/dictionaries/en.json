@@ -83,6 +83,9 @@
     "student": "Student",
     "behaviourrecords": "Behaviour Records",
     "library": "Library",
-    "fee": "Fee"
+    "fee": "Fee",
+    "examplan": "Exam Plan",
+    "onlineexam": "Online Exam",
+    "hr": "Human Resource"
   }
 }

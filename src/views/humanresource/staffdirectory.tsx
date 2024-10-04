@@ -1,12 +1,12 @@
 'use client'
-import { useRef } from 'react'
+import React, { useRef } from 'react'
 
 import Link from 'next/link'
 
-import { Typography, TextField, InputAdornment } from '@mui/material'
+import { Typography, MenuItem, InputAdornment, TextField } from '@mui/material'
 import Card from '@mui/material/Card'
 import CardContent from '@mui/material/CardContent'
-
+import ButtonGroup from '@mui/material/ButtonGroup'
 import Button from '@mui/material/Button'
 
 import SearchSharpIcon from '@mui/icons-material/SearchSharp'
@@ -14,11 +14,11 @@ import SearchSharpIcon from '@mui/icons-material/SearchSharp'
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
-import ButtonGroup from '@mui/material/ButtonGroup'
-
 import { Icon } from '@iconify/react/dist/iconify.js'
 
-const BookIssueLayout = () => {
+import CustomTextField from '@core/components/mui/TextField'
+
+const StaffDirectoryLayout = () => {
   const textFieldRef = useRef<HTMLInputElement>(null)
 
   const handleFocus = () => {
@@ -37,7 +37,7 @@ const BookIssueLayout = () => {
     <>
       <div className='flex'>
         <Typography variant='h5' component='h3'>
-          Issue Books
+          Staff List
         </Typography>
         <nav style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center' }}>
           <Typography variant='h6' component='h3' style={{ display: 'flex', alignItems: 'center' }}>
@@ -46,19 +46,75 @@ const BookIssueLayout = () => {
             </Link>
             <span style={{ marginRight: '10px' }}>|</span>
             <Link href='#' style={{ marginRight: '35px' }}>
-              Library
+              Human Resource
             </Link>
             <span style={{ marginRight: '35px' }}>|</span>
-            <Link href='#'>Issue Books</Link>
+            <Link href='#'>Staff List</Link>
           </Typography>
         </nav>
       </div>
+      <div className='attend mt-4' style={{ flex: 1 }}>
+        <Card sx={{ width: '100%', height: '105%' }}>
+          <CardContent>
+            <div className='container' style={{ display: 'flex', gap: '72%' }}>
+              <Typography variant='h5' component='h4'>
+                Select Criteria
+              </Typography>
+            </div>
+
+            <div className='container' style={{ display: 'flex' }}>
+              <CustomTextField
+                select
+                fullWidth
+                defaultValue='role'
+                label='ROLE'
+                id='custom-select'
+                style={{ margin: '20px 35px 0 0 ', width: '65%' }}
+              >
+                <CustomTextField required placeholder='Search...' style={{ padding: '0 6px 8px 6px', width: '100%' }} />
+                <MenuItem value='role'>
+                  <span style={{ fontStyle: 'normal' }}>Role</span>
+                </MenuItem>
+                <MenuItem value='accountant'>Accountant</MenuItem>
+                <MenuItem value='admin'>Admin</MenuItem>
+                <MenuItem value='administrator'>Administrator</MenuItem>
+                <MenuItem value='driver'>Driver</MenuItem>
+                <MenuItem value='librarian'>Librarian</MenuItem>
+                <MenuItem value='receptionist'>Receptionist</MenuItem>
+                <MenuItem value='superadmin'>Super Admin</MenuItem>
+                <MenuItem value='teacher'>Teacher</MenuItem>
+              </CustomTextField>
+              <CustomTextField
+                fullWidth
+                label='SEARCH BY BOOK ID '
+                id='custom-select'
+                style={{ margin: '20px 35px 0 0 ', marginRight: '30px', width: '65%' }}
+              />
+              <CustomTextField
+                defaultValue='subject'
+                label='SUBJECT'
+                select
+                style={{ margin: '20px 35px 0 0 ', marginRight: '10px', width: '65%' }}
+              >
+                <MenuItem value='subject'>Select Subjects</MenuItem>
+              </CustomTextField>
+            </div>
+            <div className='container' style={{ display: 'flex', marginLeft: '90%', marginTop: '20px' }}>
+              <Button variant='contained' startIcon={<SearchSharpIcon />}>
+                SEARCH
+              </Button>
+            </div>
+          </CardContent>
+        </Card>
+      </div>
       {/* ---- Table Section ----*/}
-      <div className='bookissueList mt-4 ' style={{ flex: 1 }}>
+      <div className='allissuedbookList mt-4 ' style={{ flex: 1 }}>
         <Card sx={{ width: '100%', height: '105%' }}>
           <CardContent>
             <div style={{ display: 'flex', alignItems: 'center' }}>
-              <Typography variant='h6' component='h3' style={{ flex: 1, marginRight: '16%' }}></Typography>
+              <Typography variant='h6' component='h3' style={{ flex: 1, marginRight: '16%' }}>
+                All Issued Book
+              </Typography>
               <div style={{ flexGrow: 1 }}>
                 <TextField
                   id='standard-search'
@@ -138,7 +194,7 @@ const BookIssueLayout = () => {
                     >
                       <div style={{ display: 'flex', alignItems: 'center' }}>
                         <ArrowDownwardIcon style={{ marginRight: '8px' }} />
-                        <span>Member ID</span>
+                        <span>Book Title</span>
                       </div>
                     </th>
                     <th
@@ -151,7 +207,7 @@ const BookIssueLayout = () => {
                     >
                       <div style={{ display: 'flex', alignItems: 'center' }}>
                         <ArrowDownwardIcon style={{ marginRight: '8px' }} />
-                        <span>Full Name</span>
+                        <span>Book No</span>
                       </div>
                     </th>
                     <th
@@ -164,7 +220,7 @@ const BookIssueLayout = () => {
                     >
                       <div style={{ display: 'flex', alignItems: 'center' }}>
                         <ArrowDownwardIcon style={{ marginRight: '8px' }} />
-                        <span>Member Type</span>
+                        <span>ISBN No</span>
                       </div>
                     </th>
                     <th
@@ -177,7 +233,33 @@ const BookIssueLayout = () => {
                     >
                       <div style={{ display: 'flex', alignItems: 'center' }}>
                         <ArrowDownwardIcon style={{ marginRight: '8px' }} />
-                        <span>Phone</span>
+                        <span>Member Name</span>
+                      </div>
+                    </th>
+                    <th
+                      style={{
+                        padding: '8px',
+                        textAlign: 'left',
+                        backgroundColor: 'lightgray',
+                        position: 'relative'
+                      }}
+                    >
+                      <div style={{ display: 'flex', alignItems: 'center' }}>
+                        <ArrowDownwardIcon style={{ marginRight: '8px' }} />
+                        <span>Author</span>
+                      </div>
+                    </th>
+                    <th
+                      style={{
+                        padding: '8px',
+                        textAlign: 'left',
+                        backgroundColor: 'lightgray',
+                        position: 'relative'
+                      }}
+                    >
+                      <div style={{ display: 'flex', alignItems: 'center' }}>
+                        <ArrowDownwardIcon style={{ marginRight: '8px' }} />
+                        <span>Subject</span>
                       </div>
                     </th>
                     <th
@@ -189,7 +271,19 @@ const BookIssueLayout = () => {
                     >
                       <div style={{ display: 'flex', alignItems: 'center' }}>
                         <ArrowDownwardIcon style={{ marginRight: '8px' }} />
-                        <span>Email</span>
+                        <span>Issue Date</span>
+                      </div>
+                    </th>
+                    <th
+                      style={{
+                        padding: '8px',
+                        textAlign: 'left',
+                        backgroundColor: 'lightgray'
+                      }}
+                    >
+                      <div style={{ display: 'flex', alignItems: 'center' }}>
+                        <ArrowDownwardIcon style={{ marginRight: '8px' }} />
+                        <span>Return Date</span>
                       </div>
                     </th>
 
@@ -202,7 +296,7 @@ const BookIssueLayout = () => {
                     >
                       <div style={{ display: 'flex', alignItems: 'center' }}>
                         <ArrowDownwardIcon style={{ marginRight: '8px' }} />
-                        <span>Action</span>
+                        <span>Status</span>
                       </div>
                     </th>
                   </tr>
@@ -212,7 +306,11 @@ const BookIssueLayout = () => {
                   <tr style={{ borderBottom: '1px solid #ddd' }}>
                     <td style={{ padding: '8px' }}></td>
                     <td style={{ padding: '8px' }}></td>
-                    <td style={{ padding: '8px' }}>No Data Available in Table</td>
+                    <td style={{ padding: '8px' }}></td>
+                    <td style={{ padding: '8px' }}></td>
+                    <td style={{ padding: '8px' }}>No Data Available </td>
+                    <td style={{ padding: '8px' }}></td>
+                    <td style={{ padding: '8px' }}></td>
                     <td style={{ padding: '8px' }}></td>
                     <td style={{ padding: '8px' }}></td>
                   </tr>
@@ -268,4 +366,4 @@ const BookIssueLayout = () => {
   )
 }
 
-export default BookIssueLayout
+export default StaffDirectoryLayout

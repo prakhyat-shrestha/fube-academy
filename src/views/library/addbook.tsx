@@ -5,18 +5,15 @@ import Card from '@mui/material/Card'
 import CardContent from '@mui/material/CardContent'
 
 import Button from '@mui/material/Button'
-
-import SearchSharpIcon from '@mui/icons-material/SearchSharp'
-import AddSharpIcon from '@mui/icons-material/AddSharp'
+import CheckSharpIcon from '@mui/icons-material/CheckSharp'
 
 import CustomTextField from '@core/components/mui/TextField'
-import TextField from '@core/components/mui/TextField'
 
 const AddBookLayout = () => {
   return (
     <>
       <div className='flex'>
-        <Typography variant='h6' component='h3'>
+        <Typography variant='h5' component='h3'>
           Add Book
         </Typography>
         <nav style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center' }}>
@@ -29,7 +26,7 @@ const AddBookLayout = () => {
               Library
             </Link>
             <span style={{ marginRight: '35px' }}>|</span>
-            <Link href='#'>Multi Class Student</Link>
+            <Link href='#'>Add Book</Link>
           </Typography>
         </nav>
       </div>
@@ -54,13 +51,14 @@ const AddBookLayout = () => {
               <CustomTextField
                 select
                 fullWidth
-                defaultValue='class'
-                label='CLASS'
+                required
+                defaultValue='book'
+                label='BOOK CATEGORIES'
                 id='custom-select'
                 style={{ margin: '20px 35px 0 0 ', width: '65%' }}
               >
                 <CustomTextField placeholder='Search...' style={{ padding: '0 6px 8px 6px', width: '100%' }} />
-                <MenuItem value='class'>
+                <MenuItem value='book'>
                   <span style={{ fontStyle: 'normal' }}>Select Book Category*</span>
                 </MenuItem>
                 <MenuItem value='ECED'>ECED</MenuItem>
@@ -103,7 +101,7 @@ const AddBookLayout = () => {
               />
               <CustomTextField
                 fullWidth
-                label='SUBJECT'
+                label='AUTHOR NAME'
                 id='custom-select'
                 style={{ margin: '20px 35px 0 0 ', width: '65%' }}
               />
@@ -135,9 +133,9 @@ const AddBookLayout = () => {
               <CustomTextField label='DESCRIPTION' variant='outlined' multiline rows={4} fullWidth />
             </div>
 
-            <div className='container' style={{ display: 'flex', marginLeft: '90%' }}>
-              <Button variant='contained' startIcon={<SearchSharpIcon />}>
-                SEARCH
+            <div className='container' style={{ display: 'flex', marginTop: '25px', marginLeft: '45%' }}>
+              <Button variant='contained' startIcon={<CheckSharpIcon />}>
+                SAVE BOOK
               </Button>
             </div>
           </CardContent>

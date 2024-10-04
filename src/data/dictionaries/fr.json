@@ -83,6 +83,9 @@
     "student": "Utilisateur",
     "behaviourrecords": "Enregistrements De Comportement",
     "library": "Bibliothèque",
-    "fee": "Frais"
+    "fee": "Frais",
+    "examplan": "Plan d'examen",
+    "onlineexam": "Examen en ligne",
+    "hr": "Ressources humaines"
   }
 }

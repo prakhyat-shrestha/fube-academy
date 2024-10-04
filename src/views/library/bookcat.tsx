@@ -50,7 +50,7 @@ const BookCategoryLayout = () => {
     <>
       <div className='flex '>
         <Typography variant='h6' component='h3'>
-          Book Category
+          Book Categories
         </Typography>
         <nav style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center' }}>
           <Typography variant='h6' component='h3' style={{ display: 'flex', alignItems: 'center' }}>
@@ -62,7 +62,7 @@ const BookCategoryLayout = () => {
               Library
             </Link>
             <span style={{ marginRight: '35px' }}>|</span>
-            <Link href='#'>Book Category</Link>
+            <Link href='#'>Book Categories</Link>
           </Typography>
         </nav>
       </div>

@@ -66,13 +66,13 @@ const AllIssuedBookLayout = () => {
               <CustomTextField
                 select
                 fullWidth
-                defaultValue='select'
+                defaultValue='book'
                 label='BOOK'
                 id='custom-select'
                 style={{ margin: '20px 35px 0 0 ', width: '65%' }}
               >
                 <CustomTextField required placeholder='Search...' style={{ padding: '0 6px 8px 6px', width: '100%' }} />
-                <MenuItem value='year'>
+                <MenuItem value='book'>
                   <span style={{ fontStyle: 'normal' }}>Select Book Name*</span>
                 </MenuItem>
                 <MenuItem value={'Select'}>Select</MenuItem>
@@ -92,7 +92,7 @@ const AllIssuedBookLayout = () => {
                 <MenuItem value='subject'>Select Subjects</MenuItem>
               </CustomTextField>
             </div>
-            <div className='container' style={{ display: 'flex', marginLeft: '89%', marginTop: '20px' }}>
+            <div className='container' style={{ display: 'flex', marginLeft: '90%', marginTop: '20px' }}>
               <Button variant='contained' startIcon={<SearchSharpIcon />}>
                 SEARCH
               </Button>
@@ -105,7 +105,9 @@ const AllIssuedBookLayout = () => {
         <Card sx={{ width: '100%', height: '105%' }}>
           <CardContent>
             <div style={{ display: 'flex', alignItems: 'center' }}>
-              <Typography variant='h6' component='h3' style={{ flex: 1, marginRight: '16%' }}></Typography>
+              <Typography variant='h6' component='h3' style={{ flex: 1, marginRight: '16%' }}>
+                All Issued Book
+              </Typography>
               <div style={{ flexGrow: 1 }}>
                 <TextField
                   id='standard-search'
