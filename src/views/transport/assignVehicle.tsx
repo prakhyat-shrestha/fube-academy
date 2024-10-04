@@ -16,10 +16,6 @@ import { Icon } from '@iconify/react/dist/iconify.js'
 import { createTheme } from '@mui/material/styles'
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack'
-import Radio from '@mui/material/Radio'
-import RadioGroup from '@mui/material/RadioGroup'
-import FormControl from '@mui/material/FormControl'
-import FormControlLabel from '@mui/material/FormControlLabel'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
 
 const AssignVehicleList = () => {
@@ -67,7 +63,7 @@ const AssignVehicleList = () => {
       <div className='flex' style={{ display: 'flex' }}>
         {/* Add fees group first card */}
         <div className='feesGroup mt-4'>
-          <Card sx={{ width: 280, height: 260 }}>
+          <Card sx={{ width: 280, height: 275 }}>
             <CardContent>
               <Typography variant='h6' component='h3'>
                 Add Assign Vehicle
@@ -85,12 +81,7 @@ const AssignVehicleList = () => {
                   <span style={{ fontStyle: 'normal' }}>SELECT ROUTES *</span>
                 </MenuItem>
               </CustomTextField>
-              <FormControl className='flex-wrap flex-row mt-3'>
-                <RadioGroup row defaultValue='checked' name='basic-radio' aria-label='basic-radio'>
-                  <FormControlLabel value='checked' control={<Radio />} label='Checked' />
-                  <FormControlLabel value='unchecked' control={<Radio />} label='Unchecked' />
-                </RadioGroup>
-              </FormControl>
+              <CustomTextField label='VEHICLE' required style={{ marginTop: '20px', width: '100%' }} />
             </CardContent>
             <CardActions style={{ justifyContent: 'center' }}>
               <Button variant='contained'>

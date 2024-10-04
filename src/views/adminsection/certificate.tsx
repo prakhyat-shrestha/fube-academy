@@ -167,7 +167,7 @@ const CertificateLayout = () => {
           <Card sx={{ width: '102%', height: '25%' }}>
             <CardContent>
               <div style={{ display: 'flex', alignItems: 'center' }}>
-                <Typography variant='h6' component='h3' style={{ flex: 1, marginRight: '16%' }}>
+                <Typography variant='h6' component='h3' style={{ marginRight: '10%' }}>
                   Certificate List
                 </Typography>
                 <div style={{ flexGrow: 1 }}>

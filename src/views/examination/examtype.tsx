@@ -1,25 +1,25 @@
 'use client'
 import * as React from 'react'
-import Card from '@mui/material/Card'
-import CardActions from '@mui/material/CardActions'
-import CardContent from '@mui/material/CardContent'
-import Button from '@mui/material/Button'
 import CustomTextField from '@/@core/components/mui/TextField'
-import { Typography, MenuItem } from '@mui/material'
 import CheckSharpIcon from '@mui/icons-material/CheckSharp'
-import { TextField, InputAdornment } from '@mui/material'
+import { TextField, InputAdornment, Card, CardActions, CardContent, Button, Typography, Checkbox } from '@mui/material'
 import SearchSharpIcon from '@mui/icons-material/SearchSharp'
 import ButtonGroup from '@mui/material/ButtonGroup'
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 import Link from 'next/link'
 import { Icon } from '@iconify/react/dist/iconify.js'
 import { createTheme } from '@mui/material/styles'
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
+import AddSharpIcon from '@mui/icons-material/AddSharp'
+import FormControlLabel from '@mui/material/FormControlLabel'
+import SettingsIcon from '@mui/icons-material/Settings'
 
-const VehicleList = () => {
+const ExamTypeLayout = () => {
   const textFieldRef = useRef<HTMLInputElement>(null)
+  const [isChecked, setIsChecked] = useState(false)
+  const [cardHeight, setCardHeight] = useState(270)
 
   const handleFocus = () => {
     if (textFieldRef.current) {
@@ -40,58 +40,66 @@ const VehicleList = () => {
       }
     }
   })
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setIsChecked(event.target.checked)
+    setCardHeight(event.target.checked ? 350 : 270)
+  }
+
   return (
     <>
       <div className='flex '>
         <Typography variant='h6' component='h3'>
-          Vehicle
+          Exam Type
         </Typography>
-        <nav style={{ marginLeft: '70%' }}>
+        <nav style={{ marginLeft: '66%' }}>
           <Typography variant='h6' component='h3' style={{ display: 'flex', alignItems: 'center' }}>
-            <Link href='#' style={{ marginRight: '30px' }}>
+            <Link href='#' style={{ marginRight: '25px' }}>
               Dashboard
             </Link>
             <span style={{ marginRight: '10px' }}>|</span>
-            <Link href='#' style={{ marginRight: '30px' }}>
-              Transport
+            <Link href='#' style={{ marginRight: '25px' }}>
+              Examination
             </Link>
-            <span style={{ marginRight: '30px' }}>|</span>
-            <Link href='#'>Vehicle</Link>
+            <span style={{ marginRight: '25px' }}>|</span>
+            <Link href='#'>Exam Type</Link>
           </Typography>
         </nav>
       </div>
       <div className='flex' style={{ display: 'flex' }}>
-        {/* Add fees group first card */}
-        <div className='feesGroup mt-4'>
-          <Card sx={{ width: 280, height: 560 }}>
+        {/* Add exam type first card */}
+        <div className='examtype mt-4'>
+          <Card sx={{ width: 280, height: cardHeight }}>
             <CardContent>
               <Typography variant='h6' component='h3'>
-                Add Route
+                Add Exam Type
               </Typography>
               <Typography variant='body2' component='div'>
-                <CustomTextField required label='VEHICLE NUMBER' style={{ marginTop: 20, width: '100%' }} />
+                <CustomTextField required label='NAME' style={{ marginTop: 20, width: '100%' }} />
               </Typography>
-              <Typography variant='body2' component='div'>
-                <CustomTextField required label='VEHICLE MODEL' style={{ marginTop: 20, width: '100%' }} />
-              </Typography>
-              <Typography variant='body2' component='div'>
-                <CustomTextField required label='YEAR MADE' style={{ marginTop: 20, width: '100%' }} />
-              </Typography>
-              <CustomTextField
-                select
-                fullWidth
-                defaultValue='SELECT DRIVER'
-                label='DRIVER*'
-                id='custom-select'
-                style={{ marginTop: '20px', width: '100%' }}
-              >
-                <CustomTextField placeholder='Search...' style={{ padding: '0 6px 8px 6px', width: '100%' }} />
-                <MenuItem value='SELECT DRIVER'>
-                  <span style={{ fontStyle: 'normal' }}>SELECT DRIVER *</span>
-                </MenuItem>
-              </CustomTextField>
-              <Typography variant='body2' component='div'>
-                <CustomTextField label='NOTE' multiline rows={3} style={{ marginTop: 20, width: '100%' }} />
+              <Typography variant='body2' component='div' style={{ marginTop: '10px' }}>
+                <span style={{ fontSize: '1rem' }}>Average Passing Examination</span>
+                <FormControlLabel
+                  label='Yes'
+                  value='yes'
+                  control={
+                    <Checkbox
+                      name='size-small'
+                      checked={isChecked}
+                      checkedIcon={<i className='tabler-circle-check-filled' />}
+                      onChange={handleChange}
+                      icon={<i className='tabler-circle' />}
+                    />
+                  }
+                />
+                {isChecked && (
+                  <CustomTextField
+                    label='Average Marks'
+                    required
+                    style={{ marginTop: 20, width: '100%', fontSize: '1rem' }}
+                    InputLabelProps={{ style: { fontSize: '1rem' } }}
+                  />
+                )}
               </Typography>
             </CardContent>
             <CardActions style={{ justifyContent: 'center' }}>
@@ -103,13 +111,23 @@ const VehicleList = () => {
           </Card>
         </div>
 
-        {/* Fees Group list 2nd card */}
-        <div className='feesList mt-4 mx-6' style={{ flex: 1 }}>
-          <Card sx={{ width: '102%', height: 280 }}>
+        {/* Exam Type list 2nd card */}
+        <div className='examtypelist mt-4 mx-6' style={{ flex: 1 }}>
+          <Card sx={{ width: '102%', height: 450 }}>
             <CardContent>
+              <div style={{ display: 'flex', justifyContent: 'flex-end', alignContent: 'flex-end' }}>
+                <Button
+                  variant='contained'
+                  href='/examsetup'
+                  startIcon={<AddSharpIcon />}
+                  style={{ marginBottom: '10px' }}
+                >
+                  EXAM SETUP
+                </Button>
+              </div>
               <div style={{ display: 'flex', alignItems: 'center' }}>
                 <Typography variant='h6' component='h3' style={{ flex: 1, marginRight: '16%' }}>
-                  Route List
+                  Exam Type List
                 </Typography>
                 <div style={{ flexGrow: 1 }}>
                   <TextField
@@ -189,7 +207,7 @@ const VehicleList = () => {
                       >
                         <div style={{ display: 'flex', alignItems: 'center' }}>
                           <ArrowDownwardIcon style={{ marginRight: '8px' }} />
-                          <span>Vehicle No</span>
+                          <span>SL</span>
                         </div>
                       </th>
                       <th
@@ -201,7 +219,7 @@ const VehicleList = () => {
                       >
                         <div style={{ display: 'flex', alignItems: 'center' }}>
                           <ArrowDownwardIcon style={{ marginRight: '8px' }} />
-                          <span>Model No</span>
+                          <span>Exam Name</span>
                         </div>
                       </th>
                       <th
@@ -213,7 +231,7 @@ const VehicleList = () => {
                       >
                         <div style={{ display: 'flex', alignItems: 'center' }}>
                           <ArrowDownwardIcon style={{ marginRight: '8px' }} />
-                          <span>Year Made</span>
+                          <span>Is Average Passing Exam</span>
                         </div>
                       </th>
                       <th
@@ -225,31 +243,7 @@ const VehicleList = () => {
                       >
                         <div style={{ display: 'flex', alignItems: 'center' }}>
                           <ArrowDownwardIcon style={{ marginRight: '8px' }} />
-                          <span>Driver Name</span>
-                        </div>
-                      </th>
-                      <th
-                        style={{
-                          padding: '8px',
-                          textAlign: 'left',
-                          backgroundColor: 'lightgray'
-                        }}
-                      >
-                        <div style={{ display: 'flex', alignItems: 'center' }}>
-                          <ArrowDownwardIcon style={{ marginRight: '8px' }} />
-                          <span>Driver License</span>
-                        </div>
-                      </th>
-                      <th
-                        style={{
-                          padding: '8px',
-                          textAlign: 'left',
-                          backgroundColor: 'lightgray'
-                        }}
-                      >
-                        <div style={{ display: 'flex', alignItems: 'center' }}>
-                          <ArrowDownwardIcon style={{ marginRight: '8px' }} />
-                          <span>Phone</span>
+                          <span>Average Mark</span>
                         </div>
                       </th>
                       <th
@@ -269,13 +263,55 @@ const VehicleList = () => {
                   </thead>
                   <tbody>
                     <tr style={{ borderBottom: '1px solid #ddd' }}>
-                      <td style={{ padding: '8px' }}></td>
-                      <td style={{ padding: '8px' }}></td>
-                      <td style={{ padding: '8px' }}></td>
-                      <td style={{ padding: '8px' }}>No Data Availabe in Table</td>
-                      <td style={{ padding: '8px' }}></td>
-                      <td style={{ padding: '8px' }}></td>
-                      <td style={{ padding: '8px' }}></td>
+                      <td style={{ padding: '2% 0 2% 3%' }}>Sample Name 1</td>
+                      <td style={{ padding: '2% 0 2% 3%' }}>Sample Description 1</td>
+                      <td style={{ padding: '2% 0 2% 3%' }}>Sample Description 1</td>
+                      <td style={{ padding: '2% 0 2% 3%' }}>Sample Description 1</td>
+                      <td style={{ padding: '2% 0 2% 3%' }}>
+                        <div className='btn' style={{ display: 'flex', justifyContent: 'space-between' }}>
+                          <Button variant='outlined' size='small' style={{ borderRadius: '20px' }}>
+                            SELECT <ArrowDownwardIcon />
+                          </Button>
+                          <Button variant='outlined' href='/examsetup' size='small' style={{ borderRadius: '20px' }}>
+                            <SettingsIcon />
+                            EXAM SETUP
+                          </Button>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr style={{ borderBottom: '1px solid #ddd' }}>
+                      <td style={{ padding: '2% 0 2% 3%' }}>Sample Name 2</td>
+                      <td style={{ padding: '2% 0 2% 3%' }}>Sample Description 2</td>
+                      <td style={{ padding: '2% 0 2% 3%' }}>Sample Description 2</td>
+                      <td style={{ padding: '2% 0 2% 3%' }}>Sample Description 2</td>
+                      <td style={{ padding: '2% 0 2% 3%' }}>
+                        <div className='btn' style={{ display: 'flex', justifyContent: 'space-between' }}>
+                          <Button variant='outlined' size='small' style={{ borderRadius: '20px' }}>
+                            SELECT <ArrowDownwardIcon />
+                          </Button>
+                          <Button variant='outlined' size='small' href='/examsetup' style={{ borderRadius: '20px' }}>
+                            <SettingsIcon />
+                            EXAM SETUP
+                          </Button>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr style={{ borderBottom: '1px solid #ddd' }}>
+                      <td style={{ padding: '2% 0 2% 3%' }}>Sample Name 3</td>
+                      <td style={{ padding: '2% 0 2% 3%' }}>Sample Description 3</td>
+                      <td style={{ padding: '2% 0 2% 3%' }}>Sample Description 3</td>
+                      <td style={{ padding: '2% 0 2% 3%' }}>Sample Description 3</td>
+                      <td style={{ padding: '2% 0 2% 3%' }}>
+                        <div className='btn' style={{ display: 'flex', justifyContent: 'space-between' }}>
+                          <Button variant='outlined' size='small' style={{ borderRadius: '20px' }}>
+                            SELECT <ArrowDownwardIcon />
+                          </Button>
+                          <Button variant='outlined' size='small' href='/examsetup' style={{ borderRadius: '20px' }}>
+                            <SettingsIcon />
+                            EXAM SETUP
+                          </Button>
+                        </div>
+                      </td>
                     </tr>
                   </tbody>
                 </table>
@@ -284,7 +320,7 @@ const VehicleList = () => {
             {/* Pagination */}
             <div style={{ display: 'flex', justifyContent: 'space-between', padding: '16px' }}>
               <Typography variant='body2' style={{ marginLeft: '16px' }}>
-                Showing 0 to 0 of 0 entries
+                Showing 1 to 3 of 3 entries
               </Typography>
               <div
                 style={{
@@ -342,4 +378,4 @@ const VehicleList = () => {
   )
 }
 
-export default VehicleList
+export default ExamTypeLayout

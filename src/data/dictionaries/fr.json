@@ -93,6 +93,10 @@
     "bulkprint": "Impression en masse",
     "downloadcenter": "Centre de téléchargement",
     "behaviourrecords": "Enregistrements de comportement",
-    "dormitory": "Dortoir"
+    "dormitory": "Dortoir",
+    "examination": "Examen",
+    "teacherevaluation": "Évaluation des enseignants",
+    "leave": "Partir",
+    "roleandpermission": "Rôle et autorisation"
   }
 }

@@ -6,7 +6,6 @@ import CardContent from '@mui/material/CardContent'
 import CustomTextField from '@core/components/mui/TextField'
 import Button from '@mui/material/Button'
 import SearchSharpIcon from '@mui/icons-material/SearchSharp'
-import AddSharpIcon from '@mui/icons-material/AddSharp'
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
@@ -14,7 +13,7 @@ import ButtonGroup from '@mui/material/ButtonGroup'
 import { useRef } from 'react'
 import { Icon } from '@iconify/react/dist/iconify.js'
 
-const HomeworkListGroup = () => {
+const TeacherWiseEvaluationReportLayout = () => {
   const textFieldRef = useRef<HTMLInputElement>(null)
 
   const handleFocus = () => {
@@ -32,7 +31,7 @@ const HomeworkListGroup = () => {
     <>
       <div className='flex'>
         <Typography variant='h6' component='h3'>
-          Homework List
+          Teacher Wise Evaluation Report
         </Typography>
         <nav style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center' }}>
           <Typography variant='h6' component='h3' style={{ display: 'flex', alignItems: 'center' }}>
@@ -41,67 +40,50 @@ const HomeworkListGroup = () => {
             </Link>
             <span style={{ marginRight: '10px' }}>|</span>
             <Link href='#' style={{ marginRight: '35px' }}>
-              Homework
+              Teacher Evaluation
             </Link>
             <span style={{ marginRight: '35px' }}>|</span>
-            <Link href='#'>Homework List</Link>
+            <Link href='#'>Teacher Wise Evaluation Report</Link>
           </Typography>
         </nav>
       </div>
-      <div className='feesList mt-4' style={{ flex: 1 }}>
+      <div className='teacherwise mt-4' style={{ flex: 1 }}>
         <Card sx={{ width: '100%', height: '105%' }}>
           <CardContent>
             <div className='container' style={{ display: 'flex', gap: '75.25%' }}>
               <Typography variant='h6' component='h4'>
-                Select Criteria
+                Teacher Wise Evaluation Report
               </Typography>
-              <Button variant='contained' startIcon={<AddSharpIcon />}>
-                ADD HOMEWORK
-              </Button>
             </div>
 
             <div className='container' style={{ display: 'flex' }}>
               <CustomTextField
                 select
                 fullWidth
-                defaultValue='Fees Group'
-                label='CLASS*'
+                defaultValue='teacher'
+                label='TEACHER'
                 id='custom-select'
-                style={{ margin: '20px 40px 0 0 ', width: '60%' }}
+                style={{ margin: '20px 40px 0 0 ', width: '50%' }}
               >
                 <CustomTextField placeholder='Search...' style={{ padding: '0 6px 8px 6px', width: '100%' }} />
-                <MenuItem value='Fees Group'>
-                  <span style={{ fontStyle: 'normal' }}>Fees Group</span>
-                </MenuItem>
-                <MenuItem value={'School Fee'}>School Fee</MenuItem>
-                <MenuItem value={'Plus Two Fee'}>Plus Two Fee</MenuItem>
-                <MenuItem value={'Bachelor Fee'}>Bachelor Fee</MenuItem>
-              </CustomTextField>
-              <CustomTextField
-                select
-                fullWidth
-                defaultValue='Fees Group'
-                label='SUBJECT*'
-                id='custom-select'
-                style={{ margin: '20px 40px 0 0 ', width: '60%' }}
-              >
-                <CustomTextField placeholder='Search...' style={{ padding: '0 6px 8px 6px', width: '100%' }} />
-                <MenuItem value='Fees Group'>
-                  <span style={{ fontStyle: 'normal' }}>Fees Group</span>
+                <MenuItem value='teacher'>
+                  <span style={{ fontStyle: 'normal' }}>Select Teacher </span>
                 </MenuItem>
               </CustomTextField>
               <CustomTextField
                 select
                 fullWidth
-                defaultValue='Fees Group'
-                label='SECTION*'
+                defaultValue='submitted'
+                label='SUBMITTED BY'
                 id='custom-select'
-                style={{ marginTop: '20px', width: '60%' }}
+                style={{ marginTop: '20px', width: '50%' }}
               >
                 <CustomTextField placeholder='Search...' style={{ padding: '0 6px 8px 6px', width: '100%' }} />
-                <MenuItem value='Fees Group'>
-                  <span style={{ fontStyle: 'normal' }}>UNSELECT ALL</span>
+                <MenuItem value='submitted'>
+                  <span style={{ fontStyle: 'normal' }}>Select Submitted By</span>
                 </MenuItem>
+                <MenuItem value='one'>Parent</MenuItem>
+                <MenuItem value='two'>Student</MenuItem>
               </CustomTextField>
             </div>
             <div
@@ -116,12 +98,12 @@ const HomeworkListGroup = () => {
         </Card>
       </div>
       {/* ---- Table Section ----*/}
-      <div className='feesList mt-7 ' style={{ flex: 1 }}>
+      <div className='teacherwiseList mt-7 ' style={{ flex: 1 }}>
         <Card sx={{ width: '100%', height: '105%' }}>
           <CardContent>
             <div style={{ display: 'flex', alignItems: 'center' }}>
-              <Typography variant='h6' component='h3' style={{ flex: 1, marginRight: '16%' }}>
-                Homework List
+              <Typography variant='h6' component='h3' style={{ flex: 1, marginRight: '12%' }}>
+                Teacher Wise Evaluation Report List
               </Typography>
               <div style={{ flexGrow: 1 }}>
                 <TextField
@@ -202,7 +184,7 @@ const HomeworkListGroup = () => {
                     >
                       <div style={{ display: 'flex', alignItems: 'center' }}>
                         <ArrowDownwardIcon style={{ marginRight: '8px' }} />
-                        <span>Si </span>
+                        <span>Staff Id </span>
                       </div>
                     </th>
                     <th
@@ -215,7 +197,7 @@ const HomeworkListGroup = () => {
                     >
                       <div style={{ display: 'flex', alignItems: 'center' }}>
                         <ArrowDownwardIcon style={{ marginRight: '8px' }} />
-                        <span>Class </span>
+                        <span>Teacher Name </span>
                       </div>
                     </th>
                     <th
@@ -228,7 +210,7 @@ const HomeworkListGroup = () => {
                     >
                       <div style={{ display: 'flex', alignItems: 'center' }}>
                         <ArrowDownwardIcon style={{ marginRight: '8px' }} />
-                        <span>Section </span>
+                        <span>Submitted By </span>
                       </div>
                     </th>
                     <th
@@ -241,7 +223,7 @@ const HomeworkListGroup = () => {
                     >
                       <div style={{ display: 'flex', alignItems: 'center' }}>
                         <ArrowDownwardIcon style={{ marginRight: '8px' }} />
-                        <span>Subject </span>
+                        <span>Class(Section) </span>
                       </div>
                     </th>
                     <th
@@ -253,7 +235,7 @@ const HomeworkListGroup = () => {
                     >
                       <div style={{ display: 'flex', alignItems: 'center' }}>
                         <ArrowDownwardIcon style={{ marginRight: '8px' }} />
-                        <span>Marks</span>
+                        <span>Rating</span>
                       </div>
                     </th>
                     <th
@@ -265,7 +247,7 @@ const HomeworkListGroup = () => {
                     >
                       <div style={{ display: 'flex', alignItems: 'center' }}>
                         <ArrowDownwardIcon style={{ marginRight: '8px' }} />
-                        <span>Homework Date</span>
+                        <span>Comment</span>
                       </div>
                     </th>
                     <th
@@ -277,31 +259,7 @@ const HomeworkListGroup = () => {
                     >
                       <div style={{ display: 'flex', alignItems: 'center' }}>
                         <ArrowDownwardIcon style={{ marginLeft: '8px' }} />
-                        <span>Submission Date</span>
-                      </div>
-                    </th>
-                    <th
-                      style={{
-                        padding: '8px',
-                        textAlign: 'left',
-                        backgroundColor: 'lightgray'
-                      }}
-                    >
-                      <div style={{ display: 'flex', alignItems: 'center' }}>
-                        <ArrowDownwardIcon style={{ marginRight: '8px' }} />
-                        <span>Evaluation Date</span>
-                      </div>
-                    </th>
-                    <th
-                      style={{
-                        padding: '8px',
-                        textAlign: 'left',
-                        backgroundColor: 'lightgray'
-                      }}
-                    >
-                      <div style={{ display: 'flex', alignItems: 'center' }}>
-                        <ArrowDownwardIcon style={{ marginRight: '8px' }} />
-                        <span>Created By</span>
+                        <span>Status </span>
                       </div>
                     </th>
                     <th
@@ -322,8 +280,6 @@ const HomeworkListGroup = () => {
                 {/*----- Table body section ----- */}
                 <tbody>
                   <tr style={{ borderBottom: '1px solid #ddd' }}>
-                    <td style={{ padding: '8px' }}></td>
-                    <td style={{ padding: '8px' }}></td>
                     <td style={{ padding: '8px' }}></td>
                     <td style={{ padding: '8px' }}></td>
                     <td style={{ padding: '8px' }}></td>
@@ -383,4 +339,4 @@ const HomeworkListGroup = () => {
   )
 }
 
-export default HomeworkListGroup
+export default TeacherWiseEvaluationReportLayout

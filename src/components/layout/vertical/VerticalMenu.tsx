@@ -168,6 +168,34 @@ const VerticalMenu = ({ dictionary, scrollMenu }: Props) => {
           <MenuItem href={'/dormitory'}>Dormitory</MenuItem>
           <MenuItem href={'/roomtype'}>Room Type</MenuItem>
         </SubMenu>
+        <SubMenu label={dictionary['navigation'].examination} icon={<i className='tabler-map' />}>
+          <MenuItem href={'/examtype'}>Exam Type</MenuItem>
+          <MenuItem href={'/examsetup'}>Exam Setup</MenuItem>
+          <MenuItem href={'/examschedule'}>Exam Schedule</MenuItem>
+          <MenuItem href={'/examattendance'}>Exam Attendance</MenuItem>
+          <MenuItem href={'/marksregister'}>Marks Register</MenuItem>
+          <MenuItem href={'/marksgrade'}>Marks Grade</MenuItem>
+          <MenuItem href={'/sendmarksbysms'}>Send Marks By SMS</MenuItem>
+          <MenuItem href={'/marksheetreport'}>Marksheet Report</MenuItem>
+        </SubMenu>
+        <SubMenu label={dictionary['navigation'].teacherevaluation} icon={<i className='tabler-star' />}>
+          <MenuItem href={'/approvedevalutaionreport'}>Approved Evaluation Report</MenuItem>
+          <MenuItem href={'/pendingevalutaionreport'}>Pending Evaluation Report</MenuItem>
+          <MenuItem href={'/teacherwisevalutaionreport'}>Teacher Wise Evaluation Report</MenuItem>
+          <MenuItem href={'/teachersettings'}>Settings</MenuItem>
+        </SubMenu>
+        <SubMenu label={dictionary['navigation'].leave} icon={<i className='tabler-bed-flat' />}>
+          <MenuItem href={'/applyleave'}>AppLy Leave</MenuItem>
+          <MenuItem href={'/approveleaverequest'}>Approve Leave Request</MenuItem>
+          <MenuItem href={'/pendingleaverequest'}>Pending Leave Request</MenuItem>
+          <MenuItem href={'/leavedefine'}>Leave Define</MenuItem>
+          <MenuItem href={'/leavetype'}>Leave Type</MenuItem>
+        </SubMenu>
+        <SubMenu label={dictionary['navigation'].roleandpermission} icon={<i className='tabler-user-shield' />}>
+          <MenuItem href={'/loginpermission'}>Login Permission</MenuItem>
+          <MenuItem href={'/role'}>Role</MenuItem>
+          <MenuItem href={'/duefeesloginpermission'}>Due Fees Login Permission</MenuItem>
+        </SubMenu>
         <SubMenu label={dictionary['navigation'].feesreport} icon={<i className='tabler-report' />}>
           <MenuItem href={'/feesdue'}>Fees Due Report</MenuItem>
           <MenuItem href={'/fine'}>Fine Report</MenuItem>

@@ -9,7 +9,7 @@ import React, { useState } from 'react'
 import Option from './option'
 
 const FeesInvoiceSettingLayout = () => {
-  const [selectedValue, setSelectedValue] = useState('one')
+  const [selectedValue, setSelectedValue] = useState('')
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value

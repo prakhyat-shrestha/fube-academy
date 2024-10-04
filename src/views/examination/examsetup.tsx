@@ -1,24 +1,29 @@
 'use client'
 import * as React from 'react'
-import Card from '@mui/material/Card'
-import CardActions from '@mui/material/CardActions'
-import CardContent from '@mui/material/CardContent'
-import Button from '@mui/material/Button'
+import {
+  Button,
+  Card,
+  CardActions,
+  CardContent,
+  TextField,
+  InputAdornment,
+  ButtonGroup,
+  createTheme,
+  MenuItem,
+  Divider
+} from '@mui/material'
 import CustomTextField from '@/@core/components/mui/TextField'
-import { Typography, MenuItem } from '@mui/material'
+import Typography from '@mui/material/Typography'
 import CheckSharpIcon from '@mui/icons-material/CheckSharp'
-import { TextField, InputAdornment } from '@mui/material'
 import SearchSharpIcon from '@mui/icons-material/SearchSharp'
-import ButtonGroup from '@mui/material/ButtonGroup'
 import { useRef } from 'react'
 import Link from 'next/link'
 import { Icon } from '@iconify/react/dist/iconify.js'
-import { createTheme } from '@mui/material/styles'
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
 
-const VehicleList = () => {
+const ExamSetupLayout = () => {
   const textFieldRef = useRef<HTMLInputElement>(null)
 
   const handleFocus = () => {
@@ -40,59 +45,137 @@ const VehicleList = () => {
       }
     }
   })
+
   return (
     <>
       <div className='flex '>
         <Typography variant='h6' component='h3'>
-          Vehicle
+          Exam Setup
         </Typography>
-        <nav style={{ marginLeft: '70%' }}>
+        <nav style={{ marginLeft: '64%' }}>
           <Typography variant='h6' component='h3' style={{ display: 'flex', alignItems: 'center' }}>
-            <Link href='#' style={{ marginRight: '30px' }}>
+            <Link href='#' style={{ marginRight: '25px' }}>
               Dashboard
             </Link>
             <span style={{ marginRight: '10px' }}>|</span>
-            <Link href='#' style={{ marginRight: '30px' }}>
-              Transport
+            <Link href='#' style={{ marginRight: '25px' }}>
+              Examination
             </Link>
-            <span style={{ marginRight: '30px' }}>|</span>
-            <Link href='#'>Vehicle</Link>
+            <span style={{ marginRight: '25px' }}>|</span>
+            <Link href='#'>Exam Setup</Link>
           </Typography>
         </nav>
       </div>
       <div className='flex' style={{ display: 'flex' }}>
-        {/* Add fees group first card */}
-        <div className='feesGroup mt-4'>
-          <Card sx={{ width: 280, height: 560 }}>
+        {/* Exam  first card */}
+        <div className='exam mt-4'>
+          <Card sx={{ width: 300, height: 505 }}>
             <CardContent>
               <Typography variant='h6' component='h3'>
-                Add Route
-              </Typography>
-              <Typography variant='body2' component='div'>
-                <CustomTextField required label='VEHICLE NUMBER' style={{ marginTop: 20, width: '100%' }} />
-              </Typography>
-              <Typography variant='body2' component='div'>
-                <CustomTextField required label='VEHICLE MODEL' style={{ marginTop: 20, width: '100%' }} />
-              </Typography>
-              <Typography variant='body2' component='div'>
-                <CustomTextField required label='YEAR MADE' style={{ marginTop: 20, width: '100%' }} />
+                Add Exam
               </Typography>
               <CustomTextField
                 select
                 fullWidth
-                defaultValue='SELECT DRIVER'
-                label='DRIVER*'
+                defaultValue='exam'
+                label='EXAM SYSTEM *'
                 id='custom-select'
-                style={{ marginTop: '20px', width: '100%' }}
+                style={{ margin: '20px 40px 0 0 ', width: '100%' }}
               >
                 <CustomTextField placeholder='Search...' style={{ padding: '0 6px 8px 6px', width: '100%' }} />
-                <MenuItem value='SELECT DRIVER'>
-                  <span style={{ fontStyle: 'normal' }}>SELECT DRIVER *</span>
+                <MenuItem value='exam'>
+                  <span style={{ fontStyle: 'normal' }}>Exam System *</span>
+                </MenuItem>
+                <MenuItem value='one'>
+                  <span style={{ fontStyle: 'normal' }}>Single Exam</span>
+                </MenuItem>
+                <MenuItem value='two'>
+                  <span style={{ fontStyle: 'normal' }}>Multi Exam</span>
                 </MenuItem>
               </CustomTextField>
-              <Typography variant='body2' component='div'>
-                <CustomTextField label='NOTE' multiline rows={3} style={{ marginTop: 20, width: '100%' }} />
-              </Typography>
+              <CustomTextField
+                label='EXAM MARK *'
+                id='custom-select'
+                style={{ margin: '20px 40px 0 0 ', width: '100%' }}
+              />
+              <div className='title'>
+                <div className='combo' style={{ display: 'flex', marginTop: '20px', justifyContent: 'space-between' }}>
+                  <span style={{ fontWeight: 'bolder' }}>Add Mark Distributions</span>
+                  <Button
+                    variant='contained'
+                    style={{
+                      borderRadius: '50%',
+                      width: '25px',
+                      height: '25px',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      fontSize: '25px',
+                      padding: '0',
+                      minWidth: '0',
+                      minHeight: '0',
+                      cursor: 'pointer'
+                    }}
+                  >
+                    +
+                  </Button>
+                </div>
+                <div
+                  className='subTitle'
+                  style={{ display: 'flex', justifyContent: 'space-between', marginTop: '20px' }}
+                >
+                  <Typography variant='h6' component='h3' style={{ fontSize: '11px' }}>
+                    EXAM TITLE
+                  </Typography>
+                  <Typography variant='h6' component='h3' style={{ fontSize: '11px', marginLeft: '60px' }}>
+                    EXAM MARK
+                  </Typography>
+                  <Typography variant='h6' component='h3' style={{ fontSize: '11px', marginLeft: '10px' }}>
+                    ACTION
+                  </Typography>
+                </div>
+                <Divider style={{ marginTop: '10px' }} />
+                <div style={{ display: 'flex', marginTop: '20px', justifyContent: 'space-between' }}>
+                  <CustomTextField
+                    style={{ width: '50%' }}
+                    value='' //Exam Title Value
+                    InputLabelProps={{ style: { fontSize: '20px' } }}
+                  />
+                  <CustomTextField
+                    style={{ width: '30%' }}
+                    value='' //Exam Mark Value
+                  />
+                  <Button
+                    variant='contained'
+                    style={{
+                      borderRadius: '15%',
+                      width: '25px',
+                      height: '25px',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      fontSize: '25px',
+                      padding: '0',
+                      minWidth: '0',
+                      minHeight: '0',
+                      cursor: 'pointer',
+                      margin: '6px '
+                    }}
+                  >
+                    {<i className='tabler-trash' />}
+                  </Button>
+                </div>
+                <Divider style={{ marginTop: '20px' }} />
+              </div>
+              <div className='total' style={{ display: 'flex', justifyContent: 'space-between', marginTop: '20px' }}>
+                <Typography variant='h6' component='h3' style={{ marginTop: '10px' }}>
+                  Total
+                </Typography>
+                <CustomTextField
+                  style={{ width: '60%' }}
+                  value='' //Total Value
+                />
+              </div>
             </CardContent>
             <CardActions style={{ justifyContent: 'center' }}>
               <Button variant='contained'>
@@ -103,13 +186,13 @@ const VehicleList = () => {
           </Card>
         </div>
 
-        {/* Fees Group list 2nd card */}
-        <div className='feesList mt-4 mx-6' style={{ flex: 1 }}>
-          <Card sx={{ width: '102%', height: 280 }}>
+        {/* Exam List 2nd card */}
+        <div className='exam mt-4 mx-6' style={{ flex: 1 }}>
+          <Card sx={{ width: '102%', height: 310 }}>
             <CardContent>
               <div style={{ display: 'flex', alignItems: 'center' }}>
-                <Typography variant='h6' component='h3' style={{ flex: 1, marginRight: '16%' }}>
-                  Route List
+                <Typography variant='h6' component='h3' style={{ flex: 1, marginRight: '10%' }}>
+                  Exam List
                 </Typography>
                 <div style={{ flexGrow: 1 }}>
                   <TextField
@@ -184,72 +267,96 @@ const VehicleList = () => {
                           textAlign: 'left',
                           backgroundColor: 'lightgray',
                           borderRadius: '5px 0 0 5px',
-                          position: 'relative' // Required for rounded corners
+                          position: 'relative'
                         }}
                       >
                         <div style={{ display: 'flex', alignItems: 'center' }}>
                           <ArrowDownwardIcon style={{ marginRight: '8px' }} />
-                          <span>Vehicle No</span>
+                          <span>SL</span>
                         </div>
                       </th>
                       <th
                         style={{
                           padding: '8px',
                           textAlign: 'left',
-                          backgroundColor: 'lightgray'
+                          backgroundColor: 'lightgray',
+                          borderRadius: '0',
+                          position: 'relative'
                         }}
                       >
                         <div style={{ display: 'flex', alignItems: 'center' }}>
                           <ArrowDownwardIcon style={{ marginRight: '8px' }} />
-                          <span>Model No</span>
+                          <span>Exam Title</span>
                         </div>
                       </th>
                       <th
                         style={{
                           padding: '8px',
                           textAlign: 'left',
-                          backgroundColor: 'lightgray'
+                          backgroundColor: 'lightgray',
+                          borderRadius: '0',
+                          position: 'relative'
                         }}
                       >
                         <div style={{ display: 'flex', alignItems: 'center' }}>
                           <ArrowDownwardIcon style={{ marginRight: '8px' }} />
-                          <span>Year Made</span>
+                          <span>Class</span>
                         </div>
                       </th>
                       <th
                         style={{
                           padding: '8px',
                           textAlign: 'left',
-                          backgroundColor: 'lightgray'
+                          backgroundColor: 'lightgray',
+                          borderRadius: '0',
+                          position: 'relative'
                         }}
                       >
                         <div style={{ display: 'flex', alignItems: 'center' }}>
                           <ArrowDownwardIcon style={{ marginRight: '8px' }} />
-                          <span>Driver Name</span>
+                          <span>Section</span>
                         </div>
                       </th>
                       <th
                         style={{
                           padding: '8px',
                           textAlign: 'left',
-                          backgroundColor: 'lightgray'
+                          backgroundColor: 'lightgray',
+                          borderRadius: '0',
+                          position: 'relative'
                         }}
                       >
                         <div style={{ display: 'flex', alignItems: 'center' }}>
                           <ArrowDownwardIcon style={{ marginRight: '8px' }} />
-                          <span>Driver License</span>
+                          <span>Subject</span>
                         </div>
                       </th>
                       <th
                         style={{
                           padding: '8px',
                           textAlign: 'left',
-                          backgroundColor: 'lightgray'
+                          backgroundColor: 'lightgray',
+                          borderRadius: '0',
+                          position: 'relative'
                         }}
                       >
                         <div style={{ display: 'flex', alignItems: 'center' }}>
                           <ArrowDownwardIcon style={{ marginRight: '8px' }} />
-                          <span>Phone</span>
+                          <span>Total Mark</span>
+                        </div>
+                      </th>
+                      <th
+                        style={{
+                          padding: '8px',
+                          textAlign: 'left',
+                          backgroundColor: 'lightgray',
+                          borderRadius: '0',
+                          position: 'relative'
+                        }}
+                      >
+                        <div style={{ display: 'flex', alignItems: 'center' }}>
+                          <ArrowDownwardIcon style={{ marginRight: '8px' }} />
+                          <span>Mark Distribution</span>
                         </div>
                       </th>
                       <th
@@ -269,13 +376,14 @@ const VehicleList = () => {
                   </thead>
                   <tbody>
                     <tr style={{ borderBottom: '1px solid #ddd' }}>
-                      <td style={{ padding: '8px' }}></td>
-                      <td style={{ padding: '8px' }}></td>
-                      <td style={{ padding: '8px' }}></td>
-                      <td style={{ padding: '8px' }}>No Data Availabe in Table</td>
-                      <td style={{ padding: '8px' }}></td>
-                      <td style={{ padding: '8px' }}></td>
-                      <td style={{ padding: '8px' }}></td>
+                      <td style={{ padding: '2% 0 2% 3%' }}></td>
+                      <td style={{ padding: '2% 0 2% 3%' }}></td>
+                      <td style={{ padding: '2% 0 2% 3%' }}></td>
+                      <td style={{ padding: '2% 0 2% 3%' }}></td>
+                      <td style={{ padding: '2% 0 2% 3%' }}>No Data Avaialable</td>
+                      <td style={{ padding: '2% 0 2% 3%' }}></td>
+                      <td style={{ padding: '2% 0 2% 3%' }}></td>
+                      <td style={{ padding: '2% 0 2% 3%' }}></td>
                     </tr>
                   </tbody>
                 </table>
@@ -318,7 +426,7 @@ const VehicleList = () => {
                     cursor: 'pointer'
                   }}
                 >
-                  1
+                  0
                 </Typography>
                 <Button
                   size='small'
@@ -342,4 +450,4 @@ const VehicleList = () => {
   )
 }
 
-export default VehicleList
+export default ExamSetupLayout

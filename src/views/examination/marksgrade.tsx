@@ -1,24 +1,22 @@
 'use client'
 import * as React from 'react'
-import Card from '@mui/material/Card'
-import CardActions from '@mui/material/CardActions'
-import CardContent from '@mui/material/CardContent'
-import Button from '@mui/material/Button'
 import CustomTextField from '@/@core/components/mui/TextField'
-import { Typography, MenuItem } from '@mui/material'
 import CheckSharpIcon from '@mui/icons-material/CheckSharp'
-import { TextField, InputAdornment } from '@mui/material'
+import { TextField, InputAdornment, Card, CardActions, CardContent, Button, Typography, Checkbox } from '@mui/material'
 import SearchSharpIcon from '@mui/icons-material/SearchSharp'
 import ButtonGroup from '@mui/material/ButtonGroup'
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 import Link from 'next/link'
 import { Icon } from '@iconify/react/dist/iconify.js'
 import { createTheme } from '@mui/material/styles'
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
+import AddSharpIcon from '@mui/icons-material/AddSharp'
+import FormControlLabel from '@mui/material/FormControlLabel'
+import SettingsIcon from '@mui/icons-material/Settings'
 
-const VehicleList = () => {
+const MarksGradeLayout = () => {
   const textFieldRef = useRef<HTMLInputElement>(null)
 
   const handleFocus = () => {
@@ -40,76 +38,61 @@ const VehicleList = () => {
       }
     }
   })
+
   return (
     <>
       <div className='flex '>
         <Typography variant='h6' component='h3'>
-          Vehicle
+          Exam Type
         </Typography>
-        <nav style={{ marginLeft: '70%' }}>
+        <nav style={{ marginLeft: '66%' }}>
           <Typography variant='h6' component='h3' style={{ display: 'flex', alignItems: 'center' }}>
-            <Link href='#' style={{ marginRight: '30px' }}>
+            <Link href='#' style={{ marginRight: '25px' }}>
               Dashboard
             </Link>
             <span style={{ marginRight: '10px' }}>|</span>
-            <Link href='#' style={{ marginRight: '30px' }}>
-              Transport
+            <Link href='#' style={{ marginRight: '25px' }}>
+              Examination
             </Link>
-            <span style={{ marginRight: '30px' }}>|</span>
-            <Link href='#'>Vehicle</Link>
+            <span style={{ marginRight: '25px' }}>|</span>
+            <Link href='#'>Exam Type</Link>
           </Typography>
         </nav>
       </div>
       <div className='flex' style={{ display: 'flex' }}>
-        {/* Add fees group first card */}
-        <div className='feesGroup mt-4'>
-          <Card sx={{ width: 280, height: 560 }}>
+        {/* Add exam type first card */}
+        <div className='examtype mt-4'>
+          <Card sx={{ width: 280, height: 705 }}>
             <CardContent>
               <Typography variant='h6' component='h3'>
-                Add Route
+                Add Grade
               </Typography>
               <Typography variant='body2' component='div'>
-                <CustomTextField required label='VEHICLE NUMBER' style={{ marginTop: 20, width: '100%' }} />
-              </Typography>
-              <Typography variant='body2' component='div'>
-                <CustomTextField required label='VEHICLE MODEL' style={{ marginTop: 20, width: '100%' }} />
-              </Typography>
-              <Typography variant='body2' component='div'>
-                <CustomTextField required label='YEAR MADE' style={{ marginTop: 20, width: '100%' }} />
-              </Typography>
-              <CustomTextField
-                select
-                fullWidth
-                defaultValue='SELECT DRIVER'
-                label='DRIVER*'
-                id='custom-select'
-                style={{ marginTop: '20px', width: '100%' }}
-              >
-                <CustomTextField placeholder='Search...' style={{ padding: '0 6px 8px 6px', width: '100%' }} />
-                <MenuItem value='SELECT DRIVER'>
-                  <span style={{ fontStyle: 'normal' }}>SELECT DRIVER *</span>
-                </MenuItem>
-              </CustomTextField>
-              <Typography variant='body2' component='div'>
-                <CustomTextField label='NOTE' multiline rows={3} style={{ marginTop: 20, width: '100%' }} />
+                <CustomTextField required label='Grade Name' style={{ marginTop: 20, width: '100%' }} />
+                <CustomTextField required label='GPA' style={{ marginTop: 20, width: '100%' }} />
+                <CustomTextField required label='PERCENT FROM' style={{ marginTop: 20, width: '100%' }} />
+                <CustomTextField required label='PERCENT TO' style={{ marginTop: 20, width: '100%' }} />
+                <CustomTextField required label='GPA FROM' style={{ marginTop: 20, width: '100%' }} />
+                <CustomTextField required label='GPA TO' style={{ marginTop: 20, width: '100%' }} />
+                <CustomTextField label='DESCRIPTION' multiline rows={3} style={{ marginTop: 20, width: '100%' }} />
               </Typography>
             </CardContent>
             <CardActions style={{ justifyContent: 'center' }}>
               <Button variant='contained'>
                 <CheckSharpIcon style={{ marginRight: 5 }} />
-                SAVE
+                SAVE GRADE
               </Button>
             </CardActions>
           </Card>
         </div>
 
-        {/* Fees Group list 2nd card */}
-        <div className='feesList mt-4 mx-6' style={{ flex: 1 }}>
-          <Card sx={{ width: '102%', height: 280 }}>
+        {/* Exam Type list 2nd card */}
+        <div className='examtypelist mt-4 mx-6' style={{ flex: 1 }}>
+          <Card sx={{ width: '102%', height: 460 }}>
             <CardContent>
               <div style={{ display: 'flex', alignItems: 'center' }}>
                 <Typography variant='h6' component='h3' style={{ flex: 1, marginRight: '16%' }}>
-                  Route List
+                  Grade List
                 </Typography>
                 <div style={{ flexGrow: 1 }}>
                   <TextField
@@ -189,7 +172,7 @@ const VehicleList = () => {
                       >
                         <div style={{ display: 'flex', alignItems: 'center' }}>
                           <ArrowDownwardIcon style={{ marginRight: '8px' }} />
-                          <span>Vehicle No</span>
+                          <span>SL</span>
                         </div>
                       </th>
                       <th
@@ -201,7 +184,7 @@ const VehicleList = () => {
                       >
                         <div style={{ display: 'flex', alignItems: 'center' }}>
                           <ArrowDownwardIcon style={{ marginRight: '8px' }} />
-                          <span>Model No</span>
+                          <span>Grade </span>
                         </div>
                       </th>
                       <th
@@ -213,7 +196,7 @@ const VehicleList = () => {
                       >
                         <div style={{ display: 'flex', alignItems: 'center' }}>
                           <ArrowDownwardIcon style={{ marginRight: '8px' }} />
-                          <span>Year Made</span>
+                          <span>GPA</span>
                         </div>
                       </th>
                       <th
@@ -225,7 +208,7 @@ const VehicleList = () => {
                       >
                         <div style={{ display: 'flex', alignItems: 'center' }}>
                           <ArrowDownwardIcon style={{ marginRight: '8px' }} />
-                          <span>Driver Name</span>
+                          <span>Percent(From-to)</span>
                         </div>
                       </th>
                       <th
@@ -237,19 +220,7 @@ const VehicleList = () => {
                       >
                         <div style={{ display: 'flex', alignItems: 'center' }}>
                           <ArrowDownwardIcon style={{ marginRight: '8px' }} />
-                          <span>Driver License</span>
-                        </div>
-                      </th>
-                      <th
-                        style={{
-                          padding: '8px',
-                          textAlign: 'left',
-                          backgroundColor: 'lightgray'
-                        }}
-                      >
-                        <div style={{ display: 'flex', alignItems: 'center' }}>
-                          <ArrowDownwardIcon style={{ marginRight: '8px' }} />
-                          <span>Phone</span>
+                          <span>GPA(From-to)</span>
                         </div>
                       </th>
                       <th
@@ -269,13 +240,46 @@ const VehicleList = () => {
                   </thead>
                   <tbody>
                     <tr style={{ borderBottom: '1px solid #ddd' }}>
-                      <td style={{ padding: '8px' }}></td>
-                      <td style={{ padding: '8px' }}></td>
-                      <td style={{ padding: '8px' }}></td>
-                      <td style={{ padding: '8px' }}>No Data Availabe in Table</td>
-                      <td style={{ padding: '8px' }}></td>
-                      <td style={{ padding: '8px' }}></td>
-                      <td style={{ padding: '8px' }}></td>
+                      <td style={{ padding: '2% 0 2% 3%' }}>Sample Name 1</td>
+                      <td style={{ padding: '2% 0 2% 3%' }}>Sample Description 1</td>
+                      <td style={{ padding: '2% 0 2% 3%' }}>Sample Description 1</td>
+                      <td style={{ padding: '2% 0 2% 3%' }}>Sample Description 1</td>
+                      <td style={{ padding: '2% 0 2% 3%' }}>Sample Description 1</td>
+                      <td style={{ padding: '2% 0 2% 0' }}>
+                        <div className='btn' style={{ display: 'flex', justifyContent: 'space-between' }}>
+                          <Button variant='outlined' size='small' style={{ borderRadius: '20px' }}>
+                            SELECT <ArrowDownwardIcon />
+                          </Button>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr style={{ borderBottom: '1px solid #ddd' }}>
+                      <td style={{ padding: '2% 0 2% 3%' }}>Sample Name 2</td>
+                      <td style={{ padding: '2% 0 2% 3%' }}>Sample Description 2</td>
+                      <td style={{ padding: '2% 0 2% 3%' }}>Sample Description 2</td>
+                      <td style={{ padding: '2% 0 2% 3%' }}>Sample Description 2</td>
+                      <td style={{ padding: '2% 0 2% 3%' }}>Sample Description 2</td>
+                      <td style={{ padding: '2% 0 2% 0' }}>
+                        <div className='btn' style={{ display: 'flex', justifyContent: 'space-between' }}>
+                          <Button variant='outlined' size='small' style={{ borderRadius: '20px' }}>
+                            SELECT <ArrowDownwardIcon />
+                          </Button>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr style={{ borderBottom: '1px solid #ddd' }}>
+                      <td style={{ padding: '2% 0 2% 3%' }}>Sample Name 3</td>
+                      <td style={{ padding: '2% 0 2% 3%' }}>Sample Description 3</td>
+                      <td style={{ padding: '2% 0 2% 3%' }}>Sample Description 3</td>
+                      <td style={{ padding: '2% 0 2% 3%' }}>Sample Description 3</td>
+                      <td style={{ padding: '2% 0 2% 3%' }}>Sample Description 3</td>
+                      <td style={{ padding: '2% 0 2% 0' }}>
+                        <div className='btn' style={{ display: 'flex', justifyContent: 'space-between' }}>
+                          <Button variant='outlined' size='small' style={{ borderRadius: '20px' }}>
+                            SELECT <ArrowDownwardIcon />
+                          </Button>
+                        </div>
+                      </td>
                     </tr>
                   </tbody>
                 </table>
@@ -284,7 +288,7 @@ const VehicleList = () => {
             {/* Pagination */}
             <div style={{ display: 'flex', justifyContent: 'space-between', padding: '16px' }}>
               <Typography variant='body2' style={{ marginLeft: '16px' }}>
-                Showing 0 to 0 of 0 entries
+                Showing 1 to 3 of 3 entries
               </Typography>
               <div
                 style={{
@@ -342,4 +346,4 @@ const VehicleList = () => {
   )
 }
 
-export default VehicleList
+export default MarksGradeLayout

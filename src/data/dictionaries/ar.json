@@ -93,6 +93,10 @@
     "bulkprint": "طباعة بالجملة",
     "downloadcenter": "مركز التحميل",
     "behaviourrecords": "سجلات السلوك",
-    "dormitory": "المهجع"
+    "dormitory": "المهجع",
+    "examination": "فحص",
+    "teacherevaluation": "تقييم المعلم",
+    "leave": "يترك",
+    "roleandpermission": "الدور والإذن"
   }
 }

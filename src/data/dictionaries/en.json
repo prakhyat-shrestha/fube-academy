@@ -93,6 +93,10 @@
     "bulkprint": "Bulk Print",
     "downloadcenter": "Download Center",
     "behaviourrecords": "Behaviour Records",
-    "dormitory": "Dormitory"
+    "dormitory": "Dormitory",
+    "examination": "Examination",
+    "teacherevaluation": "Teacher Evaluation",
+    "leave": "Leave",
+    "roleandpermission": "Role & Permission"
   }
 }

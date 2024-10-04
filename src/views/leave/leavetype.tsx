@@ -1,24 +1,22 @@
 'use client'
-import * as React from 'react'
+import { Typography, TextField, InputAdornment } from '@mui/material'
+import Link from 'next/link'
 import Card from '@mui/material/Card'
 import CardActions from '@mui/material/CardActions'
 import CardContent from '@mui/material/CardContent'
 import Button from '@mui/material/Button'
 import CustomTextField from '@/@core/components/mui/TextField'
-import { Typography, MenuItem } from '@mui/material'
 import CheckSharpIcon from '@mui/icons-material/CheckSharp'
-import { TextField, InputAdornment } from '@mui/material'
-import SearchSharpIcon from '@mui/icons-material/SearchSharp'
-import ButtonGroup from '@mui/material/ButtonGroup'
 import { useRef } from 'react'
-import Link from 'next/link'
-import { Icon } from '@iconify/react/dist/iconify.js'
 import { createTheme } from '@mui/material/styles'
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
+import SearchSharpIcon from '@mui/icons-material/SearchSharp'
+import ButtonGroup from '@mui/material/ButtonGroup'
+import { Icon } from '@iconify/react/dist/iconify.js'
 
-const VehicleList = () => {
+const LeaveTypeLayout = () => {
   const textFieldRef = useRef<HTMLInputElement>(null)
 
   const handleFocus = () => {
@@ -32,7 +30,6 @@ const VehicleList = () => {
       textFieldRef.current.placeholder = 'SEARCH'
     }
   }
-
   const theme = createTheme({
     palette: {
       primary: {
@@ -42,74 +39,51 @@ const VehicleList = () => {
   })
   return (
     <>
-      <div className='flex '>
+      <div className='flex'>
         <Typography variant='h6' component='h3'>
-          Vehicle
+          Leave Type
         </Typography>
-        <nav style={{ marginLeft: '70%' }}>
+        <nav style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center' }}>
           <Typography variant='h6' component='h3' style={{ display: 'flex', alignItems: 'center' }}>
-            <Link href='#' style={{ marginRight: '30px' }}>
+            <Link href='#' style={{ marginRight: '35px' }}>
               Dashboard
             </Link>
             <span style={{ marginRight: '10px' }}>|</span>
-            <Link href='#' style={{ marginRight: '30px' }}>
-              Transport
+            <Link href='#' style={{ marginRight: '35px' }}>
+              Leave
             </Link>
-            <span style={{ marginRight: '30px' }}>|</span>
-            <Link href='#'>Vehicle</Link>
+            <span style={{ marginRight: '35px' }}>|</span>
+            <Link href='#'>Leave Type </Link>
           </Typography>
         </nav>
       </div>
+
       <div className='flex' style={{ display: 'flex' }}>
-        {/* Add fees group first card */}
-        <div className='feesGroup mt-4'>
-          <Card sx={{ width: 280, height: 560 }}>
+        {/* Add leavetype first card */}
+        <div className='leavetype mt-4'>
+          <Card sx={{ width: 320, height: '82%' }}>
             <CardContent>
-              <Typography variant='h6' component='h3'>
-                Add Route
+              <Typography variant='h6' component='h4'>
+                Add Leave Type
               </Typography>
-              <Typography variant='body2' component='div'>
-                <CustomTextField required label='VEHICLE NUMBER' style={{ marginTop: 20, width: '100%' }} />
-              </Typography>
-              <Typography variant='body2' component='div'>
-                <CustomTextField required label='VEHICLE MODEL' style={{ marginTop: 20, width: '100%' }} />
-              </Typography>
-              <Typography variant='body2' component='div'>
-                <CustomTextField required label='YEAR MADE' style={{ marginTop: 20, width: '100%' }} />
-              </Typography>
-              <CustomTextField
-                select
-                fullWidth
-                defaultValue='SELECT DRIVER'
-                label='DRIVER*'
-                id='custom-select'
-                style={{ marginTop: '20px', width: '100%' }}
-              >
-                <CustomTextField placeholder='Search...' style={{ padding: '0 6px 8px 6px', width: '100%' }} />
-                <MenuItem value='SELECT DRIVER'>
-                  <span style={{ fontStyle: 'normal' }}>SELECT DRIVER *</span>
-                </MenuItem>
-              </CustomTextField>
-              <Typography variant='body2' component='div'>
-                <CustomTextField label='NOTE' multiline rows={3} style={{ marginTop: 20, width: '100%' }} />
-              </Typography>
+              <CustomTextField label='TYPE NAME ' required style={{ width: '100%', marginTop: '20px' }} />
             </CardContent>
             <CardActions style={{ justifyContent: 'center' }}>
               <Button variant='contained'>
                 <CheckSharpIcon style={{ marginRight: 5 }} />
-                SAVE
+                SAVE TYPE
               </Button>
             </CardActions>
           </Card>
         </div>
 
-        {/* Fees Group list 2nd card */}
-        <div className='feesList mt-4 mx-6' style={{ flex: 1 }}>
-          <Card sx={{ width: '102%', height: 280 }}>
+        {/* ---- Table Section ----*/}
+        <div className='leavetypelist mt-4 mx-6 ' style={{ flex: 1 }}>
+          <Card sx={{ width: '102.8%', height: '98%' }}>
             <CardContent>
               <div style={{ display: 'flex', alignItems: 'center' }}>
-                <Typography variant='h6' component='h3' style={{ flex: 1, marginRight: '16%' }}>
-                  Route List
+                <Typography variant='h6' component='h3' style={{ marginRight: '25%' }}>
+                  Leave Type List
                 </Typography>
                 <div style={{ flexGrow: 1 }}>
                   <TextField
@@ -136,7 +110,7 @@ const VehicleList = () => {
                       '& .MuiButton-root': {
                         fontSize: '1.2rem',
                         padding: '4px 8px',
-                        backgroundColor: 'transparent',
+                        backgroundColor: 'tansparent',
                         borderColor: 'currentColor',
                         color: 'currentColor',
                         '&:hover': {
@@ -173,7 +147,7 @@ const VehicleList = () => {
                   </ButtonGroup>
                 </div>
               </div>
-              {/* Table */}
+              {/*--------- Table section --------*/}
               <div style={{ marginTop: '20px' }}>
                 <table style={{ width: '100%', borderCollapse: 'collapse' }}>
                   <thead>
@@ -183,73 +157,13 @@ const VehicleList = () => {
                           padding: '8px',
                           textAlign: 'left',
                           backgroundColor: 'lightgray',
-                          borderRadius: '5px 0 0 5px',
-                          position: 'relative' // Required for rounded corners
+                          position: 'relative',
+                          borderRadius: '5px 0 0 5px'
                         }}
                       >
                         <div style={{ display: 'flex', alignItems: 'center' }}>
                           <ArrowDownwardIcon style={{ marginRight: '8px' }} />
-                          <span>Vehicle No</span>
-                        </div>
-                      </th>
-                      <th
-                        style={{
-                          padding: '8px',
-                          textAlign: 'left',
-                          backgroundColor: 'lightgray'
-                        }}
-                      >
-                        <div style={{ display: 'flex', alignItems: 'center' }}>
-                          <ArrowDownwardIcon style={{ marginRight: '8px' }} />
-                          <span>Model No</span>
-                        </div>
-                      </th>
-                      <th
-                        style={{
-                          padding: '8px',
-                          textAlign: 'left',
-                          backgroundColor: 'lightgray'
-                        }}
-                      >
-                        <div style={{ display: 'flex', alignItems: 'center' }}>
-                          <ArrowDownwardIcon style={{ marginRight: '8px' }} />
-                          <span>Year Made</span>
-                        </div>
-                      </th>
-                      <th
-                        style={{
-                          padding: '8px',
-                          textAlign: 'left',
-                          backgroundColor: 'lightgray'
-                        }}
-                      >
-                        <div style={{ display: 'flex', alignItems: 'center' }}>
-                          <ArrowDownwardIcon style={{ marginRight: '8px' }} />
-                          <span>Driver Name</span>
-                        </div>
-                      </th>
-                      <th
-                        style={{
-                          padding: '8px',
-                          textAlign: 'left',
-                          backgroundColor: 'lightgray'
-                        }}
-                      >
-                        <div style={{ display: 'flex', alignItems: 'center' }}>
-                          <ArrowDownwardIcon style={{ marginRight: '8px' }} />
-                          <span>Driver License</span>
-                        </div>
-                      </th>
-                      <th
-                        style={{
-                          padding: '8px',
-                          textAlign: 'left',
-                          backgroundColor: 'lightgray'
-                        }}
-                      >
-                        <div style={{ display: 'flex', alignItems: 'center' }}>
-                          <ArrowDownwardIcon style={{ marginRight: '8px' }} />
-                          <span>Phone</span>
+                          <span>Type </span>
                         </div>
                       </th>
                       <th
@@ -267,15 +181,11 @@ const VehicleList = () => {
                       </th>
                     </tr>
                   </thead>
+                  {/*----- Table body section ----- */}
                   <tbody>
                     <tr style={{ borderBottom: '1px solid #ddd' }}>
                       <td style={{ padding: '8px' }}></td>
-                      <td style={{ padding: '8px' }}></td>
-                      <td style={{ padding: '8px' }}></td>
-                      <td style={{ padding: '8px' }}>No Data Availabe in Table</td>
-                      <td style={{ padding: '8px' }}></td>
-                      <td style={{ padding: '8px' }}></td>
-                      <td style={{ padding: '8px' }}></td>
+                      <td style={{ padding: '8px' }}>No Data Available In Table</td>
                     </tr>
                   </tbody>
                 </table>
@@ -283,30 +193,31 @@ const VehicleList = () => {
             </CardContent>
             {/* Pagination */}
             <div style={{ display: 'flex', justifyContent: 'space-between', padding: '16px' }}>
-              <Typography variant='body2' style={{ marginLeft: '16px' }}>
+              <Typography variant='body2' style={{ marginLeft: '8px' }}>
                 Showing 0 to 0 of 0 entries
               </Typography>
+              {/*----- Page number section ----- */}
               <div
                 style={{
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
                   margin: 'auto',
-                  cursor: 'pointer'
+                  cursor: 'pointer',
+                  marginRight: '40%'
                 }}
               >
                 <Button
                   size='small'
                   style={{
                     color: 'black',
-                    marginRight: '10px',
                     padding: '4px 8px',
                     width: '30px',
                     minWidth: 'auto',
                     border: 'none'
                   }}
                 >
-                  <ArrowBackIcon style={{ fontSize: '16px' }} />
+                  <ArrowBackIcon style={{ transform: 'scale(0.8)' }} />
                 </Button>
                 <Typography
                   variant='body2'
@@ -315,16 +226,16 @@ const VehicleList = () => {
                     padding: '4px 16px',
                     borderRadius: '4px',
                     background: theme.palette.primary.main,
-                    cursor: 'pointer'
+                    cursor: 'pointer',
+                    margin: '0 5px 0 5px'
                   }}
                 >
-                  1
+                  0
                 </Typography>
                 <Button
                   size='small'
                   style={{
                     color: 'black',
-                    marginLeft: '10px',
                     padding: '4px 8px',
                     width: '30px',
                     minWidth: 'auto',
@@ -342,4 +253,4 @@ const VehicleList = () => {
   )
 }
 
-export default VehicleList
+export default LeaveTypeLayout

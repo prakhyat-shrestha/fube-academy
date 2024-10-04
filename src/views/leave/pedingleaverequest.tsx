@@ -1,20 +1,19 @@
 'use client'
-import { Typography, MenuItem, TextField, InputAdornment } from '@mui/material'
+import { Typography, TextField, InputAdornment, MenuItem } from '@mui/material'
 import Link from 'next/link'
 import Card from '@mui/material/Card'
 import CardContent from '@mui/material/CardContent'
-import CustomTextField from '@core/components/mui/TextField'
 import Button from '@mui/material/Button'
-import SearchSharpIcon from '@mui/icons-material/SearchSharp'
-import AddSharpIcon from '@mui/icons-material/AddSharp'
+import { useRef } from 'react'
+import { createTheme } from '@mui/material/styles'
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
+import SearchSharpIcon from '@mui/icons-material/SearchSharp'
 import ButtonGroup from '@mui/material/ButtonGroup'
-import { useRef } from 'react'
 import { Icon } from '@iconify/react/dist/iconify.js'
 
-const HomeworkListGroup = () => {
+const PendingLeaveRequestLayout = () => {
   const textFieldRef = useRef<HTMLInputElement>(null)
 
   const handleFocus = () => {
@@ -28,11 +27,18 @@ const HomeworkListGroup = () => {
       textFieldRef.current.placeholder = 'SEARCH'
     }
   }
+  const theme = createTheme({
+    palette: {
+      primary: {
+        main: '#1976d2'
+      }
+    }
+  })
   return (
     <>
       <div className='flex'>
         <Typography variant='h6' component='h3'>
-          Homework List
+          Pending Leave Request
         </Typography>
         <nav style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center' }}>
           <Typography variant='h6' component='h3' style={{ display: 'flex', alignItems: 'center' }}>
@@ -41,93 +47,27 @@ const HomeworkListGroup = () => {
             </Link>
             <span style={{ marginRight: '10px' }}>|</span>
             <Link href='#' style={{ marginRight: '35px' }}>
-              Homework
+              Leave
             </Link>
             <span style={{ marginRight: '35px' }}>|</span>
-            <Link href='#'>Homework List</Link>
+            <Link href='#'>Pending Leave Request</Link>
           </Typography>
         </nav>
       </div>
-      <div className='feesList mt-4' style={{ flex: 1 }}>
-        <Card sx={{ width: '100%', height: '105%' }}>
-          <CardContent>
-            <div className='container' style={{ display: 'flex', gap: '75.25%' }}>
-              <Typography variant='h6' component='h4'>
-                Select Criteria
-              </Typography>
-              <Button variant='contained' startIcon={<AddSharpIcon />}>
-                ADD HOMEWORK
-              </Button>
-            </div>
 
-            <div className='container' style={{ display: 'flex' }}>
-              <CustomTextField
-                select
-                fullWidth
-                defaultValue='Fees Group'
-                label='CLASS*'
-                id='custom-select'
-                style={{ margin: '20px 40px 0 0 ', width: '60%' }}
-              >
-                <CustomTextField placeholder='Search...' style={{ padding: '0 6px 8px 6px', width: '100%' }} />
-                <MenuItem value='Fees Group'>
-                  <span style={{ fontStyle: 'normal' }}>Fees Group</span>
-                </MenuItem>
-                <MenuItem value={'School Fee'}>School Fee</MenuItem>
-                <MenuItem value={'Plus Two Fee'}>Plus Two Fee</MenuItem>
-                <MenuItem value={'Bachelor Fee'}>Bachelor Fee</MenuItem>
-              </CustomTextField>
-              <CustomTextField
-                select
-                fullWidth
-                defaultValue='Fees Group'
-                label='SUBJECT*'
-                id='custom-select'
-                style={{ margin: '20px 40px 0 0 ', width: '60%' }}
-              >
-                <CustomTextField placeholder='Search...' style={{ padding: '0 6px 8px 6px', width: '100%' }} />
-                <MenuItem value='Fees Group'>
-                  <span style={{ fontStyle: 'normal' }}>Fees Group</span>
-                </MenuItem>
-              </CustomTextField>
-              <CustomTextField
-                select
-                fullWidth
-                defaultValue='Fees Group'
-                label='SECTION*'
-                id='custom-select'
-                style={{ marginTop: '20px', width: '60%' }}
-              >
-                <CustomTextField placeholder='Search...' style={{ padding: '0 6px 8px 6px', width: '100%' }} />
-                <MenuItem value='Fees Group'>
-                  <span style={{ fontStyle: 'normal' }}>UNSELECT ALL</span>
-                </MenuItem>
-              </CustomTextField>
-            </div>
-            <div
-              className='container mt-6'
-              style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'flex-end' }}
-            >
-              <Button variant='contained' startIcon={<SearchSharpIcon />}>
-                SEARCH
-              </Button>
-            </div>
-          </CardContent>
-        </Card>
-      </div>
       {/* ---- Table Section ----*/}
-      <div className='feesList mt-7 ' style={{ flex: 1 }}>
-        <Card sx={{ width: '100%', height: '105%' }}>
+      <div className='pendingleavelist mt-4 ' style={{ flex: 1 }}>
+        <Card sx={{ width: '100%', height: '40%' }}>
           <CardContent>
             <div style={{ display: 'flex', alignItems: 'center' }}>
-              <Typography variant='h6' component='h3' style={{ flex: 1, marginRight: '16%' }}>
-                Homework List
+              <Typography variant='h6' component='h3' style={{ marginRight: '25%' }}>
+                Pending Leave Request List
               </Typography>
               <div style={{ flexGrow: 1 }}>
                 <TextField
                   id='standard-search'
                   variant='standard'
-                  placeholder='QUICK SEARCH'
+                  placeholder='SEARCH'
                   inputRef={textFieldRef}
                   onFocus={handleFocus}
                   onBlur={handleBlur}
@@ -140,7 +80,6 @@ const HomeworkListGroup = () => {
                   }}
                 />
               </div>
-              {/*---------- Button Group Section ----------- */}
               <div style={{ display: 'flex', justifyContent: 'center' }}>
                 <ButtonGroup
                   variant='outlined'
@@ -209,39 +148,12 @@ const HomeworkListGroup = () => {
                       style={{
                         padding: '8px',
                         textAlign: 'left',
-                        backgroundColor: 'lightgray',
-                        position: 'relative'
+                        backgroundColor: 'lightgray'
                       }}
                     >
                       <div style={{ display: 'flex', alignItems: 'center' }}>
                         <ArrowDownwardIcon style={{ marginRight: '8px' }} />
-                        <span>Class </span>
-                      </div>
-                    </th>
-                    <th
-                      style={{
-                        padding: '8px',
-                        textAlign: 'left',
-                        backgroundColor: 'lightgray',
-                        position: 'relative'
-                      }}
-                    >
-                      <div style={{ display: 'flex', alignItems: 'center' }}>
-                        <ArrowDownwardIcon style={{ marginRight: '8px' }} />
-                        <span>Section </span>
-                      </div>
-                    </th>
-                    <th
-                      style={{
-                        padding: '8px',
-                        textAlign: 'left',
-                        backgroundColor: 'lightgray',
-                        position: 'relative'
-                      }}
-                    >
-                      <div style={{ display: 'flex', alignItems: 'center' }}>
-                        <ArrowDownwardIcon style={{ marginRight: '8px' }} />
-                        <span>Subject </span>
+                        <span>Name</span>
                       </div>
                     </th>
                     <th
@@ -253,7 +165,7 @@ const HomeworkListGroup = () => {
                     >
                       <div style={{ display: 'flex', alignItems: 'center' }}>
                         <ArrowDownwardIcon style={{ marginRight: '8px' }} />
-                        <span>Marks</span>
+                        <span>Type</span>
                       </div>
                     </th>
                     <th
@@ -265,19 +177,7 @@ const HomeworkListGroup = () => {
                     >
                       <div style={{ display: 'flex', alignItems: 'center' }}>
                         <ArrowDownwardIcon style={{ marginRight: '8px' }} />
-                        <span>Homework Date</span>
-                      </div>
-                    </th>
-                    <th
-                      style={{
-                        padding: '8px',
-                        textAlign: 'left',
-                        backgroundColor: 'lightgray'
-                      }}
-                    >
-                      <div style={{ display: 'flex', alignItems: 'center' }}>
-                        <ArrowDownwardIcon style={{ marginLeft: '8px' }} />
-                        <span>Submission Date</span>
+                        <span>From</span>
                       </div>
                     </th>
                     <th
@@ -289,7 +189,7 @@ const HomeworkListGroup = () => {
                     >
                       <div style={{ display: 'flex', alignItems: 'center' }}>
                         <ArrowDownwardIcon style={{ marginRight: '8px' }} />
-                        <span>Evaluation Date</span>
+                        <span>To</span>
                       </div>
                     </th>
                     <th
@@ -301,7 +201,19 @@ const HomeworkListGroup = () => {
                     >
                       <div style={{ display: 'flex', alignItems: 'center' }}>
                         <ArrowDownwardIcon style={{ marginRight: '8px' }} />
-                        <span>Created By</span>
+                        <span>Apply Date</span>
+                      </div>
+                    </th>
+                    <th
+                      style={{
+                        padding: '8px',
+                        textAlign: 'left',
+                        backgroundColor: 'lightgray'
+                      }}
+                    >
+                      <div style={{ display: 'flex', alignItems: 'center' }}>
+                        <ArrowDownwardIcon style={{ marginRight: '8px' }} />
+                        <span>Status</span>
                       </div>
                     </th>
                     <th
@@ -314,7 +226,7 @@ const HomeworkListGroup = () => {
                     >
                       <div style={{ display: 'flex', alignItems: 'center' }}>
                         <ArrowDownwardIcon style={{ marginRight: '8px' }} />
-                        <span>Actions</span>
+                        <span>Action</span>
                       </div>
                     </th>
                   </tr>
@@ -326,8 +238,8 @@ const HomeworkListGroup = () => {
                     <td style={{ padding: '8px' }}></td>
                     <td style={{ padding: '8px' }}></td>
                     <td style={{ padding: '8px' }}></td>
+                    <td style={{ padding: '8px' }}>No Data Available In Table</td>
                     <td style={{ padding: '8px' }}></td>
-                    <td style={{ padding: '8px' }}>No Data Availabe in Table</td>
                     <td style={{ padding: '8px' }}></td>
                     <td style={{ padding: '8px' }}></td>
                   </tr>
@@ -337,7 +249,7 @@ const HomeworkListGroup = () => {
           </CardContent>
           {/* Pagination */}
           <div style={{ display: 'flex', justifyContent: 'space-between', padding: '16px' }}>
-            <Typography variant='body2' style={{ marginLeft: '16px' }}>
+            <Typography variant='body2' style={{ marginLeft: '8px' }}>
               Showing 0 to 0 of 0 entries
             </Typography>
             {/*----- Page number section ----- */}
@@ -348,7 +260,7 @@ const HomeworkListGroup = () => {
                 justifyContent: 'center',
                 margin: 'auto',
                 cursor: 'pointer',
-                marginRight: '50%'
+                marginRight: '40%'
               }}
             >
               <Button
@@ -363,6 +275,19 @@ const HomeworkListGroup = () => {
               >
                 <ArrowBackIcon style={{ transform: 'scale(0.8)' }} />
               </Button>
+              <Typography
+                variant='body2'
+                sx={{
+                  color: 'white',
+                  padding: '4px 16px',
+                  borderRadius: '4px',
+                  background: theme.palette.primary.main,
+                  cursor: 'pointer',
+                  margin: '0 5px 0 5px'
+                }}
+              >
+                0
+              </Typography>
               <Button
                 size='small'
                 style={{
@@ -383,4 +308,4 @@ const HomeworkListGroup = () => {
   )
 }
 
-export default HomeworkListGroup
+export default PendingLeaveRequestLayout
