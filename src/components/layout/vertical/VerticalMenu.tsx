@@ -5,7 +5,7 @@ import { useTheme } from '@mui/material/styles'
 import ArticleIcon from '@mui/icons-material/Article'
 import DialpadIcon from '@mui/icons-material/Dialpad'
 import SchoolIcon from '@mui/icons-material/School'
-import CurrencyRupeeIcon from '@mui/icons-material/CurrencyRupee'
+
 import QuizIcon from '@mui/icons-material/Quiz'
 import OnlinePredictionIcon from '@mui/icons-material/OnlinePrediction'
 import SensorOccupiedIcon from '@mui/icons-material/SensorOccupied'
@@ -105,14 +105,7 @@ const VerticalMenu = ({ dictionary, scrollMenu }: Props) => {
           <MenuItem href={`/studentexport`}>Student Export</MenuItem>
           <MenuItem href={`/smssendingtime`}>SMS Sending Time</MenuItem>
         </SubMenu>
-        <SubMenu label={dictionary['navigation'].behaviourrecords} icon={<SchoolIcon />}>
-          <MenuItem href={'/brecincidents'}>Incidents</MenuItem>
-          <MenuItem href={'/assignincident'}>Assign Incident</MenuItem>
-          <MenuItem href={'/behaviourreport'}>Behaviour Report</MenuItem>
-          <MenuItem href={'/classreport'}>Class Section Report</MenuItem>
-          <MenuItem href={'/incidentreport'}>Incident Wise Report</MenuItem>
-          <MenuItem href={'/behavsetting'}>Settings</MenuItem>
-        </SubMenu>
+
         <SubMenu label={dictionary['navigation'].library} icon={<ArticleIcon />}>
           <MenuItem href={'/libraryadd'}>Add Books</MenuItem>
           <MenuItem href={'/librarylist'}>Booklist</MenuItem>
@@ -132,10 +125,6 @@ const VerticalMenu = ({ dictionary, scrollMenu }: Props) => {
           <MenuItem href={'/onlineexam'}>Online Exam</MenuItem>
         </SubMenu>
 
-        <SubMenu label={dictionary['navigation'].fee} icon={<CurrencyRupeeIcon />}>
-          <MenuItem href={'/feesdemo'}>Fees Group</MenuItem>
-          <MenuItem href={'/feestype'}>Fees Type</MenuItem>
-        </SubMenu>
         <SubMenu label={dictionary['navigation'].hr} icon={<SensorOccupiedIcon />}>
           <MenuItem href={'/humandesignation'}>Designation</MenuItem>
           <MenuItem href={'/humandepartment'}>Department</MenuItem>

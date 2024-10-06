@@ -152,7 +152,7 @@ const QuestionBankLayout = () => {
 
         {/* Fees Group list 2nd card */}
         <div className='studentCategoryList mt-4 mx-6' style={{ flex: 1 }}>
-          <Card sx={{ width: '105%', height: 270 }}>
+          <Card sx={{ width: '102%', height: 270 }}>
             <CardContent>
               <div style={{ display: 'flex', alignItems: 'center' }}>
                 <Typography variant='h6' component='h3' style={{ flex: 1, marginRight: '12%' }}>

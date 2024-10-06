@@ -27,8 +27,6 @@ import CheckIcon from '@mui/icons-material/Check'
 import CustomTextField from '@/@core/components/mui/TextField'
 
 const OnlineExamLayout = () => {
-  const [time, setTime] = useState<Date | null | undefined>(new Date())
-  const [dateTime, setDateTime] = useState<Date | null | undefined>(new Date())
   const textFieldRef = useRef<HTMLInputElement>(null)
 
   const handleFocus = () => {
@@ -196,7 +194,7 @@ const OnlineExamLayout = () => {
 
         {/* Fees Group list 2nd card */}
         <div className='studentCategoryList mt-4 mx-6' style={{ flex: 1 }}>
-          <Card sx={{ width: '105%', height: 270 }}>
+          <Card sx={{ width: '102%', height: 270 }}>
             <CardContent>
               <div style={{ display: 'flex', alignItems: 'center' }}>
                 <Typography variant='h5' component='h3' style={{ flex: 1, marginRight: '12%' }}>
