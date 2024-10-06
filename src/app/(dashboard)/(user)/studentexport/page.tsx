@@ -1,4 +1,4 @@
-import StudentExportLayout from '@/views/student/studentexport'
+import StudentExportLayout from '@/views/student/studentExport'
 
 const StudentExport = () => {
   return (

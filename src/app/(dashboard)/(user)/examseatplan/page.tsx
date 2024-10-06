@@ -1,4 +1,4 @@
-import SeatPlanLayout from '@/views/examplan/seatplan'
+import SeatPlanLayout from '@/views/examPlan/seatplan'
 
 const ExamAdmitCard = () => {
   return <SeatPlanLayout />

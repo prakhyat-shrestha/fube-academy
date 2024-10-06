@@ -3,22 +3,20 @@ import { useRef } from 'react'
 
 import Link from 'next/link'
 
-import { Typography, MenuItem, TextField, InputAdornment } from '@mui/material'
+import { Typography, TextField, InputAdornment } from '@mui/material'
 import Card from '@mui/material/Card'
 import CardContent from '@mui/material/CardContent'
 
 import Button from '@mui/material/Button'
 
 import SearchSharpIcon from '@mui/icons-material/SearchSharp'
-import AddSharpIcon from '@mui/icons-material/AddSharp'
+
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
 import ButtonGroup from '@mui/material/ButtonGroup'
 
 import { Icon } from '@iconify/react/dist/iconify.js'
-
-import CustomTextField from '@core/components/mui/TextField'
 
 const UnassignedStudentLayout = () => {
   const textFieldRef = useRef<HTMLInputElement>(null)

@@ -1,4 +1,4 @@
-import DepartmentLayout from '@/views/humanresource/department'
+import DepartmentLayout from '@/views/humanResource/department'
 
 const Department = () => {
   return <DepartmentLayout />

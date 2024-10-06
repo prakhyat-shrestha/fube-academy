@@ -1,4 +1,4 @@
-import BookMemberLayout from '@/views/library/bookmember'
+import BookMemberLayout from '@/views/library/bookMember'
 
 const BookMemberDisplay = () => {
   return <BookMemberLayout />

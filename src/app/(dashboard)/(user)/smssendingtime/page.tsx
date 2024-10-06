@@ -1,4 +1,4 @@
-import SMSSendingTimeLayout from '@/views/student/smssendingtime'
+import SMSSendingTimeLayout from '@/views/student/smsSendingTime'
 
 const SMSSendingTime = () => {
   return (

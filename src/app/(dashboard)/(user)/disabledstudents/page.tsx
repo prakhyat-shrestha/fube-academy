@@ -1,4 +1,4 @@
-import DisabledStudentLayout from '@/views/student/disabledstudent'
+import DisabledStudentLayout from '@/views/student/disabledStudent'
 
 const DisabledStudent = () => {
   return (

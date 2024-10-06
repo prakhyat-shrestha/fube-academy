@@ -9,6 +9,7 @@ import CurrencyRupeeIcon from '@mui/icons-material/CurrencyRupee'
 import QuizIcon from '@mui/icons-material/Quiz'
 import OnlinePredictionIcon from '@mui/icons-material/OnlinePrediction'
 import SensorOccupiedIcon from '@mui/icons-material/SensorOccupied'
+import AccountBalanceIcon from '@mui/icons-material/AccountBalance'
 
 // Third-party Imports
 import PerfectScrollbar from 'react-perfect-scrollbar'
@@ -142,6 +143,14 @@ const VerticalMenu = ({ dictionary, scrollMenu }: Props) => {
           <MenuItem href={'/humanstaffdir'}>Staff Directory</MenuItem>
           <MenuItem href={'/humanstafattend'}>Staff Attendance</MenuItem>
           <MenuItem href={'/humanpayroll'}>Payroll</MenuItem>
+        </SubMenu>
+        <SubMenu label={dictionary['navigation'].accounts} icon={<AccountBalanceIcon />}>
+          <MenuItem href={'/placc'}>Profit & Loss</MenuItem>
+          <MenuItem href={'/income'}>Income</MenuItem>
+          <MenuItem href={'/expense'}>Expense</MenuItem>
+          <MenuItem href={'/chartacc'}>Chart Of Account</MenuItem>
+          <MenuItem href={'/bankacc'}>Bank Account</MenuItem>
+          <MenuItem href={'fundtrans'}>Fund Transfer</MenuItem>
         </SubMenu>
       </Menu>
       {/* <Menu

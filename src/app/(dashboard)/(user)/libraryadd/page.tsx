@@ -1,4 +1,4 @@
-import AddBookLayout from '@/views/library/addbook'
+import AddBookLayout from '@/views/library/addBook'
 
 export default function AddBook() {
   return (

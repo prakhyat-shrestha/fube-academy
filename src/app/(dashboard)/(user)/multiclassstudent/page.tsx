@@ -1,4 +1,4 @@
-import MultiClassLayout from '@/views/student/multiclass'
+import MultiClassLayout from '@/views/student/multiClass'
 
 const MulticlassStudent = () => {
   return (

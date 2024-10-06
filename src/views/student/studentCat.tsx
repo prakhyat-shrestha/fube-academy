@@ -49,7 +49,7 @@ const StudentCategory = () => {
   return (
     <>
       <div className='flex '>
-        <Typography variant='h6' component='h3'>
+        <Typography variant='h5' component='h3'>
           Student Category
         </Typography>
         <nav style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center' }}>

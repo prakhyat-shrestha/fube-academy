@@ -1,4 +1,4 @@
-import DeleteStudentRecordLayout from '@/views/student/deletestudentrecord'
+import DeleteStudentRecordLayout from '@/views/student/deleteStudentRecord'
 
 const DeleteStudentRecord = () => {
   return (

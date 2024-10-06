@@ -51,7 +51,7 @@ const StaffAttendanceLayout = () => {
       <div className='attend mt-4' style={{ flex: 1 }}>
         <Card sx={{ width: '100%', height: '105%' }}>
           <CardContent>
-            <div className='container' style={{ display: 'flex', gap: '72%' }}>
+            <div className='container' style={{ display: 'flex', gap: '79.5%' }}>
               <Typography variant='h5' component='h4'>
                 Select Criteria
               </Typography>

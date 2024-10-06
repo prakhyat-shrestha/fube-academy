@@ -55,9 +55,6 @@ const StaffPayrollLayout = () => {
               <Typography variant='h5' component='h4'>
                 Select Criteria
               </Typography>
-              <Button variant='contained' startIcon={<AddSharpIcon />}>
-                ADD STAFF
-              </Button>
             </div>
 
             <div className='container' style={{ display: 'flex' }}>

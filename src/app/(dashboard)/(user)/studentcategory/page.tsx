@@ -1,4 +1,4 @@
-import StudentCategory from '@/views/student/student-cat'
+import StudentCategory from '@/views/student/studentCat'
 
 const StudentCategoryDisplay = () => {
   return <StudentCategory />

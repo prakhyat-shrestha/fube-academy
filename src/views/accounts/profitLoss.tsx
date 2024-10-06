@@ -3,22 +3,24 @@ import React, { useRef } from 'react'
 
 import Link from 'next/link'
 
-import { Typography, MenuItem, InputAdornment, TextField, Switch } from '@mui/material'
+import { TextField, Typography, InputAdornment } from '@mui/material'
 import Card from '@mui/material/Card'
 import CardContent from '@mui/material/CardContent'
-import ButtonGroup from '@mui/material/ButtonGroup'
+import { Icon } from '@iconify/react/dist/iconify.js'
+
 import Button from '@mui/material/Button'
-import AddSharpIcon from '@mui/icons-material/AddSharp'
+import ButtonGroup from '@mui/material/ButtonGroup'
 import SearchSharpIcon from '@mui/icons-material/SearchSharp'
 
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
-import { Icon } from '@iconify/react/dist/iconify.js'
+
+import { createTheme } from '@mui/material/styles'
 
 import CustomTextField from '@core/components/mui/TextField'
 
-const StaffDirectoryLayout = () => {
+const ProfitLossLayout = () => {
   const textFieldRef = useRef<HTMLInputElement>(null)
 
   const handleFocus = () => {
@@ -33,11 +35,19 @@ const StaffDirectoryLayout = () => {
     }
   }
 
+  const theme = createTheme({
+    palette: {
+      primary: {
+        main: '#1976d2'
+      }
+    }
+  })
+
   return (
     <>
       <div className='flex'>
         <Typography variant='h5' component='h3'>
-          Staff List
+          Profit & Loss
         </Typography>
         <nav style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center' }}>
           <Typography variant='h6' component='h3' style={{ display: 'flex', alignItems: 'center' }}>
@@ -46,80 +56,64 @@ const StaffDirectoryLayout = () => {
             </Link>
             <span style={{ marginRight: '10px' }}>|</span>
             <Link href='#' style={{ marginRight: '35px' }}>
-              Human Resource
+              Accounts
             </Link>
             <span style={{ marginRight: '35px' }}>|</span>
-            <Link href='#'>Staff List</Link>
+            <Link href='#'>Profit & Loss</Link>
           </Typography>
         </nav>
       </div>
       <div className='attend mt-4' style={{ flex: 1 }}>
         <Card sx={{ width: '100%', height: '105%' }}>
           <CardContent>
-            <div className='container' style={{ display: 'flex', gap: '80%' }}>
+            <div className='container' style={{ display: 'flex', gap: '79.5%' }}>
               <Typography variant='h5' component='h4'>
                 Select Criteria
               </Typography>
-
-              <Button variant='contained' startIcon={<AddSharpIcon />}>
-                ADD STAFF
-              </Button>
             </div>
 
             <div className='container' style={{ display: 'flex' }}>
               <CustomTextField
-                select
                 fullWidth
+                required
                 defaultValue='role'
-                label='ROLE'
-                id='custom-select'
+                label='DATE TO'
+                type='date'
                 style={{ margin: '20px 35px 0 0 ', width: '65%' }}
-              >
-                <CustomTextField required placeholder='Search...' style={{ padding: '0 6px 8px 6px', width: '100%' }} />
-                <MenuItem value='role'>
-                  <span style={{ fontStyle: 'normal' }}>Role</span>
-                </MenuItem>
-                <MenuItem value='accountant'>Accountant</MenuItem>
-                <MenuItem value='admin'>Admin</MenuItem>
-                <MenuItem value='administrator'>Administrator</MenuItem>
-                <MenuItem value='driver'>Driver</MenuItem>
-                <MenuItem value='librarian'>Librarian</MenuItem>
-                <MenuItem value='receptionist'>Receptionist</MenuItem>
-                <MenuItem value='superadmin'>Super Admin</MenuItem>
-                <MenuItem value='teacher'>Teacher</MenuItem>
-              </CustomTextField>
-              <CustomTextField
-                fullWidth
-                label='SEARCH BY STAFF ID '
-                style={{ margin: '20px 35px 0 0 ', marginRight: '30px', width: '65%' }}
               />
               <CustomTextField
-                defaultValue='subject'
-                label='SEARCH BY NAME'
-                style={{ margin: '20px 35px 0 0 ', marginRight: '10px', width: '65%' }}
+                fullWidth
+                required
+                label='DATE TO'
+                type='date'
+                style={{ margin: '20px 35px 0 0 ', width: '65%' }}
               />
             </div>
-            <div className='container' style={{ display: 'flex', marginLeft: '90%', marginTop: '20px' }}>
-              <Button variant='contained' startIcon={<SearchSharpIcon />}>
+            <div
+              className='container'
+              style={{ display: 'flex', marginLeft: '45.5%', marginTop: '20px', height: '35px' }}
+            >
+              <Button href='/placc' variant='contained' startIcon={<SearchSharpIcon />}>
                 SEARCH
               </Button>
             </div>
           </CardContent>
         </Card>
       </div>
-      {/* ---- Table Section ----*/}
-      <div className='allstaffList mt-4 ' style={{ flex: 1 }}>
-        <Card sx={{ width: '100%', height: '105%' }}>
+
+      {/* Profit & Loss Table */}
+      <div className='profitLossList mt-4' style={{ flex: 1 }}>
+        <Card sx={{ width: '100%', height: 300 }}>
           <CardContent>
             <div style={{ display: 'flex', alignItems: 'center' }}>
-              <Typography variant='h5' component='h3' style={{ flex: 1, marginRight: '16%' }}>
-                Staff List
+              <Typography variant='h5' component='h3' style={{ flex: 1, marginRight: '12%' }}>
+                Profit & Loss
               </Typography>
               <div style={{ flexGrow: 1 }}>
                 <TextField
                   id='standard-search'
                   variant='standard'
-                  placeholder='QUICK SEARCH'
+                  placeholder='Search'
                   inputRef={textFieldRef}
                   onFocus={handleFocus}
                   onBlur={handleBlur}
@@ -132,7 +126,6 @@ const StaffDirectoryLayout = () => {
                   }}
                 />
               </div>
-              {/*---------- Button Group Section ----------- */}
               <div style={{ display: 'flex', justifyContent: 'center' }}>
                 <ButtonGroup
                   variant='outlined'
@@ -141,7 +134,7 @@ const StaffDirectoryLayout = () => {
                     '& .MuiButton-root': {
                       fontSize: '1.2rem',
                       padding: '4px 8px',
-                      backgroundColor: 'tansparent',
+                      backgroundColor: 'transparent',
                       borderColor: 'currentColor',
                       color: 'currentColor',
                       '&:hover': {
@@ -178,7 +171,7 @@ const StaffDirectoryLayout = () => {
                 </ButtonGroup>
               </div>
             </div>
-            {/*--------- Table section --------*/}
+            {/* Table */}
             <div style={{ marginTop: '20px' }}>
               <table style={{ width: '100%', borderCollapse: 'collapse' }}>
                 <thead>
@@ -188,13 +181,13 @@ const StaffDirectoryLayout = () => {
                         padding: '8px',
                         textAlign: 'left',
                         backgroundColor: 'lightgray',
-                        position: 'relative',
-                        borderRadius: '5px 0 0 5px'
+                        borderRadius: '5px 0 0 5px',
+                        position: 'relative' // Required for rounded corners
                       }}
                     >
                       <div style={{ display: 'flex', alignItems: 'center' }}>
                         <ArrowDownwardIcon style={{ marginRight: '8px' }} />
-                        <span>Staff No</span>
+                        <span>Time</span>
                       </div>
                     </th>
                     <th
@@ -202,12 +195,13 @@ const StaffDirectoryLayout = () => {
                         padding: '8px',
                         textAlign: 'left',
                         backgroundColor: 'lightgray',
-                        position: 'relative'
+
+                        position: 'relative' // Required for rounded corners
                       }}
                     >
                       <div style={{ display: 'flex', alignItems: 'center' }}>
                         <ArrowDownwardIcon style={{ marginRight: '8px' }} />
-                        <span>Name</span>
+                        <span>Income</span>
                       </div>
                     </th>
                     <th
@@ -215,63 +209,13 @@ const StaffDirectoryLayout = () => {
                         padding: '8px',
                         textAlign: 'left',
                         backgroundColor: 'lightgray',
-                        position: 'relative'
+
+                        position: 'relative' // Required for rounded corners
                       }}
                     >
                       <div style={{ display: 'flex', alignItems: 'center' }}>
                         <ArrowDownwardIcon style={{ marginRight: '8px' }} />
-                        <span>Role</span>
-                      </div>
-                    </th>
-                    <th
-                      style={{
-                        padding: '8px',
-                        textAlign: 'left',
-                        backgroundColor: 'lightgray',
-                        position: 'relative'
-                      }}
-                    >
-                      <div style={{ display: 'flex', alignItems: 'center' }}>
-                        <ArrowDownwardIcon style={{ marginRight: '8px' }} />
-                        <span>Department</span>
-                      </div>
-                    </th>
-                    <th
-                      style={{
-                        padding: '8px',
-                        textAlign: 'left',
-                        backgroundColor: 'lightgray',
-                        position: 'relative'
-                      }}
-                    >
-                      <div style={{ display: 'flex', alignItems: 'center' }}>
-                        <ArrowDownwardIcon style={{ marginRight: '8px' }} />
-                        <span>Designation</span>
-                      </div>
-                    </th>
-                    <th
-                      style={{
-                        padding: '8px',
-                        textAlign: 'left',
-                        backgroundColor: 'lightgray',
-                        position: 'relative'
-                      }}
-                    >
-                      <div style={{ display: 'flex', alignItems: 'center' }}>
-                        <ArrowDownwardIcon style={{ marginRight: '8px' }} />
-                        <span>Mobile</span>
-                      </div>
-                    </th>
-                    <th
-                      style={{
-                        padding: '8px',
-                        textAlign: 'left',
-                        backgroundColor: 'lightgray'
-                      }}
-                    >
-                      <div style={{ display: 'flex', alignItems: 'center' }}>
-                        <ArrowDownwardIcon style={{ marginRight: '8px' }} />
-                        <span>Email</span>
+                        <span>Expense</span>
                       </div>
                     </th>
 
@@ -285,23 +229,17 @@ const StaffDirectoryLayout = () => {
                     >
                       <div style={{ display: 'flex', alignItems: 'center' }}>
                         <ArrowDownwardIcon style={{ marginRight: '8px' }} />
-                        <span>Status</span>
+                        <span>Profit/Loss</span>
                       </div>
                     </th>
                   </tr>
                 </thead>
-                {/*----- Table body section ----- */}
                 <tbody>
                   <tr style={{ borderBottom: '1px solid #ddd' }}>
+                    <td style={{ padding: '8px' }}>All</td>
+                    <td style={{ padding: '8px' }}>Rs 100.00</td>
                     <td style={{ padding: '8px' }}></td>
-                    <td style={{ padding: '8px' }}></td>
-                    <td style={{ padding: '8px' }}></td>
-                    <td style={{ padding: '8px' }}></td>
-                    <td style={{ padding: '8px' }}>No Data Available </td>
-                    <td style={{ padding: '8px' }}></td>
-                    <td style={{ padding: '8px' }}></td>
-                    <td style={{ padding: '8px' }}></td>
-                    <td style={{ padding: '8px' }}>{/* <Switch defaultChecked size='small' /> */}</td>
+                    <td style={{ padding: '8px' }}>Rs 100.00</td>
                   </tr>
                 </tbody>
               </table>
@@ -310,35 +248,47 @@ const StaffDirectoryLayout = () => {
           {/* Pagination */}
           <div style={{ display: 'flex', justifyContent: 'space-between', padding: '16px' }}>
             <Typography variant='body2' style={{ marginLeft: '16px' }}>
-              Showing 0 to 0 of 0 entries
+              Showing 1 to 3 of 3 entries
             </Typography>
-            {/*----- Page number section ----- */}
             <div
               style={{
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
                 margin: 'auto',
-                cursor: 'pointer',
-                marginRight: '50%'
+                cursor: 'pointer'
               }}
             >
               <Button
                 size='small'
                 style={{
                   color: 'black',
+                  marginRight: '10px',
                   padding: '4px 8px',
                   width: '30px',
                   minWidth: 'auto',
                   border: 'none'
                 }}
               >
-                <ArrowBackIcon style={{ transform: 'scale(0.8)' }} />
+                <ArrowBackIcon style={{ fontSize: '16px' }} />
               </Button>
+              <Typography
+                variant='body2'
+                sx={{
+                  color: 'white',
+                  padding: '4px 16px',
+                  borderRadius: '4px',
+                  background: theme.palette.primary.main,
+                  cursor: 'pointer'
+                }}
+              >
+                1
+              </Typography>
               <Button
                 size='small'
                 style={{
                   color: 'black',
+                  marginLeft: '10px',
                   padding: '4px 8px',
                   width: '30px',
                   minWidth: 'auto',
@@ -355,4 +305,4 @@ const StaffDirectoryLayout = () => {
   )
 }
 
-export default StaffDirectoryLayout
+export default ProfitLossLayout

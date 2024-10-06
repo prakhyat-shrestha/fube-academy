@@ -23,7 +23,7 @@ import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
 
 import CustomTextField from '@/@core/components/mui/TextField'
 
-const DepartmentLayout = () => {
+const BankAccountLayout = () => {
   const textFieldRef = useRef<HTMLInputElement>(null)
 
   const handleFocus = () => {
@@ -50,7 +50,7 @@ const DepartmentLayout = () => {
     <>
       <div className='flex '>
         <Typography variant='h5' component='h3'>
-          Department
+          Bank Account
         </Typography>
         <nav style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center' }}>
           <Typography variant='h6' component='h3' style={{ display: 'flex', alignItems: 'center' }}>
@@ -59,41 +59,60 @@ const DepartmentLayout = () => {
             </Link>
             <span style={{ marginRight: '10px' }}>|</span>
             <Link href='#' style={{ marginRight: '35px' }}>
-              Human Resource
+              Accounts
             </Link>
             <span style={{ marginRight: '35px' }}>|</span>
-            <Link href='#'>Department</Link>
+            <Link href='/bankacc'>Bank Account</Link>
           </Typography>
         </nav>
       </div>
       <div className='flex' style={{ display: 'flex' }}>
-        {/* Add category first card */}
-        <div className='humanGroup mt-4'>
-          <Card>
+        {/* Add Expense first card */}
+        <div className='questionGroup mt-4'>
+          <Card sx={{ width: 350, height: 775 }}>
             <CardContent>
               <Typography variant='h5' component='h3'>
-                Add Department
+                Add Bank Account
+              </Typography>
+
+              <Typography variant='body2' component='div'>
+                <CustomTextField required label='BANK NAME' style={{ marginTop: 10, width: '100%' }} />
               </Typography>
               <Typography variant='body2' component='div'>
-                <CustomTextField required label='DEPARTMENT NAME' style={{ marginTop: 20, width: '100%' }} />
+                <CustomTextField required label='ACCOUNT NAME' style={{ marginTop: 20, width: '100%' }} />
+              </Typography>
+
+              <Typography variant='body2' component='div'>
+                <CustomTextField required label='ACCOUNT NUMBER' style={{ marginTop: 20, width: '100%' }} />
+              </Typography>
+
+              <Typography variant='body2' component='div'>
+                <CustomTextField label='ACCOUNT TYPE' style={{ marginTop: 20, width: '100%' }} />
+              </Typography>
+              <Typography variant='body2' component='div' style={{ display: 'flex', width: '100%', marginTop: '20px' }}>
+                <CustomTextField required label='OPENING BALANCE' variant='outlined' fullWidth />
+              </Typography>
+
+              <Typography variant='body2' component='div' style={{ display: 'flex', width: '100%' }}>
+                <CustomTextField label='NOTE' multiline rows={4} style={{ marginTop: 20, width: '100%' }} />
               </Typography>
             </CardContent>
             <CardActions style={{ justifyContent: 'center' }}>
               <Button variant='contained'>
                 <CheckSharpIcon style={{ marginRight: 5 }} />
-                SAVE DEPARTMENT
+                SAVE ACCOUNT
               </Button>
             </CardActions>
           </Card>
         </div>
 
-        {/* Fees Group list 2nd card */}
-        <div className='departmentList mt-4 mx-6' style={{ flex: 1 }}>
-          <Card sx={{ width: '102%', height: 300 }}>
+        {/* Bank Account list 2nd card */}
+        <div className='BankAccountList mt-4 mx-6' style={{ flex: 1 }}>
+          <Card sx={{ width: '102%', height: 270 }}>
             <CardContent>
               <div style={{ display: 'flex', alignItems: 'center' }}>
                 <Typography variant='h5' component='h3' style={{ flex: 1, marginRight: '12%' }}>
-                  Department List
+                  Bank Account List
                 </Typography>
                 <div style={{ flexGrow: 1 }}>
                   <TextField
@@ -167,16 +186,75 @@ const DepartmentLayout = () => {
                           padding: '8px',
                           textAlign: 'left',
                           backgroundColor: 'lightgray',
-                          borderRadius: '5px 0 0 5px',
-                          position: 'relative' // Required for rounded corners
+                          borderRadius: '5px 0 0 5px'
                         }}
                       >
                         <div style={{ display: 'flex', alignItems: 'center' }}>
                           <ArrowDownwardIcon style={{ marginRight: '8px' }} />
-                          <span>Department</span>
+                          <span>Bank Name</span>
+                        </div>
+                      </th>
+                      <th
+                        style={{
+                          padding: '8px',
+                          textAlign: 'left',
+                          backgroundColor: 'lightgray'
+                        }}
+                      >
+                        <div style={{ display: 'flex', alignItems: 'center' }}>
+                          <ArrowDownwardIcon style={{ marginRight: '8px' }} />
+                          <span>Account Name</span>
+                        </div>
+                      </th>
+                      <th
+                        style={{
+                          padding: '8px',
+                          textAlign: 'left',
+                          backgroundColor: 'lightgray'
+                        }}
+                      >
+                        <div style={{ display: 'flex', alignItems: 'center' }}>
+                          <ArrowDownwardIcon style={{ marginRight: '8px' }} />
+                          <span>Payment Method</span>
+                        </div>
+                      </th>
+                      <th
+                        style={{
+                          padding: '8px',
+                          textAlign: 'left',
+                          backgroundColor: 'lightgray'
+                        }}
+                      >
+                        <div style={{ display: 'flex', alignItems: 'center' }}>
+                          <ArrowDownwardIcon style={{ marginRight: '8px' }} />
+                          <span>Opening Balance</span>
                         </div>
                       </th>
 
+                      <th
+                        style={{
+                          padding: '8px',
+                          textAlign: 'left',
+                          backgroundColor: 'lightgray'
+                        }}
+                      >
+                        <div style={{ display: 'flex', alignItems: 'center' }}>
+                          <ArrowDownwardIcon style={{ marginRight: '8px' }} />
+                          <span>Current Balance</span>
+                        </div>
+                      </th>
+                      <th
+                        style={{
+                          padding: '8px',
+                          textAlign: 'left',
+                          backgroundColor: 'lightgray'
+                        }}
+                      >
+                        <div style={{ display: 'flex', alignItems: 'center' }}>
+                          <ArrowDownwardIcon style={{ marginRight: '8px' }} />
+                          <span>Note</span>
+                        </div>
+                      </th>
                       <th
                         style={{
                           padding: '8px',
@@ -193,14 +271,15 @@ const DepartmentLayout = () => {
                     </tr>
                   </thead>
                   <tbody>
-                    <tr style={{ borderBottom: '1px solid #ddd' }}>
-                      <td style={{ padding: '8px' }}>Admin</td>
-
-                      <td style={{ padding: '8px' }}>
-                        <Button variant='outlined' size='small' style={{ borderRadius: '20px' }}>
-                          SELECT <ArrowDownwardIcon />
-                        </Button>
-                      </td>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td>No Data Available</td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
                     </tr>
                   </tbody>
                 </table>
@@ -209,7 +288,7 @@ const DepartmentLayout = () => {
             {/* Pagination */}
             <div style={{ display: 'flex', justifyContent: 'space-between', padding: '16px' }}>
               <Typography variant='body2' style={{ marginLeft: '16px' }}>
-                Showing 1 to 3 of 3 entries
+                Showing 0 to 0 of 0 entries
               </Typography>
               <div
                 style={{
@@ -267,4 +346,4 @@ const DepartmentLayout = () => {
   )
 }
 
-export default DepartmentLayout
+export default BankAccountLayout

@@ -1,5 +1,5 @@
 'use client'
-import AllIssuedBookLayout from '@/views/library/allissued'
+import AllIssuedBookLayout from '@/views/library/allIssuedBook'
 
 const LibraryIssuedDisplay = () => {
   return <AllIssuedBookLayout />

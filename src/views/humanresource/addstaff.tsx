@@ -179,7 +179,6 @@ const AddStaffLayout = () => {
         </nav>
       </div>
       <Card
-        // style={{ marginTop: '10px', height: '950px' }}
         sx={{
           mt: 2,
           p: 2,

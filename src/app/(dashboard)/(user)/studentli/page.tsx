@@ -1,4 +1,4 @@
-import StudentList from '@/views/student/student-list'
+import StudentList from '@/views/student/studentList'
 
 export default function StudentDisplay() {
   return (

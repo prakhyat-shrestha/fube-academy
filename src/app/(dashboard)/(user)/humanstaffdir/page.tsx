@@ -1,4 +1,4 @@
-import StaffDirectoryLayout from '@/views/humanresource/staffdirectory'
+import StaffDirectoryLayout from '@/views/humanResource/staffDirectory'
 
 const HumanStaffDirectory = () => {
   return <StaffDirectoryLayout />

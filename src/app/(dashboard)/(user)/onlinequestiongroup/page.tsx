@@ -1,4 +1,4 @@
-import QuestionGroupLayout from '@/views/onlineexam/questiongroup'
+import QuestionGroupLayout from '@/views/onlineExam/questionGroup'
 
 const QuestionGroup = () => {
   return <QuestionGroupLayout />

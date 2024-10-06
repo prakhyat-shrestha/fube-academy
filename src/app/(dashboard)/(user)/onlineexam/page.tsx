@@ -1,4 +1,4 @@
-import OnlineExamLayout from '@/views/onlineexam/onlineexam'
+import OnlineExamLayout from '@/views/onlineExam/onlineExam'
 
 const OnlineExamDisplay = () => {
   return <OnlineExamLayout />

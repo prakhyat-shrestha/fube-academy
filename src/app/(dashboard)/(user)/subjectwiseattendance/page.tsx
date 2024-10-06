@@ -1,4 +1,4 @@
-import StudentWiseAttendanceLayout from '@/views/student/studentwiseattendance'
+import StudentWiseAttendanceLayout from '@/views/student/studentWiseAttendance'
 
 const SubjectWiseAttendance = () => {
   return (

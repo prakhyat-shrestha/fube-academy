@@ -1,4 +1,4 @@
-import BookIssue from '@/views/library/bookissue'
+import BookIssue from '@/views/library/bookIssue'
 
 const BookIssueDisplay = () => {
   return <BookIssue />

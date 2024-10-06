@@ -1,4 +1,4 @@
-import StaffPayrollLayout from '@/views/humanresource/payroll'
+import StaffPayrollLayout from '@/views/humanResource/payRoll'
 
 const HumanPayrollStaff = () => {
   return <StaffPayrollLayout />

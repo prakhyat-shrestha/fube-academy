@@ -1,4 +1,4 @@
-import StaffAttendanceLayout from '@/views/humanresource/staffattendance'
+import StaffAttendanceLayout from '@/views/humanResource/staffAttendance'
 
 const StaffAttendance = () => {
   return (

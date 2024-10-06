@@ -1,4 +1,4 @@
-import QuestionBankLayout from '@/views/onlineexam/questionbank'
+import QuestionBankLayout from '@/views/onlineExam/questionBank'
 
 const QuestionBank = () => {
   return <QuestionBankLayout />

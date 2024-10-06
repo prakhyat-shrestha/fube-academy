@@ -1,4 +1,4 @@
-import BookSubjects from '@/views/library/booksubject'
+import BookSubjects from '@/views/library/bookSubject'
 
 export default function LibrarySubject() {
   return <BookSubjects />

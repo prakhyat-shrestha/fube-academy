@@ -1,4 +1,4 @@
-import Incident from '@/views/behaviourrecords/incident'
+import Incident from '@/views/behaviourRecords/incident'
 
 const IncidentDisplay = () => {
   return <Incident />

@@ -1,4 +1,4 @@
-import StudentGroupLayout from '@/views/student/studentgroup'
+import StudentGroupLayout from '@/views/student/studentGroup'
 
 const StudentGroup = () => {
   return (

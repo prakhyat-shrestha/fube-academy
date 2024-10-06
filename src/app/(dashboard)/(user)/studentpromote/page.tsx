@@ -1,4 +1,4 @@
-import StudentPromoteLayout from '@/views/student/studentpromote'
+import StudentPromoteLayout from '@/views/student/studentPromote'
 
 const StudentPromote = () => {
   return (
