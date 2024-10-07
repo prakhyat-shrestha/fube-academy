@@ -69,7 +69,7 @@ const BankAccountLayout = () => {
       <div className='flex' style={{ display: 'flex' }}>
         {/* Add Expense first card */}
         <div className='questionGroup mt-4'>
-          <Card sx={{ width: 350, height: 775 }}>
+          <Card sx={{ width: 350, height: 670 }}>
             <CardContent>
               <Typography variant='h5' component='h3'>
                 Add Bank Account

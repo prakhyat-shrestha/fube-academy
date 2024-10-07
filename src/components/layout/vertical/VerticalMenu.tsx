@@ -141,6 +141,11 @@ const VerticalMenu = ({ dictionary, scrollMenu }: Props) => {
           <MenuItem href={'/bankacc'}>Bank Account</MenuItem>
           <MenuItem href={'fundtrans'}>Fund Transfer</MenuItem>
         </SubMenu>
+        <SubMenu label={dictionary['navigation'].chat}>
+          <MenuItem href={'/chatbox'}>Chat Box</MenuItem>
+          <MenuItem href={'/invitation'}>Invitation</MenuItem>
+          <MenuItem href={'/blockeduser'}>Blocked User</MenuItem>
+        </SubMenu>
       </Menu>
       {/* <Menu
         popoutMenuOffset={{ mainAxis: 23 }}
