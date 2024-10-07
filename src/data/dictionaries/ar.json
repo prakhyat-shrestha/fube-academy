@@ -85,18 +85,20 @@
     "fee": "مصاريف",
     "homework": "العمل في المنزل",
     "transport": "ينقل",
-    "adminsection": "مسؤلقسم المشرف",
+    "adminSection": "مسؤلقسم المشرف",
     "feesreport": "تقرير الرسوم",
     "academics": "الأكاديميين",
-    "studymaterial": "المواد الدراسية",
-    "lessonplan": "خطة الدرس",
-    "bulkprint": "طباعة بالجملة",
-    "downloadcenter": "مركز التحميل",
-    "behaviourrecords": "سجلات السلوك",
+    "studyMaterial": "المواد الدراسية",
+    "lessonPlan": "خطة الدرس",
+    "bulkPrint": "طباعة بالجملة",
+    "downloadCenter": "مركز التحميل",
+    "behaviourRecords": "سجلات السلوك",
     "dormitory": "المهجع",
     "examination": "فحص",
     "teacherevaluation": "تقييم المعلم",
     "leave": "يترك",
-    "roleandpermission": "الدور والإذن"
+    "roleandpermission": "الدور والإذن",
+    "wallet": "محفظة",
+    "inventory": "جرد"
   }
 }

@@ -80,41 +80,41 @@ const VerticalMenu = ({ dictionary, scrollMenu }: Props) => {
         <MenuItem href='/contact' icon={<i className='tabler-info-circle' />}>
           Contact
         </MenuItem>
-        <SubMenu label={dictionary['navigation'].adminsection} icon={<i className='tabler-brand-amigo' />}>
-          <MenuItem href={'/admissionquery'}>Admission Query</MenuItem>
-          <MenuItem href={'/visitorbook'}>Visitor Book</MenuItem>
+        <SubMenu label={dictionary['navigation'].adminSection} icon={<i className='tabler-brand-amigo' />}>
+          <MenuItem href={'/admissionQuery'}>Admission Query</MenuItem>
+          <MenuItem href={'/visitorBook'}>Visitor Book</MenuItem>
           <MenuItem href={'/complaint'}>Complaint</MenuItem>
-          <MenuItem href={'/postalreceive'}>Postal Receive</MenuItem>
-          <MenuItem href={'/postaldispatch'}>Postal Dispatch</MenuItem>
-          <MenuItem href={'/phonecalllog'}>Phone Call Log</MenuItem>
-          <MenuItem href={'/adminsetup'}>Admin Setup</MenuItem>
-          <MenuItem href={'/idcard'}>ID Card</MenuItem>
+          <MenuItem href={'/postalReceive'}>Postal Receive</MenuItem>
+          <MenuItem href={'/postalDispatch'}>Postal Dispatch</MenuItem>
+          <MenuItem href={'/phoneCallLog'}>Phone Call Log</MenuItem>
+          <MenuItem href={'/adminSetup'}>Admin Setup</MenuItem>
+          <MenuItem href={'/idCard'}>ID Card</MenuItem>
           <MenuItem href={'/certificatess'}>Certificate</MenuItem>
-          <MenuItem href={'/generatecertificate'}>Generate Certificate</MenuItem>
-          <MenuItem href={'/generateidcard'}>Generate ID Card</MenuItem>
+          <MenuItem href={'/generateCertificate'}>Generate Certificate</MenuItem>
+          <MenuItem href={'/generateIdCard'}>Generate ID Card</MenuItem>
         </SubMenu>
         <SubMenu label={dictionary['navigation'].academics} icon={<i className='tabler-school' />}>
-          <MenuItem href={'/optionalsubject'}>Optional Subject</MenuItem>
+          <MenuItem href={'/optionalSubject'}>Optional Subject</MenuItem>
           <MenuItem href={'/section'}>Section</MenuItem>
           <MenuItem href={'/classGroup'}>Class</MenuItem>
           <MenuItem href={'/subjects'}>Subjects</MenuItem>
-          <MenuItem href={'/assignclassteacher'}>Assign Class Teacher</MenuItem>
-          <MenuItem href={'/assignsubject'}>Assign Subject</MenuItem>
-          <MenuItem href={'/classroom'}>Class Room</MenuItem>
-          <MenuItem href={'/classroutine'}>Class Routine</MenuItem>
+          <MenuItem href={'/assignClassTeacher'}>Assign Class Teacher</MenuItem>
+          <MenuItem href={'/assignSubject'}>Assign Subject</MenuItem>
+          <MenuItem href={'/classRoom'}>Class Room</MenuItem>
+          <MenuItem href={'/classRoutine'}>Class Routine</MenuItem>
         </SubMenu>
-        <SubMenu label={dictionary['navigation'].studymaterial} icon={<i className='tabler-download' />}>
-          <MenuItem href={'/uploadcontent'}>Upload Content</MenuItem>
+        <SubMenu label={dictionary['navigation'].studyMaterial} icon={<i className='tabler-download' />}>
+          <MenuItem href={'/uploadContent'}>Upload Content</MenuItem>
           <MenuItem href={'/assignment'}>Assignment</MenuItem>
           <MenuItem href={'/syllabus'}>Syllabus</MenuItem>
-          <MenuItem href={'/otherdownloads'}>Other Downloads</MenuItem>
+          <MenuItem href={'/otherDownloads'}>Other Downloads</MenuItem>
         </SubMenu>
-        <SubMenu label={dictionary['navigation'].lessonplan} icon={<i className='tabler-list-details' />}>
+        <SubMenu label={dictionary['navigation'].lessonPlan} icon={<i className='tabler-list-details' />}>
           <MenuItem href={'/lesson'}>Lesson</MenuItem>
           <MenuItem href={'/topic'}>Topic</MenuItem>
-          <MenuItem href={'/topicoverview'}>Topic Overview</MenuItem>
-          <MenuItem href={'/lessonplan'}>Lesson Plan</MenuItem>
-          <MenuItem href={'/lessonplanoverview'}>Lesson Plan Overview</MenuItem>
+          <MenuItem href={'/topicOverView'}>Topic Overview</MenuItem>
+          <MenuItem href={'/lessonPlan'}>Lesson Plan</MenuItem>
+          <MenuItem href={'/lessonPlanOverView'}>Lesson Plan Overview</MenuItem>
         </SubMenu>
         <SubMenu label={dictionary['navigation'].bulkprint} icon={<i className='tabler-printer' />}>
           <MenuItem href={'/idcardprint'}>ID Card</MenuItem>
@@ -195,6 +195,23 @@ const VerticalMenu = ({ dictionary, scrollMenu }: Props) => {
           <MenuItem href={'/loginpermission'}>Login Permission</MenuItem>
           <MenuItem href={'/role'}>Role</MenuItem>
           <MenuItem href={'/duefeesloginpermission'}>Due Fees Login Permission</MenuItem>
+        </SubMenu>
+        <SubMenu label={dictionary['navigation'].wallet} icon={<i className='tabler-wallet' />}>
+          <MenuItem href={'/pendingdeposit'}>Pending Deposit</MenuItem>
+          <MenuItem href={'/approvedeposit'}>Approve Deposit</MenuItem>
+          <MenuItem href={'/rejectdeposit'}>Reject Deposit</MenuItem>
+          <MenuItem href={'/wallettransaction'}>Wallet Transaction</MenuItem>
+          <MenuItem href={'/refundrequest'}>Refund Request</MenuItem>
+        </SubMenu>
+        <SubMenu label={dictionary['navigation'].inventory} icon={<i className='tabler-building-warehouse' />}>
+          <MenuItem href={'/itemcategory'}>Item Category</MenuItem>
+          <MenuItem href={'/itemlist'}>Item List</MenuItem>
+          <MenuItem href={'/itemstore'}>Item Store</MenuItem>
+          <MenuItem href={'/supplier'}>Supplier</MenuItem>
+          <MenuItem href={'/itemreceive'}>Item Receive</MenuItem>
+          <MenuItem href={'/itemreceivelist'}>Item Receive List</MenuItem>
+          <MenuItem href={'/itemsell'}>Item Sell</MenuItem>
+          <MenuItem href={'/itemissue'}>Item Issue</MenuItem>
         </SubMenu>
         <SubMenu label={dictionary['navigation'].feesreport} icon={<i className='tabler-report' />}>
           <MenuItem href={'/feesdue'}>Fees Due Report</MenuItem>

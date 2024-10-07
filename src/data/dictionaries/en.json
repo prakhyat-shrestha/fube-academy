@@ -85,18 +85,20 @@
     "fee": "Fees",
     "homework": "Homework",
     "transport": "Transport",
-    "adminsection": "Admin Section",
+    "adminSection": "Admin Section",
     "feesreport": "Fees Report",
     "academics": "Academics",
-    "studymaterial": "Study Material",
-    "lessonplan": "Lesson Plan",
-    "bulkprint": "Bulk Print",
-    "downloadcenter": "Download Center",
-    "behaviourrecords": "Behaviour Records",
+    "studyMaterial": "Study Material",
+    "lessonPlan": "Lesson Plan",
+    "bulkPrint": "Bulk Print",
+    "downloadCenter": "Download Center",
+    "behaviourRecords": "Behaviour Records",
     "dormitory": "Dormitory",
     "examination": "Examination",
     "teacherevaluation": "Teacher Evaluation",
     "leave": "Leave",
-    "roleandpermission": "Role & Permission"
+    "roleandpermission": "Role & Permission",
+    "wallet": "Wallet",
+    "inventory": "Inventory"
   }
 }

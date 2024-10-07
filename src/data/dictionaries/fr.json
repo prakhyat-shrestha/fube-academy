@@ -85,18 +85,20 @@
     "fee": "Frais",
     "homework": "Devoirs",
     "transport": "Transport",
-    "adminsection": "Section Administrateur",
+    "adminSection": "Section Administrateur",
     "feesreport": "Rapport des frais",
     "academics": "Universitaires",
-    "studymaterial": "Matériel d'étude",
-    "lessonplan": "Plan de cours",
-    "bulkprint": "Impression en masse",
-    "downloadcenter": "Centre de téléchargement",
-    "behaviourrecords": "Enregistrements de comportement",
+    "studyMaterial": "Matériel d'étude",
+    "lessonPlan": "Plan de cours",
+    "bulkPrint": "Impression en masse",
+    "downloadCenter": "Centre de téléchargement",
+    "behaviourRecords": "Enregistrements de comportement",
     "dormitory": "Dortoir",
     "examination": "Examen",
     "teacherevaluation": "Évaluation des enseignants",
     "leave": "Partir",
-    "roleandpermission": "Rôle et autorisation"
+    "roleandpermission": "Rôle et autorisation",
+    "wallet": "Portefeuille",
+    "inventory": "Inventaire"
   }
 }
