@@ -1,4 +1,4 @@
-import ExamTypeLayout from '@/views/examination/examtype'
+import ExamTypeLayout from '@/views/examination/examType'
 
 const ExamType = () => {
   return (

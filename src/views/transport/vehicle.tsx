@@ -61,12 +61,12 @@ const VehicleList = () => {
         </nav>
       </div>
       <div className='flex' style={{ display: 'flex' }}>
-        {/* Add fees group first card */}
-        <div className='feesGroup mt-4'>
+        {/* Add vehicle first card */}
+        <div className='vehicle mt-4'>
           <Card sx={{ width: 280, height: 560 }}>
             <CardContent>
               <Typography variant='h6' component='h3'>
-                Add Route
+                Add Vehicle
               </Typography>
               <Typography variant='body2' component='div'>
                 <CustomTextField required label='VEHICLE NUMBER' style={{ marginTop: 20, width: '100%' }} />
@@ -103,13 +103,13 @@ const VehicleList = () => {
           </Card>
         </div>
 
-        {/* Fees Group list 2nd card */}
-        <div className='feesList mt-4 mx-6' style={{ flex: 1 }}>
-          <Card sx={{ width: '102%', height: 280 }}>
+        {/* Vehicle list 2nd card */}
+        <div className='vehicleList mt-4 mx-6' style={{ flex: 1 }}>
+          <Card sx={{ width: '102.65%', height: 280 }}>
             <CardContent>
               <div style={{ display: 'flex', alignItems: 'center' }}>
                 <Typography variant='h6' component='h3' style={{ flex: 1, marginRight: '16%' }}>
-                  Route List
+                  Vehicle List
                 </Typography>
                 <div style={{ flexGrow: 1 }}>
                   <TextField

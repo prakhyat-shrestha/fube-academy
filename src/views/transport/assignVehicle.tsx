@@ -61,8 +61,8 @@ const AssignVehicleList = () => {
         </nav>
       </div>
       <div className='flex' style={{ display: 'flex' }}>
-        {/* Add fees group first card */}
-        <div className='feesGroup mt-4'>
+        {/* Add assign vehicle first card */}
+        <div className='assignVehicle mt-4'>
           <Card sx={{ width: 280, height: 275 }}>
             <CardContent>
               <Typography variant='h6' component='h3'>
@@ -92,9 +92,9 @@ const AssignVehicleList = () => {
           </Card>
         </div>
 
-        {/* Fees Group list 2nd card */}
-        <div className='feesList mt-4 mx-6' style={{ flex: 1 }}>
-          <Card sx={{ width: '102%', height: 230 }}>
+        {/* assign vehicle list 2nd card */}
+        <div className='assignVehicleList mt-4 mx-6' style={{ flex: 1 }}>
+          <Card sx={{ width: '102.65%', height: 230 }}>
             <CardContent>
               <div style={{ display: 'flex', alignItems: 'center' }}>
                 <Typography variant='h6' component='h3' style={{ flex: 1, marginRight: '14%' }}>

@@ -46,7 +46,7 @@ const IncidentWiseReportLayout = () => {
       </div>
 
       {/* ---- Table Section ----*/}
-      <div className='incidentwisereport mt-4 ' style={{ flex: 1 }}>
+      <div className='incidentWiseReport mt-4 ' style={{ flex: 1 }}>
         <Card sx={{ width: '100%', height: '105%' }}>
           <CardContent>
             <div style={{ display: 'flex', alignItems: 'center' }}>

@@ -87,7 +87,7 @@ const ContentTypeLayout = () => {
 
         {/* Content Type list 2nd card */}
         <div className='contentList mt-4 mx-6' style={{ flex: 1 }}>
-          <Card sx={{ width: '102%', height: 370 }}>
+          <Card sx={{ width: '102.65%', height: 370 }}>
             <CardContent>
               <div style={{ display: 'flex', alignItems: 'center' }}>
                 <Typography variant='h6' component='h3' style={{ flex: 1, marginRight: '16%' }}>

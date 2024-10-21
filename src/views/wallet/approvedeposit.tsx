@@ -56,7 +56,7 @@ const ApproveDepositLayout = () => {
       </div>
 
       {/* ---- Table Section ----*/}
-      <div className='approvedeposit mt-4 ' style={{ flex: 1 }}>
+      <div className='approveDepositList mt-4 ' style={{ flex: 1 }}>
         <Card sx={{ width: '100%', height: '40%' }}>
           <CardContent>
             <div style={{ display: 'flex', alignItems: 'center' }}>

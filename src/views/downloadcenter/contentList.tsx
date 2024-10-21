@@ -96,7 +96,7 @@ const ContentListLayout = () => {
       </div>
       {/* Content List Second Card */}
       <div className='flex' style={{ display: 'flex' }}>
-        <div className='class mt-4'>
+        <div className='contentAdd mt-4'>
           <Card sx={{ width: 300, height: 405 }}>
             <CardContent>
               <Typography variant='h6' component='h3'>
@@ -153,8 +153,8 @@ const ContentListLayout = () => {
         </div>
 
         {/* Content List 2nd card */}
-        <div className='contentlist mt-4 mx-6' style={{ flex: 1 }}>
-          <Card sx={{ width: '102%', height: 270 }}>
+        <div className='contentList mt-4 mx-6' style={{ flex: 1 }}>
+          <Card sx={{ width: '102.65%', height: 270 }}>
             <CardContent>
               <Typography variant='h6' component='h3' style={{ flex: 1, marginRight: '10%' }}>
                 Content List

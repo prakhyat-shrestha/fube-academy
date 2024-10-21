@@ -1,4 +1,4 @@
-import GenerateCertificateLayout from '@/views/adminsection/generateCertificate'
+import GenerateCertificateLayout from '@/views/adminSection/generateCertificate'
 
 const GenerateCertificate = () => {
   return (

@@ -99,7 +99,7 @@ const Option = () => {
       <div className='container' style={{ display: 'flex', marginTop: '2%' }}>
         <CustomTextField label='COPY FOR' defaultValue={'Parent/Student'} style={{ width: '60%', marginRight: '2%' }} />
         <CustomTextField label='COPY FOR' defaultValue={'Office'} style={{ width: '60%', marginRight: '2%' }} />
-        <CustomTextField label='COPY FOR' defaultValue={'Casier'} style={{ width: '60%', marginRight: '2%' }} />
+        <CustomTextField label='COPY FOR' defaultValue={'Casier'} style={{ width: '60%' }} />
       </div>
     </>
   )

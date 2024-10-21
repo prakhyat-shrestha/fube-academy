@@ -1,4 +1,4 @@
-import CertificatePrintLayout from '@/views/bulkprint/certificate'
+import CertificatePrintLayout from '@/views/bulkPrint/certificate'
 
 const CertificatePrint = () => {
   return (

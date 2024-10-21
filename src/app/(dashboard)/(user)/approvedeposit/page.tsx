@@ -1,4 +1,4 @@
-import ApproveDepositLayout from '@/views/wallet/approvedeposit'
+import ApproveDepositLayout from '@/views/wallet/approveDeposit'
 
 const ApproveDeposit = () => {
   return (

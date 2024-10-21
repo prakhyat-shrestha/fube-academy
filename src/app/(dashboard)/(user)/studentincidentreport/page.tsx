@@ -1,4 +1,4 @@
-import StudentIncidentReportLayout from '@/views/behaviourrecords/studentincidentreport'
+import StudentIncidentReportLayout from '@/views/behaviourRecords/studentIncidentReport'
 
 const StudentIncidentReport = () => {
   return (

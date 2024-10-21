@@ -6,7 +6,7 @@ import CheckSharpIcon from '@mui/icons-material/CheckSharp'
 import SearchSharpIcon from '@mui/icons-material/SearchSharp'
 import ButtonGroup from '@mui/material/ButtonGroup'
 import { Icon } from '@iconify/react'
-import { createTheme, ThemeProvider } from '@mui/material/styles'
+import { createTheme } from '@mui/material/styles'
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
@@ -61,8 +61,8 @@ const PostalDispatchLayout = () => {
         </nav>
       </div>
       <div className='flex' style={{ display: 'flex' }}>
-        {/* Add fees group first card */}
-        <div className='feesGroup mt-4'>
+        {/* Add postalDispatch first card */}
+        <div className='postalDispatch mt-4'>
           <Card sx={{ width: 280, height: 'auto' }}>
             <CardContent>
               <Typography variant='h6' component='h4'>
@@ -105,8 +105,8 @@ const PostalDispatchLayout = () => {
           </Card>
         </div>
         {/*  2nd card */}
-        <div className='feesList mt-4 mx-6' style={{ flex: 1 }}>
-          <Card sx={{ width: '102%', height: '35%' }}>
+        <div className='postalDispatchList mt-4 mx-6' style={{ flex: 1 }}>
+          <Card sx={{ width: '102.65%', height: '35%' }}>
             <CardContent>
               <div style={{ display: 'flex', alignItems: 'center' }}>
                 <Typography variant='h6' component='h3' style={{ flex: 1, marginRight: '16%' }}>

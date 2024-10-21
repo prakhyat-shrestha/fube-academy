@@ -68,7 +68,7 @@ const ExamTypeLayout = () => {
       </div>
       <div className='flex' style={{ display: 'flex' }}>
         {/* Add exam type first card */}
-        <div className='examtype mt-4'>
+        <div className='examType mt-4'>
           <Card sx={{ width: 280, height: cardHeight }}>
             <CardContent>
               <Typography variant='h6' component='h3'>
@@ -112,8 +112,8 @@ const ExamTypeLayout = () => {
         </div>
 
         {/* Exam Type list 2nd card */}
-        <div className='examtypelist mt-4 mx-6' style={{ flex: 1 }}>
-          <Card sx={{ width: '102%', height: 450 }}>
+        <div className='examTypeList mt-4 mx-6' style={{ flex: 1 }}>
+          <Card sx={{ width: '102.65%', height: 525 }}>
             <CardContent>
               <div style={{ display: 'flex', justifyContent: 'flex-end', alignContent: 'flex-end' }}>
                 <Button

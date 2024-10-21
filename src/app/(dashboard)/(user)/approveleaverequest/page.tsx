@@ -1,4 +1,4 @@
-import ApproveLeaveRequestLayout from '@/views/leave/approveleavingrequest'
+import ApproveLeaveRequestLayout from '@/views/leave/approveLeavingRequest'
 
 const ApproveLeaveRequest = () => {
   return (

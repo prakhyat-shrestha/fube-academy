@@ -1,4 +1,4 @@
-import SharedContentListLayout from '@/views/downloadcenter/sharedContentList'
+import SharedContentListLayout from '@/views/downloadCenter/sharedContentList'
 
 const SharedContentList = () => {
   return (

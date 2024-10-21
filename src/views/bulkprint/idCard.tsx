@@ -24,7 +24,7 @@ const IDCardPrintLayout = () => {
           </Typography>
         </nav>
       </div>
-      <div className='idcardbulkprint mt-4' style={{ flex: 1 }}>
+      <div className='idCardBulkPrint mt-4' style={{ flex: 1 }}>
         <Card sx={{ width: '100%', height: '105%' }}>
           <CardContent>
             <div

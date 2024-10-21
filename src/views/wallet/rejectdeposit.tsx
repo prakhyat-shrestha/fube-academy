@@ -56,7 +56,7 @@ const RejectDepositLayout = () => {
       </div>
 
       {/* ---- Table Section ----*/}
-      <div className='rejectdeposit mt-4 ' style={{ flex: 1 }}>
+      <div className='rejectDeposit mt-4 ' style={{ flex: 1 }}>
         <Card sx={{ width: '100%', height: '40%' }}>
           <CardContent>
             <div style={{ display: 'flex', alignItems: 'center' }}>

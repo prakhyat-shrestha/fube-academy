@@ -1,4 +1,4 @@
-import PendingLeaveRequestLayout from '@/views/leave/pedingleaverequest'
+import PendingLeaveRequestLayout from '@/views/leave/pendingLeaveRequest'
 
 const PendingLeaveRequest = () => {
   return (

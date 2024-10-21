@@ -1,4 +1,4 @@
-import ItemIssueLayout from '@/views/inventory/itemissue'
+import ItemIssueLayout from '@/views/inventory/itemIssue'
 
 const ItemIssue = () => {
   return (

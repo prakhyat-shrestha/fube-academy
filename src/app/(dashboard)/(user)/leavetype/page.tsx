@@ -1,4 +1,4 @@
-import LeaveTypeLayout from '@/views/leave/leavetype'
+import LeaveTypeLayout from '@/views/leave/leaveType'
 
 const LeaveType = () => {
   return (

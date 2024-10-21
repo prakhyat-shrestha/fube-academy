@@ -1,4 +1,4 @@
-import WalletTransactionLayout from '@/views/wallet/wallettransaction'
+import WalletTransactionLayout from '@/views/wallet/walletTransaction'
 
 const WalletTransaction = () => {
   return (

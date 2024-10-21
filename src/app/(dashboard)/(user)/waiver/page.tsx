@@ -1,4 +1,4 @@
-import WaiverReportLayout from '@/views/feesreport/waiverReport'
+import WaiverReportLayout from '@/views/feesReport/waiverReport'
 
 const WaiverReport = () => {
   return (

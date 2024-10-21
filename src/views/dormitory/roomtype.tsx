@@ -67,7 +67,7 @@ const RoomTypeLayout = () => {
       </div>
       <div className='flex' style={{ display: 'flex' }}>
         {/* Add Room Type  first card */}
-        <div className='dormitory mt-4'>
+        <div className='roomType mt-4'>
           <Card sx={{ width: 280, height: 325 }}>
             <CardContent>
               <Typography variant='h6' component='h3'>
@@ -90,8 +90,8 @@ const RoomTypeLayout = () => {
         </div>
 
         {/* Room Type 2nd card */}
-        <div className='roomtype mt-4 mx-6' style={{ flex: 1 }}>
-          <Card sx={{ width: '102.5%', height: 275 }}>
+        <div className='roomTypeList mt-4 mx-6' style={{ flex: 1 }}>
+          <Card sx={{ width: '102.65%', height: 275 }}>
             <CardContent>
               <div style={{ display: 'flex', alignItems: 'center' }}>
                 <Typography variant='h6' component='h3' style={{ flex: 1, marginRight: '12%' }}>

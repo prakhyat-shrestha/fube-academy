@@ -60,7 +60,7 @@ const ItemIssueLayout = () => {
 
       <div className='flex' style={{ display: 'flex' }}>
         {/* Add issueItemList first card */}
-        <div className='issueItem mt-4'>
+        <div className='itemIssue mt-4'>
           <Card sx={{ width: 320, height: '98%' }}>
             <CardContent>
               <Typography variant='h6' component='h4'>
@@ -127,7 +127,7 @@ const ItemIssueLayout = () => {
         </div>
 
         {/* ---- Table Section ----*/}
-        <div className='issueItemList mt-4 mx-6 ' style={{ flex: 1 }}>
+        <div className='itemIssueList mt-4 mx-6 ' style={{ flex: 1 }}>
           <Card sx={{ width: '99%', height: '45%' }}>
             <CardContent>
               <div style={{ display: 'flex', alignItems: 'center' }}>

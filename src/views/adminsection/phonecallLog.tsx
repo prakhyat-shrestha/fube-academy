@@ -60,8 +60,8 @@ const PhoneCallLogLayout = () => {
         </nav>
       </div>
       <div className='flex' style={{ display: 'flex' }}>
-        {/* Add fees group first card */}
-        <div className='feesGroup mt-4'>
+        {/* Add phoneCall first card */}
+        <div className='phoneCall mt-4'>
           <Card sx={{ width: 280, height: 'auto' }}>
             <CardContent>
               <Typography variant='h6' component='h4'>
@@ -98,8 +98,8 @@ const PhoneCallLogLayout = () => {
           </Card>
         </div>
         {/*  2nd card */}
-        <div className='feesList mt-4 mx-6' style={{ flex: 1 }}>
-          <Card sx={{ width: '102%', height: '40%' }}>
+        <div className='phoneCallList mt-4 mx-6' style={{ flex: 1 }}>
+          <Card sx={{ width: '102.65%', height: '40%' }}>
             <CardContent>
               <div style={{ display: 'flex', alignItems: 'center' }}>
                 <Typography variant='h6' component='h3' style={{ flex: 1, marginRight: '16%' }}>

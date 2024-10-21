@@ -2,19 +2,16 @@
 import * as React from 'react'
 import CustomTextField from '@/@core/components/mui/TextField'
 import CheckSharpIcon from '@mui/icons-material/CheckSharp'
-import { TextField, InputAdornment, Card, CardActions, CardContent, Button, Typography, Checkbox } from '@mui/material'
+import { TextField, InputAdornment, Card, CardActions, CardContent, Button, Typography } from '@mui/material'
 import SearchSharpIcon from '@mui/icons-material/SearchSharp'
 import ButtonGroup from '@mui/material/ButtonGroup'
-import { useRef, useState } from 'react'
+import { useRef } from 'react'
 import Link from 'next/link'
 import { Icon } from '@iconify/react/dist/iconify.js'
 import { createTheme } from '@mui/material/styles'
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
-import AddSharpIcon from '@mui/icons-material/AddSharp'
-import FormControlLabel from '@mui/material/FormControlLabel'
-import SettingsIcon from '@mui/icons-material/Settings'
 
 const MarksGradeLayout = () => {
   const textFieldRef = useRef<HTMLInputElement>(null)
@@ -60,8 +57,8 @@ const MarksGradeLayout = () => {
         </nav>
       </div>
       <div className='flex' style={{ display: 'flex' }}>
-        {/* Add exam type first card */}
-        <div className='examtype mt-4'>
+        {/* Add marks grade first card */}
+        <div className='marksGrade mt-4'>
           <Card sx={{ width: 280, height: 705 }}>
             <CardContent>
               <Typography variant='h6' component='h3'>
@@ -87,8 +84,8 @@ const MarksGradeLayout = () => {
         </div>
 
         {/* Exam Type list 2nd card */}
-        <div className='examtypelist mt-4 mx-6' style={{ flex: 1 }}>
-          <Card sx={{ width: '102%', height: 460 }}>
+        <div className='marksGradeList mt-4 mx-6' style={{ flex: 1 }}>
+          <Card sx={{ width: '102.65%', height: 460 }}>
             <CardContent>
               <div style={{ display: 'flex', alignItems: 'center' }}>
                 <Typography variant='h6' component='h3' style={{ flex: 1, marginRight: '16%' }}>

@@ -1,4 +1,4 @@
-import ApprovedEvaluationReportLayout from '@/views/teacherevaluation/approvedevaluation'
+import ApprovedEvaluationReportLayout from '@/views/teacherEvaluation/approvedEvaluation'
 
 const ApprovedEvaluationReport = () => {
   return (

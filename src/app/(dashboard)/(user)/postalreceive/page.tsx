@@ -1,4 +1,4 @@
-import PostalReceiveLayout from '@/views/adminsection/postalReceive'
+import PostalReceiveLayout from '@/views/adminSection/postalReceive'
 
 const PostalReceive = () => {
   return (

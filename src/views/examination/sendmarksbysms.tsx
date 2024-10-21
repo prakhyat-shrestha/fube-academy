@@ -4,7 +4,6 @@ import Card from '@mui/material/Card'
 import CardContent from '@mui/material/CardContent'
 import CustomTextField from '@core/components/mui/TextField'
 import Button from '@mui/material/Button'
-import SearchSharpIcon from '@mui/icons-material/SearchSharp'
 import CheckSharpIcon from '@mui/icons-material/CheckSharp'
 
 const SendMarksBySmsLayout = () => {
@@ -28,7 +27,7 @@ const SendMarksBySmsLayout = () => {
           </Typography>
         </nav>
       </div>
-      <div className='examschedule mt-4' style={{ flex: 1 }}>
+      <div className='sendMarkBySms mt-4' style={{ flex: 1 }}>
         <Card sx={{ width: '100%', height: '105%' }}>
           <CardContent>
             <div className='container' style={{ display: 'flex', gap: '72.2%' }}>

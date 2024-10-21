@@ -1,4 +1,4 @@
-import OtherDownloadLayout from '@/views/studymaterial/otherdownload'
+import OtherDownloadLayout from '@/views/studyMaterial/otherDownload'
 
 const OtherDownloads = () => {
   return (

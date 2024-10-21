@@ -24,7 +24,7 @@ const FeesInvoiceBulkLayout = () => {
           </Typography>
         </nav>
       </div>
-      <div className='payroll mt-4' style={{ flex: 1 }}>
+      <div className='feesInvoiceBulk mt-4' style={{ flex: 1 }}>
         <Card sx={{ width: '100%', height: '105%' }}>
           <CardContent>
             <div

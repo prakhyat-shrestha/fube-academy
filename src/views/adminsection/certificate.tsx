@@ -60,8 +60,8 @@ const CertificateLayout = () => {
       </div>
 
       <div className='flex' style={{ display: 'flex' }}>
-        {/* Add fees group first card */}
-        <div className='feesGroup mt-4'>
+        {/* Add certificate first card */}
+        <div className='certificate mt-4'>
           <Card sx={{ width: 450, height: '100%' }}>
             <CardContent>
               <Typography variant='h6' component='h4'>
@@ -163,8 +163,8 @@ const CertificateLayout = () => {
           </Card>
         </div>
         {/* ---- Table Section ----*/}
-        <div className='feesList mt-4 mx-6 ' style={{ flex: 1 }}>
-          <Card sx={{ width: '102%', height: '25%' }}>
+        <div className='certificateList mt-4 mx-6 ' style={{ flex: 1 }}>
+          <Card sx={{ width: '103.3%', height: '25%' }}>
             <CardContent>
               <div style={{ display: 'flex', alignItems: 'center' }}>
                 <Typography variant='h6' component='h3' style={{ marginRight: '10%' }}>

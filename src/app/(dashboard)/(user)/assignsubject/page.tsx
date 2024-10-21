@@ -1,4 +1,4 @@
-import AssignSubjectLayout from '@/views/academics/assignsubject'
+import AssignSubjectLayout from '@/views/academics/assignSubject'
 
 const AssignSubject = () => {
   return (

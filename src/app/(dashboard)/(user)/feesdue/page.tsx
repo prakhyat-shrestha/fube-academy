@@ -1,4 +1,4 @@
-import FeesDue from '@/views/feesreport/feesDue'
+import FeesDue from '@/views/feesReport/feesDue'
 
 const FeesReport = () => {
   return (

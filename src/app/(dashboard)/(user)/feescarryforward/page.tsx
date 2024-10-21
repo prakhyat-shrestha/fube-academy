@@ -1,4 +1,4 @@
-import FeesCarryList from '@/views/fees/feescarry'
+import FeesCarryList from '@/views/fees/feesCarry'
 
 const FeesCarry = () => {
   return (

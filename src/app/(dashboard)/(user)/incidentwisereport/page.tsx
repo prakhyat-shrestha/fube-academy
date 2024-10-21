@@ -1,4 +1,4 @@
-import IncidentWiseReportLayout from '@/views/behaviourrecords/incidentwisereport'
+import IncidentWiseReportLayout from '@/views/behaviourRecords/incidentWiseReport'
 
 const IncidentWiseReport = () => {
   return (

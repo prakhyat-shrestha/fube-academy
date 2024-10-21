@@ -86,7 +86,7 @@
     "homework": "العمل في المنزل",
     "transport": "ينقل",
     "adminSection": "مسؤلقسم المشرف",
-    "feesreport": "تقرير الرسوم",
+    "feesReport": "تقرير الرسوم",
     "academics": "الأكاديميين",
     "studyMaterial": "المواد الدراسية",
     "lessonPlan": "خطة الدرس",
@@ -95,9 +95,9 @@
     "behaviourRecords": "سجلات السلوك",
     "dormitory": "المهجع",
     "examination": "فحص",
-    "teacherevaluation": "تقييم المعلم",
+    "teacherEvaluation": "تقييم المعلم",
     "leave": "يترك",
-    "roleandpermission": "الدور والإذن",
+    "roleAndPermission": "الدور والإذن",
     "wallet": "محفظة",
     "inventory": "جرد"
   }

@@ -86,7 +86,7 @@
     "homework": "Devoirs",
     "transport": "Transport",
     "adminSection": "Section Administrateur",
-    "feesreport": "Rapport des frais",
+    "feesReport": "Rapport des frais",
     "academics": "Universitaires",
     "studyMaterial": "Matériel d'étude",
     "lessonPlan": "Plan de cours",
@@ -95,9 +95,9 @@
     "behaviourRecords": "Enregistrements de comportement",
     "dormitory": "Dortoir",
     "examination": "Examen",
-    "teacherevaluation": "Évaluation des enseignants",
+    "teacherEvaluation": "Évaluation des enseignants",
     "leave": "Partir",
-    "roleandpermission": "Rôle et autorisation",
+    "roleAndPermission": "Rôle et autorisation",
     "wallet": "Portefeuille",
     "inventory": "Inventaire"
   }

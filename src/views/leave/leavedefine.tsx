@@ -60,7 +60,7 @@ const LeaveDefineLayout = () => {
 
       <div className='flex' style={{ display: 'flex' }}>
         {/* Add leavedefine first card */}
-        <div className='leavedefine mt-4'>
+        <div className='leaveDefine mt-4'>
           <Card sx={{ width: 320, height: '97%' }}>
             <CardContent>
               <Typography variant='h6' component='h4'>
@@ -112,8 +112,8 @@ const LeaveDefineLayout = () => {
         </div>
 
         {/* ---- Table Section ----*/}
-        <div className='leavedefinelist mt-4 mx-6 ' style={{ flex: 1 }}>
-          <Card sx={{ width: '102.8%', height: '65%' }}>
+        <div className='leaveDefineList mt-4 mx-6 ' style={{ flex: 1 }}>
+          <Card sx={{ width: '102.85%', height: '65%' }}>
             <CardContent>
               <div style={{ display: 'flex', alignItems: 'center' }}>
                 <Typography variant='h6' component='h3' style={{ marginRight: '25%' }}>

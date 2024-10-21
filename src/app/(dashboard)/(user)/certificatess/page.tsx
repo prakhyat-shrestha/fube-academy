@@ -1,4 +1,4 @@
-import CertificateLayout from '@/views/adminsection/certificate'
+import CertificateLayout from '@/views/adminSection/certificate'
 
 const Certificate = () => {
   return (

@@ -1,4 +1,4 @@
-import PayrollBulkLayout from '@/views/bulkprint/payrollbulk'
+import PayrollBulkLayout from '@/views/bulkPrint/payRollBulk'
 
 const PayrollBulk = () => {
   return (

@@ -47,7 +47,7 @@ const TeacherWiseEvaluationReportLayout = () => {
           </Typography>
         </nav>
       </div>
-      <div className='teacherwise mt-4' style={{ flex: 1 }}>
+      <div className='teacherWise mt-4' style={{ flex: 1 }}>
         <Card sx={{ width: '100%', height: '105%' }}>
           <CardContent>
             <div className='container' style={{ display: 'flex', gap: '75.25%' }}>
@@ -98,7 +98,7 @@ const TeacherWiseEvaluationReportLayout = () => {
         </Card>
       </div>
       {/* ---- Table Section ----*/}
-      <div className='teacherwiseList mt-7 ' style={{ flex: 1 }}>
+      <div className='teacherWiseList mt-7 ' style={{ flex: 1 }}>
         <Card sx={{ width: '100%', height: '105%' }}>
           <CardContent>
             <div style={{ display: 'flex', alignItems: 'center' }}>

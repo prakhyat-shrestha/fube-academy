@@ -52,7 +52,7 @@ const AssignmentLayout = () => {
           </Typography>
         </nav>
       </div>
-      {/* Assignment List 2nd card */}
+      {/* Assignment List 1st card */}
       <div className='assignment mt-4' style={{ flex: 1 }}>
         <Card sx={{ width: '100%', height: 270 }}>
           <CardContent>

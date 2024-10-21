@@ -1,4 +1,4 @@
-import AdminSetupLayout from '@/views/adminsection/adminSetup'
+import AdminSetupLayout from '@/views/adminSection/adminSetup'
 
 const AdminSetup = () => {
   return (

@@ -7,7 +7,7 @@ import SearchSharpIcon from '@mui/icons-material/SearchSharp'
 const BehaviourReportLayout = () => {
   return (
     <>
-      {/* behavioureport List First Card*/}
+      {/* behavioureport  First Card*/}
       <div className='flex'>
         <Typography variant='h6' component='h3'>
           Student Behaviour Rank Report
@@ -26,7 +26,7 @@ const BehaviourReportLayout = () => {
           </Typography>
         </nav>
       </div>
-      <div className='behavioureport mt-4' style={{ flex: 1 }}>
+      <div className='behaviouReport mt-4' style={{ flex: 1 }}>
         <Card sx={{ width: '100%', height: '105%' }}>
           <CardContent>
             <div className='container' style={{ display: 'flex', gap: '75.25%' }}>

@@ -1,4 +1,4 @@
-import SyallbusLayout from '@/views/studymaterial/syllabus'
+import SyallbusLayout from '@/views/studyMaterial/syllabus'
 
 const Syllabus = () => {
   return (

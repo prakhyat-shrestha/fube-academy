@@ -1,4 +1,4 @@
-import AdmissionQueryLayout from '@/views/adminsection/admissionquery'
+import AdmissionQueryLayout from '@/views/adminSection/admissionQuery'
 
 const AdmissionQuery = () => {
   return (

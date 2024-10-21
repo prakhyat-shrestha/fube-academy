@@ -1,4 +1,4 @@
-import ItemReceiveListLayout from '@/views/inventory/itemreceivelist'
+import ItemReceiveListLayout from '@/views/inventory/itemReceiveList'
 
 const ItemReceiveList = () => {
   return (

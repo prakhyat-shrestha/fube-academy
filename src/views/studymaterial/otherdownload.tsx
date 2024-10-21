@@ -53,7 +53,7 @@ const OtherDownloadLayout = () => {
         </nav>
       </div>
       {/* Other Downloads List  card */}
-      <div className='other mt-4' style={{ flex: 1 }}>
+      <div className='otherDownloadsList mt-4' style={{ flex: 1 }}>
         <Card sx={{ width: '100%', height: 270 }}>
           <CardContent>
             <div style={{ display: 'flex', alignItems: 'center' }}>

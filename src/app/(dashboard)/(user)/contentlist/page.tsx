@@ -1,4 +1,4 @@
-import ContentListLayout from '@/views/downloadcenter/contentList'
+import ContentListLayout from '@/views/downloadCenter/contentList'
 
 const ContentList = () => {
   return (

@@ -1,4 +1,4 @@
-import MarksGradeLayout from '@/views/examination/marksgrade'
+import MarksGradeLayout from '@/views/examination/marksGrade'
 
 const MarksGrade = () => {
   return (

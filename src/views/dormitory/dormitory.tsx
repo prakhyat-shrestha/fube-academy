@@ -116,8 +116,8 @@ const DormitoryLayout = () => {
         </div>
 
         {/* Dormitory  list 2nd card */}
-        <div className='dormitorylist mt-4 mx-6' style={{ flex: 1 }}>
-          <Card sx={{ width: '102.5%', height: 275 }}>
+        <div className='dormitoryList mt-4 mx-6' style={{ flex: 1 }}>
+          <Card sx={{ width: '102.65%', height: 275 }}>
             <CardContent>
               <div style={{ display: 'flex', alignItems: 'center' }}>
                 <Typography variant='h6' component='h3' style={{ flex: 1, marginRight: '12%' }}>

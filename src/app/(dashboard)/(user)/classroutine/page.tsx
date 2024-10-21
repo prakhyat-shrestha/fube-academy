@@ -1,6 +1,6 @@
-import ClassRoutineLayout from '@/views/academics/classroutine'
+import ClassRoutineLayout from '@/views/academics/classRoutine'
 
-const Classroutine = () => {
+const ClassRoutine = () => {
   return (
     <>
       <ClassRoutineLayout />
@@ -8,4 +8,4 @@ const Classroutine = () => {
   )
 }
 
-export default Classroutine
+export default ClassRoutine

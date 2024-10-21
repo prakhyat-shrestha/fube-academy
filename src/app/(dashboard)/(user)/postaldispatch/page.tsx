@@ -1,4 +1,4 @@
-import PostalDispatchLayout from '@/views/adminsection/postalDispatch'
+import PostalDispatchLayout from '@/views/adminSection/postalDispatch'
 
 const PostalDispatch = () => {
   return (

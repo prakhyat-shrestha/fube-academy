@@ -18,7 +18,7 @@ import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
 
-const FeesGroupList = () => {
+const FeesTypeList = () => {
   const textFieldRef = useRef<HTMLInputElement>(null)
 
   const handleFocus = () => {
@@ -338,4 +338,4 @@ const FeesGroupList = () => {
   )
 }
 
-export default FeesGroupList
+export default FeesTypeList

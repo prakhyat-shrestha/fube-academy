@@ -1,4 +1,4 @@
-import GenerateIDCardLayout from '@/views/adminsection/generateIDCard'
+import GenerateIDCardLayout from '@/views/adminSection/generateIDCard'
 
 const GenerateID = () => {
   return (

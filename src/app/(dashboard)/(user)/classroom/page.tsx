@@ -1,6 +1,6 @@
-import ClassRoomLayout from '@/views/academics/classroom'
+import ClassRoomLayout from '@/views/academics/classRoom'
 
-const Classroom = () => {
+const ClassRoom = () => {
   return (
     <>
       <ClassRoomLayout />
@@ -8,4 +8,4 @@ const Classroom = () => {
   )
 }
 
-export default Classroom
+export default ClassRoom

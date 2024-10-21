@@ -1,4 +1,4 @@
-import ExamSetupLayout from '@/views/examination/examsetup'
+import ExamSetupLayout from '@/views/examination/examSetup'
 
 const ExamSetup = () => {
   return (

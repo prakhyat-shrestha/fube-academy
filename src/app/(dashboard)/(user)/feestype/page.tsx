@@ -1,7 +1,7 @@
-import FeeTypeList from '@/views/fees/feestype'
+import FeesTypeList from '@/views/fees/feesType'
 
 const FeesType = () => {
-  return <FeeTypeList />
+  return <FeesTypeList />
 }
 
 export default FeesType

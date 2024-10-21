@@ -1,4 +1,4 @@
-import IDCardPrintLayout from '@/views/bulkprint/idCard'
+import IDCardPrintLayout from '@/views/bulkPrint/idCard'
 
 const IDCardPrint = () => {
   return (

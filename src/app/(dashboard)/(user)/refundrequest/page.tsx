@@ -1,4 +1,4 @@
-import RefundRequestLayout from '@/views/wallet/refundrequest'
+import RefundRequestLayout from '@/views/wallet/refundRequest'
 
 const RefundRequest = () => {
   return (

@@ -1,4 +1,4 @@
-import RoomTypeLayout from '@/views/dormitory/roomtype'
+import RoomTypeLayout from '@/views/dormitory/roomType'
 
 const RoomType = () => {
   return (

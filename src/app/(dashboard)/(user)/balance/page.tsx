@@ -1,4 +1,4 @@
-import BalanceReportLayout from '@/views/feesreport/balanceReport'
+import BalanceReportLayout from '@/views/feesReport/balanceReport'
 
 const BalanceReport = () => {
   return (

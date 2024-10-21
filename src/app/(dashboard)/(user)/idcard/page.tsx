@@ -1,4 +1,4 @@
-import IDCardlayout from '@/views/adminsection/idCard'
+import IDCardlayout from '@/views/adminSection/idCard'
 
 const IdCard = () => {
   return (

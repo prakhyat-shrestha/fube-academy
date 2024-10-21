@@ -44,8 +44,8 @@ const FineReportLayout = () => {
         </nav>
       </div>
 
-      {/*  2nd card */}
-      <div className='feesList mt-4  ' style={{ flex: 1 }}>
+      {/*  1st card */}
+      <div className='fineReport mt-4  ' style={{ flex: 1 }}>
         <Card sx={{ width: '100%', height: '35%' }}>
           <CardContent>
             <Typography variant='h6' component='h4'>
@@ -98,7 +98,7 @@ const FineReportLayout = () => {
         </Card>
       </div>
       {/* ---- Table Section ----*/}
-      <div className='feesList mt-7 ' style={{ flex: 1 }}>
+      <div className='fineReportList mt-7 ' style={{ flex: 1 }}>
         <Card sx={{ width: '100%', height: '105%' }}>
           <CardContent>
             <div style={{ display: 'flex', alignItems: 'center' }}>

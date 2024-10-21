@@ -61,8 +61,8 @@ const ComplaintLayout = () => {
         </nav>
       </div>
       <div className='flex' style={{ display: 'flex' }}>
-        {/* Add fees group first card */}
-        <div className='feesGroup mt-4'>
+        {/* Add complaint first card */}
+        <div className='complaint mt-4'>
           <Card sx={{ width: 280, height: 'auto' }}>
             <CardContent>
               <Typography variant='h6' component='h4'>
@@ -138,8 +138,8 @@ const ComplaintLayout = () => {
           </Card>
         </div>
         {/*  2nd card */}
-        <div className='feesList mt-4 mx-6' style={{ flex: 1 }}>
-          <Card sx={{ width: '102%', height: '35%' }}>
+        <div className='complaintList mt-4 mx-6' style={{ flex: 1 }}>
+          <Card sx={{ width: '102.6%', height: '35%' }}>
             <CardContent>
               <div style={{ display: 'flex', alignItems: 'center' }}>
                 <Typography variant='h6' component='h3' style={{ flex: 1, marginRight: '16%' }}>

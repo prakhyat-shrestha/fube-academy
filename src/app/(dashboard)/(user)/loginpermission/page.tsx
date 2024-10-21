@@ -1,4 +1,4 @@
-import LoginPermissionLayout from '@/views/roleandpermission/loginpermission'
+import LoginPermissionLayout from '@/views/roleAndPermission/loginPermission'
 
 const LoginPermission = () => {
   return (

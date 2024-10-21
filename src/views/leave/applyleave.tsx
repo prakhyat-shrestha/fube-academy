@@ -59,7 +59,7 @@ const ApplyLeaveLayout = () => {
       </div>
 
       {/* My Remaining Leaves Table Section */}
-      <div className='remainingleave mt-4 ' style={{ flex: 1 }}>
+      <div className='remainingLeave mt-4 ' style={{ flex: 1 }}>
         <Card sx={{ width: '100%', height: '25%' }}>
           <CardContent>
             <div style={{ display: 'flex', alignItems: 'center' }}>

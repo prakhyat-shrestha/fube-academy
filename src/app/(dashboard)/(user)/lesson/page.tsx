@@ -1,4 +1,4 @@
-import LessonLayout from '@/views/lessonplan/lesson'
+import LessonLayout from '@/views/lessonPlan/lesson'
 
 const Lesson = () => {
   return (

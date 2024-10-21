@@ -1,4 +1,4 @@
-import RoleLayout from '@/views/roleandpermission/role'
+import RoleLayout from '@/views/roleAndPermission/role'
 
 const Role = () => {
   return (

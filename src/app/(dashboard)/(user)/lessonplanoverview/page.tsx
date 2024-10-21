@@ -1,4 +1,4 @@
-import LessonPlanOverviewLayout from '@/views/lessonplan/lessonplanoverview'
+import LessonPlanOverviewLayout from '@/views/lessonPlan/lessonPlanOverView'
 
 const LessonPlanOverview = () => {
   return (

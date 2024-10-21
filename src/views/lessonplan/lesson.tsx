@@ -66,7 +66,7 @@ const LessonLayout = () => {
       </div>
       <div className='flex' style={{ display: 'flex' }}>
         {/* Lesson first card */}
-        <div className='class mt-4'>
+        <div className='lesson mt-4'>
           <Card sx={{ width: 300, height: 360 }}>
             <CardContent>
               <Typography variant='h6' component='h3'>
@@ -148,8 +148,8 @@ const LessonLayout = () => {
         </div>
 
         {/* Lesson List 2nd card */}
-        <div className='lesson mt-4 mx-6' style={{ flex: 1 }}>
-          <Card sx={{ width: '102%', height: 270 }}>
+        <div className='lessonList mt-4 mx-6' style={{ flex: 1 }}>
+          <Card sx={{ width: '102.65%', height: 270 }}>
             <CardContent>
               <div style={{ display: 'flex', alignItems: 'center' }}>
                 <Typography variant='h6' component='h3' style={{ flex: 1, marginRight: '10%' }}>

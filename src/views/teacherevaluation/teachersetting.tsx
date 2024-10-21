@@ -47,7 +47,7 @@ const TeacherSettingsLayout = () => {
       </div>
 
       <div
-        className='teacherevaluationsettings mt-4 '
+        className='teacherEvaluationSettings mt-4 '
         style={{ display: 'flex', flex: 1, justifyContent: 'space-between', gap: '30px' }}
       >
         <Card sx={{ width: '100%', height: '105%' }}>

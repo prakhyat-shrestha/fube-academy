@@ -1,4 +1,4 @@
-import PhoneCallLogLayout from '@/views/adminsection/phonecallLog'
+import PhoneCallLogLayout from '@/views/adminSection/phoneCallLog'
 
 const PhoneCallLopg = () => {
   return (

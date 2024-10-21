@@ -26,7 +26,7 @@ const StudentIncidentReportLayout = () => {
           </Typography>
         </nav>
       </div>
-      <div className='studentincident mt-4' style={{ flex: 1 }}>
+      <div className='studentIncident mt-4' style={{ flex: 1 }}>
         <Card sx={{ width: '100%', height: '105%' }}>
           <CardContent>
             <div className='container' style={{ display: 'flex', gap: '75.25%' }}>
@@ -89,7 +89,7 @@ const StudentIncidentReportLayout = () => {
                 defaultValue='section'
                 label='SECTION'
                 id='custom-select'
-                style={{ margin: '20px 10px 0 0', width: '100%' }}
+                style={{ margin: '20px 0 0 0', width: '100%' }}
               >
                 <CustomTextField placeholder='Search...' style={{ padding: '0 6px 8px 6px', width: '100%' }} />
                 <MenuItem value='section'>

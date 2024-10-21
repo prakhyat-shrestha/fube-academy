@@ -1,4 +1,4 @@
-import ApplyLeaveLayout from '@/views/leave/applyleave'
+import ApplyLeaveLayout from '@/views/leave/applyLeave'
 
 const ApplyLeave = () => {
   return (

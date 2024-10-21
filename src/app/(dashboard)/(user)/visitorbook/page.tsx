@@ -1,4 +1,4 @@
-import VisitorLayot from '@/views/adminsection/visitorBook'
+import VisitorLayot from '@/views/adminSection/visitorBook'
 
 const VisitorBook = () => {
   return (

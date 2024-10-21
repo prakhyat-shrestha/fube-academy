@@ -1,5 +1,5 @@
-import HomeworkListGroup from '@/views/homework/homeworkList'
-const homeworkList = () => {
+import HomeworkListGroup from '@/views/homework/homeWorkList'
+const HomeworkList = () => {
   return (
     <>
       <HomeworkListGroup />
@@ -7,4 +7,4 @@ const homeworkList = () => {
   )
 }
 
-export default homeworkList
+export default HomeworkList

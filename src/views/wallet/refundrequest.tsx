@@ -56,7 +56,7 @@ const RefundRequestLayout = () => {
       </div>
 
       {/* ---- Table Section ----*/}
-      <div className='refundrequest mt-4 ' style={{ flex: 1 }}>
+      <div className='refundRequest mt-4 ' style={{ flex: 1 }}>
         <Card sx={{ width: '100%', height: '40%' }}>
           <CardContent>
             <div style={{ display: 'flex', alignItems: 'center' }}>

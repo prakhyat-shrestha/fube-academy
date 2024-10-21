@@ -56,7 +56,7 @@ const PendingDepositLayout = () => {
       </div>
 
       {/* ---- Table Section ----*/}
-      <div className='pendingdeposit mt-4 ' style={{ flex: 1 }}>
+      <div className='pendingDeposit mt-4 ' style={{ flex: 1 }}>
         <Card sx={{ width: '100%', height: '40%' }}>
           <CardContent>
             <div style={{ display: 'flex', alignItems: 'center' }}>

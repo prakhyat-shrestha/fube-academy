@@ -1,4 +1,4 @@
-import ItemStoreLayout from '@/views/inventory/itemstore'
+import ItemStoreLayout from '@/views/inventory/itemStore'
 
 const ItemStore = () => {
   return (

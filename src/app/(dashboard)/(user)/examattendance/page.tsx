@@ -1,4 +1,4 @@
-import ExamAttendanceLayout from '@/views/examination/examattendance'
+import ExamAttendanceLayout from '@/views/examination/examAttendance'
 
 const ExamAttendance = () => {
   return (

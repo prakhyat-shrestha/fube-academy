@@ -69,7 +69,7 @@ const UploadContentLayout = () => {
       </div>
       <div className='flex' style={{ display: 'flex' }}>
         {/* Upload content first card */}
-        <div className='class mt-4'>
+        <div className='upLoadContent mt-4'>
           <Card sx={{ width: 300, height: 940 }}>
             <CardContent>
               <Typography variant='h6' component='h3'>
@@ -193,8 +193,8 @@ const UploadContentLayout = () => {
         </div>
 
         {/* Upload Content List 2nd card */}
-        <div className='uploadcontent mt-4 mx-6' style={{ flex: 1 }}>
-          <Card sx={{ width: '102%', height: 270 }}>
+        <div className='uploadContentList mt-4 mx-6' style={{ flex: 1 }}>
+          <Card sx={{ width: '102.65%', height: 290 }}>
             <CardContent>
               <div style={{ display: 'flex', alignItems: 'center' }}>
                 <Typography variant='h6' component='h3' style={{ flex: 1, marginRight: '10%' }}>

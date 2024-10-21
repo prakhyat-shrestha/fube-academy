@@ -6,7 +6,6 @@ import CardContent from '@mui/material/CardContent'
 import CustomTextField from '@core/components/mui/TextField'
 import Button from '@mui/material/Button'
 import SearchSharpIcon from '@mui/icons-material/SearchSharp'
-import AddSharpIcon from '@mui/icons-material/AddSharp'
 import { Icon } from '@iconify/react/dist/iconify.js'
 import ButtonGroup from '@mui/material/ButtonGroup'
 import { useRef } from 'react'
@@ -117,7 +116,7 @@ const TopicOverviewLayout = () => {
         </Card>
       </div>
       {/* ---- Table Section ----*/}
-      <div className='feesList mt-7 ' style={{ flex: 1 }}>
+      <div className='topicOverViewList mt-7 ' style={{ flex: 1 }}>
         <Card sx={{ width: '100%', height: '105%' }}>
           <CardContent>
             <div style={{ display: 'flex', alignItems: 'center' }}>

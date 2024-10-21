@@ -1,4 +1,4 @@
-import DueFeesLoginPermissionLayout from '@/views/roleandpermission/duefeesloginpermission'
+import DueFeesLoginPermissionLayout from '@/views/roleAndPermission/dueFeesLoginPermission'
 
 const DueFeesLoginPermission = () => {
   return (

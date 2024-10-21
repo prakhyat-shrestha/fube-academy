@@ -56,7 +56,7 @@ const WalletTransactionLayout = () => {
       </div>
 
       {/* ---- Table Section ----*/}
-      <div className='wallettransaction mt-4 ' style={{ flex: 1 }}>
+      <div className='walletTransaction mt-4 ' style={{ flex: 1 }}>
         <Card sx={{ width: '100%', height: '40%' }}>
           <CardContent>
             <div style={{ display: 'flex', alignItems: 'center' }}>

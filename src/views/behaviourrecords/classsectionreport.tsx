@@ -46,7 +46,7 @@ const ClassSectionReportLayout = () => {
       </div>
 
       {/* ---- Table Section ----*/}
-      <div className='classsectionwiserank mt-4 ' style={{ flex: 1 }}>
+      <div className='classSectionWiseRank mt-4 ' style={{ flex: 1 }}>
         <Card sx={{ width: '100%', height: '105%' }}>
           <CardContent>
             <div style={{ display: 'flex', alignItems: 'center' }}>

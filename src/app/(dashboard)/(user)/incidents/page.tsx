@@ -1,4 +1,4 @@
-import IncidentsLayout from '@/views/behaviourrecords/incidents'
+import IncidentsLayout from '@/views/behaviourRecords/incidents'
 
 const Incidents = () => {
   return (

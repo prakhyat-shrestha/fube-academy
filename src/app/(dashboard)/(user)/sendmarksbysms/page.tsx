@@ -1,4 +1,4 @@
-import SendMarksBySmsLayout from '@/views/examination/sendmarksbysms'
+import SendMarksBySmsLayout from '@/views/examination/sendMarksBySms'
 
 const SendMarksBySms = () => {
   return (

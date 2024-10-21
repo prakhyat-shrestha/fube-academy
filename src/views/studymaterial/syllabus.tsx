@@ -53,7 +53,7 @@ const SyallbusLayout = () => {
         </nav>
       </div>
       {/* Syllabus List  card */}
-      <div className='syllabus mt-4' style={{ flex: 1 }}>
+      <div className='syllabusList mt-4' style={{ flex: 1 }}>
         <Card sx={{ width: '100%', height: 270 }}>
           <CardContent>
             <div style={{ display: 'flex', alignItems: 'center' }}>

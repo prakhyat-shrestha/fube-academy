@@ -1,4 +1,4 @@
-import MarksRegisterLayout from '@/views/examination/marksregister'
+import MarksRegisterLayout from '@/views/examination/marksRegister'
 
 const MarksRegister = () => {
   return (

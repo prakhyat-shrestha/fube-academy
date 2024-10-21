@@ -62,7 +62,7 @@ const ClassRoomLayout = () => {
       </div>
       <div className='flex' style={{ display: 'flex' }}>
         {/* Add classroom first card */}
-        <div className='section mt-4'>
+        <div className='classRoom mt-4'>
           <Card sx={{ width: 280, height: 275 }}>
             <CardContent>
               <Typography variant='h6' component='h3'>
@@ -84,9 +84,9 @@ const ClassRoomLayout = () => {
           </Card>
         </div>
 
-        {/* Section list 2nd card */}
-        <div className='classroom mt-4 mx-6' style={{ flex: 1 }}>
-          <Card sx={{ width: '102%', height: 270 }}>
+        {/* Class Room list 2nd card */}
+        <div className='classRoomList mt-4 mx-6' style={{ flex: 1 }}>
+          <Card sx={{ width: '102.65%', height: 270 }}>
             <CardContent>
               <div style={{ display: 'flex', alignItems: 'center' }}>
                 <Typography variant='h6' component='h3' style={{ flex: 1, marginRight: '16%' }}>

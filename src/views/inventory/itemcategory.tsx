@@ -1,5 +1,5 @@
 'use client'
-import { Typography, TextField, InputAdornment, MenuItem } from '@mui/material'
+import { Typography, TextField, InputAdornment } from '@mui/material'
 import Link from 'next/link'
 import Card from '@mui/material/Card'
 import CardActions from '@mui/material/CardActions'
@@ -59,8 +59,8 @@ const ItemCateoryLayout = () => {
       </div>
 
       <div className='flex' style={{ display: 'flex' }}>
-        {/* Add category first card */}
-        <div className='category mt-4'>
+        {/* Add Itemcategory first card */}
+        <div className='itemCategory mt-4'>
           <Card sx={{ width: 320, height: '82%' }}>
             <CardContent>
               <Typography variant='h6' component='h4'>
@@ -78,8 +78,8 @@ const ItemCateoryLayout = () => {
         </div>
 
         {/* ---- Table Section ----*/}
-        <div className='categorylist mt-4 mx-6 ' style={{ flex: 1 }}>
-          <Card sx={{ width: '102.8%', height: '105%' }}>
+        <div className='itemCategoryList mt-4 mx-6 ' style={{ flex: 1 }}>
+          <Card sx={{ width: '102.65%', height: '105%' }}>
             <CardContent>
               <div style={{ display: 'flex', alignItems: 'center' }}>
                 <Typography variant='h6' component='h3' style={{ marginRight: '25%' }}>

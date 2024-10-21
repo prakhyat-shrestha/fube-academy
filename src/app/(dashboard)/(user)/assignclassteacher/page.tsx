@@ -1,4 +1,4 @@
-import AssignClassTeacherLayout from '@/views/academics/assignclassteacher'
+import AssignClassTeacherLayout from '@/views/academics/assignClassTeacher'
 
 const AssignClassTeacher = () => {
   return (

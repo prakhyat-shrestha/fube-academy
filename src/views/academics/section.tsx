@@ -83,7 +83,7 @@ const SectionLayout = () => {
 
         {/* Section list 2nd card */}
         <div className='sectionList mt-4 mx-6' style={{ flex: 1 }}>
-          <Card sx={{ width: '102%', height: 370 }}>
+          <Card sx={{ width: '102.6%', height: 370 }}>
             <CardContent>
               <div style={{ display: 'flex', alignItems: 'center' }}>
                 <Typography variant='h6' component='h3' style={{ flex: 1, marginRight: '16%' }}>

@@ -45,7 +45,7 @@ const AssignIncidentsLayout = () => {
           </Typography>
         </nav>
       </div>
-      <div className='aasignincident mt-4' style={{ flex: 1 }}>
+      <div className='aasignIncident mt-4' style={{ flex: 1 }}>
         <Card sx={{ width: '100%', height: '105%' }}>
           <CardContent>
             <div className='container' style={{ display: 'flex', gap: '75.25%' }}>
@@ -141,7 +141,7 @@ const AssignIncidentsLayout = () => {
       </div>
 
       {/* ---- Table Section ----*/}
-      <div className='assignincidenttable mt-10 ' style={{ flex: 1 }}>
+      <div className='assignIncidentTable mt-7 ' style={{ flex: 1 }}>
         <Card sx={{ width: '100%', height: '105%' }}>
           <CardContent>
             <div style={{ display: 'flex', alignItems: 'center' }}>

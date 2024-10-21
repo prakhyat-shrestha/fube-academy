@@ -1,4 +1,4 @@
-import TeacherWiseEvaluationReportLayout from '@/views/teacherevaluation/teacherwiseevaluation'
+import TeacherWiseEvaluationReportLayout from '@/views/teacherEvaluation/teacherWiseEvaluation'
 
 const TeacherWiseEvaluationReport = () => {
   return (

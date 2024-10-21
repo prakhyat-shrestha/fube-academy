@@ -1,4 +1,4 @@
-import AssignmentLayout from '@/views/studymaterial/assignment'
+import AssignmentLayout from '@/views/studyMaterial/assignment'
 
 const Assignment = () => {
   return (

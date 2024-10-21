@@ -1,4 +1,4 @@
-import PendingEvalutaionReportLayout from '@/views/teacherevaluation/pendingevaluation'
+import PendingEvalutaionReportLayout from '@/views/teacherEvaluation/pendingEvaluation'
 
 const PendingEvalutaionReport = () => {
   return (

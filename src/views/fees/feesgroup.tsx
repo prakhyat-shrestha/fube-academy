@@ -81,7 +81,7 @@ const FeesGroupList = () => {
         </div>
 
         {/* Fees Group list 2nd card */}
-        <div className='feesList mt-4 mx-6' style={{ flex: 1 }}>
+        <div className='feesGroupList mt-4 mx-6' style={{ flex: 1 }}>
           <Card sx={{ width: '102%', height: 370 }}>
             <CardContent>
               <div style={{ display: 'flex', alignItems: 'center' }}>

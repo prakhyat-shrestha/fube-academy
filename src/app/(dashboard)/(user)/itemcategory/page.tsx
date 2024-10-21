@@ -1,4 +1,4 @@
-import ItemCateoryLayout from '@/views/inventory/itemcategory'
+import ItemCateoryLayout from '@/views/inventory/itemCategory'
 
 const ItemCateory = () => {
   return (

@@ -1,4 +1,4 @@
-import TopicLayout from '@/views/lessonplan/topic'
+import TopicLayout from '@/views/lessonPlan/topic'
 
 const Topic = () => {
   return (

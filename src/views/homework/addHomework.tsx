@@ -29,8 +29,8 @@ const AddHomeworkList = () => {
           </Typography>
         </nav>
       </div>
-      <div className=' mt-4' style={{ flex: 1 }}>
-        <Card sx={{ width: '100%', height: '105%' }}>
+      <div className='addHomework mt-4' style={{ flex: 1 }}>
+        <Card sx={{ width: '100%', height: '100%' }}>
           <CardContent>
             <Typography variant='h6' component='h4'>
               Add Homework

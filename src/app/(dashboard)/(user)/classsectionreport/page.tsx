@@ -1,4 +1,4 @@
-import ClassSectionReportLayout from '@/views/behaviourrecords/classsectionreport'
+import ClassSectionReportLayout from '@/views/behaviourRecords/classSectionReport'
 
 const ClassSectionReport = () => {
   return (

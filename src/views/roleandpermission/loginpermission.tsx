@@ -28,7 +28,7 @@ const LoginPermissionLayout = () => {
           </Typography>
         </nav>
       </div>
-      <div className='loginpermission mt-4' style={{ flex: 1 }}>
+      <div className='loginPermission mt-4' style={{ flex: 1 }}>
         <Card sx={{ width: '100%', height: '105%' }}>
           <CardContent>
             <div className='container'>
@@ -67,7 +67,7 @@ const LoginPermissionLayout = () => {
         </Card>
       </div>
       {/* ---- Table Section ----*/}
-      <div className='loginpermissionlist mt-7 ' style={{ flex: 1 }}>
+      <div className='loginPermissionList mt-7 ' style={{ flex: 1 }}>
         <Card sx={{ width: '100%', height: '105%' }}>
           <CardContent></CardContent>
         </Card>

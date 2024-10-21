@@ -122,7 +122,7 @@ const ItemReceiveLayout = () => {
         <div className='flex' style={{ display: 'flex' }}>
           {/* Item Recieve card */}
           <div className='itemReceive mt-4 mx-6'>
-            <Card sx={{ width: '102.5%', height: '450px' }}>
+            <Card sx={{ width: '102.65%', height: '450px' }}>
               <CardContent>
                 <div className='container' style={{ display: 'flex', gap: '77.7%' }}>
                   <Typography variant='h6' component='h4'>

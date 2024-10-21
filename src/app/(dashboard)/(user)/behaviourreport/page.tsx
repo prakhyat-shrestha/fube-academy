@@ -1,4 +1,4 @@
-import BehaviourReportLayout from '@/views/behaviourrecords/behaviourreport'
+import BehaviourReportLayout from '@/views/behaviourRecords/behaviourReport'
 
 const BehaviourReport = () => {
   return (

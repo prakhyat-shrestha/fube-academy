@@ -69,7 +69,7 @@ const AssignClassTeacherLayout = () => {
       </div>
       <div className='flex' style={{ display: 'flex' }}>
         {/* Add assign class teacher first card */}
-        <div className='class mt-4'>
+        <div className='classTeacher mt-4'>
           <Card sx={{ width: 300, height: 500 }}>
             <CardContent>
               <Typography variant='h6' component='h3'>
@@ -126,9 +126,9 @@ const AssignClassTeacherLayout = () => {
           </Card>
         </div>
 
-        {/* Class list 2nd card */}
-        <div className='classteacher mt-4 mx-6' style={{ flex: 1 }}>
-          <Card sx={{ width: '102%', height: 270 }}>
+        {/* Assign Class Teacher 2nd card */}
+        <div className='classTeacherList mt-4 mx-6' style={{ flex: 1 }}>
+          <Card sx={{ width: '102.65%', height: 270 }}>
             <CardContent>
               <div style={{ display: 'flex', alignItems: 'center' }}>
                 <Typography variant='h6' component='h3' style={{ flex: 1, marginRight: '10%' }}>

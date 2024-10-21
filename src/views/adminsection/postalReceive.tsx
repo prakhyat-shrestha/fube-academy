@@ -1,12 +1,12 @@
 'use client'
-import { CardContent, Typography, Card, InputAdornment, Button, CardActions, MenuItem, TextField } from '@mui/material'
+import { CardContent, Typography, Card, InputAdornment, Button, CardActions, TextField } from '@mui/material'
 import Link from 'next/link'
 import CustomTextField from '@/@core/components/mui/TextField'
 import CheckSharpIcon from '@mui/icons-material/CheckSharp'
 import SearchSharpIcon from '@mui/icons-material/SearchSharp'
 import ButtonGroup from '@mui/material/ButtonGroup'
 import { Icon } from '@iconify/react'
-import { createTheme, ThemeProvider } from '@mui/material/styles'
+import { createTheme } from '@mui/material/styles'
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
@@ -61,8 +61,8 @@ const PostalReceiveLayout = () => {
         </nav>
       </div>
       <div className='flex' style={{ display: 'flex' }}>
-        {/* Add fees group first card */}
-        <div className='feesGroup mt-4'>
+        {/* Add postalReceive first card */}
+        <div className='postalReceive mt-4'>
           <Card sx={{ width: 280, height: 'auto' }}>
             <CardContent>
               <Typography variant='h6' component='h4'>
@@ -105,8 +105,8 @@ const PostalReceiveLayout = () => {
           </Card>
         </div>
         {/*  2nd card */}
-        <div className='feesList mt-4 mx-6' style={{ flex: 1 }}>
-          <Card sx={{ width: '102%', height: '35%' }}>
+        <div className='postalReceiveList mt-4 mx-6' style={{ flex: 1 }}>
+          <Card sx={{ width: '102.65%', height: '35%' }}>
             <CardContent>
               <div style={{ display: 'flex', alignItems: 'center' }}>
                 <Typography variant='h6' component='h3' style={{ flex: 1, marginRight: '16%' }}>

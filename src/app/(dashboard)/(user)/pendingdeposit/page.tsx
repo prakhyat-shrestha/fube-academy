@@ -1,4 +1,4 @@
-import PendingDepositLayout from '@/views/wallet/pendingdeposit'
+import PendingDepositLayout from '@/views/wallet/pendingDeposit'
 
 const PendingDeposit = () => {
   return (

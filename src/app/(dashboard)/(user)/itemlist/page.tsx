@@ -1,4 +1,4 @@
-import ItemListLayout from '@/views/inventory/itemlist'
+import ItemListLayout from '@/views/inventory/itemList'
 
 const ItemList = () => {
   return (

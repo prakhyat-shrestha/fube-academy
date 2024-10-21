@@ -1,4 +1,4 @@
-import FeesGroupList from '@/views/fees/feesgroup'
+import FeesGroupList from '@/views/fees/feesGroup'
 
 const FeesGroup = () => {
   return <FeesGroupList />

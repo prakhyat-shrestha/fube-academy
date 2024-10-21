@@ -61,8 +61,8 @@ const TransportRouteList = () => {
         </nav>
       </div>
       <div className='flex' style={{ display: 'flex' }}>
-        {/* Add fees group first card */}
-        <div className='feesGroup mt-4'>
+        {/* Add transport route first card */}
+        <div className='transportRoute mt-4'>
           <Card sx={{ width: 280, height: 290 }}>
             <CardContent>
               <Typography variant='h6' component='h3'>
@@ -84,9 +84,9 @@ const TransportRouteList = () => {
           </Card>
         </div>
 
-        {/* Fees Group list 2nd card */}
-        <div className='feesList mt-4 mx-6' style={{ flex: 1 }}>
-          <Card sx={{ width: '102%', height: 230 }}>
+        {/* Transport Route List 2nd card */}
+        <div className='transportRouteList mt-4 mx-6' style={{ flex: 1 }}>
+          <Card sx={{ width: '102.65%', height: 230 }}>
             <CardContent>
               <div style={{ display: 'flex', alignItems: 'center' }}>
                 <Typography variant='h6' component='h3' style={{ flex: 1, marginRight: '16%' }}>

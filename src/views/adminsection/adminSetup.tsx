@@ -26,7 +26,7 @@ const AdminSetupLayout = () => {
       </div>
       <div className='flex' style={{ display: 'flex' }}>
         {/* Add fees group first card */}
-        <div className='feesGroup mt-4'>
+        <div className='adminSetup mt-4'>
           <Card sx={{ width: 280, height: 'auto' }}>
             <CardContent>
               <Typography variant='h6' component='h4'>
@@ -56,8 +56,8 @@ const AdminSetupLayout = () => {
           </Card>
         </div>
         {/*  2nd card */}
-        <div className='feesList mt-4 mx-6' style={{ flex: 1 }}>
-          <Card sx={{ width: '102%', height: '35%' }}>
+        <div className='adminSetupList mt-4 mx-6' style={{ flex: 1 }}>
+          <Card sx={{ width: '102.65%', height: '35%' }}>
             <CardContent>
               <Typography variant='h6' component='h4'>
                 Admin Setup List

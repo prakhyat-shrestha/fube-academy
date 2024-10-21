@@ -1,4 +1,4 @@
-import MarkSheetReportLayout from '@/views/examination/marksheet'
+import MarkSheetReportLayout from '@/views/examination/markSheet'
 
 const MarkSheetReport = () => {
   return (

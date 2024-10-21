@@ -1,4 +1,4 @@
-import ComplaintLayout from '@/views/adminsection/complaint'
+import ComplaintLayout from '@/views/adminSection/complaint'
 
 const Complaint = () => {
   return (

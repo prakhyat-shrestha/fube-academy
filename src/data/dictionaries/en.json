@@ -86,7 +86,7 @@
     "homework": "Homework",
     "transport": "Transport",
     "adminSection": "Admin Section",
-    "feesreport": "Fees Report",
+    "feesReport": "Fees Report",
     "academics": "Academics",
     "studyMaterial": "Study Material",
     "lessonPlan": "Lesson Plan",
@@ -95,9 +95,9 @@
     "behaviourRecords": "Behaviour Records",
     "dormitory": "Dormitory",
     "examination": "Examination",
-    "teacherevaluation": "Teacher Evaluation",
+    "teacherEvaluation": "Teacher Evaluation",
     "leave": "Leave",
-    "roleandpermission": "Role & Permission",
+    "roleAndPermission": "Role & Permission",
     "wallet": "Wallet",
     "inventory": "Inventory"
   }

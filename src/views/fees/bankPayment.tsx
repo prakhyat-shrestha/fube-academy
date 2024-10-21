@@ -4,7 +4,6 @@ import Link from 'next/link'
 import Card from '@mui/material/Card'
 import CardContent from '@mui/material/CardContent'
 import CustomTextField from '@core/components/mui/TextField'
-import 'react-datepicker/dist/react-datepicker.css'
 import { useRef } from 'react'
 import Button from '@mui/material/Button'
 import SearchSharpIcon from '@mui/icons-material/SearchSharp'
@@ -56,7 +55,7 @@ export const BankPaymentList = () => {
           </Typography>
         </nav>
       </div>
-      <div className='feesList mt-4' style={{ flex: 1 }}>
+      <div className='bankPayment mt-4' style={{ flex: 1 }}>
         <Card sx={{ width: '100%', height: '105%' }}>
           <CardContent>
             <Typography variant='h6' component='h4'>
@@ -138,7 +137,7 @@ export const BankPaymentList = () => {
         </Card>
       </div>
       {/* ---- Table Section ----*/}
-      <div className='feesList mt-4 ' style={{ flex: 1 }}>
+      <div className='bankPaymentList mt-4 ' style={{ flex: 1 }}>
         <Card sx={{ width: '100%', height: '105%' }}>
           <CardContent>
             <div style={{ display: 'flex', alignItems: 'center' }}>

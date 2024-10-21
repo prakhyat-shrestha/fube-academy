@@ -1,4 +1,4 @@
-import LeaveDefineLayout from '@/views/leave/leavedefine'
+import LeaveDefineLayout from '@/views/leave/leaveDefine'
 
 const LeaveDefine = () => {
   return (

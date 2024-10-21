@@ -1,6 +1,6 @@
 import TransportRouteList from '@/views/transport/transportRoute'
 
-const TransPortRoute = () => {
+const TransportRoute = () => {
   return (
     <>
       <TransportRouteList />
@@ -8,4 +8,4 @@ const TransPortRoute = () => {
   )
 }
 
-export default TransPortRoute
+export default TransportRoute

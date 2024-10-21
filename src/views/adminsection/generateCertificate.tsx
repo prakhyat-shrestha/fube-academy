@@ -24,7 +24,7 @@ const GenerateCertificateLayout = () => {
           </Typography>
         </nav>
       </div>
-      <div className='generatecertificate mt-4' style={{ flex: 1 }}>
+      <div className='generateCertificate mt-4' style={{ flex: 1 }}>
         <Card sx={{ width: '100%', height: '105%' }}>
           <CardContent>
             <div

@@ -1,4 +1,4 @@
-import DormitoryRoomsLayout from '@/views/dormitory/dormitoryrooms'
+import DormitoryRoomsLayout from '@/views/dormitory/dormitoryRooms'
 
 const DormitoryRooms = () => {
   return (

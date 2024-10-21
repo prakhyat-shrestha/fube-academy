@@ -69,7 +69,7 @@ const TopicLayout = () => {
       </div>
       <div className='flex' style={{ display: 'flex' }}>
         {/* Topic first card */}
-        <div className='class mt-4'>
+        <div className='topic mt-4'>
           <Card sx={{ width: 300, height: 530 }}>
             <CardContent>
               <Typography variant='h6' component='h3'>
@@ -193,8 +193,8 @@ const TopicLayout = () => {
         </div>
 
         {/* Topic List 2nd card */}
-        <div className='topiclist mt-4 mx-6' style={{ flex: 1 }}>
-          <Card sx={{ width: '102%', height: 270 }}>
+        <div className='topicList mt-4 mx-6' style={{ flex: 1 }}>
+          <Card sx={{ width: '102.65%', height: 270 }}>
             <CardContent>
               <div style={{ display: 'flex', alignItems: 'center' }}>
                 <Typography variant='h6' component='h3' style={{ flex: 1, marginRight: '10%' }}>

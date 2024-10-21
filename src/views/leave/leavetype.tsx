@@ -60,7 +60,7 @@ const LeaveTypeLayout = () => {
 
       <div className='flex' style={{ display: 'flex' }}>
         {/* Add leavetype first card */}
-        <div className='leavetype mt-4'>
+        <div className='leaveType mt-4'>
           <Card sx={{ width: 320, height: '82%' }}>
             <CardContent>
               <Typography variant='h6' component='h4'>
@@ -78,7 +78,7 @@ const LeaveTypeLayout = () => {
         </div>
 
         {/* ---- Table Section ----*/}
-        <div className='leavetypelist mt-4 mx-6 ' style={{ flex: 1 }}>
+        <div className='leaveTypeList mt-4 mx-6 ' style={{ flex: 1 }}>
           <Card sx={{ width: '102.8%', height: '98%' }}>
             <CardContent>
               <div style={{ display: 'flex', alignItems: 'center' }}>

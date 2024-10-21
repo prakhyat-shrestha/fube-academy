@@ -1,4 +1,4 @@
-import ContentTypeLayout from '@/views/downloadcenter/contentType'
+import ContentTypeLayout from '@/views/downloadCenter/contentType'
 
 const ContentType = () => {
   return (

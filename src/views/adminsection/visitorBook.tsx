@@ -69,9 +69,9 @@ const VisitorLayout = () => {
         </nav>
       </div>
       <div className='flex' style={{ display: 'flex' }}>
-        {/* Add fees group first card */}
-        <div className='feesGroup mt-4'>
-          <Card sx={{ width: 280, height: '102%' }}>
+        {/* Add visitorBook first card */}
+        <div className='visitorBook mt-4'>
+          <Card sx={{ width: 280, height: '99%' }}>
             <CardContent>
               <Typography variant='h6' component='h4'>
                 Add Visitor
@@ -122,12 +122,12 @@ const VisitorLayout = () => {
         </div>
 
         {/*  2nd card */}
-        <div className='feesList mt-4 mx-6' style={{ flex: 1 }}>
-          <Card sx={{ width: '102%', height: '35%' }}>
+        <div className='visitorBookList mt-4 mx-6' style={{ flex: 1 }}>
+          <Card sx={{ width: '96%', height: '35%' }}>
             <CardContent>
               <div style={{ display: 'flex', alignItems: 'center' }}>
                 <Typography variant='h6' component='h3' style={{ flex: 1, marginRight: '16%' }}>
-                  Fees Group List
+                  Visitor Book List
                 </Typography>
                 <div style={{ flexGrow: 1 }}>
                   <TextField

@@ -1,4 +1,4 @@
-import FineReportLayout from '@/views/feesreport/fineReport'
+import FineReportLayout from '@/views/feesReport/fineReport'
 
 const FineReport = () => {
   return (

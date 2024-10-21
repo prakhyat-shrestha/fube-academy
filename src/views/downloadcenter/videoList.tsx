@@ -28,7 +28,7 @@ const VideoListLayout = () => {
           </Typography>
         </nav>
       </div>
-      <div className='videolist mt-4' style={{ flex: 1 }}>
+      <div className='videoSection mt-4' style={{ flex: 1 }}>
         <Card sx={{ width: '100%', height: '105%' }}>
           <CardContent>
             <div className='container' style={{ display: 'flex', gap: '90%' }}>

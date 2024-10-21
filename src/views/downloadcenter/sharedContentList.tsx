@@ -1,5 +1,5 @@
 'use client'
-import { Typography, MenuItem, TextField, InputAdornment } from '@mui/material'
+import { Typography, TextField, InputAdornment } from '@mui/material'
 import Link from 'next/link'
 import Card from '@mui/material/Card'
 import CardContent from '@mui/material/CardContent'
@@ -47,7 +47,7 @@ const SharedContentListLayout = () => {
         </nav>
       </div>
       {/* ---- Table Section ----*/}
-      <div className='sharedcontent mt-4 ' style={{ flex: 1 }}>
+      <div className='sharedContent mt-4 ' style={{ flex: 1 }}>
         <Card sx={{ width: '100%', height: '105%' }}>
           <CardContent>
             <div style={{ display: 'flex', alignItems: 'center' }}>

@@ -24,7 +24,7 @@ const ClassRoutineLayout = () => {
           </Typography>
         </nav>
       </div>
-      <div className='assignsubject mt-4' style={{ flex: 1 }}>
+      <div className='classRoutine mt-4' style={{ flex: 1 }}>
         <Card sx={{ width: '100%', height: '105%' }}>
           <CardContent>
             <div

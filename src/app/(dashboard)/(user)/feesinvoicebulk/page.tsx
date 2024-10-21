@@ -1,6 +1,6 @@
-import FeesInvoiceBulkLayout from '@/views/bulkprint/feesinvoicebulk'
+import FeesInvoiceBulkLayout from '@/views/bulkPrint/feesInvoiceBulk'
 
-const FeesinvoiceBulk = () => {
+const FeesInvoiceBulk = () => {
   return (
     <>
       <FeesInvoiceBulkLayout />
@@ -8,4 +8,4 @@ const FeesinvoiceBulk = () => {
   )
 }
 
-export default FeesinvoiceBulk
+export default FeesInvoiceBulk

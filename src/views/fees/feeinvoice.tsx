@@ -56,8 +56,8 @@ const FeesInvoiceList = () => {
         </nav>
       </div>
 
-      {/* Fees Group list 1st card */}
-      <div className='feesList mt-4 ' style={{ flex: 1 }}>
+      {/* Fees Invoice list 1st card */}
+      <div className='feesInvoiceList mt-4 ' style={{ flex: 1 }}>
         <Card sx={{ width: '100%', height: '105%' }}>
           <CardContent>
             <div style={{ display: 'flex', alignItems: 'center' }}>

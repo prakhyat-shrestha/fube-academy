@@ -1,4 +1,4 @@
-import ExamScheduleLayout from '@/views/examination/examschedule'
+import ExamScheduleLayout from '@/views/examination/examSchedule'
 
 const ExamSchedule = () => {
   return (

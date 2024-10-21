@@ -37,7 +37,7 @@ const FeesInvoiceSettingLayout = () => {
           </Typography>
         </nav>
       </div>
-      <div className='payroll mt-4' style={{ flex: 1 }}>
+      <div className='feesInvoiceBulkSetting mt-4' style={{ flex: 1 }}>
         <Card sx={{ width: '100%', height: 'auto' }}>
           <CardContent>
             <div className='container' style={{ display: 'flex', justifyContent: 'center', gap: '30px' }}>

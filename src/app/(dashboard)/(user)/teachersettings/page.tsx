@@ -1,4 +1,4 @@
-import TeacherSettingsLayout from '@/views/teacherevaluation/teachersetting'
+import TeacherSettingsLayout from '@/views/teacherEvaluation/teacherSetting'
 
 const TeacherSettings = () => {
   return (

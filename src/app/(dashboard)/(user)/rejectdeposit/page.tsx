@@ -1,4 +1,4 @@
-import RejectDepositLayout from '@/views/wallet/rejectdeposit'
+import RejectDepositLayout from '@/views/wallet/rejectDeposit'
 
 const RejectDeposit = () => {
   return (

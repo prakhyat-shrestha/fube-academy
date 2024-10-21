@@ -1,4 +1,4 @@
-import VideoListLayout from '@/views/downloadcenter/videoList'
+import VideoListLayout from '@/views/downloadCenter/videoList'
 
 const VideoList = () => {
   return (

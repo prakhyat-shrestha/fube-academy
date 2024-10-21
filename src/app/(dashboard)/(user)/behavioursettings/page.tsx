@@ -1,4 +1,4 @@
-import BehaviourSettingsLayout from '@/views/behaviourrecords/behavioursetting'
+import BehaviourSettingsLayout from '@/views/behaviourRecords/behaviourSetting'
 
 const BehaviourSettings = () => {
   return (
