@@ -38,7 +38,7 @@ const AssignmentLayout = () => {
         <Typography variant='h6' component='h3'>
           Assignment List
         </Typography>
-        <nav style={{ marginLeft: '59%' }}>
+        <nav style={{ marginLeft: '64.1%' }}>
           <Typography variant='h6' component='h3' style={{ display: 'flex', alignItems: 'center' }}>
             <Link href='#' style={{ marginRight: '25px' }}>
               Dashboard

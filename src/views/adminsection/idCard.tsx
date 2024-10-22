@@ -61,7 +61,7 @@ const IDCardlayout = () => {
       <div className='idCardList mt-4 ' style={{ flex: 1 }}>
         <Card sx={{ width: '100%', height: '105%' }}>
           <CardContent>
-            <div className='container' style={{ marginLeft: '84.5%', marginBottom: '15px' }}>
+            <div className='container' style={{ marginLeft: '86.5%', marginBottom: '15px' }}>
               <Button variant='contained' startIcon={<AddSharpIcon />}>
                 CREATE ID CARD
               </Button>

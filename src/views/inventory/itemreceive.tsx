@@ -122,9 +122,9 @@ const ItemReceiveLayout = () => {
         <div className='flex' style={{ display: 'flex' }}>
           {/* Item Recieve card */}
           <div className='itemReceive mt-4 mx-6'>
-            <Card sx={{ width: '102.65%', height: '450px' }}>
+            <Card sx={{ width: '110.3%', height: '450px' }}>
               <CardContent>
-                <div className='container' style={{ display: 'flex', gap: '77.7%' }}>
+                <div className='container' style={{ display: 'flex', gap: '81.5%' }}>
                   <Typography variant='h6' component='h4'>
                     Item Receive
                   </Typography>
@@ -134,18 +134,26 @@ const ItemReceiveLayout = () => {
                 </div>
                 <div className='title'>
                   <div className='subTitle' style={{ display: 'flex', marginTop: '20px' }}>
-                    <Typography variant='h6' component='h3' style={{ fontSize: '11px', marginRight: '60px' }}>
-                      PRODUCT NAME*
-                    </Typography>
-                    <Typography variant='h6' component='h3' style={{ fontSize: '11px', marginRight: '140px' }}>
-                      UNIT PRICE*
-                    </Typography>
-                    <Typography variant='h6' component='h3' style={{ fontSize: '11px', marginRight: '145px' }}>
-                      QUANTITY*
-                    </Typography>
-                    <Typography variant='h6' component='h3' style={{ fontSize: '11px', marginRight: '145px' }}>
-                      SUB TOTAL
-                    </Typography>
+                    <div className='product' style={{ marginRight: '9.3%' }}>
+                      <Typography variant='h6' component='h3' style={{ fontSize: '11px' }}>
+                        PRODUCT NAME*
+                      </Typography>
+                    </div>
+                    <div className='unit' style={{ marginRight: '17.9%' }}>
+                      <Typography variant='h6' component='h3' style={{ fontSize: '11px' }}>
+                        UNIT PRICE*
+                      </Typography>
+                    </div>
+                    <div className='quantity' style={{ marginRight: '18.4%' }}>
+                      <Typography variant='h6' component='h3' style={{ fontSize: '11px' }}>
+                        QUANTITY*
+                      </Typography>
+                    </div>
+                    <div className='total' style={{ marginRight: '19%' }}>
+                      <Typography variant='h6' component='h3' style={{ fontSize: '11px' }}>
+                        SUB TOTAL
+                      </Typography>
+                    </div>
                     <Typography variant='h6' component='h3' style={{ fontSize: '11px' }}>
                       ACTION
                     </Typography>

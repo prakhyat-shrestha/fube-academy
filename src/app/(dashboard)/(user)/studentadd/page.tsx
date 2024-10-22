@@ -1,11 +1,5 @@
-import AddStudent from "@/views/student/student-add";
+import AddStudent from '@/views/student/studentAdd'
 
-export default function DisplayAddedStudent(){
-
-  return (
-
-    <AddStudent/>
-
-  );
-
+export default function DisplayAddedStudent() {
+  return <AddStudent />
 }

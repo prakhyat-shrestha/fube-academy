@@ -53,7 +53,7 @@ const AssignClassTeacherLayout = () => {
         <Typography variant='h6' component='h3'>
           Assign Class Teacher
         </Typography>
-        <nav style={{ marginLeft: '55%' }}>
+        <nav style={{ marginLeft: '60.8%' }}>
           <Typography variant='h6' component='h3' style={{ display: 'flex', alignItems: 'center' }}>
             <Link href='#' style={{ marginRight: '25px' }}>
               Dashboard
@@ -128,7 +128,7 @@ const AssignClassTeacherLayout = () => {
 
         {/* Assign Class Teacher 2nd card */}
         <div className='classTeacherList mt-4 mx-6' style={{ flex: 1 }}>
-          <Card sx={{ width: '102.65%', height: 270 }}>
+          <Card sx={{ width: '102.3%', height: 270 }}>
             <CardContent>
               <div style={{ display: 'flex', alignItems: 'center' }}>
                 <Typography variant='h6' component='h3' style={{ flex: 1, marginRight: '10%' }}>

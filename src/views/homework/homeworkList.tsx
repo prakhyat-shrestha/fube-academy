@@ -51,7 +51,7 @@ const HomeworkListGroup = () => {
       <div className='homeWork mt-4' style={{ flex: 1 }}>
         <Card sx={{ width: '100%', height: '105%' }}>
           <CardContent>
-            <div className='container' style={{ display: 'flex', gap: '75.25%' }}>
+            <div className='container' style={{ display: 'flex', gap: '78.5%' }}>
               <Typography variant='h6' component='h4'>
                 Select Criteria
               </Typography>

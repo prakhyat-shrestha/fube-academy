@@ -128,7 +128,7 @@ const ItemIssueLayout = () => {
 
         {/* ---- Table Section ----*/}
         <div className='itemIssueList mt-4 mx-6 ' style={{ flex: 1 }}>
-          <Card sx={{ width: '99%', height: '45%' }}>
+          <Card sx={{ width: '102.3%', height: '45%' }}>
             <CardContent>
               <div style={{ display: 'flex', alignItems: 'center' }}>
                 <Typography variant='h6' component='h3' style={{ marginRight: '20%' }}>

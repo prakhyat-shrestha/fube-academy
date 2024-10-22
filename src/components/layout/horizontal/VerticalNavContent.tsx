@@ -1,4 +1,6 @@
 // Next Imports
+import React from 'react'
+
 import Link from 'next/link'
 
 // Third-party Imports

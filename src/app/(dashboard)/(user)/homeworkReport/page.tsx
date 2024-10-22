@@ -1,4 +1,4 @@
-import HomeworkReportList from '@/views/homework/homeWorkReport'
+import HomeworkReportList from '@/views/homeWork/homeWorkReport'
 
 const HomeworkReport = () => {
   return (

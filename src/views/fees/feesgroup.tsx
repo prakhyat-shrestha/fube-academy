@@ -42,7 +42,7 @@ const FeesGroupList = () => {
         <Typography variant='h6' component='h3'>
           Fees Group
         </Typography>
-        <nav style={{ marginLeft: '70%' }}>
+        <nav style={{ marginLeft: 'auto' }}>
           <Typography variant='h6' component='h3' style={{ display: 'flex', alignItems: 'center' }}>
             <Link href='#' style={{ marginRight: '25px' }}>
               Dashboard
@@ -82,7 +82,7 @@ const FeesGroupList = () => {
 
         {/* Fees Group list 2nd card */}
         <div className='feesGroupList mt-4 mx-6' style={{ flex: 1 }}>
-          <Card sx={{ width: '102%', height: 370 }}>
+          <Card sx={{ width: '102.3%', height: 370 }}>
             <CardContent>
               <div style={{ display: 'flex', alignItems: 'center' }}>
                 <Typography variant='h6' component='h3' style={{ flex: 1, marginRight: '16%' }}>

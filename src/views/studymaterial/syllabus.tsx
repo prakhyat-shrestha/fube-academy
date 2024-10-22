@@ -38,7 +38,7 @@ const SyallbusLayout = () => {
         <Typography variant='h6' component='h3'>
           Syllabus List
         </Typography>
-        <nav style={{ marginLeft: '62%' }}>
+        <nav style={{ marginLeft: '67.4%' }}>
           <Typography variant='h6' component='h3' style={{ display: 'flex', alignItems: 'center' }}>
             <Link href='#' style={{ marginRight: '25px' }}>
               Dashboard

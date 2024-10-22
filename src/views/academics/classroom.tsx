@@ -46,7 +46,7 @@ const ClassRoomLayout = () => {
         <Typography variant='h6' component='h3'>
           Class Room
         </Typography>
-        <nav style={{ marginLeft: '65.5%' }}>
+        <nav style={{ marginLeft: '70.5%' }}>
           <Typography variant='h6' component='h3' style={{ display: 'flex', alignItems: 'center' }}>
             <Link href='#' style={{ marginRight: '25px' }}>
               Dashboard
@@ -86,7 +86,7 @@ const ClassRoomLayout = () => {
 
         {/* Class Room list 2nd card */}
         <div className='classRoomList mt-4 mx-6' style={{ flex: 1 }}>
-          <Card sx={{ width: '102.65%', height: 270 }}>
+          <Card sx={{ width: '102.3%', height: 270 }}>
             <CardContent>
               <div style={{ display: 'flex', alignItems: 'center' }}>
                 <Typography variant='h6' component='h3' style={{ flex: 1, marginRight: '16%' }}>

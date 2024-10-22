@@ -46,7 +46,7 @@ const VehicleList = () => {
         <Typography variant='h6' component='h3'>
           Vehicle
         </Typography>
-        <nav style={{ marginLeft: '70%' }}>
+        <nav style={{ marginLeft: 'auto' }}>
           <Typography variant='h6' component='h3' style={{ display: 'flex', alignItems: 'center' }}>
             <Link href='#' style={{ marginRight: '30px' }}>
               Dashboard
@@ -63,7 +63,7 @@ const VehicleList = () => {
       <div className='flex' style={{ display: 'flex' }}>
         {/* Add vehicle first card */}
         <div className='vehicle mt-4'>
-          <Card sx={{ width: 280, height: 560 }}>
+          <Card sx={{ width: 280, height: 555 }}>
             <CardContent>
               <Typography variant='h6' component='h3'>
                 Add Vehicle
@@ -105,7 +105,7 @@ const VehicleList = () => {
 
         {/* Vehicle list 2nd card */}
         <div className='vehicleList mt-4 mx-6' style={{ flex: 1 }}>
-          <Card sx={{ width: '102.65%', height: 280 }}>
+          <Card sx={{ width: '102.3%', height: 280 }}>
             <CardContent>
               <div style={{ display: 'flex', alignItems: 'center' }}>
                 <Typography variant='h6' component='h3' style={{ flex: 1, marginRight: '16%' }}>

@@ -46,7 +46,7 @@ const TransportRouteList = () => {
         <Typography variant='h6' component='h3'>
           Tansport Route
         </Typography>
-        <nav style={{ marginLeft: '65%' }}>
+        <nav style={{ marginLeft: 'auto' }}>
           <Typography variant='h6' component='h3' style={{ display: 'flex', alignItems: 'center' }}>
             <Link href='#' style={{ marginRight: '10px' }}>
               Dashboard
@@ -65,14 +65,14 @@ const TransportRouteList = () => {
         <div className='transportRoute mt-4'>
           <Card sx={{ width: 280, height: 290 }}>
             <CardContent>
-              <Typography variant='h6' component='h3'>
+              <Typography variant='h5' component='h3'>
                 Add Route
               </Typography>
               <Typography variant='body2' component='div'>
-                <CustomTextField required label='ROUTE TITLE' style={{ marginTop: 20 }} />
+                <CustomTextField required label='ROUTE TITLE' style={{ marginTop: 20, width: '100%' }} />
               </Typography>
               <Typography variant='body2' component='div'>
-                <CustomTextField required label='FARE' style={{ marginTop: 20 }} />
+                <CustomTextField required label='FARE' style={{ marginTop: 20, width: '100%' }} />
               </Typography>
             </CardContent>
             <CardActions style={{ justifyContent: 'center' }}>
@@ -86,7 +86,7 @@ const TransportRouteList = () => {
 
         {/* Transport Route List 2nd card */}
         <div className='transportRouteList mt-4 mx-6' style={{ flex: 1 }}>
-          <Card sx={{ width: '102.65%', height: 230 }}>
+          <Card sx={{ width: '102.3%', height: 230 }}>
             <CardContent>
               <div style={{ display: 'flex', alignItems: 'center' }}>
                 <Typography variant='h6' component='h3' style={{ flex: 1, marginRight: '16%' }}>

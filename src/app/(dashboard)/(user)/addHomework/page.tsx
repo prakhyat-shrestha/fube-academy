@@ -1,4 +1,4 @@
-import AddHomeworkList from '@/views/homework/addHomework'
+import AddHomeworkList from '@/views/homeWork/addHomeWork'
 
 const addHomework = () => {
   return (

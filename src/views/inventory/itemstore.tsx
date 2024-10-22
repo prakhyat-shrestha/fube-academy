@@ -81,7 +81,7 @@ const ItemStoreLayout = () => {
 
         {/* ---- Table Section ----*/}
         <div className='itemStoreList mt-4 mx-6 ' style={{ flex: 1 }}>
-          <Card sx={{ width: '102.8%', height: '65%' }}>
+          <Card sx={{ width: '102.3%', height: '65%' }}>
             <CardContent>
               <div style={{ display: 'flex', alignItems: 'center' }}>
                 <Typography variant='h6' component='h3' style={{ marginRight: '25%' }}>

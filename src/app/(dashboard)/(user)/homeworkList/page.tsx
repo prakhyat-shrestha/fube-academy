@@ -1,4 +1,4 @@
-import HomeworkListGroup from '@/views/homework/homeWorkList'
+import HomeworkListGroup from '@/views/homeWork/homeWorkList'
 const HomeworkList = () => {
   return (
     <>

@@ -31,7 +31,7 @@ const MarksRegisterLayout = () => {
       <div className='markRegister mt-4' style={{ flex: 1 }}>
         <Card sx={{ width: '100%', height: '105%' }}>
           <CardContent>
-            <div className='container' style={{ display: 'flex', gap: '78.7%' }}>
+            <div className='container' style={{ display: 'flex', gap: '81.3%' }}>
               <Typography variant='h6' component='h4'>
                 Select Criteria
               </Typography>

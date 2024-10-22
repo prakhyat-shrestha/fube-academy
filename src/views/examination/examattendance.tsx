@@ -31,7 +31,7 @@ const ExamAttendanceLayout = () => {
       <div className='examAttendance mt-4' style={{ flex: 1 }}>
         <Card sx={{ width: '100%', height: '105%' }}>
           <CardContent>
-            <div className='container' style={{ display: 'flex', gap: '72.2%' }}>
+            <div className='container' style={{ display: 'flex', gap: '75.9%' }}>
               <Typography variant='h6' component='h4'>
                 Select Criteria
               </Typography>

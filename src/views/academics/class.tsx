@@ -52,8 +52,12 @@ const ClassLayout = () => {
         <Typography variant='h6' component='h3'>
           Class
         </Typography>
-        <nav style={{ marginLeft: '73%' }}>
-          <Typography variant='h6' component='h3' style={{ display: 'flex', alignItems: 'center' }}>
+        <nav style={{ marginLeft: '76.8%' }}>
+          <Typography
+            variant='h6'
+            component='h3'
+            style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}
+          >
             <Link href='#' style={{ marginRight: '25px' }}>
               Dashboard
             </Link>
@@ -102,7 +106,7 @@ const ClassLayout = () => {
 
         {/* Class list 2nd card */}
         <div className='classList mt-4 mx-6' style={{ flex: 1 }}>
-          <Card sx={{ width: '102.6%', height: 370 }}>
+          <Card sx={{ width: '102.3%', height: 370 }}>
             <CardContent>
               <div style={{ display: 'flex', alignItems: 'center' }}>
                 <Typography variant='h6' component='h3' style={{ flex: 1, marginRight: '16%' }}>

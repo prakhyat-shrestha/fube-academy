@@ -1,214 +1,148 @@
-'use client'
-import * as React from 'react'
-import { useState } from 'react'
+import Link from 'next/link'
 
-import { useRouter } from 'next/router'
-
-import { TabContext, TabList, TabPanel } from '@mui/lab'
-import { styled, useTheme } from '@mui/material/styles'
-import Table from '@mui/material/Table'
-import TableBody from '@mui/material/TableBody'
-import TableCell, { tableCellClasses } from '@mui/material/TableCell'
-import TableContainer from '@mui/material/TableContainer'
-import TableHead from '@mui/material/TableHead'
-import TableRow from '@mui/material/TableRow'
-import Paper from '@mui/material/Paper'
-import Box from '@mui/material/Box'
-import IconButton from '@mui/material/IconButton'
-import FirstPageIcon from '@mui/icons-material/FirstPage'
-import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft'
-import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight'
-import LastPageIcon from '@mui/icons-material/LastPage'
-import TableFooter from '@mui/material/TableFooter'
-import TablePagination from '@mui/material/TablePagination'
-import MenuItem from '@mui/material/MenuItem'
-import { Divider, InputAdornment, Tab, Button } from '@mui/material'
-import CardContent from '@mui/material/CardContent'
-import CardActions from '@mui/material/CardActions'
+import { Typography, MenuItem } from '@mui/material'
 import Card from '@mui/material/Card'
-import Grid from '@mui/material/Grid'
+import CardContent from '@mui/material/CardContent'
+
+import Button from '@mui/material/Button'
+import CheckSharpIcon from '@mui/icons-material/CheckSharp'
 
 import CustomTextField from '@core/components/mui/TextField'
 
-const StyledTableCell = styled(TableCell)(({ theme }) => ({
-  [`&.${tableCellClasses.head}`]: {
-    backgroundColor: theme.palette.common.black,
-    color: theme.palette.common.white
-  },
-  [`&.${tableCellClasses.body}`]: {
-    fontSize: 14
-  }
-}))
-
-const StyledTableRow = styled(TableRow)(({ theme }) => ({
-  '&:nth-of-type(odd)': {
-    backgroundColor: theme.palette.action.hover
-  },
-
-  // hide last border
-  '&:last-child td, &:last-child th': {
-    border: 0
-  }
-}))
-
-type FormDataType = {
-  sl: string
-  booktitle: string
-  isbn: string
-  catergory: string
-  publishername: string
-  authorname: string
-  quantity: number
-  price: number
-}
-
-interface TablePaginationActionsProps {
-  count: number
-  page: number
-  rowsPerPage: number
-  onPageChange: (event: React.MouseEvent<HTMLButtonElement>, newPage: number) => void
-}
-
-// const AddBook=()=>{
-//   const [formData,setFormData]=useState<FormDataType>({
-//     sl: '',
-//     booktitle: '',
-//     isbn: 0,
-//     catergory: '',
-//     publishername: '',
-//     authorname:'',
-//     quantity:0,
-//     price:0,
-//     action:'',
-//   })
-
-// }
-
-//function for adding books
-
-export default function AddBooklist() {
-  const [value, setValue] = useState('personal_info')
-
-  const [formData, setFormData] = useState<FormDataType>({
-    sl: '',
-    booktitle: '',
-    isbn: '',
-    catergory: '',
-    publishername: '',
-    authorname: '',
-    quantity: 0,
-    price: 0
-  })
-
-  const handleSubmit = e => {
-    e.preventDefault()
-
-    // const { name, value } = e.target;
-    setFormData(formData)
-    console.log(formData)
-  }
-
-  const [page, setPage] = React.useState(0)
-  const [rowsPerPage, setRowsPerPage] = React.useState(5)
-
-  //  const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   if (inputValue.trim() !== '') {
-  //     // Update table data with new input value
-  //     setTableData(e.tableData);
-  //     setFormData(e.target.value);
-  //   }
-  // };
-  // Avoid a layout jump when reaching the last page with empty rows.
-  const emptyRows = page > 0 ? Math.max(0, (1 + page) * rowsPerPage - rows.length) : 0
-
-  const handleChangePage = (event: React.MouseEvent<HTMLButtonElement> | null, newPage: number) => {
-    setPage(newPage)
-  }
-
-  const handleChangeRowsPerPage = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setRowsPerPage(parseInt(event.target.value, 10))
-    setPage(0)
-  }
-
+const AddBookLayout = () => {
   return (
     <>
-      <h2>Add Books</h2>
-      <Card className='mt-4'>
-        <TabContext value={value}>
-          <TabList variant='scrollable' className='border-be'>
-            <Tab label='Add Book' value='add_book' />
-          </TabList>
-          <form onSubmit={e => handleSubmit(e)}>
-            <CardContent>
-              <TabPanel value='personal_info'>
-                <Grid container spacing={6}>
-                  <Grid item xs={12} sm={6}>
-                    <CustomTextField fullWidth label='SL' placeholder='SL' className='sl' />
-                  </Grid>
-                  <Grid item xs={12} sm={6}>
-                    <CustomTextField fullWidth label='Book Title' placeholder='Enter title' className='booktitle' />
-                  </Grid>
-                  <Grid item xs={12} sm={6}>
-                    <CustomTextField fullWidth label='ISBN' type='number' placeholder='123-456-7890' className='isbn' />
-                  </Grid>
-                  <Grid item xs={12} sm={6}>
-                    <CustomTextField
-                      fullWidth
-                      label='Author'
-                      type='string'
-                      placeholder='Enter address 1'
-                      className='catergory'
-                    />
-                  </Grid>{' '}
-                  <Grid item xs={12} sm={6}>
-                    <CustomTextField
-                      fullWidth
-                      label='Publisher'
-                      type='string'
-                      placeholder='Enter publisher'
-                      className='publishername'
-                    />
-                  </Grid>
-                  <Grid item xs={12} sm={6}>
-                    <CustomTextField
-                      fullWidth
-                      label='Author'
-                      type='string'
-                      placeholder='Enter author name'
-                      className='authorname'
-                    />
-                  </Grid>
-                  <Grid item xs={12} sm={6}>
-                    <CustomTextField
-                      fullWidth
-                      label='Quantity'
-                      type='number'
-                      placeholder='Enter quantity'
-                      className='quantity'
-                    />
-                  </Grid>
-                  <Grid item xs={12} sm={6}>
-                    <CustomTextField
-                      fullWidth
-                      label='Price'
-                      type='number'
-                      placeholder='Enter price'
-                      className='price'
-                    />
-                  </Grid>
-                </Grid>
-              </TabPanel>
-            </CardContent>
-            <Divider />
-            <CardActions>
-              <Button type='submit' variant='contained' sx={{ marginLeft: 'auto' }}>
-                Submit
+      <div className='flex'>
+        <Typography variant='h6' component='h3'>
+          Add Book
+        </Typography>
+        <nav style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center' }}>
+          <Typography variant='h6' component='h3' style={{ display: 'flex', alignItems: 'center' }}>
+            <Link href='#' style={{ marginRight: '35px' }}>
+              Dashboard
+            </Link>
+            <span style={{ marginRight: '10px' }}>|</span>
+            <Link href='#' style={{ marginRight: '35px' }}>
+              Library
+            </Link>
+            <span style={{ marginRight: '35px' }}>|</span>
+            <Link href='#'>Add Book</Link>
+          </Typography>
+        </nav>
+      </div>
+      <div className='addBook mt-4' style={{ flex: 1 }}>
+        <Card sx={{ width: '100%', height: '105%' }}>
+          <CardContent>
+            <div className='container' style={{ display: 'flex', gap: '69%' }}>
+              <Typography variant='h6' component='h4'>
+                Select Criteria
+              </Typography>
+            </div>
+
+            <div className='container' style={{ display: 'flex' }}>
+              <CustomTextField
+                required
+                fullWidth
+                label='BOOK TITLE'
+                id='custom-select'
+                style={{ margin: '20px 35px 0 0 ', width: '65%' }}
+              />
+
+              <CustomTextField
+                select
+                fullWidth
+                required
+                defaultValue='book'
+                label='BOOK CATEGORIES'
+                id='custom-select'
+                style={{ margin: '20px 35px 0 0 ', width: '65%' }}
+              >
+                <CustomTextField placeholder='Search...' style={{ padding: '0 6px 8px 6px', width: '100%' }} />
+                <MenuItem value='book'>
+                  <span style={{ fontStyle: 'normal' }}>Select Book Category*</span>
+                </MenuItem>
+                <MenuItem value='ECED'>ECED</MenuItem>
+              </CustomTextField>
+              <CustomTextField
+                select
+                fullWidth
+                required
+                defaultValue='section'
+                label='SUBJECT'
+                id='custom-select'
+                style={{ margin: '20px 35px 0 0 ', width: '65%' }}
+              >
+                <CustomTextField placeholder='Search...' style={{ padding: '0 6px 8px 6px', width: '100%' }} />
+                <MenuItem value='section'>
+                  <span style={{ fontStyle: 'normal' }}>Select Subjects*</span>
+                </MenuItem>
+              </CustomTextField>
+              <CustomTextField
+                fullWidth
+                label='BOOK NUMBER'
+                id='custom-select'
+                style={{ margin: '20px 35px 0 0 ', marginRight: '10px', width: '65%' }}
+              />
+            </div>
+            {/* //Second Rpw */}
+            <div className='container' style={{ display: 'flex' }}>
+              <CustomTextField
+                fullWidth
+                label='ISBN NO'
+                id='custom-select'
+                style={{ margin: '20px 35px 0 0 ', width: '65%' }}
+              />
+
+              <CustomTextField
+                fullWidth
+                label='PUBLISHER NAME'
+                id='custom-select'
+                style={{ margin: '20px 35px 0 0 ', width: '65%' }}
+              />
+              <CustomTextField
+                fullWidth
+                label='AUTHOR NAME'
+                id='custom-select'
+                style={{ margin: '20px 35px 0 0 ', width: '65%' }}
+              />
+
+              <CustomTextField
+                fullWidth
+                label='RACK NUMBER'
+                id='custom-select'
+                style={{ margin: '20px 35px 0 0 ', marginRight: '10px', width: '65%' }}
+              />
+              {/* Third Row */}
+            </div>
+            <div className='container' style={{ display: 'flex', width: '51%' }}>
+              <CustomTextField
+                fullWidth
+                label='QUANTITY'
+                id='custom-select'
+                style={{ margin: '20px 35px 0 0 ', width: '65%' }}
+              />
+
+              <CustomTextField
+                fullWidth
+                label='BOOK PRICE'
+                id='custom-select'
+                style={{ margin: '20px 35px 0 0 ', width: '65%' }}
+              />
+            </div>
+            <div className='container' style={{ display: 'flex', width: '100%', marginTop: '20px' }}>
+              <CustomTextField label='DESCRIPTION' variant='outlined' multiline rows={4} fullWidth />
+            </div>
+
+            <div className='container' style={{ display: 'flex', marginTop: '25px', marginLeft: '45%' }}>
+              <Button variant='contained' startIcon={<CheckSharpIcon />}>
+                SAVE BOOK
               </Button>
-            </CardActions>
-          </form>
-        </TabContext>
-      </Card>
+            </div>
+          </CardContent>
+        </Card>
+      </div>
     </>
   )
 }
+
+export default AddBookLayout

@@ -79,7 +79,7 @@ const ItemCateoryLayout = () => {
 
         {/* ---- Table Section ----*/}
         <div className='itemCategoryList mt-4 mx-6 ' style={{ flex: 1 }}>
-          <Card sx={{ width: '102.65%', height: '105%' }}>
+          <Card sx={{ width: '102.3%', height: '105%' }}>
             <CardContent>
               <div style={{ display: 'flex', alignItems: 'center' }}>
                 <Typography variant='h6' component='h3' style={{ marginRight: '25%' }}>

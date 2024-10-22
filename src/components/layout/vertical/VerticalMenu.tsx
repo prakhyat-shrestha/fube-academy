@@ -1,6 +1,16 @@
 // MUI Imports
 import { useTheme } from '@mui/material/styles'
 
+//Icon Imports MUI
+import ArticleIcon from '@mui/icons-material/Article'
+import DialpadIcon from '@mui/icons-material/Dialpad'
+import SchoolIcon from '@mui/icons-material/School'
+
+import QuizIcon from '@mui/icons-material/Quiz'
+import OnlinePredictionIcon from '@mui/icons-material/OnlinePrediction'
+import SensorOccupiedIcon from '@mui/icons-material/SensorOccupied'
+import AccountBalanceIcon from '@mui/icons-material/AccountBalance'
+
 // Third-party Imports
 import PerfectScrollbar from 'react-perfect-scrollbar'
 
@@ -77,7 +87,7 @@ const VerticalMenu = ({ dictionary, scrollMenu }: Props) => {
         <MenuItem href='/about' icon={<i className='tabler-info-circle' />}>
           About
         </MenuItem>
-        <MenuItem href='/contact' icon={<i className='tabler-info-circle' />}>
+        <MenuItem href='/contact' icon={<DialpadIcon />}>
           Contact
         </MenuItem>
         <SubMenu label={dictionary['navigation'].adminSection} icon={<i className='tabler-brand-amigo' />}>
@@ -129,9 +139,20 @@ const VerticalMenu = ({ dictionary, scrollMenu }: Props) => {
           <MenuItem href={'/sharedContentList'}>Shared Content List</MenuItem>
           <MenuItem href={'/videoList'}>Video List</MenuItem>
         </SubMenu>
-        <SubMenu label={dictionary['navigation'].student} icon={<i className='tabler-user-square' />}>
+        <SubMenu label={dictionary['navigation'].student} icon={<SchoolIcon />}>
+          <MenuItem href={`/studentCategory`}>Student Category</MenuItem>
           <MenuItem href={`/studentAdd`}>Add Student</MenuItem>
           <MenuItem href={`/studentLi`}>Student List</MenuItem>
+          <MenuItem href={`/multiClassStudent`}>Multi Class Student</MenuItem>
+          <MenuItem href={`/deleteStudentRecord`}>Delete Student Record</MenuItem>
+          <MenuItem href={`/unAssignedStudent`}>Unassigned Student</MenuItem>
+          <MenuItem href={`/studentAttendance`}>Student Attendance</MenuItem>
+          <MenuItem href={`/studentGroup`}>Student Group</MenuItem>
+          <MenuItem href={`/studentPromote`}>Student Promote</MenuItem>
+          <MenuItem href={`/disabledStudents`}>Disabled Students</MenuItem>
+          <MenuItem href={`/subjectWiseAttendance`}>Subject Wise Attendance</MenuItem>
+          <MenuItem href={`/studentExport`}>Student Export</MenuItem>
+          <MenuItem href={`/smsSendingTime`}>SMS Sending Time</MenuItem>
         </SubMenu>
         <SubMenu label={dictionary['navigation'].behaviourRecords} icon={<i className='tabler-clipboard-list' />}>
           <MenuItem href={'/incidents'}>Incidents</MenuItem>
@@ -154,9 +175,14 @@ const VerticalMenu = ({ dictionary, scrollMenu }: Props) => {
           <MenuItem href={'/homeWorkList'}>Homework List</MenuItem>
           <MenuItem href={'/homeWorkReport'}>Homework Report</MenuItem>
         </SubMenu>
-        <SubMenu label={dictionary['navigation'].library} icon={<i className='tabler-books' />}>
-          <MenuItem href={'/libraryList'}>Booklist</MenuItem>
+        <SubMenu label={dictionary['navigation'].library} icon={<ArticleIcon />}>
           <MenuItem href={'/libraryAdd'}>Add Books</MenuItem>
+          <MenuItem href={'/libraryList'}>Booklist</MenuItem>
+          <MenuItem href={'/libraryCat'}>Book Categories</MenuItem>
+          <MenuItem href={'/libraryMember'}>Add Member</MenuItem>
+          <MenuItem href={'/libraryIssue'}>Issue/Return Book</MenuItem>
+          <MenuItem href={'/libraryIssued'}>All Issued Books</MenuItem>
+          <MenuItem href={'/librarySubject'}>Subject</MenuItem>
         </SubMenu>
         <SubMenu label={dictionary['navigation'].transport} icon={<i className='tabler-bus' />}>
           <MenuItem href={'/route'}>Routes</MenuItem>
@@ -220,6 +246,37 @@ const VerticalMenu = ({ dictionary, scrollMenu }: Props) => {
           <MenuItem href={'/balance'}>Balance Report</MenuItem>
           <MenuItem href={'/waiver'}>Waiver Report</MenuItem>
           <MenuItem href={'/wallet'}>Wallet Report</MenuItem>
+        </SubMenu>
+        <SubMenu label={dictionary['navigation'].examplan} icon={<QuizIcon />}>
+          <MenuItem href={'/examAdmitCard'}>Admit Card</MenuItem>
+          <MenuItem href={'/examSeatPlan'}>Seat Plan</MenuItem>
+        </SubMenu>
+        <SubMenu label={dictionary['navigation'].onlineexam} icon={<OnlinePredictionIcon />}>
+          <MenuItem href={'/onlineQuestionGroup'}>Question Group</MenuItem>
+          <MenuItem href={'/onlineQuestionBank'}>Question Bank</MenuItem>
+          <MenuItem href={'/onlineExam'}>Online Exam</MenuItem>
+        </SubMenu>
+
+        <SubMenu label={dictionary['navigation'].hr} icon={<SensorOccupiedIcon />}>
+          <MenuItem href={'/humanDesignation'}>Designation</MenuItem>
+          <MenuItem href={'/humanDepartment'}>Department</MenuItem>
+          <MenuItem href={'/humanAddStaff'}>Add Staff</MenuItem>
+          <MenuItem href={'/humanStaffDir'}>Staff Directory</MenuItem>
+          <MenuItem href={'/humanStaffAttend'}>Staff Attendance</MenuItem>
+          <MenuItem href={'/humanPayRoll'}>Payroll</MenuItem>
+        </SubMenu>
+        <SubMenu label={dictionary['navigation'].accounts} icon={<AccountBalanceIcon />}>
+          <MenuItem href={'/placc'}>Profit & Loss</MenuItem>
+          <MenuItem href={'/income'}>Income</MenuItem>
+          <MenuItem href={'/expense'}>Expense</MenuItem>
+          <MenuItem href={'/chartAcc'}>Chart Of Account</MenuItem>
+          <MenuItem href={'/bankAcc'}>Bank Account</MenuItem>
+          <MenuItem href={'fundTrans'}>Fund Transfer</MenuItem>
+        </SubMenu>
+        <SubMenu label={dictionary['navigation'].chat}>
+          <MenuItem href={'/chatBox'}>Chat Box</MenuItem>
+          <MenuItem href={'/invitation'}>Invitation</MenuItem>
+          <MenuItem href={'/blockedUser'}>Blocked User</MenuItem>
         </SubMenu>
       </Menu>
       {/* <Menu

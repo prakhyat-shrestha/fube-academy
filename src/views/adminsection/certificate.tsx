@@ -164,7 +164,7 @@ const CertificateLayout = () => {
         </div>
         {/* ---- Table Section ----*/}
         <div className='certificateList mt-4 mx-6 ' style={{ flex: 1 }}>
-          <Card sx={{ width: '103.3%', height: '25%' }}>
+          <Card sx={{ width: '102.7%', height: '25%' }}>
             <CardContent>
               <div style={{ display: 'flex', alignItems: 'center' }}>
                 <Typography variant='h6' component='h3' style={{ marginRight: '10%' }}>

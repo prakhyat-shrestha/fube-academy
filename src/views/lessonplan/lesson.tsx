@@ -50,7 +50,7 @@ const LessonLayout = () => {
         <Typography variant='h6' component='h3'>
           Lesson
         </Typography>
-        <nav style={{ marginLeft: '70%' }}>
+        <nav style={{ marginLeft: 'auto' }}>
           <Typography variant='h6' component='h3' style={{ display: 'flex', alignItems: 'center' }}>
             <Link href='#' style={{ marginRight: '25px' }}>
               Dashboard
@@ -149,7 +149,7 @@ const LessonLayout = () => {
 
         {/* Lesson List 2nd card */}
         <div className='lessonList mt-4 mx-6' style={{ flex: 1 }}>
-          <Card sx={{ width: '102.65%', height: 270 }}>
+          <Card sx={{ width: '102.3%', height: 270 }}>
             <CardContent>
               <div style={{ display: 'flex', alignItems: 'center' }}>
                 <Typography variant='h6' component='h3' style={{ flex: 1, marginRight: '10%' }}>

@@ -1,9 +1,9 @@
-import VisitorLayot from '@/views/adminSection/visitorBook'
+import VisitorLayout from '@/views/adminSection/visitorBook'
 
 const VisitorBook = () => {
   return (
     <>
-      <VisitorLayot />
+      <VisitorLayout />
     </>
   )
 }
