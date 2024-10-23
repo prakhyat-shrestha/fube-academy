@@ -179,7 +179,7 @@ const AddStudent = () => {
       </div>
       <Card className='mt-4'>
         <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-          <Typography variant='h5' style={{ margin: '20px' }}>
+          <Typography variant='h6' style={{ margin: '20px' }}>
             Add Student
           </Typography>
 
@@ -500,7 +500,7 @@ const AddStudent = () => {
               {/* NEXT PANEL */}
               <TabPanel value='parentsAndGuardianInfo'>
                 <div className='container' style={{ display: 'flex', justifyContent: 'space-between' }}>
-                  <div className='academic mt-4 mx-6 mb-4 ' style={{ width: '50%' }}>
+                  <div className='academic mt-4 mx-4 mb-4 ' style={{ width: '50%' }}>
                     <Typography variant='h6'>FATHERS INFO</Typography>
                     <Divider sx={{ borderBottomWidth: 1, borderColor: '#D3D3D3', marginTop: 1 }} />
 

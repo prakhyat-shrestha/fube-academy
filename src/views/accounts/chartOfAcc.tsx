@@ -49,7 +49,7 @@ const ChartOfAccountLayout = () => {
   return (
     <>
       <div className='flex '>
-        <Typography variant='h5' component='h3'>
+        <Typography variant='h6' component='h3'>
           Chart Of Account
         </Typography>
         <nav style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center' }}>
@@ -68,10 +68,10 @@ const ChartOfAccountLayout = () => {
       </div>
       <div className='flex' style={{ display: 'flex' }}>
         {/* Add Chart Of Account card */}
-        <div className='questionGroup mt-4'>
-          <Card sx={{ width: 350, height: 290 }}>
+        <div className='chartAccount mt-4'>
+          <Card sx={{ width: 350, height: 275 }}>
             <CardContent>
-              <Typography variant='h5' component='h3'>
+              <Typography variant='h6' component='h3'>
                 Add Chart Of Account
               </Typography>
 
@@ -103,12 +103,12 @@ const ChartOfAccountLayout = () => {
           </Card>
         </div>
 
-        {/* Fees Group list 2nd card */}
+        {/* Chart Of Account list 2nd card */}
         <div className='chartOfAccountList mt-4 mx-6' style={{ flex: 1 }}>
-          <Card sx={{ width: '102%', height: 270 }}>
+          <Card sx={{ width: '102.4%', height: 270 }}>
             <CardContent>
               <div style={{ display: 'flex', alignItems: 'center' }}>
-                <Typography variant='h5' component='h3' style={{ flex: 1, marginRight: '12%' }}>
+                <Typography variant='h6' component='h3' style={{ flex: 1, marginRight: '12%' }}>
                   Chart Of Account List
                 </Typography>
                 <div style={{ flexGrow: 1 }}>

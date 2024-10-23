@@ -71,7 +71,7 @@ const BookSubjectLayout = () => {
         <div className='subject mt-4'>
           <Card sx={{ width: 300, height: 370 }}>
             <CardContent>
-              <Typography variant='h5' component='h3'>
+              <Typography variant='h6' component='h3'>
                 Add Subject
               </Typography>
               <Typography variant='body2' component='div'>

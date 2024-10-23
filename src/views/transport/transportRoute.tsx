@@ -65,7 +65,7 @@ const TransportRouteList = () => {
         <div className='transportRoute mt-4'>
           <Card sx={{ width: 280, height: 290 }}>
             <CardContent>
-              <Typography variant='h5' component='h3'>
+              <Typography variant='h6' component='h3'>
                 Add Route
               </Typography>
               <Typography variant='body2' component='div'>

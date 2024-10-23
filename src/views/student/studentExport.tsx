@@ -31,7 +31,7 @@ const StudentExportLayout = () => {
         <Card sx={{ width: '100%', height: '105%' }}>
           <CardContent>
             <div className='container' style={{ display: 'flex', gap: '73%' }}>
-              <Typography variant='h5' component='h4'>
+              <Typography variant='h6' component='h4'>
                 All Student Export
               </Typography>
             </div>

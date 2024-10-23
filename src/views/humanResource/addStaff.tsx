@@ -161,7 +161,7 @@ const AddStaffLayout = () => {
   return (
     <>
       <div className='flex '>
-        <Typography variant='h5' component='h3'>
+        <Typography variant='h6' component='h3'>
           Add New Staff
         </Typography>
         <nav style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center' }}>
@@ -189,7 +189,7 @@ const AddStaffLayout = () => {
         }}
       >
         <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-          <Typography variant='h5' style={{ margin: '20px' }}>
+          <Typography variant='h6' style={{ margin: '20px' }}>
             Staff Information
           </Typography>
 
@@ -205,12 +205,12 @@ const AddStaffLayout = () => {
             className='border-be'
             style={{ marginLeft: '20px', marginRight: '20px' }}
           >
-            <Tab label='BASIC INFO' value='basic_info' style={{ fontSize: '12px' }} />
-            <Tab label='PAYROLL DETAILS' value='payroll_details' style={{ fontSize: '12px' }} />
-            <Tab label='BANK INFO DETAILS' value='bank_details' style={{ fontSize: '12px' }} />
-            <Tab label='SOCIAL LINKS DETAILS' value='social_details' style={{ fontSize: '12px' }} />
-            <Tab label='DOCUMENT INFO' value='document_info' style={{ fontSize: '12px' }} />
-            <Tab label='CUSTOM FIELD' value='custom_field' style={{ fontSize: '12px' }} />
+            <Tab label='BASIC INFO' value='basicInfo' style={{ fontSize: '12px' }} />
+            <Tab label='PAYROLL DETAILS' value='payRollDetails' style={{ fontSize: '12px' }} />
+            <Tab label='BANK INFO DETAILS' value='bankDetails' style={{ fontSize: '12px' }} />
+            <Tab label='SOCIAL LINKS DETAILS' value='socialDetails' style={{ fontSize: '12px' }} />
+            <Tab label='DOCUMENT INFO' value='documentInfo' style={{ fontSize: '12px' }} />
+            <Tab label='CUSTOM FIELD' value='customField' style={{ fontSize: '12px' }} />
             <Button
               variant='contained'
               style={{
@@ -227,9 +227,9 @@ const AddStaffLayout = () => {
           </TabList>
           <form onSubmit={e => e.preventDefault()}>
             <CardContent>
-              <TabPanel value='basic_info'>
+              <TabPanel value='basicInfo'>
                 <div className='container' style={{ display: 'flex', justifyContent: 'space-between' }}>
-                  <div className='basic_info mt-4 mx-4 mb-4 ' style={{ width: '50%' }}>
+                  <div className='basicInfo mx-4 mb-4 ' style={{ width: '50%' }}>
                     <div className='sectionOne' style={{ display: 'flex', width: '100%' }}>
                       <CustomTextField
                         required
@@ -258,7 +258,7 @@ const AddStaffLayout = () => {
                       </CustomTextField>
                     </div>
 
-                    <div className='sectiontwo' style={{ display: 'flex' }}>
+                    <div className='sectionTwo' style={{ display: 'flex' }}>
                       <CustomTextField
                         required
                         fullWidth
@@ -269,7 +269,7 @@ const AddStaffLayout = () => {
                       <CustomTextField fullWidth label='LAST NAME' style={{ marginTop: '20px', width: '200%' }} />
                     </div>
 
-                    <div className='sectionthree' style={{ display: 'flex' }}>
+                    <div className='sectionThree' style={{ display: 'flex' }}>
                       <CustomTextField
                         required
                         label='EMAIL'
@@ -289,7 +289,7 @@ const AddStaffLayout = () => {
                         <MenuItem value='others'>Others</MenuItem>
                       </CustomTextField>
                     </div>
-                    <div className='sectionfour' style={{ display: 'flex' }}>
+                    <div className='sectionFour' style={{ display: 'flex' }}>
                       <CustomTextField label='MOBILE' style={{ marginTop: '20px', width: '200%', marginRight: '5%' }} />
                       <CustomTextField
                         label='MARTIAL STATUS'
@@ -305,7 +305,7 @@ const AddStaffLayout = () => {
                     </div>
                   </div>
 
-                  <div className='academic mt-4 mx-4 mb-4 ' style={{ width: '50%' }}>
+                  <div className='academic mx-4 mb-4 ' style={{ width: '50%' }}>
                     <div className='sectionOne' style={{ display: 'flex', width: '100%' }}>
                       <CustomTextField
                         required
@@ -340,16 +340,16 @@ const AddStaffLayout = () => {
                         />
                         <MenuItem value='designation'>Designations</MenuItem>
                         <MenuItem value='accountant'>Accountant</MenuItem>
-                        <MenuItem value='computeroperator'>Computer Operator</MenuItem>
-                        <MenuItem value='otherstaff'>Other Staff</MenuItem>
+                        <MenuItem value='computerOperator'>Computer Operator</MenuItem>
+                        <MenuItem value='otherStaff'>Other Staff</MenuItem>
                         <MenuItem value='principal'>Principal</MenuItem>
-                        <MenuItem value='sportteacher'>Sport Teacher</MenuItem>
+                        <MenuItem value='sportTeacher'>Sport Teacher</MenuItem>
                         <MenuItem value='teacher'>Teacher</MenuItem>
-                        <MenuItem value='viceprincipal'>Vice-Principal</MenuItem>
+                        <MenuItem value='vicePrincipal'>Vice-Principal</MenuItem>
                       </CustomTextField>
                     </div>
 
-                    <div className='sectiontwo' style={{ display: 'flex' }}>
+                    <div className='sectionTwo' style={{ display: 'flex' }}>
                       <CustomTextField
                         fullWidth
                         label='FATHER NAME'
@@ -364,7 +364,7 @@ const AddStaffLayout = () => {
                       />
                     </div>
 
-                    <div className='sectionthree' style={{ display: 'flex' }}>
+                    <div className='sectionThree' style={{ display: 'flex' }}>
                       <CustomTextField
                         type='date'
                         label='DATE'
@@ -378,7 +378,7 @@ const AddStaffLayout = () => {
                         style={{ marginTop: '20px', width: '200%' }}
                       />
                     </div>
-                    <div className='sectionfour' style={{ display: 'flex' }}>
+                    <div className='sectionFour' style={{ display: 'flex' }}>
                       <CustomTextField
                         label='EMERGENCY MOBILE'
                         style={{ marginTop: '20px', width: '200%', marginRight: '5%' }}
@@ -446,7 +446,7 @@ const AddStaffLayout = () => {
                       </RadioGroup>
                     </div>
 
-                    <div className='sectiontwo' style={{ display: 'flex' }}>
+                    <div className='sectionTwo' style={{ display: 'flex' }}>
                       <CustomTextField
                         fullWidth
                         label='PERMANENT ADDRESS'
@@ -455,7 +455,7 @@ const AddStaffLayout = () => {
                         style={{ marginTop: '20px', width: '200%' }}
                       />
                     </div>
-                    <div className='sectionthree' style={{ display: 'flex', width: '100%' }}>
+                    <div className='sectionThree' style={{ display: 'flex', width: '100%' }}>
                       <CustomTextField
                         fullWidth
                         multiline
@@ -489,9 +489,9 @@ const AddStaffLayout = () => {
                 </div>
               </TabPanel>
               {/* PAYROLL PANEL */}
-              <TabPanel value='payroll_details'>
+              <TabPanel value='payRollDetails'>
                 <div className='container' style={{ display: 'flex', justifyContent: 'space-between' }}>
-                  <div className='payroll_details mt-0 mx-6 mb-4 ' style={{ width: '50%' }}>
+                  <div className='payRollDetails mx-4 mb-4 ' style={{ width: '50%' }}>
                     <div className='sectionOne' style={{ display: 'flex', width: '100%' }}>
                       <CustomTextField
                         fullWidth
@@ -523,9 +523,9 @@ const AddStaffLayout = () => {
                 </div>
               </TabPanel>
               {/* BANK INFO */}
-              <TabPanel value='bank_details'>
+              <TabPanel value='bankDetails'>
                 <div className='container' style={{ display: 'flex', justifyContent: 'space-between' }}>
-                  <div className='bank_details mt-0 mx-6 mb-4 ' style={{ width: '50%' }}>
+                  <div className='bankDetails mx-4 mb-4 ' style={{ width: '50%' }}>
                     <div className='sectionOne' style={{ display: 'flex', width: '100%' }}>
                       <CustomTextField
                         fullWidth
@@ -551,9 +551,9 @@ const AddStaffLayout = () => {
                 </div>
               </TabPanel>
               {/* SOCIAL LINKS INFORMATION */}
-              <TabPanel value='social_details'>
+              <TabPanel value='socialDetails'>
                 <div className='container' style={{ display: 'flex', justifyContent: 'space-between' }}>
-                  <div className='social_details mt-0 mx-6 mb-4 ' style={{ width: '50%' }}>
+                  <div className='socialDetails mx-4 mb-4 ' style={{ width: '50%' }}>
                     <div className='sectionOne' style={{ display: 'flex', width: '100%' }}>
                       <CustomTextField
                         fullWidth
@@ -579,10 +579,10 @@ const AddStaffLayout = () => {
                 </div>
               </TabPanel>
               {/* DOCUMENT INFORMATION */}
-              <TabPanel value='document_info'>
-                <div className='container' style={{ display: 'flex', justifyContent: 'space-between' }}>
-                  <div className='sectionOne' style={{ display: 'flex', width: '100%' }}>
-                    <Typography variant='h5' style={{ width: '47.5%', marginRight: '5%' }}>
+              <TabPanel value='documentInfo'>
+                <div className='container'>
+                  <div className='documentInfo mx-4 mb-4 '>
+                    <div className='sectionOne' style={{ display: 'flex', width: '100%', gap: '2%' }}>
                       <CustomTextField
                         placeholder='Resume'
                         label='RESUME'
@@ -600,9 +600,6 @@ const AddStaffLayout = () => {
                           )
                         }}
                       />
-                    </Typography>
-
-                    <Typography variant='h5' style={{ width: '47.5%', marginRight: '5%' }}>
                       <CustomTextField
                         placeholder='Joining Letter'
                         label='JOINING LETTER'
@@ -620,8 +617,6 @@ const AddStaffLayout = () => {
                           )
                         }}
                       />
-                    </Typography>
-                    <Typography variant='h5' style={{ width: '47.5%', marginRight: '1%' }}>
                       <CustomTextField
                         placeholder='Other Document'
                         label='OTHER DOCUMENT'
@@ -639,11 +634,11 @@ const AddStaffLayout = () => {
                           )
                         }}
                       />
-                    </Typography>
+                    </div>
                   </div>
                 </div>
               </TabPanel>
-              <TabPanel value='custom_field'>
+              <TabPanel value='customField'>
                 <div className='container' style={{ display: 'flex', justifyContent: 'space-between' }}>
                   <div className='customField mt-4 mx-4 mb-4 ' style={{ width: '50%' }}>
                     <Typography variant='h6'>CUSTOM FIELD</Typography>

@@ -31,7 +31,7 @@ const StaffAttendanceLayout = () => {
   return (
     <>
       <div className='flex'>
-        <Typography variant='h5' component='h3'>
+        <Typography variant='h6' component='h3'>
           Staff Attendance
         </Typography>
         <nav style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center' }}>
@@ -48,11 +48,11 @@ const StaffAttendanceLayout = () => {
           </Typography>
         </nav>
       </div>
-      <div className='attend mt-4' style={{ flex: 1 }}>
+      <div className='staffAttendance mt-4' style={{ flex: 1 }}>
         <Card sx={{ width: '100%', height: '105%' }}>
           <CardContent>
-            <div className='container' style={{ display: 'flex', gap: '79.5%' }}>
-              <Typography variant='h5' component='h4'>
+            <div className='container' style={{ display: 'flex', gap: '81.9%' }}>
+              <Typography variant='h6' component='h4'>
                 Select Criteria
               </Typography>
               <Button variant='contained' startIcon={<AddSharpIcon />}>
@@ -89,10 +89,10 @@ const StaffAttendanceLayout = () => {
                 label='Attendance Date'
                 id='custom-select'
                 type='date'
-                style={{ margin: '20px 35px 0 0 ', marginRight: '10px', width: '65%' }}
+                style={{ margin: '20px 0 0 0 ', width: '65%' }}
               />
             </div>
-            <div className='container' style={{ display: 'flex', marginLeft: '90%', marginTop: '20px' }}>
+            <div className='container' style={{ display: 'flex', marginLeft: '90.9%', marginTop: '20px' }}>
               <Button variant='contained' startIcon={<SearchSharpIcon />}>
                 SEARCH
               </Button>

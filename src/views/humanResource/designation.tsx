@@ -49,7 +49,7 @@ const DesignationLayout = () => {
   return (
     <>
       <div className='flex '>
-        <Typography variant='h5' component='h3'>
+        <Typography variant='h6' component='h3'>
           Designation
         </Typography>
         <nav style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center' }}>

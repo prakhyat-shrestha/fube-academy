@@ -46,7 +46,7 @@ const ProfitLossLayout = () => {
   return (
     <>
       <div className='flex'>
-        <Typography variant='h5' component='h3'>
+        <Typography variant='h6' component='h3'>
           Profit & Loss
         </Typography>
         <nav style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center' }}>
@@ -63,11 +63,11 @@ const ProfitLossLayout = () => {
           </Typography>
         </nav>
       </div>
-      <div className='attend mt-4' style={{ flex: 1 }}>
+      <div className='profitAndLoss mt-4' style={{ flex: 1 }}>
         <Card sx={{ width: '100%', height: '105%' }}>
           <CardContent>
             <div className='container' style={{ display: 'flex', gap: '79.5%' }}>
-              <Typography variant='h5' component='h4'>
+              <Typography variant='h6' component='h4'>
                 Select Criteria
               </Typography>
             </div>
@@ -79,14 +79,14 @@ const ProfitLossLayout = () => {
                 defaultValue='role'
                 label='DATE TO'
                 type='date'
-                style={{ margin: '20px 35px 0 0 ', width: '65%' }}
+                style={{ margin: '20px 35px 0 50px ', width: '50%' }}
               />
               <CustomTextField
                 fullWidth
                 required
                 label='DATE TO'
                 type='date'
-                style={{ margin: '20px 35px 0 0 ', width: '65%' }}
+                style={{ margin: '20px 65px 0 0 ', width: '50%' }}
               />
             </div>
             <div
@@ -103,10 +103,10 @@ const ProfitLossLayout = () => {
 
       {/* Profit & Loss Table */}
       <div className='profitLossList mt-4' style={{ flex: 1 }}>
-        <Card sx={{ width: '100%', height: 300 }}>
+        <Card sx={{ width: '100%', height: 240 }}>
           <CardContent>
             <div style={{ display: 'flex', alignItems: 'center' }}>
-              <Typography variant='h5' component='h3' style={{ flex: 1, marginRight: '12%' }}>
+              <Typography variant='h6' component='h3' style={{ flex: 1, marginRight: '12%' }}>
                 Profit & Loss
               </Typography>
               <div style={{ flexGrow: 1 }}>
@@ -248,7 +248,7 @@ const ProfitLossLayout = () => {
           {/* Pagination */}
           <div style={{ display: 'flex', justifyContent: 'space-between', padding: '16px' }}>
             <Typography variant='body2' style={{ marginLeft: '16px' }}>
-              Showing 1 to 3 of 3 entries
+              Showing 1 to 1 of 1 entries
             </Typography>
             <div
               style={{

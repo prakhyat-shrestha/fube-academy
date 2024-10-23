@@ -49,7 +49,7 @@ const ExpenseLayout = () => {
   return (
     <>
       <div className='flex '>
-        <Typography variant='h5' component='h3'>
+        <Typography variant='h6' component='h3'>
           Add Expense
         </Typography>
         <nav style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center' }}>
@@ -68,10 +68,10 @@ const ExpenseLayout = () => {
       </div>
       <div className='flex' style={{ display: 'flex' }}>
         {/* Add Expense first card */}
-        <div className='questionGroup mt-4'>
-          <Card sx={{ width: 350, height: 775 }}>
+        <div className='addExpense mt-4'>
+          <Card sx={{ width: 350, height: 750 }}>
             <CardContent>
-              <Typography variant='h5' component='h3'>
+              <Typography variant='h6' component='h3'>
                 Add Expense
               </Typography>
 
@@ -151,12 +151,12 @@ const ExpenseLayout = () => {
           </Card>
         </div>
 
-        {/* Fees Group list 2nd card */}
-        <div className='studentCategoryList mt-4 mx-6' style={{ flex: 1 }}>
-          <Card sx={{ width: '102%', height: 270 }}>
+        {/* Expense list 2nd card */}
+        <div className='expenseList mt-4 mx-6' style={{ flex: 1 }}>
+          <Card sx={{ width: '102.4%', height: 270 }}>
             <CardContent>
               <div style={{ display: 'flex', alignItems: 'center' }}>
-                <Typography variant='h5' component='h3' style={{ flex: 1, marginRight: '12%' }}>
+                <Typography variant='h6' component='h3' style={{ flex: 1, marginRight: '12%' }}>
                   Expense List
                 </Typography>
                 <div style={{ flexGrow: 1 }}>

@@ -49,7 +49,7 @@ const BankAccountLayout = () => {
   return (
     <>
       <div className='flex '>
-        <Typography variant='h5' component='h3'>
+        <Typography variant='h6' component='h3'>
           Bank Account
         </Typography>
         <nav style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center' }}>
@@ -67,11 +67,11 @@ const BankAccountLayout = () => {
         </nav>
       </div>
       <div className='flex' style={{ display: 'flex' }}>
-        {/* Add Expense first card */}
-        <div className='questionGroup mt-4'>
-          <Card sx={{ width: 350, height: 670 }}>
+        {/* Add Bank Account first card */}
+        <div className='bankAccount mt-4'>
+          <Card sx={{ width: 350, height: 645 }}>
             <CardContent>
-              <Typography variant='h5' component='h3'>
+              <Typography variant='h6' component='h3'>
                 Add Bank Account
               </Typography>
 
@@ -108,10 +108,10 @@ const BankAccountLayout = () => {
 
         {/* Bank Account list 2nd card */}
         <div className='BankAccountList mt-4 mx-6' style={{ flex: 1 }}>
-          <Card sx={{ width: '102%', height: 270 }}>
+          <Card sx={{ width: '102.4%', height: 270 }}>
             <CardContent>
               <div style={{ display: 'flex', alignItems: 'center' }}>
-                <Typography variant='h5' component='h3' style={{ flex: 1, marginRight: '12%' }}>
+                <Typography variant='h6' component='h3' style={{ flex: 1, marginRight: '12%' }}>
                   Bank Account List
                 </Typography>
                 <div style={{ flexGrow: 1 }}>

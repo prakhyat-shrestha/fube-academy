@@ -100,7 +100,7 @@ const AllIssuedBookLayout = () => {
         </Card>
       </div>
       {/* ---- Table Section ----*/}
-      <div className='allIssuedBookList mt-4 ' style={{ flex: 1 }}>
+      <div className='allIssuedBookList mt-7 ' style={{ flex: 1 }}>
         <Card sx={{ width: '100%', height: '105%' }}>
           <CardContent>
             <div style={{ display: 'flex', alignItems: 'center' }}>

@@ -69,7 +69,7 @@ const DepartmentLayout = () => {
       <div className='flex' style={{ display: 'flex' }}>
         {/* Add department first card */}
         <div className='department mt-4'>
-          <Card>
+          <Card sx={{ width: '100%', height: 200 }}>
             <CardContent>
               <Typography variant='h6' component='h3'>
                 Add Department
@@ -89,7 +89,7 @@ const DepartmentLayout = () => {
 
         {/* Department list 2nd card */}
         <div className='departmentList mt-4 mx-6' style={{ flex: 1 }}>
-          <Card sx={{ width: '102.3%', height: 300 }}>
+          <Card sx={{ width: '102.3%', height: 240 }}>
             <CardContent>
               <div style={{ display: 'flex', alignItems: 'center' }}>
                 <Typography variant='h6' component='h3' style={{ flex: 1, marginRight: '12%' }}>
@@ -209,7 +209,7 @@ const DepartmentLayout = () => {
             {/* Pagination */}
             <div style={{ display: 'flex', justifyContent: 'space-between', padding: '16px' }}>
               <Typography variant='body2' style={{ marginLeft: '16px' }}>
-                Showing 1 to 3 of 3 entries
+                Showing 1 to 1 of 1 entries
               </Typography>
               <div
                 style={{

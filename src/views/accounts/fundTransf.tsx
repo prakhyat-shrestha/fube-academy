@@ -3,20 +3,16 @@ import React, { useRef } from 'react'
 
 import Link from 'next/link'
 
-import { TextField, Typography, InputAdornment } from '@mui/material'
+import { Typography } from '@mui/material'
 import Card from '@mui/material/Card'
 import CardContent from '@mui/material/CardContent'
-import { Icon } from '@iconify/react/dist/iconify.js'
 import Radio from '@mui/material/Radio'
 import RadioGroup from '@mui/material/RadioGroup'
 import FormControlLabel from '@mui/material/FormControlLabel'
 import FormControl from '@mui/material/FormControl'
-import CheckIcon from '@mui/icons-material/Check' // Tick icon from MUI icons
+import CheckIcon from '@mui/icons-material/Check'
 import Button from '@mui/material/Button'
-import ButtonGroup from '@mui/material/ButtonGroup'
 import SearchSharpIcon from '@mui/icons-material/SearchSharp'
-
-import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
 
@@ -50,7 +46,7 @@ const FundTransferLayout = () => {
   return (
     <>
       <div className='flex'>
-        <Typography variant='h5' component='h3'>
+        <Typography variant='h6' component='h3'>
           Fund Transfer
         </Typography>
         <nav style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center' }}>
@@ -67,11 +63,11 @@ const FundTransferLayout = () => {
           </Typography>
         </nav>
       </div>
-      <div className='fundtransfer mt-4' style={{ flex: 1 }}>
+      <div className='fundTransfer mt-4' style={{ flex: 1 }}>
         <Card sx={{ width: '100%', height: '105%' }}>
           <CardContent>
             <div className='container' style={{ display: 'flex', gap: '79.5%' }}>
-              <Typography variant='h5' component='h4'>
+              <Typography variant='h6' component='h4'>
                 Select Criteria
               </Typography>
             </div>
@@ -90,7 +86,7 @@ const FundTransferLayout = () => {
               <div style={{ display: 'flex', marginRight: '250px' }}>
                 <FormControl component='fieldset'>
                   <div>
-                    <Typography variant='h5'>From</Typography>
+                    <Typography variant='h6'>From</Typography>
                     <RadioGroup aria-label='custom-radio' name='customized-radios'>
                       <FormControlLabel
                         value='cash'
@@ -131,7 +127,7 @@ const FundTransferLayout = () => {
               <div>
                 <FormControl component='fieldset'>
                   <div>
-                    <Typography variant='h5'>To</Typography>
+                    <Typography variant='h6'>To</Typography>
                     <RadioGroup aria-label='custom-radio' name='customized-radios'>
                       <FormControlLabel
                         value='cash'
@@ -180,12 +176,12 @@ const FundTransferLayout = () => {
         </Card>
       </div>
 
-      {/* Amount Transfer List Table */}
-      <div className='amountTransferList mt-4' style={{ flex: 1 }}>
-        <Card sx={{ width: '100%', height: 300 }}>
+      {/* Fund Transfer List Table */}
+      <div className='fundTransferList mt-7' style={{ flex: 1 }}>
+        <Card sx={{ width: '100%', height: 225 }}>
           <CardContent>
             <div style={{ display: 'flex', alignItems: 'center' }}>
-              <Typography variant='h5' component='h3' style={{ flex: 1, marginRight: '12%' }}>
+              <Typography variant='h6' component='h3' style={{ flex: 1, marginRight: '12%' }}>
                 Amount Transfer List
               </Typography>
             </div>
@@ -262,7 +258,7 @@ const FundTransferLayout = () => {
           {/* Pagination */}
           <div style={{ display: 'flex', justifyContent: 'space-between', padding: '16px' }}>
             <Typography variant='body2' style={{ marginLeft: '16px' }}>
-              Showing 1 to 3 of 3 entries
+              Showing 1 to 1 of 1 entries
             </Typography>
             <div
               style={{

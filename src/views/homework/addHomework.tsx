@@ -80,31 +80,28 @@ const AddHomeworkList = () => {
                 </MenuItem>
               </CustomTextField>
             </div>
-            <div className='container' style={{ display: 'flex' }}>
-              <Typography variant='body2' component='div' style={{ margin: '1.75% 20.6% 0 0 ' }}>
-                <CustomTextField
-                  label='HOMEWORK DATE'
-                  type='date'
-                  style={{ width: '225%' }}
-                  InputLabelProps={{
-                    shrink: true
-                  }}
-                />
-              </Typography>
 
-              <Typography variant='body2' component='div' style={{ margin: '1.75% 20.6% 0 0  ' }}>
-                <CustomTextField
-                  label='SUBMISSION DATE'
-                  type='date'
-                  style={{ width: '225%' }}
-                  InputLabelProps={{
-                    shrink: true
-                  }}
-                />
-              </Typography>
-              <Typography variant='body2' component='div'>
-                <CustomTextField required label='MARKS *' style={{ marginTop: 20, width: '170%' }} />
-              </Typography>
+            <div className='container' style={{ display: 'flex' }}>
+              <CustomTextField
+                type='date'
+                fullWidth
+                label='HOMEWORK DATE*'
+                id='custom-select'
+                style={{ margin: '20px 40px 0 0 ', width: '60%' }}
+              />
+              <CustomTextField
+                type='date'
+                fullWidth
+                label='SUBMISSION DATE*'
+                id='custom-select'
+                style={{ margin: '20px 40px 0 0 ', width: '60%' }}
+              />
+              <CustomTextField
+                fullWidth
+                label='MARKS*'
+                id='custom-select'
+                style={{ marginTop: '20px', width: '60%' }}
+              />
             </div>
             <div className='container' style={{ display: 'flex', color: 'white' }}>
               <Typography variant='body2' component='div'>

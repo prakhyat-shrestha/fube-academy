@@ -104,7 +104,7 @@ const SMSSendingTimeLayout = () => {
           <Card sx={{ width: '102.3%', height: 370 }}>
             <CardContent>
               <div style={{ display: 'flex', alignItems: 'center' }}>
-                <Typography variant='h5' component='h3' style={{ flex: 1, marginRight: '12%' }}>
+                <Typography variant='h6' component='h3' style={{ flex: 1, marginRight: '12%' }}>
                   Time Setup List
                 </Typography>
                 <div style={{ flexGrow: 1 }}>

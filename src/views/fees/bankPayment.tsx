@@ -137,7 +137,7 @@ export const BankPaymentList = () => {
         </Card>
       </div>
       {/* ---- Table Section ----*/}
-      <div className='bankPaymentList mt-4 ' style={{ flex: 1 }}>
+      <div className='bankPaymentList mt-7 ' style={{ flex: 1 }}>
         <Card sx={{ width: '100%', height: '105%' }}>
           <CardContent>
             <div style={{ display: 'flex', alignItems: 'center' }}>
