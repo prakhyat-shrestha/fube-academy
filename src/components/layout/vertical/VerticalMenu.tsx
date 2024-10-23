@@ -239,6 +239,21 @@ const VerticalMenu = ({ dictionary, scrollMenu }: Props) => {
           <MenuItem href={'/itemSell'}>Item Sell</MenuItem>
           <MenuItem href={'/itemIssue'}>Item Issue</MenuItem>
         </SubMenu>
+        <SubMenu label={dictionary['navigation'].studentReport} icon={<i className='tabler-users-group' />}>
+          <MenuItem href={'/studentAttendanceReport'}>Student Attendance Report</MenuItem>
+          <MenuItem href={'/subjectAttendanceReport'}>Subject Attendance Report</MenuItem>
+          <MenuItem href={'/homeWorkEvaluationReport'}>Homework Evaluation Report</MenuItem>
+          <MenuItem href={'/studentTransportReport'}>Student Transport Report</MenuItem>
+          <MenuItem href={'/studentDormitoryReport'}>Student Dormitory Report</MenuItem>
+          <MenuItem href={'/guardianReport'}>Guardian Reports</MenuItem>
+          <MenuItem href={'/studentHistory'}>Student History</MenuItem>
+          <MenuItem href={'/studentLoginReport'}>Student Login Report</MenuItem>
+          <MenuItem href={'/classReport'}>Class Report</MenuItem>
+          <MenuItem href={'/classRoutineReport'}>Class Routine</MenuItem>
+          <MenuItem href={'/userLog'}>User Log</MenuItem>
+          <MenuItem href={'/studentReport'}>Student Report</MenuItem>
+          <MenuItem href={'/previousRecord'}>Previous Record</MenuItem>
+        </SubMenu>
         <SubMenu label={dictionary['navigation'].feesReport} icon={<i className='tabler-report' />}>
           <MenuItem href={'/feesDue'}>Fees Due Report</MenuItem>
           <MenuItem href={'/fine'}>Fine Report</MenuItem>

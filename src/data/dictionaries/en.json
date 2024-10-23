@@ -104,6 +104,7 @@
     "leave": "Leave",
     "roleAndPermission": "Role & Permission",
     "wallet": "Wallet",
-    "inventory": "Inventory"
+    "inventory": "Inventory",
+    "studentReport": "Student Report"
   }
 }
