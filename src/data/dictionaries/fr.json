@@ -107,6 +107,7 @@
     "inventory": "Inventaire",
     "studentReport": "Rapport de l'étudiant",
     "examReport": "Rapport d'examen",
-    "staffReport": "Rapport du personnel"
+    "staffReport": "Rapport du personnel",
+    "accountsReport": "Rapport des comptes"
   }
 }

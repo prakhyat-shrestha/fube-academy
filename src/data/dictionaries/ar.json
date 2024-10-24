@@ -107,6 +107,7 @@
     "inventory": "جرد",
     "studentReport": "تقرير الطالب",
     "examReport": "تقرير الامتحان",
-    "staffReport": "تقرير الموظفين"
+    "staffReport": "تقرير الموظفين",
+    "accountsReport": "تقرير الحسابات"
   }
 }

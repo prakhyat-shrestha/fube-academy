@@ -307,6 +307,11 @@ const VerticalMenu = ({ dictionary, scrollMenu }: Props) => {
           <MenuItem href={'/payRollReport'}>Payroll Report</MenuItem>
         </SubMenu>
 
+        <SubMenu label={dictionary['navigation'].accountsReport} icon={<i className='tabler-cash-banknote' />}>
+          <MenuItem href={'/accountPayRollReport'}>Payroll Report</MenuItem>
+          <MenuItem href={'/tranasaction'}>Transaction</MenuItem>
+        </SubMenu>
+
         <SubMenu label={dictionary['navigation'].feesReport} icon={<i className='tabler-report' />}>
           <MenuItem href={'/feesDue'}>Fees Due Report</MenuItem>
           <MenuItem href={'/fine'}>Fine Report</MenuItem>

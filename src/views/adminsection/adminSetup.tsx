@@ -57,7 +57,7 @@ const AdminSetupLayout = () => {
         </div>
         {/*  2nd card */}
         <div className='adminSetupList mt-4 mx-6' style={{ flex: 1 }}>
-          <Card sx={{ width: '102.3%', height: '35%' }}>
+          <Card sx={{ width: '102.65%', height: '35%' }}>
             <CardContent>
               <Typography variant='h6' component='h4'>
                 Admin Setup List

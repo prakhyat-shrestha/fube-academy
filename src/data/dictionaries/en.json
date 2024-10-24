@@ -107,6 +107,7 @@
     "inventory": "Inventory",
     "studentReport": "Student Report",
     "examReport": "Exam Report",
-    "staffReport": "Staff Report"
+    "staffReport": "Staff Report",
+    "accountsReport": "Accounts Report"
   }
 }
