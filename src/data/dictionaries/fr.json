@@ -106,6 +106,7 @@
     "wallet": "Portefeuille",
     "inventory": "Inventaire",
     "studentReport": "Rapport de l'étudiant",
-    "examReport": "Rapport d'examen"
+    "examReport": "Rapport d'examen",
+    "staffReport": "Rapport du personnel"
   }
 }

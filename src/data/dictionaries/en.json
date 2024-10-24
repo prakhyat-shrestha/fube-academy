@@ -106,6 +106,7 @@
     "wallet": "Wallet",
     "inventory": "Inventory",
     "studentReport": "Student Report",
-    "examReport": "Exam Report"
+    "examReport": "Exam Report",
+    "staffReport": "Staff Report"
   }
 }

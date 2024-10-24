@@ -106,6 +106,7 @@
     "wallet": "محفظة",
     "inventory": "جرد",
     "studentReport": "تقرير الطالب",
-    "examReport": "تقرير الامتحان"
+    "examReport": "تقرير الامتحان",
+    "staffReport": "تقرير الموظفين"
   }
 }
