@@ -105,6 +105,7 @@
     "roleAndPermission": "Role & Permission",
     "wallet": "Wallet",
     "inventory": "Inventory",
-    "studentReport": "Student Report"
+    "studentReport": "Student Report",
+    "examReport": "Exam Report"
   }
 }

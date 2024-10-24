@@ -1,6 +1,6 @@
 import GuardianReportLayout from '@/views/studentReport/guardianReport'
 
-const guardianReport = () => {
+const GuardianReport = () => {
   return (
     <>
       <GuardianReportLayout />
@@ -8,4 +8,4 @@ const guardianReport = () => {
   )
 }
 
-export default guardianReport
+export default GuardianReport

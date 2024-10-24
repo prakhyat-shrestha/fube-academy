@@ -1,6 +1,6 @@
 import HomeWorkEvaluationReportLayout from '@/views/studentReport/homeWorkEvaluationReport'
 
-const homeWorkEvaluationReport = () => {
+const HomeWorkEvaluationReport = () => {
   return (
     <>
       <HomeWorkEvaluationReportLayout />
@@ -8,4 +8,4 @@ const homeWorkEvaluationReport = () => {
   )
 }
 
-export default homeWorkEvaluationReport
+export default HomeWorkEvaluationReport

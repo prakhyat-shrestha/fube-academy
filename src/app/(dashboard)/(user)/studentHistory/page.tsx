@@ -1,6 +1,6 @@
 import StudentHistoryLayout from '@/views/studentReport/studentHistory'
 
-const studentHistory = () => {
+const StudentHistory = () => {
   return (
     <>
       <StudentHistoryLayout />
@@ -8,4 +8,4 @@ const studentHistory = () => {
   )
 }
 
-export default studentHistory
+export default StudentHistory

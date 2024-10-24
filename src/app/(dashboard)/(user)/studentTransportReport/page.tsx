@@ -1,6 +1,6 @@
 import StudentTransportReportLayout from '@/views/studentReport/studentTransportReport'
 
-const studentTransportReport = () => {
+const StudentTransportReport = () => {
   return (
     <>
       <StudentTransportReportLayout />
@@ -8,4 +8,4 @@ const studentTransportReport = () => {
   )
 }
 
-export default studentTransportReport
+export default StudentTransportReport

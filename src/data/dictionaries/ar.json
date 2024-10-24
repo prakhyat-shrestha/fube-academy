@@ -105,6 +105,7 @@
     "roleAndPermission": "الدور والإذن",
     "wallet": "محفظة",
     "inventory": "جرد",
-    "studentReport": "تقرير الطالب"
+    "studentReport": "تقرير الطالب",
+    "examReport": "تقرير الامتحان"
   }
 }

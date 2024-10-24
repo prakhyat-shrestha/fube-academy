@@ -1,6 +1,6 @@
 import UserLogLayout from '@/views/studentReport/userLog'
 
-const userLog = () => {
+const UserLog = () => {
   return (
     <>
       <UserLogLayout />
@@ -8,4 +8,4 @@ const userLog = () => {
   )
 }
 
-export default userLog
+export default UserLog

@@ -204,6 +204,25 @@ const VerticalMenu = ({ dictionary, scrollMenu }: Props) => {
           <MenuItem href={'/sendMarksBySms'}>Send Marks By SMS</MenuItem>
           <MenuItem href={'/markSheetReport'}>Marksheet Report</MenuItem>
         </SubMenu>
+        <SubMenu label={dictionary['navigation'].examplan} icon={<QuizIcon />}>
+          <MenuItem href={'/examAdmitCard'}>Admit Card</MenuItem>
+          <MenuItem href={'/examSeatPlan'}>Seat Plan</MenuItem>
+        </SubMenu>
+        <SubMenu label={dictionary['navigation'].onlineexam} icon={<OnlinePredictionIcon />}>
+          <MenuItem href={'/onlineQuestionGroup'}>Question Group</MenuItem>
+          <MenuItem href={'/onlineQuestionBank'}>Question Bank</MenuItem>
+          <MenuItem href={'/onlineExam'}>Online Exam</MenuItem>
+        </SubMenu>
+
+        <SubMenu label={dictionary['navigation'].hr} icon={<SensorOccupiedIcon />}>
+          <MenuItem href={'/humanDesignation'}>Designation</MenuItem>
+          <MenuItem href={'/humanDepartment'}>Department</MenuItem>
+          <MenuItem href={'/humanAddStaff'}>Add Staff</MenuItem>
+          <MenuItem href={'/humanStaffDir'}>Staff Directory</MenuItem>
+          <MenuItem href={'/humanStaffAttend'}>Staff Attendance</MenuItem>
+          <MenuItem href={'/humanPayRoll'}>Payroll</MenuItem>
+        </SubMenu>
+
         <SubMenu label={dictionary['navigation'].teacherEvaluation} icon={<i className='tabler-star' />}>
           <MenuItem href={'/approvedEvalutaionReport'}>Approved Evaluation Report</MenuItem>
           <MenuItem href={'/pendingEvalutaionReport'}>Pending Evaluation Report</MenuItem>
@@ -229,6 +248,16 @@ const VerticalMenu = ({ dictionary, scrollMenu }: Props) => {
           <MenuItem href={'/walletTransaction'}>Wallet Transaction</MenuItem>
           <MenuItem href={'/refundRequest'}>Refund Request</MenuItem>
         </SubMenu>
+
+        <SubMenu label={dictionary['navigation'].accounts} icon={<AccountBalanceIcon />}>
+          <MenuItem href={'/placc'}>Profit & Loss</MenuItem>
+          <MenuItem href={'/income'}>Income</MenuItem>
+          <MenuItem href={'/expense'}>Expense</MenuItem>
+          <MenuItem href={'/chartAcc'}>Chart Of Account</MenuItem>
+          <MenuItem href={'/bankAcc'}>Bank Account</MenuItem>
+          <MenuItem href={'fundTrans'}>Fund Transfer</MenuItem>
+        </SubMenu>
+
         <SubMenu label={dictionary['navigation'].inventory} icon={<i className='tabler-building-warehouse' />}>
           <MenuItem href={'/itemCategory'}>Item Category</MenuItem>
           <MenuItem href={'/itemList'}>Item List</MenuItem>
@@ -239,6 +268,13 @@ const VerticalMenu = ({ dictionary, scrollMenu }: Props) => {
           <MenuItem href={'/itemSell'}>Item Sell</MenuItem>
           <MenuItem href={'/itemIssue'}>Item Issue</MenuItem>
         </SubMenu>
+
+        <SubMenu label={dictionary['navigation'].chat} icon={<i className='tabler-brand-wechat' />}>
+          <MenuItem href={'/chatBox'}>Chat Box</MenuItem>
+          <MenuItem href={'/invitation'}>Invitation</MenuItem>
+          <MenuItem href={'/blockedUser'}>Blocked User</MenuItem>
+        </SubMenu>
+
         <SubMenu label={dictionary['navigation'].studentReport} icon={<i className='tabler-users-group' />}>
           <MenuItem href={'/studentAttendanceReport'}>Student Attendance Report</MenuItem>
           <MenuItem href={'/subjectAttendanceReport'}>Subject Attendance Report</MenuItem>
@@ -254,6 +290,18 @@ const VerticalMenu = ({ dictionary, scrollMenu }: Props) => {
           <MenuItem href={'/studentReport'}>Student Report</MenuItem>
           <MenuItem href={'/previousRecord'}>Previous Record</MenuItem>
         </SubMenu>
+
+        <SubMenu label={dictionary['navigation'].examReport} icon={<i className='tabler-notebook' />}>
+          <MenuItem href={'/examRoutine'}>Exam Routine</MenuItem>
+          <MenuItem href={'/meritListReport'}>Merit List Report</MenuItem>
+          <MenuItem href={'/onlineExamReport'}>Online Exam Report</MenuItem>
+          <MenuItem href={'/examMarkSheetReport'}>Mark Sheet Report</MenuItem>
+          <MenuItem href={'/tabulationSheetReport'}>Tabulation Sheet Report</MenuItem>
+          <MenuItem href={'/progressCardReport'}>Progress Card Report</MenuItem>
+          <MenuItem href={'/progressCardReportHundredPercent'}>Progress Card Report 100 Percent</MenuItem>
+          <MenuItem href={'/previousResult'}>Previous Result</MenuItem>
+        </SubMenu>
+
         <SubMenu label={dictionary['navigation'].feesReport} icon={<i className='tabler-report' />}>
           <MenuItem href={'/feesDue'}>Fees Due Report</MenuItem>
           <MenuItem href={'/fine'}>Fine Report</MenuItem>
@@ -261,37 +309,6 @@ const VerticalMenu = ({ dictionary, scrollMenu }: Props) => {
           <MenuItem href={'/balance'}>Balance Report</MenuItem>
           <MenuItem href={'/waiver'}>Waiver Report</MenuItem>
           <MenuItem href={'/wallet'}>Wallet Report</MenuItem>
-        </SubMenu>
-        <SubMenu label={dictionary['navigation'].examplan} icon={<QuizIcon />}>
-          <MenuItem href={'/examAdmitCard'}>Admit Card</MenuItem>
-          <MenuItem href={'/examSeatPlan'}>Seat Plan</MenuItem>
-        </SubMenu>
-        <SubMenu label={dictionary['navigation'].onlineexam} icon={<OnlinePredictionIcon />}>
-          <MenuItem href={'/onlineQuestionGroup'}>Question Group</MenuItem>
-          <MenuItem href={'/onlineQuestionBank'}>Question Bank</MenuItem>
-          <MenuItem href={'/onlineExam'}>Online Exam</MenuItem>
-        </SubMenu>
-
-        <SubMenu label={dictionary['navigation'].hr} icon={<SensorOccupiedIcon />}>
-          <MenuItem href={'/humanDesignation'}>Designation</MenuItem>
-          <MenuItem href={'/humanDepartment'}>Department</MenuItem>
-          <MenuItem href={'/humanAddStaff'}>Add Staff</MenuItem>
-          <MenuItem href={'/humanStaffDir'}>Staff Directory</MenuItem>
-          <MenuItem href={'/humanStaffAttend'}>Staff Attendance</MenuItem>
-          <MenuItem href={'/humanPayRoll'}>Payroll</MenuItem>
-        </SubMenu>
-        <SubMenu label={dictionary['navigation'].accounts} icon={<AccountBalanceIcon />}>
-          <MenuItem href={'/placc'}>Profit & Loss</MenuItem>
-          <MenuItem href={'/income'}>Income</MenuItem>
-          <MenuItem href={'/expense'}>Expense</MenuItem>
-          <MenuItem href={'/chartAcc'}>Chart Of Account</MenuItem>
-          <MenuItem href={'/bankAcc'}>Bank Account</MenuItem>
-          <MenuItem href={'fundTrans'}>Fund Transfer</MenuItem>
-        </SubMenu>
-        <SubMenu label={dictionary['navigation'].chat}>
-          <MenuItem href={'/chatBox'}>Chat Box</MenuItem>
-          <MenuItem href={'/invitation'}>Invitation</MenuItem>
-          <MenuItem href={'/blockedUser'}>Blocked User</MenuItem>
         </SubMenu>
       </Menu>
       {/* <Menu

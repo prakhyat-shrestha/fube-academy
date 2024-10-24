@@ -1,6 +1,6 @@
 import PreviousRecordLayout from '@/views/studentReport/previousRecord'
 
-const previousRecord = () => {
+const PreviousRecord = () => {
   return (
     <>
       <PreviousRecordLayout />
@@ -8,4 +8,4 @@ const previousRecord = () => {
   )
 }
 
-export default previousRecord
+export default PreviousRecord

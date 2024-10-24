@@ -105,6 +105,7 @@
     "roleAndPermission": "Rôle et autorisation",
     "wallet": "Portefeuille",
     "inventory": "Inventaire",
-    "studentReport": "Rapport de l'étudiant"
+    "studentReport": "Rapport de l'étudiant",
+    "examReport": "Rapport d'examen"
   }
 }
