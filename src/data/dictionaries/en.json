@@ -108,6 +108,7 @@
     "studentReport": "Student Report",
     "examReport": "Exam Report",
     "staffReport": "Staff Report",
-    "accountsReport": "Accounts Report"
+    "accountsReport": "Accounts Report",
+    "customField": "Custom Field"
   }
 }

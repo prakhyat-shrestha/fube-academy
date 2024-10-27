@@ -108,6 +108,7 @@
     "studentReport": "تقرير الطالب",
     "examReport": "تقرير الامتحان",
     "staffReport": "تقرير الموظفين",
-    "accountsReport": "تقرير الحسابات"
+    "accountsReport": "تقرير الحسابات",
+    "customField": "حقل مخصص"
   }
 }

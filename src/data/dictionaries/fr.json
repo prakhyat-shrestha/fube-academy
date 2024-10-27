@@ -108,6 +108,7 @@
     "studentReport": "Rapport de l'étudiant",
     "examReport": "Rapport d'examen",
     "staffReport": "Rapport du personnel",
-    "accountsReport": "Rapport des comptes"
+    "accountsReport": "Rapport des comptes",
+    "customField": "Champ personnalisé"
   }
 }
