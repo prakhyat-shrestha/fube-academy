@@ -325,6 +325,10 @@ const VerticalMenu = ({ dictionary, scrollMenu }: Props) => {
           <MenuItem href={'/studentRegistration'}>Student Registration</MenuItem>
           <MenuItem href={'/staffRegistration'}>Staff Registration</MenuItem>
         </SubMenu>
+
+        <SubMenu label={dictionary['navigation'].feesSettings} icon={<i className='tabler-building-bank' />}>
+          <MenuItem href={'/feesInvoiceSettings'}>Fees Invoice Settings</MenuItem>
+        </SubMenu>
       </Menu>
       {/* <Menu
         popoutMenuOffset={{ mainAxis: 23 }}

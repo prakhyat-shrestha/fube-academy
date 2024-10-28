@@ -109,6 +109,7 @@
     "examReport": "Rapport d'examen",
     "staffReport": "Rapport du personnel",
     "accountsReport": "Rapport des comptes",
-    "customField": "Champ personnalisé"
+    "customField": "Champ personnalisé",
+    "feesSettings": "Paramètres des frais"
   }
 }

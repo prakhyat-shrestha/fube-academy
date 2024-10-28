@@ -109,6 +109,7 @@
     "examReport": "تقرير الامتحان",
     "staffReport": "تقرير الموظفين",
     "accountsReport": "تقرير الحسابات",
-    "customField": "حقل مخصص"
+    "customField": "حقل مخصص",
+    "feesSettings": "إعدادات الرسوم"
   }
 }
