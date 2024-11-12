@@ -110,6 +110,7 @@
     "staffReport": "Staff Report",
     "accountsReport": "Accounts Report",
     "customField": "Custom Field",
-    "feesSettings": "Fees Settings"
+    "feesSettings": "Fees Settings",
+    "examSettings": "Exam Settings"
   }
 }

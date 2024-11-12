@@ -11,7 +11,7 @@ import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
 
-const ComplaintLayout = () => {
+const FormatSettingsLayout = () => {
   const theme = createTheme({
     palette: {
       primary: {
@@ -23,7 +23,7 @@ const ComplaintLayout = () => {
     <>
       <div className='flex'>
         <Typography variant='h6' component='h4'>
-          Complaint
+          Format Settings
         </Typography>
         <nav style={{ marginLeft: 'auto' }}>
           <Typography variant='h6' component='h4' style={{ display: 'flex', alignItems: 'center' }}>
@@ -32,68 +32,61 @@ const ComplaintLayout = () => {
             </Link>
             <span style={{ marginRight: '10px' }}>|</span>
             <Link href='#' style={{ marginRight: '25px' }}>
-              Admin Section
+              Exam Settings
             </Link>
             <span style={{ marginRight: '25px' }}>|</span>
-            <Link href='#'>Complaint</Link>
+            <Link href='#'>Format Settings</Link>
           </Typography>
         </nav>
       </div>
       <div className='flex' style={{ display: 'flex' }}>
-        {/* Add complaint first card */}
-        <div className='complaint mt-4'>
-          <Card sx={{ width: 280, height: 'auto' }}>
+        {/* Add Format Settings card */}
+        <div className='formatSettings mt-4'>
+          <Card sx={{ width: 360, height: 'auto' }}>
             <CardContent>
               <Typography variant='h6' component='h4'>
-                Add Complaint
+                Add Exam Format
               </Typography>
-              <CustomTextField
-                label='COMPLAINT BY'
-                placeholder='Purpose'
-                required
-                fullWidth
-                sx={{ marginTop: '20px' }}
-              />
-              <CustomTextField
-                label='COMPLAINT TYPE'
-                placeholder='Name'
-                defaultValue='Select'
-                select
-                required
-                fullWidth
-                sx={{ marginTop: '20px' }}
+              <div
+                className='note mt-4'
+                style={{
+                  width: '100%',
+                  background: '#ffedd4',
+                  color: '#966e24',
+                  borderRadius: '3px',
+                  padding: '10px 6px 10px 10px'
+                }}
               >
+                <p>
+                  For term exam type, Controller title and signature will shows on mark sheet report and merit list
+                  report. And Result publication date shows on mark sheet report and merit list report and tabulation
+                  sheet report. For progress card type publication date shows on progress card, 100 percent progress
+                  card report.
+                </p>
+              </div>
+
+              <CustomTextField label='TYPE' defaultValue='select' select required fullWidth sx={{ marginTop: '20px' }}>
                 <CustomTextField placeholder='Search...' style={{ padding: '0 6px 8px 6px', width: '100%' }} />
-                <MenuItem value='Select'>
-                  <span style={{ fontStyle: 'normal' }}>Complaint Type *</span>
-                </MenuItem>
-              </CustomTextField>
-
-              <CustomTextField
-                label='COMPLAINT SOURCE'
-                select
-                defaultValue='select'
-                placeholder='Phone'
-                fullWidth
-                sx={{ marginTop: '20px' }}
-              >
-                <CustomTextField placeholder='Search' style={{ padding: '0 6px 8px 6px', width: '100%' }} />
                 <MenuItem value='select'>
-                  <span>Complaint Source*</span>
+                  <span style={{ fontStyle: 'normal' }}>Term Exam *</span>
                 </MenuItem>
               </CustomTextField>
-              <CustomTextField label='PHONE' placeholder='Phone' fullWidth sx={{ marginTop: '20px' }} />
 
-              <CustomTextField label='DATE ' type='date' fullWidth sx={{ marginTop: '20px' }} />
-              <CustomTextField label='ACTIONS TAKEN' fullWidth sx={{ marginTop: '20px' }} />
-              <CustomTextField label='ASSIGNED' fullWidth sx={{ marginTop: '20px' }} />
-              <CustomTextField label='DESCRIPTION' multiline rows={3} fullWidth sx={{ marginTop: '20px' }} />
+              <CustomTextField label='EXAM' select defaultValue='exam' required fullWidth sx={{ marginTop: '20px' }}>
+                <CustomTextField placeholder='Search' style={{ padding: '0 6px 8px 6px', width: '100%' }} />
+                <MenuItem value='exam'>
+                  <span>Select Exam *</span>
+                </MenuItem>
+              </CustomTextField>
+
+              <CustomTextField label='CONTROLLER TITLE' required fullWidth sx={{ marginTop: '20px' }} />
+
               <CustomTextField
                 required
-                label='FILE'
-                value='Attach File'
+                label='SIGNATURE'
+                value='Signature'
                 fullWidth
-                sx={{ mt: 2 }}
+                sx={{ marginTop: '20px' }}
                 InputProps={{
                   endAdornment: (
                     <InputAdornment position='end'>
@@ -105,24 +98,41 @@ const ComplaintLayout = () => {
                 }}
               />
               <Typography variant='body2' sx={{ mt: 2 }}>
-                (PDF, DOC, DOCX, JPG, JPEG, PNG, TXT are allowed for upload)
+                (Allow file jpg, png, jpeg, svg)
               </Typography>
+
+              <CustomTextField
+                label='RESULT PUBLICATION DATE '
+                required
+                type='date'
+                fullWidth
+                sx={{ marginTop: '20px' }}
+              />
+
+              <Typography variant='h6' component='h4' style={{ fontWeight: 'bold', marginTop: '20px' }}>
+                Attendance
+              </Typography>
+
+              <CustomTextField label='START DATE' required type='date' fullWidth sx={{ marginTop: '20px' }} />
+
+              <CustomTextField label='END DATE' required type='date' fullWidth sx={{ marginTop: '20px' }} />
             </CardContent>
             <CardActions sx={{ justifyContent: 'center' }}>
               <Button variant='contained'>
                 <CheckSharpIcon sx={{ mr: 1 }} />
-                SAVE COMPLAINT
+                SAVE CONTENT
               </Button>
             </CardActions>
           </Card>
         </div>
+
         {/*  2nd card */}
-        <div className='complaintList mt-4 mx-6' style={{ flex: 1 }}>
+        <div className='examFormatList mt-4 mx-6' style={{ flex: 1 }}>
           <Card sx={{ width: '102.3%', height: '25%' }}>
             <CardContent>
               <div style={{ display: 'flex', alignItems: 'center' }}>
                 <Typography variant='h6' component='h3' style={{ flex: 1, marginRight: '16%' }}>
-                  Complaint List
+                  Exam Format List
                 </Typography>
                 <div style={{ flexGrow: 1 }}>
                   <TextField
@@ -199,7 +209,7 @@ const ComplaintLayout = () => {
                       >
                         <div style={{ display: 'flex', alignItems: 'center' }}>
                           <ArrowDownwardIcon style={{ marginRight: '8px' }} />
-                          <span>SL</span>
+                          <span>Exam</span>
                         </div>
                       </th>
                       <th
@@ -211,7 +221,7 @@ const ComplaintLayout = () => {
                       >
                         <div style={{ display: 'flex', alignItems: 'center' }}>
                           <ArrowDownwardIcon style={{ marginRight: '8px' }} />
-                          <span>Complaint By</span>
+                          <span>Title</span>
                         </div>
                       </th>
                       <th
@@ -223,7 +233,7 @@ const ComplaintLayout = () => {
                       >
                         <div style={{ display: 'flex', alignItems: 'center' }}>
                           <ArrowDownwardIcon style={{ marginRight: '8px' }} />
-                          <span>Complaint Type</span>
+                          <span>Signature</span>
                         </div>
                       </th>
                       <th
@@ -235,7 +245,7 @@ const ComplaintLayout = () => {
                       >
                         <div style={{ display: 'flex', alignItems: 'center' }}>
                           <ArrowDownwardIcon style={{ marginRight: '8px' }} />
-                          <span>Source</span>
+                          <span>Publish Date</span>
                         </div>
                       </th>
                       <th
@@ -247,7 +257,7 @@ const ComplaintLayout = () => {
                       >
                         <div style={{ display: 'flex', alignItems: 'center' }}>
                           <ArrowDownwardIcon style={{ marginRight: '8px' }} />
-                          <span>Phone</span>
+                          <span>Start Date</span>
                         </div>
                       </th>
                       <th
@@ -259,7 +269,7 @@ const ComplaintLayout = () => {
                       >
                         <div style={{ display: 'flex', alignItems: 'center' }}>
                           <ArrowDownwardIcon style={{ marginRight: '8px' }} />
-                          <span>Date</span>
+                          <span>End Date</span>
                         </div>
                       </th>
                       <th
@@ -272,7 +282,7 @@ const ComplaintLayout = () => {
                       >
                         <div style={{ display: 'flex', alignItems: 'center' }}>
                           <ArrowDownwardIcon style={{ marginRight: '8px' }} />
-                          <span>Actions</span>
+                          <span>Action</span>
                         </div>
                       </th>
                     </tr>
@@ -281,11 +291,11 @@ const ComplaintLayout = () => {
                     <tr style={{ borderBottom: '1px solid #ddd' }}>
                       <td style={{ padding: '8px' }}></td>
                       <td style={{ padding: '8px' }}></td>
-                      <td style={{ padding: '5px' }}></td>
-                      <td style={{ padding: '5px' }}>No Data Available in Table</td>
-                      <td style={{ padding: '5px' }}></td>
-                      <td style={{ padding: '5px' }}></td>
-                      <td style={{ padding: '5px' }}></td>
+                      <td style={{ padding: '8px' }}></td>
+                      <td style={{ padding: '8px' }}>No Data Available in Table</td>
+                      <td style={{ padding: '8px' }}></td>
+                      <td style={{ padding: '8px' }}></td>
+                      <td style={{ padding: '8px' }}></td>
                     </tr>
                   </tbody>
                 </table>
@@ -352,4 +362,4 @@ const ComplaintLayout = () => {
   )
 }
 
-export default ComplaintLayout
+export default FormatSettingsLayout

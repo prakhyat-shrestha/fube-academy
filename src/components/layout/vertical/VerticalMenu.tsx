@@ -224,9 +224,9 @@ const VerticalMenu = ({ dictionary, scrollMenu }: Props) => {
         </SubMenu>
 
         <SubMenu label={dictionary['navigation'].teacherEvaluation} icon={<i className='tabler-star' />}>
-          <MenuItem href={'/approvedEvalutaionReport'}>Approved Evaluation Report</MenuItem>
-          <MenuItem href={'/pendingEvalutaionReport'}>Pending Evaluation Report</MenuItem>
-          <MenuItem href={'/teacherWiseEvalutaionReport'}>Teacher Wise Evaluation Report</MenuItem>
+          <MenuItem href={'/approvedEvaluationReport'}>Approved Evaluation Report</MenuItem>
+          <MenuItem href={'/pendingEvaluationReport'}>Pending Evaluation Report</MenuItem>
+          <MenuItem href={'/teacherWiseEvaluationReport'}>Teacher Wise Evaluation Report</MenuItem>
           <MenuItem href={'/teacherSettings'}>Settings</MenuItem>
         </SubMenu>
         <SubMenu label={dictionary['navigation'].leave} icon={<i className='tabler-bed-flat' />}>
@@ -328,6 +328,16 @@ const VerticalMenu = ({ dictionary, scrollMenu }: Props) => {
 
         <SubMenu label={dictionary['navigation'].feesSettings} icon={<i className='tabler-building-bank' />}>
           <MenuItem href={'/feesInvoiceSettings'}>Fees Invoice Settings</MenuItem>
+        </SubMenu>
+
+        <SubMenu label={dictionary['navigation'].examSettings} icon={<i className='tabler-file-settings' />}>
+          <MenuItem href={'/formatSettings'}>Format Settings</MenuItem>
+          <MenuItem href={'/setupExamRoute'}>Setup Exam Route</MenuItem>
+          <MenuItem href={'/position'}>Position</MenuItem>
+          <MenuItem href={'/allExamPosition'}>All Exam Position</MenuItem>
+          <MenuItem href={'/examSignatureSettings'}>Exam Signature Settings</MenuItem>
+          <MenuItem href={'/admitCardSetting'}>Admit Card Setting</MenuItem>
+          <MenuItem href={'/seatPlanSetting'}>Seat Plan Setting</MenuItem>
         </SubMenu>
       </Menu>
       {/* <Menu
