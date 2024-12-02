@@ -5,11 +5,12 @@ import { useTheme } from '@mui/material/styles'
 import ArticleIcon from '@mui/icons-material/Article'
 import DialpadIcon from '@mui/icons-material/Dialpad'
 import SchoolIcon from '@mui/icons-material/School'
-
+import SettingsIcon from '@mui/icons-material/Settings'
 import QuizIcon from '@mui/icons-material/Quiz'
 import OnlinePredictionIcon from '@mui/icons-material/OnlinePrediction'
 import SensorOccupiedIcon from '@mui/icons-material/SensorOccupied'
 import AccountBalanceIcon from '@mui/icons-material/AccountBalance'
+import ChatBubbleIcon from '@mui/icons-material/ChatBubble'
 
 // Third-party Imports
 import PerfectScrollbar from 'react-perfect-scrollbar'
@@ -141,10 +142,15 @@ const VerticalMenu = ({ dictionary, scrollMenu }: Props) => {
           <MenuItem href={'/bankacc'}>Bank Account</MenuItem>
           <MenuItem href={'fundtrans'}>Fund Transfer</MenuItem>
         </SubMenu>
-        <SubMenu label={dictionary['navigation'].chat}>
+        <SubMenu label={dictionary['navigation'].chat} icon={<ChatBubbleIcon />}>
           <MenuItem href={'/chatbox'}>Chat Box</MenuItem>
           <MenuItem href={'/invitation'}>Invitation</MenuItem>
           <MenuItem href={'/blockeduser'}>Blocked User</MenuItem>
+        </SubMenu>
+        <SubMenu label={dictionary['navigation'].generalsettings} icon={<SettingsIcon />}>
+          <MenuItem href={'/notification_settings'}>Notification Settings</MenuItem>
+          {/* <MenuItem href={'/invitation'}>Invitation</MenuItem>
+          <MenuItem href={'/blockeduser'}>Blocked User</MenuItem> */}
         </SubMenu>
       </Menu>
       {/* <Menu

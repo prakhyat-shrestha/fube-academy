@@ -74,7 +74,6 @@ const BankAccountLayout = () => {
               <Typography variant='h5' component='h3'>
                 Add Bank Account
               </Typography>
-
               <Typography variant='body2' component='div'>
                 <CustomTextField required label='BANK NAME' style={{ marginTop: 10, width: '100%' }} />
               </Typography>
