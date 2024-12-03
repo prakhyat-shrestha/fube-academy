@@ -330,7 +330,7 @@ const NotificationSettingsLayout = () => {
                                 Edit
                               </button>
                             </div>
-                            <Typography>[student_name], [class], [section], [teacher_name]</Typography>
+                            <Typography>Student Info</Typography>
                           </CardContent>
                         </Card>
 
@@ -361,7 +361,7 @@ const NotificationSettingsLayout = () => {
                                 Edit
                               </button>
                             </div>
-                            <Typography>[parent_name], [student_name], [class], [section], [teacher_name] </Typography>
+                            <Typography>Parent Info</Typography>
                           </CardContent>
                         </Card>
 
@@ -392,7 +392,7 @@ const NotificationSettingsLayout = () => {
                                 Edit
                               </button>
                             </div>
-                            <Typography>[teacher_name], [class], [section] </Typography>
+                            <Typography>Teacher Info </Typography>
                           </CardContent>
                         </Card>
                       </div>
@@ -603,7 +603,7 @@ const NotificationSettingsLayout = () => {
                                 Edit
                               </button>
                             </div>
-                            <Typography>[admin_name], [class], [section], [teacher_name]</Typography>
+                            <Typography>Super Admin Info</Typography>
                           </CardContent>
                         </Card>
                       </div>
@@ -814,7 +814,7 @@ const NotificationSettingsLayout = () => {
                                 Edit
                               </button>
                             </div>
-                            <Typography>[student_name], [subject], [teacher_name]</Typography>
+                            <Typography>Subject Info</Typography>
                           </CardContent>
                         </Card>
 
@@ -845,7 +845,7 @@ const NotificationSettingsLayout = () => {
                                 Edit
                               </button>
                             </div>
-                            <Typography>[parent_name], [student_name], [subject],[teacher_name] </Typography>
+                            <Typography>Parent Info</Typography>
                           </CardContent>
                         </Card>
 
@@ -876,7 +876,7 @@ const NotificationSettingsLayout = () => {
                                 Edit
                               </button>
                             </div>
-                            <Typography>[teacher_name], [subject] </Typography>
+                            <Typography>Teacher Info</Typography>
                           </CardContent>
                         </Card>
                       </div>
@@ -1060,7 +1060,7 @@ const NotificationSettingsLayout = () => {
                           alignItems: 'center' // Align items vertically
                         }}
                       >
-                        <Card style={{ width: '300px', height: '150px' }}>
+                        <Card style={{ width: '457px', height: '150px' }}>
                           <CardContent>
                             <div
                               style={{
@@ -1087,11 +1087,10 @@ const NotificationSettingsLayout = () => {
                                 Edit
                               </button>
                             </div>
-                            <Typography>[student_name], [assignment], [class], [section],[subject]</Typography>
+                            <Typography>Student Info</Typography>
                           </CardContent>
                         </Card>
-
-                        <Card style={{ width: '300px', height: '150px' }}>
+                        <Card style={{ width: '457px', height: '150px' }}>
                           <CardContent>
                             <div
                               style={{
@@ -1118,40 +1117,7 @@ const NotificationSettingsLayout = () => {
                                 Edit
                               </button>
                             </div>
-                            <Typography>
-                              [parent_name], [student_name], [assignment], [class], [section],[subject]{' '}
-                            </Typography>
-                          </CardContent>
-                        </Card>
-
-                        <Card style={{ width: '300px', height: '150px' }}>
-                          <CardContent>
-                            <div
-                              style={{
-                                display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'space-between'
-                              }}
-                            >
-                              <FormControl>
-                                <FormGroup>
-                                  <FormControlLabel label='TEACHER' control={<Checkbox />} />
-                                </FormGroup>
-                              </FormControl>
-                              <button
-                                style={{
-                                  padding: '8px 16px',
-                                  backgroundColor: '#007BFF',
-                                  color: 'white',
-                                  border: 'none',
-                                  borderRadius: '4px',
-                                  cursor: 'pointer'
-                                }}
-                              >
-                                Edit
-                              </button>
-                            </div>
-                            <Typography>[teacher_name], [class], [section] </Typography>
+                            <Typography>Parent Info</Typography>
                           </CardContent>
                         </Card>
                       </div>
@@ -1335,7 +1301,7 @@ const NotificationSettingsLayout = () => {
                           alignItems: 'center' // Align items vertically
                         }}
                       >
-                        <Card style={{ width: '300px', height: '150px' }}>
+                        <Card style={{ width: '457px', height: '150px' }}>
                           <CardContent>
                             <div
                               style={{
@@ -1362,11 +1328,11 @@ const NotificationSettingsLayout = () => {
                                 Edit
                               </button>
                             </div>
-                            <Typography>[student_name], [class], [section], [teacher_name]</Typography>
+                            <Typography>Student Info</Typography>
                           </CardContent>
                         </Card>
 
-                        <Card style={{ width: '300px', height: '150px' }}>
+                        <Card style={{ width: '457px', height: '150px' }}>
                           <CardContent>
                             <div
                               style={{
@@ -1393,38 +1359,7 @@ const NotificationSettingsLayout = () => {
                                 Edit
                               </button>
                             </div>
-                            <Typography>[parent_name], [student_name], [class], [section], [teacher_name] </Typography>
-                          </CardContent>
-                        </Card>
-
-                        <Card style={{ width: '300px', height: '150px' }}>
-                          <CardContent>
-                            <div
-                              style={{
-                                display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'space-between'
-                              }}
-                            >
-                              <FormControl>
-                                <FormGroup>
-                                  <FormControlLabel label='TEACHER' control={<Checkbox />} />
-                                </FormGroup>
-                              </FormControl>
-                              <button
-                                style={{
-                                  padding: '8px 16px',
-                                  backgroundColor: '#007BFF',
-                                  color: 'white',
-                                  border: 'none',
-                                  borderRadius: '4px',
-                                  cursor: 'pointer'
-                                }}
-                              >
-                                Edit
-                              </button>
-                            </div>
-                            <Typography>[teacher_name], [class], [section] </Typography>
+                            <Typography>Parent Info</Typography>
                           </CardContent>
                         </Card>
                       </div>
@@ -1635,7 +1570,7 @@ const NotificationSettingsLayout = () => {
                                 Edit
                               </button>
                             </div>
-                            <Typography>[student_name], [class], [section], [teacher_name]</Typography>
+                            <Typography>Student Info</Typography>
                           </CardContent>
                         </Card>
 
@@ -1666,7 +1601,7 @@ const NotificationSettingsLayout = () => {
                                 Edit
                               </button>
                             </div>
-                            <Typography>[parent_name], [student_name], [class], [section], [teacher_name] </Typography>
+                            <Typography>Parent Info</Typography>
                           </CardContent>
                         </Card>
 
@@ -1697,7 +1632,7 @@ const NotificationSettingsLayout = () => {
                                 Edit
                               </button>
                             </div>
-                            <Typography>[teacher_name], [class], [section] </Typography>
+                            <Typography>Teacher Info</Typography>
                           </CardContent>
                         </Card>
                       </div>
@@ -1881,7 +1816,7 @@ const NotificationSettingsLayout = () => {
                           alignItems: 'center' // Align items vertically
                         }}
                       >
-                        <Card style={{ width: '300px', height: '150px' }}>
+                        <Card style={{ width: '457px', height: '150px' }}>
                           <CardContent>
                             <div
                               style={{
@@ -1908,11 +1843,11 @@ const NotificationSettingsLayout = () => {
                                 Edit
                               </button>
                             </div>
-                            <Typography>[student_name], [class], [section], [teacher_name]</Typography>
+                            <Typography>Student Info</Typography>
                           </CardContent>
                         </Card>
 
-                        <Card style={{ width: '300px', height: '150px' }}>
+                        <Card style={{ width: '457px', height: '150px' }}>
                           <CardContent>
                             <div
                               style={{
@@ -1939,38 +1874,7 @@ const NotificationSettingsLayout = () => {
                                 Edit
                               </button>
                             </div>
-                            <Typography>[parent_name], [student_name], [class], [section], [teacher_name] </Typography>
-                          </CardContent>
-                        </Card>
-
-                        <Card style={{ width: '300px', height: '150px' }}>
-                          <CardContent>
-                            <div
-                              style={{
-                                display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'space-between'
-                              }}
-                            >
-                              <FormControl>
-                                <FormGroup>
-                                  <FormControlLabel label='TEACHER' control={<Checkbox />} />
-                                </FormGroup>
-                              </FormControl>
-                              <button
-                                style={{
-                                  padding: '8px 16px',
-                                  backgroundColor: '#007BFF',
-                                  color: 'white',
-                                  border: 'none',
-                                  borderRadius: '4px',
-                                  cursor: 'pointer'
-                                }}
-                              >
-                                Edit
-                              </button>
-                            </div>
-                            <Typography>[teacher_name], [class], [section] </Typography>
+                            <Typography>Parent Info</Typography>
                           </CardContent>
                         </Card>
                       </div>
@@ -2154,7 +2058,7 @@ const NotificationSettingsLayout = () => {
                           alignItems: 'center' // Align items vertically
                         }}
                       >
-                        <Card style={{ width: '300px', height: '150px' }}>
+                        <Card style={{ width: '220px', height: '150px' }}>
                           <CardContent>
                             <div
                               style={{
@@ -2181,11 +2085,11 @@ const NotificationSettingsLayout = () => {
                                 Edit
                               </button>
                             </div>
-                            <Typography>[student_name], [class], [section], [teacher_name]</Typography>
+                            <Typography>Student Info</Typography>
                           </CardContent>
                         </Card>
 
-                        <Card style={{ width: '300px', height: '150px' }}>
+                        <Card style={{ width: '220px', height: '150px' }}>
                           <CardContent>
                             <div
                               style={{
@@ -2212,11 +2116,11 @@ const NotificationSettingsLayout = () => {
                                 Edit
                               </button>
                             </div>
-                            <Typography>[parent_name], [student_name], [class], [section], [teacher_name] </Typography>
+                            <Typography>Parent Info</Typography>
                           </CardContent>
                         </Card>
 
-                        <Card style={{ width: '300px', height: '150px' }}>
+                        <Card style={{ width: '220px', height: '150px' }}>
                           <CardContent>
                             <div
                               style={{
@@ -2243,7 +2147,38 @@ const NotificationSettingsLayout = () => {
                                 Edit
                               </button>
                             </div>
-                            <Typography>[teacher_name], [class], [section] </Typography>
+                            <Typography>Super Admin Info</Typography>
+                          </CardContent>
+                        </Card>
+
+                        <Card style={{ width: '220px', height: '150px' }}>
+                          <CardContent>
+                            <div
+                              style={{
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'space-between'
+                              }}
+                            >
+                              <FormControl>
+                                <FormGroup>
+                                  <FormControlLabel label='TEACHER' control={<Checkbox />} />
+                                </FormGroup>
+                              </FormControl>
+                              <button
+                                style={{
+                                  padding: '8px 16px',
+                                  backgroundColor: '#007BFF',
+                                  color: 'white',
+                                  border: 'none',
+                                  borderRadius: '4px',
+                                  cursor: 'pointer'
+                                }}
+                              >
+                                Edit
+                              </button>
+                            </div>
+                            <Typography>Teacher Info</Typography>
                           </CardContent>
                         </Card>
                       </div>
@@ -2454,7 +2389,7 @@ const NotificationSettingsLayout = () => {
                                 Edit
                               </button>
                             </div>
-                            <Typography>[student_name], [class], [section], [teacher_name]</Typography>
+                            <Typography>Student Info</Typography>
                           </CardContent>
                         </Card>
 
@@ -2485,7 +2420,7 @@ const NotificationSettingsLayout = () => {
                                 Edit
                               </button>
                             </div>
-                            <Typography>[parent_name], [student_name], [class], [section], [teacher_name] </Typography>
+                            <Typography>Parent Info</Typography>
                           </CardContent>
                         </Card>
 
@@ -2516,7 +2451,7 @@ const NotificationSettingsLayout = () => {
                                 Edit
                               </button>
                             </div>
-                            <Typography>[teacher_name], [class], [section] </Typography>
+                            <Typography>Teacher Info</Typography>
                           </CardContent>
                         </Card>
                       </div>
@@ -2700,7 +2635,7 @@ const NotificationSettingsLayout = () => {
                           alignItems: 'center' // Align items vertically
                         }}
                       >
-                        <Card style={{ width: '300px', height: '150px' }}>
+                        <Card style={{ width: '457px', height: '150px' }}>
                           <CardContent>
                             <div
                               style={{
@@ -2727,11 +2662,11 @@ const NotificationSettingsLayout = () => {
                                 Edit
                               </button>
                             </div>
-                            <Typography>[student_name], [class], [section], [teacher_name]</Typography>
+                            <Typography>Student Info</Typography>
                           </CardContent>
                         </Card>
 
-                        <Card style={{ width: '300px', height: '150px' }}>
+                        <Card style={{ width: '457px', height: '150px' }}>
                           <CardContent>
                             <div
                               style={{
@@ -2758,38 +2693,7 @@ const NotificationSettingsLayout = () => {
                                 Edit
                               </button>
                             </div>
-                            <Typography>[parent_name], [student_name], [class], [section], [teacher_name] </Typography>
-                          </CardContent>
-                        </Card>
-
-                        <Card style={{ width: '300px', height: '150px' }}>
-                          <CardContent>
-                            <div
-                              style={{
-                                display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'space-between'
-                              }}
-                            >
-                              <FormControl>
-                                <FormGroup>
-                                  <FormControlLabel label='TEACHER' control={<Checkbox />} />
-                                </FormGroup>
-                              </FormControl>
-                              <button
-                                style={{
-                                  padding: '8px 16px',
-                                  backgroundColor: '#007BFF',
-                                  color: 'white',
-                                  border: 'none',
-                                  borderRadius: '4px',
-                                  cursor: 'pointer'
-                                }}
-                              >
-                                Edit
-                              </button>
-                            </div>
-                            <Typography>[teacher_name], [class], [section] </Typography>
+                            <Typography>Parent Info</Typography>
                           </CardContent>
                         </Card>
                       </div>
@@ -3000,7 +2904,7 @@ const NotificationSettingsLayout = () => {
                                 Edit
                               </button>
                             </div>
-                            <Typography>[student_name], [class], [section], [teacher_name]</Typography>
+                            <Typography>Student Info</Typography>
                           </CardContent>
                         </Card>
 
@@ -3031,7 +2935,7 @@ const NotificationSettingsLayout = () => {
                                 Edit
                               </button>
                             </div>
-                            <Typography>[parent_name], [student_name], [class], [section], [teacher_name] </Typography>
+                            <Typography>Parent Info</Typography>
                           </CardContent>
                         </Card>
 
@@ -3062,7 +2966,7 @@ const NotificationSettingsLayout = () => {
                                 Edit
                               </button>
                             </div>
-                            <Typography>[teacher_name], [class], [section] </Typography>
+                            <Typography>Teacher Info </Typography>
                           </CardContent>
                         </Card>
                       </div>
@@ -3246,7 +3150,7 @@ const NotificationSettingsLayout = () => {
                           alignItems: 'center' // Align items vertically
                         }}
                       >
-                        <Card style={{ width: '300px', height: '150px' }}>
+                        <Card style={{ width: '220px', height: '150px' }}>
                           <CardContent>
                             <div
                               style={{
@@ -3273,11 +3177,11 @@ const NotificationSettingsLayout = () => {
                                 Edit
                               </button>
                             </div>
-                            <Typography>[student_name], [class], [section], [teacher_name]</Typography>
+                            <Typography>Student Info</Typography>
                           </CardContent>
                         </Card>
 
-                        <Card style={{ width: '300px', height: '150px' }}>
+                        <Card style={{ width: '220px', height: '150px' }}>
                           <CardContent>
                             <div
                               style={{
@@ -3304,11 +3208,11 @@ const NotificationSettingsLayout = () => {
                                 Edit
                               </button>
                             </div>
-                            <Typography>[parent_name], [student_name], [class], [section], [teacher_name] </Typography>
+                            <Typography>Parent Info</Typography>
                           </CardContent>
                         </Card>
 
-                        <Card style={{ width: '300px', height: '150px' }}>
+                        <Card style={{ width: '220px', height: '150px' }}>
                           <CardContent>
                             <div
                               style={{
@@ -3335,7 +3239,38 @@ const NotificationSettingsLayout = () => {
                                 Edit
                               </button>
                             </div>
-                            <Typography>[teacher_name], [class], [section] </Typography>
+                            <Typography>Super Admin Info</Typography>
+                          </CardContent>
+                        </Card>
+
+                        <Card style={{ width: '220px', height: '150px' }}>
+                          <CardContent>
+                            <div
+                              style={{
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'space-between'
+                              }}
+                            >
+                              <FormControl>
+                                <FormGroup>
+                                  <FormControlLabel label='TEACHER' control={<Checkbox />} />
+                                </FormGroup>
+                              </FormControl>
+                              <button
+                                style={{
+                                  padding: '8px 16px',
+                                  backgroundColor: '#007BFF',
+                                  color: 'white',
+                                  border: 'none',
+                                  borderRadius: '4px',
+                                  cursor: 'pointer'
+                                }}
+                              >
+                                Edit
+                              </button>
+                            </div>
+                            <Typography>Teacher Info</Typography>
                           </CardContent>
                         </Card>
                       </div>
@@ -3519,7 +3454,7 @@ const NotificationSettingsLayout = () => {
                           alignItems: 'center' // Align items vertically
                         }}
                       >
-                        <Card style={{ width: '300px', height: '150px' }}>
+                        <Card style={{ width: '457px', height: '150px' }}>
                           <CardContent>
                             <div
                               style={{
@@ -3546,11 +3481,11 @@ const NotificationSettingsLayout = () => {
                                 Edit
                               </button>
                             </div>
-                            <Typography>[student_name], [class], [section], [teacher_name]</Typography>
+                            <Typography>Student Info</Typography>
                           </CardContent>
                         </Card>
 
-                        <Card style={{ width: '300px', height: '150px' }}>
+                        <Card style={{ width: '457px', height: '150px' }}>
                           <CardContent>
                             <div
                               style={{
@@ -3577,38 +3512,7 @@ const NotificationSettingsLayout = () => {
                                 Edit
                               </button>
                             </div>
-                            <Typography>[parent_name], [student_name], [class], [section], [teacher_name] </Typography>
-                          </CardContent>
-                        </Card>
-
-                        <Card style={{ width: '300px', height: '150px' }}>
-                          <CardContent>
-                            <div
-                              style={{
-                                display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'space-between'
-                              }}
-                            >
-                              <FormControl>
-                                <FormGroup>
-                                  <FormControlLabel label='TEACHER' control={<Checkbox />} />
-                                </FormGroup>
-                              </FormControl>
-                              <button
-                                style={{
-                                  padding: '8px 16px',
-                                  backgroundColor: '#007BFF',
-                                  color: 'white',
-                                  border: 'none',
-                                  borderRadius: '4px',
-                                  cursor: 'pointer'
-                                }}
-                              >
-                                Edit
-                              </button>
-                            </div>
-                            <Typography>[teacher_name], [class], [section] </Typography>
+                            <Typography>Parent Info</Typography>
                           </CardContent>
                         </Card>
                       </div>
@@ -3792,7 +3696,7 @@ const NotificationSettingsLayout = () => {
                           alignItems: 'center' // Align items vertically
                         }}
                       >
-                        <Card style={{ width: '300px', height: '150px' }}>
+                        <Card style={{ width: '457px', height: '150px' }}>
                           <CardContent>
                             <div
                               style={{
@@ -3819,11 +3723,11 @@ const NotificationSettingsLayout = () => {
                                 Edit
                               </button>
                             </div>
-                            <Typography>[student_name], [class], [section], [teacher_name]</Typography>
+                            <Typography>Student Info</Typography>
                           </CardContent>
                         </Card>
 
-                        <Card style={{ width: '300px', height: '150px' }}>
+                        <Card style={{ width: '457px', height: '150px' }}>
                           <CardContent>
                             <div
                               style={{
@@ -3850,38 +3754,7 @@ const NotificationSettingsLayout = () => {
                                 Edit
                               </button>
                             </div>
-                            <Typography>[parent_name], [student_name], [class], [section], [teacher_name] </Typography>
-                          </CardContent>
-                        </Card>
-
-                        <Card style={{ width: '300px', height: '150px' }}>
-                          <CardContent>
-                            <div
-                              style={{
-                                display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'space-between'
-                              }}
-                            >
-                              <FormControl>
-                                <FormGroup>
-                                  <FormControlLabel label='TEACHER' control={<Checkbox />} />
-                                </FormGroup>
-                              </FormControl>
-                              <button
-                                style={{
-                                  padding: '8px 16px',
-                                  backgroundColor: '#007BFF',
-                                  color: 'white',
-                                  border: 'none',
-                                  borderRadius: '4px',
-                                  cursor: 'pointer'
-                                }}
-                              >
-                                Edit
-                              </button>
-                            </div>
-                            <Typography>[teacher_name], [class], [section] </Typography>
+                            <Typography>Parent Info</Typography>
                           </CardContent>
                         </Card>
                       </div>
@@ -4092,7 +3965,7 @@ const NotificationSettingsLayout = () => {
                                 Edit
                               </button>
                             </div>
-                            <Typography>[student_name], [class], [section], [teacher_name]</Typography>
+                            <Typography>Student Info</Typography>
                           </CardContent>
                         </Card>
 
@@ -4123,7 +3996,7 @@ const NotificationSettingsLayout = () => {
                                 Edit
                               </button>
                             </div>
-                            <Typography>[parent_name], [student_name], [class], [section], [teacher_name] </Typography>
+                            <Typography>Parent Info</Typography>
                           </CardContent>
                         </Card>
 
@@ -4138,7 +4011,7 @@ const NotificationSettingsLayout = () => {
                             >
                               <FormControl>
                                 <FormGroup>
-                                  <FormControlLabel label='TEACHER' control={<Checkbox />} />
+                                  <FormControlLabel label='SUPER ADMIN' control={<Checkbox />} />
                                 </FormGroup>
                               </FormControl>
                               <button
@@ -4154,7 +4027,7 @@ const NotificationSettingsLayout = () => {
                                 Edit
                               </button>
                             </div>
-                            <Typography>[teacher_name], [class], [section] </Typography>
+                            <Typography>Super Admin Info</Typography>
                           </CardContent>
                         </Card>
                       </div>
@@ -4365,7 +4238,7 @@ const NotificationSettingsLayout = () => {
                                 Edit
                               </button>
                             </div>
-                            <Typography>[student_name], [class], [section], [teacher_name]</Typography>
+                            <Typography>Student Info</Typography>
                           </CardContent>
                         </Card>
 
@@ -4396,7 +4269,7 @@ const NotificationSettingsLayout = () => {
                                 Edit
                               </button>
                             </div>
-                            <Typography>[parent_name], [student_name], [class], [section], [teacher_name] </Typography>
+                            <Typography>Parent Info</Typography>
                           </CardContent>
                         </Card>
 
@@ -4411,7 +4284,7 @@ const NotificationSettingsLayout = () => {
                             >
                               <FormControl>
                                 <FormGroup>
-                                  <FormControlLabel label='TEACHER' control={<Checkbox />} />
+                                  <FormControlLabel label='SUPER ADMIN' control={<Checkbox />} />
                                 </FormGroup>
                               </FormControl>
                               <button
@@ -4427,7 +4300,7 @@ const NotificationSettingsLayout = () => {
                                 Edit
                               </button>
                             </div>
-                            <Typography>[teacher_name], [class], [section] </Typography>
+                            <Typography>Super Admin Info </Typography>
                           </CardContent>
                         </Card>
                       </div>
@@ -4611,7 +4484,7 @@ const NotificationSettingsLayout = () => {
                           alignItems: 'center' // Align items vertically
                         }}
                       >
-                        <Card style={{ width: '300px', height: '150px' }}>
+                        <Card style={{ width: '457px', height: '150px' }}>
                           <CardContent>
                             <div
                               style={{
@@ -4638,11 +4511,11 @@ const NotificationSettingsLayout = () => {
                                 Edit
                               </button>
                             </div>
-                            <Typography>[student_name], [class], [section], [teacher_name]</Typography>
+                            <Typography>Student Info</Typography>
                           </CardContent>
                         </Card>
 
-                        <Card style={{ width: '300px', height: '150px' }}>
+                        <Card style={{ width: '457px', height: '150px' }}>
                           <CardContent>
                             <div
                               style={{
@@ -4669,38 +4542,7 @@ const NotificationSettingsLayout = () => {
                                 Edit
                               </button>
                             </div>
-                            <Typography>[parent_name], [student_name], [class], [section], [teacher_name] </Typography>
-                          </CardContent>
-                        </Card>
-
-                        <Card style={{ width: '300px', height: '150px' }}>
-                          <CardContent>
-                            <div
-                              style={{
-                                display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'space-between'
-                              }}
-                            >
-                              <FormControl>
-                                <FormGroup>
-                                  <FormControlLabel label='TEACHER' control={<Checkbox />} />
-                                </FormGroup>
-                              </FormControl>
-                              <button
-                                style={{
-                                  padding: '8px 16px',
-                                  backgroundColor: '#007BFF',
-                                  color: 'white',
-                                  border: 'none',
-                                  borderRadius: '4px',
-                                  cursor: 'pointer'
-                                }}
-                              >
-                                Edit
-                              </button>
-                            </div>
-                            <Typography>[teacher_name], [class], [section] </Typography>
+                            <Typography>Parent Info</Typography>
                           </CardContent>
                         </Card>
                       </div>
@@ -4884,7 +4726,7 @@ const NotificationSettingsLayout = () => {
                           alignItems: 'center' // Align items vertically
                         }}
                       >
-                        <Card style={{ width: '300px', height: '150px' }}>
+                        <Card style={{ width: '457px', height: '150px' }}>
                           <CardContent>
                             <div
                               style={{
@@ -4911,11 +4753,11 @@ const NotificationSettingsLayout = () => {
                                 Edit
                               </button>
                             </div>
-                            <Typography>[student_name], [class], [section], [teacher_name]</Typography>
+                            <Typography>Student Info</Typography>
                           </CardContent>
                         </Card>
 
-                        <Card style={{ width: '300px', height: '150px' }}>
+                        <Card style={{ width: '457px', height: '150px' }}>
                           <CardContent>
                             <div
                               style={{
@@ -4942,38 +4784,7 @@ const NotificationSettingsLayout = () => {
                                 Edit
                               </button>
                             </div>
-                            <Typography>[parent_name], [student_name], [class], [section], [teacher_name] </Typography>
-                          </CardContent>
-                        </Card>
-
-                        <Card style={{ width: '300px', height: '150px' }}>
-                          <CardContent>
-                            <div
-                              style={{
-                                display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'space-between'
-                              }}
-                            >
-                              <FormControl>
-                                <FormGroup>
-                                  <FormControlLabel label='TEACHER' control={<Checkbox />} />
-                                </FormGroup>
-                              </FormControl>
-                              <button
-                                style={{
-                                  padding: '8px 16px',
-                                  backgroundColor: '#007BFF',
-                                  color: 'white',
-                                  border: 'none',
-                                  borderRadius: '4px',
-                                  cursor: 'pointer'
-                                }}
-                              >
-                                Edit
-                              </button>
-                            </div>
-                            <Typography>[teacher_name], [class], [section] </Typography>
+                            <Typography>Parent Info</Typography>
                           </CardContent>
                         </Card>
                       </div>
@@ -5184,7 +4995,7 @@ const NotificationSettingsLayout = () => {
                                 Edit
                               </button>
                             </div>
-                            <Typography>[student_name], [class], [section], [teacher_name]</Typography>
+                            <Typography>Student Info</Typography>
                           </CardContent>
                         </Card>
 
@@ -5215,7 +5026,7 @@ const NotificationSettingsLayout = () => {
                                 Edit
                               </button>
                             </div>
-                            <Typography>[parent_name], [student_name], [class], [section], [teacher_name] </Typography>
+                            <Typography>Parent Info</Typography>
                           </CardContent>
                         </Card>
 
@@ -5230,7 +5041,7 @@ const NotificationSettingsLayout = () => {
                             >
                               <FormControl>
                                 <FormGroup>
-                                  <FormControlLabel label='TEACHER' control={<Checkbox />} />
+                                  <FormControlLabel label='SUPER ADMIN' control={<Checkbox />} />
                                 </FormGroup>
                               </FormControl>
                               <button
@@ -5246,7 +5057,7 @@ const NotificationSettingsLayout = () => {
                                 Edit
                               </button>
                             </div>
-                            <Typography>[teacher_name], [class], [section] </Typography>
+                            <Typography>Super Admin Info</Typography>
                           </CardContent>
                         </Card>
                       </div>
@@ -5457,7 +5268,7 @@ const NotificationSettingsLayout = () => {
                                 Edit
                               </button>
                             </div>
-                            <Typography>[student_name], [class], [section], [teacher_name]</Typography>
+                            <Typography>Student Info</Typography>
                           </CardContent>
                         </Card>
 
@@ -5488,7 +5299,7 @@ const NotificationSettingsLayout = () => {
                                 Edit
                               </button>
                             </div>
-                            <Typography>[parent_name], [student_name], [class], [section], [teacher_name] </Typography>
+                            <Typography>Parent Info</Typography>
                           </CardContent>
                         </Card>
 
@@ -5503,7 +5314,7 @@ const NotificationSettingsLayout = () => {
                             >
                               <FormControl>
                                 <FormGroup>
-                                  <FormControlLabel label='TEACHER' control={<Checkbox />} />
+                                  <FormControlLabel label='SUPER ADMIN' control={<Checkbox />} />
                                 </FormGroup>
                               </FormControl>
                               <button
@@ -5519,7 +5330,7 @@ const NotificationSettingsLayout = () => {
                                 Edit
                               </button>
                             </div>
-                            <Typography>[teacher_name], [class], [section] </Typography>
+                            <Typography>Super Admin Info</Typography>
                           </CardContent>
                         </Card>
                       </div>
@@ -5703,7 +5514,7 @@ const NotificationSettingsLayout = () => {
                           alignItems: 'center' // Align items vertically
                         }}
                       >
-                        <Card style={{ width: '300px', height: '150px' }}>
+                        <Card style={{ width: '457px', height: '150px' }}>
                           <CardContent>
                             <div
                               style={{
@@ -5730,11 +5541,11 @@ const NotificationSettingsLayout = () => {
                                 Edit
                               </button>
                             </div>
-                            <Typography>[student_name], [class], [section], [teacher_name]</Typography>
+                            <Typography>Student Info</Typography>
                           </CardContent>
                         </Card>
 
-                        <Card style={{ width: '300px', height: '150px' }}>
+                        <Card style={{ width: '457px', height: '150px' }}>
                           <CardContent>
                             <div
                               style={{
@@ -5761,38 +5572,7 @@ const NotificationSettingsLayout = () => {
                                 Edit
                               </button>
                             </div>
-                            <Typography>[parent_name], [student_name], [class], [section], [teacher_name] </Typography>
-                          </CardContent>
-                        </Card>
-
-                        <Card style={{ width: '300px', height: '150px' }}>
-                          <CardContent>
-                            <div
-                              style={{
-                                display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'space-between'
-                              }}
-                            >
-                              <FormControl>
-                                <FormGroup>
-                                  <FormControlLabel label='TEACHER' control={<Checkbox />} />
-                                </FormGroup>
-                              </FormControl>
-                              <button
-                                style={{
-                                  padding: '8px 16px',
-                                  backgroundColor: '#007BFF',
-                                  color: 'white',
-                                  border: 'none',
-                                  borderRadius: '4px',
-                                  cursor: 'pointer'
-                                }}
-                              >
-                                Edit
-                              </button>
-                            </div>
-                            <Typography>[teacher_name], [class], [section] </Typography>
+                            <Typography>Parent Info</Typography>
                           </CardContent>
                         </Card>
                       </div>
@@ -5976,7 +5756,7 @@ const NotificationSettingsLayout = () => {
                           alignItems: 'center' // Align items vertically
                         }}
                       >
-                        <Card style={{ width: '300px', height: '150px' }}>
+                        <Card style={{ width: '457px', height: '150px' }}>
                           <CardContent>
                             <div
                               style={{
@@ -6003,11 +5783,11 @@ const NotificationSettingsLayout = () => {
                                 Edit
                               </button>
                             </div>
-                            <Typography>[student_name], [class], [section], [teacher_name]</Typography>
+                            <Typography>Student Info</Typography>
                           </CardContent>
                         </Card>
 
-                        <Card style={{ width: '300px', height: '150px' }}>
+                        <Card style={{ width: '457px', height: '150px' }}>
                           <CardContent>
                             <div
                               style={{
@@ -6034,38 +5814,7 @@ const NotificationSettingsLayout = () => {
                                 Edit
                               </button>
                             </div>
-                            <Typography>[parent_name], [student_name], [class], [section], [teacher_name] </Typography>
-                          </CardContent>
-                        </Card>
-
-                        <Card style={{ width: '300px', height: '150px' }}>
-                          <CardContent>
-                            <div
-                              style={{
-                                display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'space-between'
-                              }}
-                            >
-                              <FormControl>
-                                <FormGroup>
-                                  <FormControlLabel label='TEACHER' control={<Checkbox />} />
-                                </FormGroup>
-                              </FormControl>
-                              <button
-                                style={{
-                                  padding: '8px 16px',
-                                  backgroundColor: '#007BFF',
-                                  color: 'white',
-                                  border: 'none',
-                                  borderRadius: '4px',
-                                  cursor: 'pointer'
-                                }}
-                              >
-                                Edit
-                              </button>
-                            </div>
-                            <Typography>[teacher_name], [class], [section] </Typography>
+                            <Typography>Parent Info</Typography>
                           </CardContent>
                         </Card>
                       </div>
@@ -6249,7 +5998,7 @@ const NotificationSettingsLayout = () => {
                           alignItems: 'center' // Align items vertically
                         }}
                       >
-                        <Card style={{ width: '300px', height: '150px' }}>
+                        <Card style={{ width: '457px', height: '150px' }}>
                           <CardContent>
                             <div
                               style={{
@@ -6276,11 +6025,11 @@ const NotificationSettingsLayout = () => {
                                 Edit
                               </button>
                             </div>
-                            <Typography>[student_name], [class], [section], [teacher_name]</Typography>
+                            <Typography>Student Info</Typography>
                           </CardContent>
                         </Card>
 
-                        <Card style={{ width: '300px', height: '150px' }}>
+                        <Card style={{ width: '457px', height: '150px' }}>
                           <CardContent>
                             <div
                               style={{
@@ -6307,38 +6056,7 @@ const NotificationSettingsLayout = () => {
                                 Edit
                               </button>
                             </div>
-                            <Typography>[parent_name], [student_name], [class], [section], [teacher_name] </Typography>
-                          </CardContent>
-                        </Card>
-
-                        <Card style={{ width: '300px', height: '150px' }}>
-                          <CardContent>
-                            <div
-                              style={{
-                                display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'space-between'
-                              }}
-                            >
-                              <FormControl>
-                                <FormGroup>
-                                  <FormControlLabel label='TEACHER' control={<Checkbox />} />
-                                </FormGroup>
-                              </FormControl>
-                              <button
-                                style={{
-                                  padding: '8px 16px',
-                                  backgroundColor: '#007BFF',
-                                  color: 'white',
-                                  border: 'none',
-                                  borderRadius: '4px',
-                                  cursor: 'pointer'
-                                }}
-                              >
-                                Edit
-                              </button>
-                            </div>
-                            <Typography>[teacher_name], [class], [section] </Typography>
+                            <Typography>Parent Info</Typography>
                           </CardContent>
                         </Card>
                       </div>
@@ -6522,7 +6240,7 @@ const NotificationSettingsLayout = () => {
                           alignItems: 'center' // Align items vertically
                         }}
                       >
-                        <Card style={{ width: '300px', height: '150px' }}>
+                        <Card style={{ width: '457px', height: '150px' }}>
                           <CardContent>
                             <div
                               style={{
@@ -6549,11 +6267,11 @@ const NotificationSettingsLayout = () => {
                                 Edit
                               </button>
                             </div>
-                            <Typography>[student_name], [class], [section], [teacher_name]</Typography>
+                            <Typography>Student Info</Typography>
                           </CardContent>
                         </Card>
 
-                        <Card style={{ width: '300px', height: '150px' }}>
+                        <Card style={{ width: '457px', height: '150px' }}>
                           <CardContent>
                             <div
                               style={{
@@ -6580,38 +6298,7 @@ const NotificationSettingsLayout = () => {
                                 Edit
                               </button>
                             </div>
-                            <Typography>[parent_name], [student_name], [class], [section], [teacher_name] </Typography>
-                          </CardContent>
-                        </Card>
-
-                        <Card style={{ width: '300px', height: '150px' }}>
-                          <CardContent>
-                            <div
-                              style={{
-                                display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'space-between'
-                              }}
-                            >
-                              <FormControl>
-                                <FormGroup>
-                                  <FormControlLabel label='TEACHER' control={<Checkbox />} />
-                                </FormGroup>
-                              </FormControl>
-                              <button
-                                style={{
-                                  padding: '8px 16px',
-                                  backgroundColor: '#007BFF',
-                                  color: 'white',
-                                  border: 'none',
-                                  borderRadius: '4px',
-                                  cursor: 'pointer'
-                                }}
-                              >
-                                Edit
-                              </button>
-                            </div>
-                            <Typography>[teacher_name], [class], [section] </Typography>
+                            <Typography>Parent Info</Typography>
                           </CardContent>
                         </Card>
                       </div>
@@ -6795,7 +6482,7 @@ const NotificationSettingsLayout = () => {
                           alignItems: 'center' // Align items vertically
                         }}
                       >
-                        <Card style={{ width: '300px', height: '150px' }}>
+                        <Card style={{ width: '457px', height: '150px' }}>
                           <CardContent>
                             <div
                               style={{
@@ -6822,11 +6509,11 @@ const NotificationSettingsLayout = () => {
                                 Edit
                               </button>
                             </div>
-                            <Typography>[student_name], [class], [section], [teacher_name]</Typography>
+                            <Typography>Student Info</Typography>
                           </CardContent>
                         </Card>
 
-                        <Card style={{ width: '300px', height: '150px' }}>
+                        <Card style={{ width: '457px', height: '150px' }}>
                           <CardContent>
                             <div
                               style={{
@@ -6853,38 +6540,7 @@ const NotificationSettingsLayout = () => {
                                 Edit
                               </button>
                             </div>
-                            <Typography>[parent_name], [student_name], [class], [section], [teacher_name] </Typography>
-                          </CardContent>
-                        </Card>
-
-                        <Card style={{ width: '300px', height: '150px' }}>
-                          <CardContent>
-                            <div
-                              style={{
-                                display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'space-between'
-                              }}
-                            >
-                              <FormControl>
-                                <FormGroup>
-                                  <FormControlLabel label='TEACHER' control={<Checkbox />} />
-                                </FormGroup>
-                              </FormControl>
-                              <button
-                                style={{
-                                  padding: '8px 16px',
-                                  backgroundColor: '#007BFF',
-                                  color: 'white',
-                                  border: 'none',
-                                  borderRadius: '4px',
-                                  cursor: 'pointer'
-                                }}
-                              >
-                                Edit
-                              </button>
-                            </div>
-                            <Typography>[teacher_name], [class], [section] </Typography>
+                            <Typography>Parent Info</Typography>
                           </CardContent>
                         </Card>
                       </div>
@@ -7068,7 +6724,7 @@ const NotificationSettingsLayout = () => {
                           alignItems: 'center' // Align items vertically
                         }}
                       >
-                        <Card style={{ width: '300px', height: '150px' }}>
+                        <Card style={{ width: '457px', height: '150px' }}>
                           <CardContent>
                             <div
                               style={{
@@ -7095,11 +6751,11 @@ const NotificationSettingsLayout = () => {
                                 Edit
                               </button>
                             </div>
-                            <Typography>[student_name], [class], [section], [teacher_name]</Typography>
+                            <Typography>Student Info</Typography>
                           </CardContent>
                         </Card>
 
-                        <Card style={{ width: '300px', height: '150px' }}>
+                        <Card style={{ width: '457px', height: '150px' }}>
                           <CardContent>
                             <div
                               style={{
@@ -7126,38 +6782,7 @@ const NotificationSettingsLayout = () => {
                                 Edit
                               </button>
                             </div>
-                            <Typography>[parent_name], [student_name], [class], [section], [teacher_name] </Typography>
-                          </CardContent>
-                        </Card>
-
-                        <Card style={{ width: '300px', height: '150px' }}>
-                          <CardContent>
-                            <div
-                              style={{
-                                display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'space-between'
-                              }}
-                            >
-                              <FormControl>
-                                <FormGroup>
-                                  <FormControlLabel label='TEACHER' control={<Checkbox />} />
-                                </FormGroup>
-                              </FormControl>
-                              <button
-                                style={{
-                                  padding: '8px 16px',
-                                  backgroundColor: '#007BFF',
-                                  color: 'white',
-                                  border: 'none',
-                                  borderRadius: '4px',
-                                  cursor: 'pointer'
-                                }}
-                              >
-                                Edit
-                              </button>
-                            </div>
-                            <Typography>[teacher_name], [class], [section] </Typography>
+                            <Typography>Parent Info</Typography>
                           </CardContent>
                         </Card>
                       </div>
@@ -7341,7 +6966,7 @@ const NotificationSettingsLayout = () => {
                           alignItems: 'center' // Align items vertically
                         }}
                       >
-                        <Card style={{ width: '300px', height: '150px' }}>
+                        <Card style={{ width: '457px', height: '150px' }}>
                           <CardContent>
                             <div
                               style={{
@@ -7368,11 +6993,11 @@ const NotificationSettingsLayout = () => {
                                 Edit
                               </button>
                             </div>
-                            <Typography>[student_name], [class], [section], [teacher_name]</Typography>
+                            <Typography>Student Info</Typography>
                           </CardContent>
                         </Card>
 
-                        <Card style={{ width: '300px', height: '150px' }}>
+                        <Card style={{ width: '457px', height: '150px' }}>
                           <CardContent>
                             <div
                               style={{
@@ -7399,38 +7024,7 @@ const NotificationSettingsLayout = () => {
                                 Edit
                               </button>
                             </div>
-                            <Typography>[parent_name], [student_name], [class], [section], [teacher_name] </Typography>
-                          </CardContent>
-                        </Card>
-
-                        <Card style={{ width: '300px', height: '150px' }}>
-                          <CardContent>
-                            <div
-                              style={{
-                                display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'space-between'
-                              }}
-                            >
-                              <FormControl>
-                                <FormGroup>
-                                  <FormControlLabel label='TEACHER' control={<Checkbox />} />
-                                </FormGroup>
-                              </FormControl>
-                              <button
-                                style={{
-                                  padding: '8px 16px',
-                                  backgroundColor: '#007BFF',
-                                  color: 'white',
-                                  border: 'none',
-                                  borderRadius: '4px',
-                                  cursor: 'pointer'
-                                }}
-                              >
-                                Edit
-                              </button>
-                            </div>
-                            <Typography>[teacher_name], [class], [section] </Typography>
+                            <Typography>Parent Info</Typography>
                           </CardContent>
                         </Card>
                       </div>
@@ -7614,7 +7208,7 @@ const NotificationSettingsLayout = () => {
                           alignItems: 'center' // Align items vertically
                         }}
                       >
-                        <Card style={{ width: '300px', height: '150px' }}>
+                        <Card style={{ width: '457px', height: '150px' }}>
                           <CardContent>
                             <div
                               style={{
@@ -7625,7 +7219,7 @@ const NotificationSettingsLayout = () => {
                             >
                               <FormControl>
                                 <FormGroup>
-                                  <FormControlLabel label='STUDENT' control={<Checkbox />} />
+                                  <FormControlLabel label='SUPER ADMIN' control={<Checkbox />} />
                                 </FormGroup>
                               </FormControl>
                               <button
@@ -7641,11 +7235,11 @@ const NotificationSettingsLayout = () => {
                                 Edit
                               </button>
                             </div>
-                            <Typography>[student_name], [class], [section], [teacher_name]</Typography>
+                            <Typography>Super Admin Info</Typography>
                           </CardContent>
                         </Card>
 
-                        <Card style={{ width: '300px', height: '150px' }}>
+                        <Card style={{ width: '457px', height: '150px' }}>
                           <CardContent>
                             <div
                               style={{
@@ -7672,38 +7266,7 @@ const NotificationSettingsLayout = () => {
                                 Edit
                               </button>
                             </div>
-                            <Typography>[parent_name], [student_name], [class], [section], [teacher_name] </Typography>
-                          </CardContent>
-                        </Card>
-
-                        <Card style={{ width: '300px', height: '150px' }}>
-                          <CardContent>
-                            <div
-                              style={{
-                                display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'space-between'
-                              }}
-                            >
-                              <FormControl>
-                                <FormGroup>
-                                  <FormControlLabel label='TEACHER' control={<Checkbox />} />
-                                </FormGroup>
-                              </FormControl>
-                              <button
-                                style={{
-                                  padding: '8px 16px',
-                                  backgroundColor: '#007BFF',
-                                  color: 'white',
-                                  border: 'none',
-                                  borderRadius: '4px',
-                                  cursor: 'pointer'
-                                }}
-                              >
-                                Edit
-                              </button>
-                            </div>
-                            <Typography>[teacher_name], [class], [section] </Typography>
+                            <Typography>Parent Info</Typography>
                           </CardContent>
                         </Card>
                       </div>
@@ -7887,7 +7450,7 @@ const NotificationSettingsLayout = () => {
                           alignItems: 'center' // Align items vertically
                         }}
                       >
-                        <Card style={{ width: '300px', height: '150px' }}>
+                        <Card style={{ width: '457px', height: '150px' }}>
                           <CardContent>
                             <div
                               style={{
@@ -7898,7 +7461,7 @@ const NotificationSettingsLayout = () => {
                             >
                               <FormControl>
                                 <FormGroup>
-                                  <FormControlLabel label='STUDENT' control={<Checkbox />} />
+                                  <FormControlLabel label='SUPER ADMIN' control={<Checkbox />} />
                                 </FormGroup>
                               </FormControl>
                               <button
@@ -7914,11 +7477,11 @@ const NotificationSettingsLayout = () => {
                                 Edit
                               </button>
                             </div>
-                            <Typography>[student_name], [class], [section], [teacher_name]</Typography>
+                            <Typography>Super Admin Info</Typography>
                           </CardContent>
                         </Card>
 
-                        <Card style={{ width: '300px', height: '150px' }}>
+                        <Card style={{ width: '457px', height: '150px' }}>
                           <CardContent>
                             <div
                               style={{
@@ -7945,38 +7508,7 @@ const NotificationSettingsLayout = () => {
                                 Edit
                               </button>
                             </div>
-                            <Typography>[parent_name], [student_name], [class], [section], [teacher_name] </Typography>
-                          </CardContent>
-                        </Card>
-
-                        <Card style={{ width: '300px', height: '150px' }}>
-                          <CardContent>
-                            <div
-                              style={{
-                                display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'space-between'
-                              }}
-                            >
-                              <FormControl>
-                                <FormGroup>
-                                  <FormControlLabel label='TEACHER' control={<Checkbox />} />
-                                </FormGroup>
-                              </FormControl>
-                              <button
-                                style={{
-                                  padding: '8px 16px',
-                                  backgroundColor: '#007BFF',
-                                  color: 'white',
-                                  border: 'none',
-                                  borderRadius: '4px',
-                                  cursor: 'pointer'
-                                }}
-                              >
-                                Edit
-                              </button>
-                            </div>
-                            <Typography>[teacher_name], [class], [section] </Typography>
+                            <Typography>Parent Info</Typography>
                           </CardContent>
                         </Card>
                       </div>
@@ -8160,7 +7692,7 @@ const NotificationSettingsLayout = () => {
                           alignItems: 'center' // Align items vertically
                         }}
                       >
-                        <Card style={{ width: '300px', height: '150px' }}>
+                        <Card style={{ width: '220px', height: '150px' }}>
                           <CardContent>
                             <div
                               style={{
@@ -8187,11 +7719,11 @@ const NotificationSettingsLayout = () => {
                                 Edit
                               </button>
                             </div>
-                            <Typography>[student_name], [class], [section], [teacher_name]</Typography>
+                            <Typography>Student Info</Typography>
                           </CardContent>
                         </Card>
 
-                        <Card style={{ width: '300px', height: '150px' }}>
+                        <Card style={{ width: '220px', height: '150px' }}>
                           <CardContent>
                             <div
                               style={{
@@ -8218,11 +7750,11 @@ const NotificationSettingsLayout = () => {
                                 Edit
                               </button>
                             </div>
-                            <Typography>[parent_name], [student_name], [class], [section], [teacher_name] </Typography>
+                            <Typography>Parent Info</Typography>
                           </CardContent>
                         </Card>
 
-                        <Card style={{ width: '300px', height: '150px' }}>
+                        <Card style={{ width: '220px', height: '150px' }}>
                           <CardContent>
                             <div
                               style={{
@@ -8249,7 +7781,38 @@ const NotificationSettingsLayout = () => {
                                 Edit
                               </button>
                             </div>
-                            <Typography>[teacher_name], [class], [section] </Typography>
+                            <Typography>Super Admin Info</Typography>
+                          </CardContent>
+                        </Card>
+
+                        <Card style={{ width: '220px', height: '150px' }}>
+                          <CardContent>
+                            <div
+                              style={{
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'space-between'
+                              }}
+                            >
+                              <FormControl>
+                                <FormGroup>
+                                  <FormControlLabel label='TEACHER' control={<Checkbox />} />
+                                </FormGroup>
+                              </FormControl>
+                              <button
+                                style={{
+                                  padding: '8px 16px',
+                                  backgroundColor: '#007BFF',
+                                  color: 'white',
+                                  border: 'none',
+                                  borderRadius: '4px',
+                                  cursor: 'pointer'
+                                }}
+                              >
+                                Edit
+                              </button>
+                            </div>
+                            <Typography>Teacher Info</Typography>
                           </CardContent>
                         </Card>
                       </div>
@@ -8433,7 +7996,7 @@ const NotificationSettingsLayout = () => {
                           alignItems: 'center' // Align items vertically
                         }}
                       >
-                        <Card style={{ width: '300px', height: '150px' }}>
+                        <Card style={{ width: '220px', height: '150px' }}>
                           <CardContent>
                             <div
                               style={{
@@ -8460,11 +8023,11 @@ const NotificationSettingsLayout = () => {
                                 Edit
                               </button>
                             </div>
-                            <Typography>[student_name], [class], [section], [teacher_name]</Typography>
+                            <Typography>Student Info</Typography>
                           </CardContent>
                         </Card>
 
-                        <Card style={{ width: '300px', height: '150px' }}>
+                        <Card style={{ width: '220px', height: '150px' }}>
                           <CardContent>
                             <div
                               style={{
@@ -8491,11 +8054,11 @@ const NotificationSettingsLayout = () => {
                                 Edit
                               </button>
                             </div>
-                            <Typography>[parent_name], [student_name], [class], [section], [teacher_name] </Typography>
+                            <Typography>Parent Info</Typography>
                           </CardContent>
                         </Card>
 
-                        <Card style={{ width: '300px', height: '150px' }}>
+                        <Card style={{ width: '220px', height: '150px' }}>
                           <CardContent>
                             <div
                               style={{
@@ -8522,7 +8085,38 @@ const NotificationSettingsLayout = () => {
                                 Edit
                               </button>
                             </div>
-                            <Typography>[teacher_name], [class], [section] </Typography>
+                            <Typography>Super Admin Info</Typography>
+                          </CardContent>
+                        </Card>
+
+                        <Card style={{ width: '220px', height: '150px' }}>
+                          <CardContent>
+                            <div
+                              style={{
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'space-between'
+                              }}
+                            >
+                              <FormControl>
+                                <FormGroup>
+                                  <FormControlLabel label='TEACHER' control={<Checkbox />} />
+                                </FormGroup>
+                              </FormControl>
+                              <button
+                                style={{
+                                  padding: '8px 16px',
+                                  backgroundColor: '#007BFF',
+                                  color: 'white',
+                                  border: 'none',
+                                  borderRadius: '4px',
+                                  cursor: 'pointer'
+                                }}
+                              >
+                                Edit
+                              </button>
+                            </div>
+                            <Typography>Teacher Info</Typography>
                           </CardContent>
                         </Card>
                       </div>
@@ -8706,7 +8300,7 @@ const NotificationSettingsLayout = () => {
                           alignItems: 'center' // Align items vertically
                         }}
                       >
-                        <Card style={{ width: '300px', height: '150px' }}>
+                        <Card style={{ width: '220px', height: '150px' }}>
                           <CardContent>
                             <div
                               style={{
@@ -8733,11 +8327,11 @@ const NotificationSettingsLayout = () => {
                                 Edit
                               </button>
                             </div>
-                            <Typography>[student_name], [class], [section], [teacher_name]</Typography>
+                            <Typography>Student Info</Typography>
                           </CardContent>
                         </Card>
 
-                        <Card style={{ width: '300px', height: '150px' }}>
+                        <Card style={{ width: '220px', height: '150px' }}>
                           <CardContent>
                             <div
                               style={{
@@ -8764,11 +8358,11 @@ const NotificationSettingsLayout = () => {
                                 Edit
                               </button>
                             </div>
-                            <Typography>[parent_name], [student_name], [class], [section], [teacher_name] </Typography>
+                            <Typography>Parent Info</Typography>
                           </CardContent>
                         </Card>
 
-                        <Card style={{ width: '300px', height: '150px' }}>
+                        <Card style={{ width: '220px', height: '150px' }}>
                           <CardContent>
                             <div
                               style={{
@@ -8795,7 +8389,38 @@ const NotificationSettingsLayout = () => {
                                 Edit
                               </button>
                             </div>
-                            <Typography>[teacher_name], [class], [section] </Typography>
+                            <Typography>Super Admin Info</Typography>
+                          </CardContent>
+                        </Card>
+
+                        <Card style={{ width: '220px', height: '150px' }}>
+                          <CardContent>
+                            <div
+                              style={{
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'space-between'
+                              }}
+                            >
+                              <FormControl>
+                                <FormGroup>
+                                  <FormControlLabel label='TEACHER' control={<Checkbox />} />
+                                </FormGroup>
+                              </FormControl>
+                              <button
+                                style={{
+                                  padding: '8px 16px',
+                                  backgroundColor: '#007BFF',
+                                  color: 'white',
+                                  border: 'none',
+                                  borderRadius: '4px',
+                                  cursor: 'pointer'
+                                }}
+                              >
+                                Edit
+                              </button>
+                            </div>
+                            <Typography>Teacher Info</Typography>
                           </CardContent>
                         </Card>
                       </div>
@@ -9006,7 +8631,7 @@ const NotificationSettingsLayout = () => {
                                 Edit
                               </button>
                             </div>
-                            <Typography>[student_name], [class], [section], [teacher_name]</Typography>
+                            <Typography>Student Info</Typography>
                           </CardContent>
                         </Card>
 
@@ -9037,7 +8662,7 @@ const NotificationSettingsLayout = () => {
                                 Edit
                               </button>
                             </div>
-                            <Typography>[parent_name], [student_name], [class], [section], [teacher_name] </Typography>
+                            <Typography>Parent Info</Typography>
                           </CardContent>
                         </Card>
 
@@ -9052,7 +8677,7 @@ const NotificationSettingsLayout = () => {
                             >
                               <FormControl>
                                 <FormGroup>
-                                  <FormControlLabel label='TEACHER' control={<Checkbox />} />
+                                  <FormControlLabel label='SUPER ADMIN' control={<Checkbox />} />
                                 </FormGroup>
                               </FormControl>
                               <button
@@ -9068,7 +8693,7 @@ const NotificationSettingsLayout = () => {
                                 Edit
                               </button>
                             </div>
-                            <Typography>[teacher_name], [class], [section] </Typography>
+                            <Typography>Super Admin Info</Typography>
                           </CardContent>
                         </Card>
                       </div>
@@ -9279,7 +8904,7 @@ const NotificationSettingsLayout = () => {
                                 Edit
                               </button>
                             </div>
-                            <Typography>[student_name], [class], [section], [teacher_name]</Typography>
+                            <Typography>Student Info</Typography>
                           </CardContent>
                         </Card>
 
@@ -9310,7 +8935,7 @@ const NotificationSettingsLayout = () => {
                                 Edit
                               </button>
                             </div>
-                            <Typography>[parent_name], [student_name], [class], [section], [teacher_name] </Typography>
+                            <Typography>Parent Info</Typography>
                           </CardContent>
                         </Card>
 
@@ -9325,7 +8950,7 @@ const NotificationSettingsLayout = () => {
                             >
                               <FormControl>
                                 <FormGroup>
-                                  <FormControlLabel label='TEACHER' control={<Checkbox />} />
+                                  <FormControlLabel label='SUPER ADMIN' control={<Checkbox />} />
                                 </FormGroup>
                               </FormControl>
                               <button
@@ -9341,14 +8966,14 @@ const NotificationSettingsLayout = () => {
                                 Edit
                               </button>
                             </div>
-                            <Typography>[teacher_name], [class], [section] </Typography>
+                            <Typography>Super Admin Info</Typography>
                           </CardContent>
                         </Card>
                       </div>
                     </td>
                   </tr>
                   <tr style={{ borderBottom: '1px solid #ddd' }}>
-                    <td style={{ padding: '8px' }}>Wall Add</td>
+                    <td style={{ padding: '8px' }}>Wallet Add</td>
                     <td style={{ padding: '8px' }}>
                       {' '}
                       {/* In Table CheckBox */}
@@ -9552,7 +9177,7 @@ const NotificationSettingsLayout = () => {
                                 Edit
                               </button>
                             </div>
-                            <Typography>[student_name], [class], [section], [teacher_name]</Typography>
+                            <Typography>Student Info</Typography>
                           </CardContent>
                         </Card>
 
@@ -9583,7 +9208,7 @@ const NotificationSettingsLayout = () => {
                                 Edit
                               </button>
                             </div>
-                            <Typography>[parent_name], [student_name], [class], [section], [teacher_name] </Typography>
+                            <Typography>Parent Info</Typography>
                           </CardContent>
                         </Card>
 
@@ -9598,7 +9223,7 @@ const NotificationSettingsLayout = () => {
                             >
                               <FormControl>
                                 <FormGroup>
-                                  <FormControlLabel label='TEACHER' control={<Checkbox />} />
+                                  <FormControlLabel label='SUPER ADMIN' control={<Checkbox />} />
                                 </FormGroup>
                               </FormControl>
                               <button
@@ -9614,7 +9239,7 @@ const NotificationSettingsLayout = () => {
                                 Edit
                               </button>
                             </div>
-                            <Typography>[teacher_name], [class], [section] </Typography>
+                            <Typography>Super Admin Info</Typography>
                           </CardContent>
                         </Card>
                       </div>
@@ -9825,7 +9450,7 @@ const NotificationSettingsLayout = () => {
                                 Edit
                               </button>
                             </div>
-                            <Typography>[student_name], [class], [section], [teacher_name]</Typography>
+                            <Typography>Student Info</Typography>
                           </CardContent>
                         </Card>
 
@@ -9856,7 +9481,7 @@ const NotificationSettingsLayout = () => {
                                 Edit
                               </button>
                             </div>
-                            <Typography>[parent_name], [student_name], [class], [section], [teacher_name] </Typography>
+                            <Typography>Parent Info</Typography>
                           </CardContent>
                         </Card>
 
@@ -9871,7 +9496,7 @@ const NotificationSettingsLayout = () => {
                             >
                               <FormControl>
                                 <FormGroup>
-                                  <FormControlLabel label='TEACHER' control={<Checkbox />} />
+                                  <FormControlLabel label='SUPER ADMIN' control={<Checkbox />} />
                                 </FormGroup>
                               </FormControl>
                               <button
@@ -9887,7 +9512,7 @@ const NotificationSettingsLayout = () => {
                                 Edit
                               </button>
                             </div>
-                            <Typography>[teacher_name], [class], [section] </Typography>
+                            <Typography>Super Admin Info</Typography>
                           </CardContent>
                         </Card>
                       </div>
@@ -10071,7 +9696,7 @@ const NotificationSettingsLayout = () => {
                           alignItems: 'center' // Align items vertically
                         }}
                       >
-                        <Card style={{ width: '300px', height: '150px' }}>
+                        <Card style={{ width: '930px', height: '150px' }}>
                           <CardContent>
                             <div
                               style={{
@@ -10082,7 +9707,7 @@ const NotificationSettingsLayout = () => {
                             >
                               <FormControl>
                                 <FormGroup>
-                                  <FormControlLabel label='STUDENT' control={<Checkbox />} />
+                                  <FormControlLabel label='SUPER ADMIN' control={<Checkbox />} />
                                 </FormGroup>
                               </FormControl>
                               <button
@@ -10098,69 +9723,7 @@ const NotificationSettingsLayout = () => {
                                 Edit
                               </button>
                             </div>
-                            <Typography>[student_name], [class], [section], [teacher_name]</Typography>
-                          </CardContent>
-                        </Card>
-
-                        <Card style={{ width: '300px', height: '150px' }}>
-                          <CardContent>
-                            <div
-                              style={{
-                                display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'space-between'
-                              }}
-                            >
-                              <FormControl>
-                                <FormGroup>
-                                  <FormControlLabel label='PARENT' control={<Checkbox />} />
-                                </FormGroup>
-                              </FormControl>
-                              <button
-                                style={{
-                                  padding: '8px 16px',
-                                  backgroundColor: '#007BFF',
-                                  color: 'white',
-                                  border: 'none',
-                                  borderRadius: '4px',
-                                  cursor: 'pointer'
-                                }}
-                              >
-                                Edit
-                              </button>
-                            </div>
-                            <Typography>[parent_name], [student_name], [class], [section], [teacher_name] </Typography>
-                          </CardContent>
-                        </Card>
-
-                        <Card style={{ width: '300px', height: '150px' }}>
-                          <CardContent>
-                            <div
-                              style={{
-                                display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'space-between'
-                              }}
-                            >
-                              <FormControl>
-                                <FormGroup>
-                                  <FormControlLabel label='TEACHER' control={<Checkbox />} />
-                                </FormGroup>
-                              </FormControl>
-                              <button
-                                style={{
-                                  padding: '8px 16px',
-                                  backgroundColor: '#007BFF',
-                                  color: 'white',
-                                  border: 'none',
-                                  borderRadius: '4px',
-                                  cursor: 'pointer'
-                                }}
-                              >
-                                Edit
-                              </button>
-                            </div>
-                            <Typography>[teacher_name], [class], [section] </Typography>
+                            <Typography>Super Admin Info</Typography>
                           </CardContent>
                         </Card>
                       </div>
@@ -10344,7 +9907,7 @@ const NotificationSettingsLayout = () => {
                           alignItems: 'center' // Align items vertically
                         }}
                       >
-                        <Card style={{ width: '300px', height: '150px' }}>
+                        <Card style={{ width: '930px', height: '150px' }}>
                           <CardContent>
                             <div
                               style={{
@@ -10355,7 +9918,7 @@ const NotificationSettingsLayout = () => {
                             >
                               <FormControl>
                                 <FormGroup>
-                                  <FormControlLabel label='STUDENT' control={<Checkbox />} />
+                                  <FormControlLabel label='SUPER ADMIN' control={<Checkbox />} />
                                 </FormGroup>
                               </FormControl>
                               <button
@@ -10371,69 +9934,7 @@ const NotificationSettingsLayout = () => {
                                 Edit
                               </button>
                             </div>
-                            <Typography>[student_name], [class], [section], [teacher_name]</Typography>
-                          </CardContent>
-                        </Card>
-
-                        <Card style={{ width: '300px', height: '150px' }}>
-                          <CardContent>
-                            <div
-                              style={{
-                                display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'space-between'
-                              }}
-                            >
-                              <FormControl>
-                                <FormGroup>
-                                  <FormControlLabel label='PARENT' control={<Checkbox />} />
-                                </FormGroup>
-                              </FormControl>
-                              <button
-                                style={{
-                                  padding: '8px 16px',
-                                  backgroundColor: '#007BFF',
-                                  color: 'white',
-                                  border: 'none',
-                                  borderRadius: '4px',
-                                  cursor: 'pointer'
-                                }}
-                              >
-                                Edit
-                              </button>
-                            </div>
-                            <Typography>[parent_name], [student_name], [class], [section], [teacher_name] </Typography>
-                          </CardContent>
-                        </Card>
-
-                        <Card style={{ width: '300px', height: '150px' }}>
-                          <CardContent>
-                            <div
-                              style={{
-                                display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'space-between'
-                              }}
-                            >
-                              <FormControl>
-                                <FormGroup>
-                                  <FormControlLabel label='TEACHER' control={<Checkbox />} />
-                                </FormGroup>
-                              </FormControl>
-                              <button
-                                style={{
-                                  padding: '8px 16px',
-                                  backgroundColor: '#007BFF',
-                                  color: 'white',
-                                  border: 'none',
-                                  borderRadius: '4px',
-                                  cursor: 'pointer'
-                                }}
-                              >
-                                Edit
-                              </button>
-                            </div>
-                            <Typography>[teacher_name], [class], [section] </Typography>
+                            <Typography>Super Admin Info</Typography>
                           </CardContent>
                         </Card>
                       </div>
@@ -10617,7 +10118,7 @@ const NotificationSettingsLayout = () => {
                           alignItems: 'center' // Align items vertically
                         }}
                       >
-                        <Card style={{ width: '300px', height: '150px' }}>
+                        <Card style={{ width: '930px', height: '150px' }}>
                           <CardContent>
                             <div
                               style={{
@@ -10628,7 +10129,7 @@ const NotificationSettingsLayout = () => {
                             >
                               <FormControl>
                                 <FormGroup>
-                                  <FormControlLabel label='STUDENT' control={<Checkbox />} />
+                                  <FormControlLabel label='SUPER ADMIN' control={<Checkbox />} />
                                 </FormGroup>
                               </FormControl>
                               <button
@@ -10644,69 +10145,7 @@ const NotificationSettingsLayout = () => {
                                 Edit
                               </button>
                             </div>
-                            <Typography>[student_name], [class], [section], [teacher_name]</Typography>
-                          </CardContent>
-                        </Card>
-
-                        <Card style={{ width: '300px', height: '150px' }}>
-                          <CardContent>
-                            <div
-                              style={{
-                                display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'space-between'
-                              }}
-                            >
-                              <FormControl>
-                                <FormGroup>
-                                  <FormControlLabel label='PARENT' control={<Checkbox />} />
-                                </FormGroup>
-                              </FormControl>
-                              <button
-                                style={{
-                                  padding: '8px 16px',
-                                  backgroundColor: '#007BFF',
-                                  color: 'white',
-                                  border: 'none',
-                                  borderRadius: '4px',
-                                  cursor: 'pointer'
-                                }}
-                              >
-                                Edit
-                              </button>
-                            </div>
-                            <Typography>[parent_name], [student_name], [class], [section], [teacher_name] </Typography>
-                          </CardContent>
-                        </Card>
-
-                        <Card style={{ width: '300px', height: '150px' }}>
-                          <CardContent>
-                            <div
-                              style={{
-                                display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'space-between'
-                              }}
-                            >
-                              <FormControl>
-                                <FormGroup>
-                                  <FormControlLabel label='TEACHER' control={<Checkbox />} />
-                                </FormGroup>
-                              </FormControl>
-                              <button
-                                style={{
-                                  padding: '8px 16px',
-                                  backgroundColor: '#007BFF',
-                                  color: 'white',
-                                  border: 'none',
-                                  borderRadius: '4px',
-                                  cursor: 'pointer'
-                                }}
-                              >
-                                Edit
-                              </button>
-                            </div>
-                            <Typography>[teacher_name], [class], [section] </Typography>
+                            <Typography>Super Admin Info</Typography>
                           </CardContent>
                         </Card>
                       </div>
@@ -10890,7 +10329,7 @@ const NotificationSettingsLayout = () => {
                           alignItems: 'center' // Align items vertically
                         }}
                       >
-                        <Card style={{ width: '300px', height: '150px' }}>
+                        <Card style={{ width: '220px', height: '150px' }}>
                           <CardContent>
                             <div
                               style={{
@@ -10917,11 +10356,11 @@ const NotificationSettingsLayout = () => {
                                 Edit
                               </button>
                             </div>
-                            <Typography>[student_name], [class], [section], [teacher_name]</Typography>
+                            <Typography>Student Info</Typography>
                           </CardContent>
                         </Card>
 
-                        <Card style={{ width: '300px', height: '150px' }}>
+                        <Card style={{ width: '220px', height: '150px' }}>
                           <CardContent>
                             <div
                               style={{
@@ -10948,11 +10387,11 @@ const NotificationSettingsLayout = () => {
                                 Edit
                               </button>
                             </div>
-                            <Typography>[parent_name], [student_name], [class], [section], [teacher_name] </Typography>
+                            <Typography>Parent Info</Typography>
                           </CardContent>
                         </Card>
 
-                        <Card style={{ width: '300px', height: '150px' }}>
+                        <Card style={{ width: '220px', height: '150px' }}>
                           <CardContent>
                             <div
                               style={{
@@ -10979,7 +10418,38 @@ const NotificationSettingsLayout = () => {
                                 Edit
                               </button>
                             </div>
-                            <Typography>[teacher_name], [class], [section] </Typography>
+                            <Typography>Super Admin Info</Typography>
+                          </CardContent>
+                        </Card>
+
+                        <Card style={{ width: '220px', height: '150px' }}>
+                          <CardContent>
+                            <div
+                              style={{
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'space-between'
+                              }}
+                            >
+                              <FormControl>
+                                <FormGroup>
+                                  <FormControlLabel label='TEACHER' control={<Checkbox />} />
+                                </FormGroup>
+                              </FormControl>
+                              <button
+                                style={{
+                                  padding: '8px 16px',
+                                  backgroundColor: '#007BFF',
+                                  color: 'white',
+                                  border: 'none',
+                                  borderRadius: '4px',
+                                  cursor: 'pointer'
+                                }}
+                              >
+                                Edit
+                              </button>
+                            </div>
+                            <Typography>Teacher Info</Typography>
                           </CardContent>
                         </Card>
                       </div>
@@ -11163,7 +10633,7 @@ const NotificationSettingsLayout = () => {
                           alignItems: 'center' // Align items vertically
                         }}
                       >
-                        <Card style={{ width: '300px', height: '150px' }}>
+                        <Card style={{ width: '220px', height: '150px' }}>
                           <CardContent>
                             <div
                               style={{
@@ -11190,11 +10660,11 @@ const NotificationSettingsLayout = () => {
                                 Edit
                               </button>
                             </div>
-                            <Typography>[student_name], [class], [section], [teacher_name]</Typography>
+                            <Typography>Student Info</Typography>
                           </CardContent>
                         </Card>
 
-                        <Card style={{ width: '300px', height: '150px' }}>
+                        <Card style={{ width: '220px', height: '150px' }}>
                           <CardContent>
                             <div
                               style={{
@@ -11221,11 +10691,11 @@ const NotificationSettingsLayout = () => {
                                 Edit
                               </button>
                             </div>
-                            <Typography>[parent_name], [student_name], [class], [section], [teacher_name] </Typography>
+                            <Typography>Parent Info</Typography>
                           </CardContent>
                         </Card>
 
-                        <Card style={{ width: '300px', height: '150px' }}>
+                        <Card style={{ width: '220px', height: '150px' }}>
                           <CardContent>
                             <div
                               style={{
@@ -11252,7 +10722,38 @@ const NotificationSettingsLayout = () => {
                                 Edit
                               </button>
                             </div>
-                            <Typography>[teacher_name], [class], [section] </Typography>
+                            <Typography>Super Admin Info</Typography>
+                          </CardContent>
+                        </Card>
+
+                        <Card style={{ width: '220px', height: '150px' }}>
+                          <CardContent>
+                            <div
+                              style={{
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'space-between'
+                              }}
+                            >
+                              <FormControl>
+                                <FormGroup>
+                                  <FormControlLabel label='TEACHER' control={<Checkbox />} />
+                                </FormGroup>
+                              </FormControl>
+                              <button
+                                style={{
+                                  padding: '8px 16px',
+                                  backgroundColor: '#007BFF',
+                                  color: 'white',
+                                  border: 'none',
+                                  borderRadius: '4px',
+                                  cursor: 'pointer'
+                                }}
+                              >
+                                Edit
+                              </button>
+                            </div>
+                            <Typography>Teacher Info</Typography>
                           </CardContent>
                         </Card>
                       </div>
