@@ -165,7 +165,7 @@ const BaseSetupLayout = () => {
               </div>
               {/* Table */}
               <div style={{ marginTop: '20px' }}>
-                <table style={{ width: '100%', borderCollapse: 'collapse' }}>
+                <table style={{ width: '100%', borderCollapse: 'collapse', tableLayout: 'fixed' }}>
                   <thead>
                     <tr>
                       <th
@@ -214,7 +214,7 @@ const BaseSetupLayout = () => {
                       <td style={{ padding: '8px' }}>
                         <Accordion
                           sx={{
-                            width: '167%',
+                            width: '312.5%',
                             backgroundColor: 'skyblue',
                             borderRadius: '8px',
                             boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.2)',
@@ -246,16 +246,18 @@ const BaseSetupLayout = () => {
 
                           <AccordionDetails>
                             <tr>
-                              <td style={{ padding: '8px' }}>
-                                Male{' '}
-                                <Button>
-                                  SELECT
-                                  <ArrowDownwardIcon />
-                                </Button>
+                              <td style={{ paddingLeft: '345px' }}>
+                                <Typography variant='h6'>
+                                  Male
+                                  <Button>
+                                    SELECT
+                                    <ArrowDownwardIcon />
+                                  </Button>
+                                </Typography>
                               </td>
                             </tr>
                             <tr>
-                              <td style={{ padding: '8px' }}>
+                              <td style={{ paddingLeft: '345px' }}>
                                 Female
                                 <Button>
                                   SELECT
@@ -264,7 +266,7 @@ const BaseSetupLayout = () => {
                               </td>
                             </tr>
                             <tr>
-                              <td style={{ padding: '8px' }}>
+                              <td style={{ paddingLeft: '345px' }}>
                                 Others
                                 <Button>
                                   SELECT
@@ -280,7 +282,7 @@ const BaseSetupLayout = () => {
                       <td style={{ padding: '8px' }}>
                         <Accordion
                           sx={{
-                            width: '167%',
+                            width: '312.5%',
                             backgroundColor: 'skyblue',
                             borderRadius: '8px',
                             boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.2)',
@@ -312,7 +314,7 @@ const BaseSetupLayout = () => {
 
                           <AccordionDetails>
                             <tr>
-                              <td style={{ padding: '8px' }}>
+                              <td style={{ paddingLeft: '345px' }}>
                                 Islam{' '}
                                 <Button>
                                   SELECT
@@ -321,7 +323,7 @@ const BaseSetupLayout = () => {
                               </td>
                             </tr>
                             <tr>
-                              <td style={{ padding: '8px' }}>
+                              <td style={{ paddingLeft: '345px' }}>
                                 Hinduism
                                 <Button>
                                   SELECT
@@ -330,7 +332,7 @@ const BaseSetupLayout = () => {
                               </td>
                             </tr>
                             <tr>
-                              <td style={{ padding: '8px' }}>
+                              <td style={{ paddingLeft: '345px' }}>
                                 Sikhism
                                 <Button>
                                   SELECT
@@ -339,7 +341,7 @@ const BaseSetupLayout = () => {
                               </td>
                             </tr>
                             <tr>
-                              <td style={{ padding: '8px' }}>
+                              <td style={{ paddingLeft: '345px' }}>
                                 Buddhism
                                 <Button>
                                   SELECT
@@ -348,7 +350,7 @@ const BaseSetupLayout = () => {
                               </td>
                             </tr>
                             <tr>
-                              <td style={{ padding: '8px' }}>
+                              <td style={{ paddingLeft: '345px' }}>
                                 Sikhism
                                 <Button>
                                   SELECT
@@ -357,7 +359,7 @@ const BaseSetupLayout = () => {
                               </td>
                             </tr>
                             <tr>
-                              <td style={{ padding: '8px' }}>
+                              <td style={{ paddingLeft: '345px' }}>
                                 Protestantism
                                 <Button>
                                   SELECT
@@ -373,7 +375,7 @@ const BaseSetupLayout = () => {
                       <td style={{ padding: '8px' }}>
                         <Accordion
                           sx={{
-                            width: '167%',
+                            width: '312.5%',
                             backgroundColor: 'skyblue',
                             borderRadius: '8px',
                             boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.2)',
@@ -405,7 +407,7 @@ const BaseSetupLayout = () => {
 
                           <AccordionDetails>
                             <tr>
-                              <td style={{ padding: '8px' }}>
+                              <td style={{ paddingLeft: '345px' }}>
                                 A+{' '}
                                 <Button>
                                   SELECT
@@ -414,7 +416,7 @@ const BaseSetupLayout = () => {
                               </td>
                             </tr>
                             <tr>
-                              <td style={{ padding: '8px' }}>
+                              <td style={{ paddingLeft: '345px' }}>
                                 O+
                                 <Button>
                                   SELECT
@@ -423,7 +425,7 @@ const BaseSetupLayout = () => {
                               </td>
                             </tr>
                             <tr>
-                              <td style={{ padding: '8px' }}>
+                              <td style={{ paddingLeft: '345px' }}>
                                 B+
                                 <Button>
                                   SELECT
@@ -432,7 +434,7 @@ const BaseSetupLayout = () => {
                               </td>
                             </tr>
                             <tr>
-                              <td style={{ padding: '8px' }}>
+                              <td style={{ paddingLeft: '345px' }}>
                                 AB+
                                 <Button>
                                   SELECT
@@ -441,7 +443,7 @@ const BaseSetupLayout = () => {
                               </td>
                             </tr>
                             <tr>
-                              <td style={{ padding: '8px' }}>
+                              <td style={{ paddingLeft: '345px' }}>
                                 A-
                                 <Button>
                                   SELECT
@@ -450,7 +452,7 @@ const BaseSetupLayout = () => {
                               </td>
                             </tr>
                             <tr>
-                              <td style={{ padding: '8px' }}>
+                              <td style={{ paddingLeft: '345px' }}>
                                 O-
                                 <Button>
                                   SELECT
@@ -459,7 +461,7 @@ const BaseSetupLayout = () => {
                               </td>
                             </tr>
                             <tr>
-                              <td style={{ padding: '8px' }}>
+                              <td style={{ paddingLeft: '345px' }}>
                                 B-
                                 <Button>
                                   SELECT
@@ -468,7 +470,7 @@ const BaseSetupLayout = () => {
                               </td>
                             </tr>
                             <tr>
-                              <td style={{ padding: '8px' }}>
+                              <td style={{ paddingLeft: '345px' }}>
                                 AB-
                                 <Button>
                                   SELECT
