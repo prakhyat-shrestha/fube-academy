@@ -249,7 +249,7 @@ const BaseSetupLayout = () => {
                               <td style={{ paddingLeft: '345px' }}>
                                 <Typography variant='h6'>
                                   Male
-                                  <Button>
+                                  <Button style={{ marginLeft: '290px' }}>
                                     SELECT
                                     <ArrowDownwardIcon />
                                   </Button>
@@ -258,20 +258,24 @@ const BaseSetupLayout = () => {
                             </tr>
                             <tr>
                               <td style={{ paddingLeft: '345px' }}>
-                                Female
-                                <Button>
-                                  SELECT
-                                  <ArrowDownwardIcon />
-                                </Button>
+                                <Typography variant='h6'>
+                                  Female{' '}
+                                  <Button style={{ marginLeft: '270px' }}>
+                                    SELECT
+                                    <ArrowDownwardIcon />
+                                  </Button>
+                                </Typography>
                               </td>
                             </tr>
                             <tr>
                               <td style={{ paddingLeft: '345px' }}>
-                                Others
-                                <Button>
-                                  SELECT
-                                  <ArrowDownwardIcon />
-                                </Button>
+                                <Typography variant='h6'>
+                                  Others
+                                  <Button style={{ marginLeft: '276px' }}>
+                                    SELECT
+                                    <ArrowDownwardIcon />
+                                  </Button>
+                                </Typography>
                               </td>
                             </tr>
                           </AccordionDetails>
@@ -315,56 +319,71 @@ const BaseSetupLayout = () => {
                           <AccordionDetails>
                             <tr>
                               <td style={{ paddingLeft: '345px' }}>
-                                Islam{' '}
-                                <Button>
-                                  SELECT
-                                  <ArrowDownwardIcon />
-                                </Button>
+                                <Typography variant='h6'>
+                                  {' '}
+                                  Islam{' '}
+                                  <Button style={{ marginLeft: '280px' }}>
+                                    SELECT
+                                    <ArrowDownwardIcon />
+                                  </Button>
+                                </Typography>
                               </td>
                             </tr>
                             <tr>
                               <td style={{ paddingLeft: '345px' }}>
-                                Hinduism
-                                <Button>
-                                  SELECT
-                                  <ArrowDownwardIcon />
-                                </Button>
+                                <Typography variant='h6'>
+                                  {' '}
+                                  Hinduism
+                                  <Button style={{ marginLeft: '255px' }}>
+                                    SELECT
+                                    <ArrowDownwardIcon />
+                                  </Button>
+                                </Typography>
                               </td>
                             </tr>
                             <tr>
                               <td style={{ paddingLeft: '345px' }}>
-                                Sikhism
-                                <Button>
-                                  SELECT
-                                  <ArrowDownwardIcon />
-                                </Button>
+                                <Typography variant='h6'>
+                                  Sikhism
+                                  <Button style={{ marginLeft: '265px' }}>
+                                    SELECT
+                                    <ArrowDownwardIcon />
+                                  </Button>
+                                </Typography>
                               </td>
                             </tr>
                             <tr>
                               <td style={{ paddingLeft: '345px' }}>
-                                Buddhism
-                                <Button>
-                                  SELECT
-                                  <ArrowDownwardIcon />
-                                </Button>
+                                <Typography variant='h6'>
+                                  {' '}
+                                  Buddhism
+                                  <Button style={{ marginLeft: '250px' }}>
+                                    SELECT
+                                    <ArrowDownwardIcon />
+                                  </Button>
+                                </Typography>
                               </td>
                             </tr>
                             <tr>
                               <td style={{ paddingLeft: '345px' }}>
-                                Sikhism
-                                <Button>
-                                  SELECT
-                                  <ArrowDownwardIcon />
-                                </Button>
+                                <Typography variant='h6'>
+                                  Sikhism
+                                  <Button style={{ marginLeft: '265px' }}>
+                                    SELECT
+                                    <ArrowDownwardIcon />
+                                  </Button>
+                                </Typography>
                               </td>
                             </tr>
                             <tr>
                               <td style={{ paddingLeft: '345px' }}>
-                                Protestantism
-                                <Button>
-                                  SELECT
-                                  <ArrowDownwardIcon />
-                                </Button>
+                                <Typography variant='h6'>
+                                  Protestantism
+                                  <Button style={{ marginLeft: '223px' }}>
+                                    SELECT
+                                    <ArrowDownwardIcon />
+                                  </Button>
+                                </Typography>
                               </td>
                             </tr>
                           </AccordionDetails>
@@ -408,74 +427,96 @@ const BaseSetupLayout = () => {
                           <AccordionDetails>
                             <tr>
                               <td style={{ paddingLeft: '345px' }}>
-                                A+{' '}
-                                <Button>
-                                  SELECT
-                                  <ArrowDownwardIcon />
-                                </Button>
+                                <Typography variant='h6'>
+                                  {' '}
+                                  A+{' '}
+                                  <Button style={{ marginLeft: '295px' }}>
+                                    SELECT
+                                    <ArrowDownwardIcon />
+                                  </Button>
+                                </Typography>
                               </td>
                             </tr>
                             <tr>
                               <td style={{ paddingLeft: '345px' }}>
-                                O+
-                                <Button>
-                                  SELECT
-                                  <ArrowDownwardIcon />
-                                </Button>
+                                <Typography variant='h6'>
+                                  {' '}
+                                  O+
+                                  <Button style={{ marginLeft: '299px' }}>
+                                    SELECT
+                                    <ArrowDownwardIcon />
+                                  </Button>
+                                </Typography>
                               </td>
                             </tr>
                             <tr>
                               <td style={{ paddingLeft: '345px' }}>
-                                B+
-                                <Button>
-                                  SELECT
-                                  <ArrowDownwardIcon />
-                                </Button>
+                                <Typography variant='h6'>
+                                  {' '}
+                                  B+
+                                  <Button style={{ marginLeft: '299px' }}>
+                                    SELECT
+                                    <ArrowDownwardIcon />
+                                  </Button>
+                                </Typography>
                               </td>
                             </tr>
                             <tr>
                               <td style={{ paddingLeft: '345px' }}>
-                                AB+
-                                <Button>
-                                  SELECT
-                                  <ArrowDownwardIcon />
-                                </Button>
+                                <Typography variant='h6'>
+                                  {' '}
+                                  AB+
+                                  <Button style={{ marginLeft: '288px' }}>
+                                    SELECT
+                                    <ArrowDownwardIcon />
+                                  </Button>
+                                </Typography>
                               </td>
                             </tr>
                             <tr>
                               <td style={{ paddingLeft: '345px' }}>
-                                A-
-                                <Button>
-                                  SELECT
-                                  <ArrowDownwardIcon />
-                                </Button>
+                                <Typography variant='h6'>
+                                  {' '}
+                                  A-
+                                  <Button style={{ marginLeft: '302px' }}>
+                                    SELECT
+                                    <ArrowDownwardIcon />
+                                  </Button>
+                                </Typography>
                               </td>
                             </tr>
                             <tr>
                               <td style={{ paddingLeft: '345px' }}>
-                                O-
-                                <Button>
-                                  SELECT
-                                  <ArrowDownwardIcon />
-                                </Button>
+                                <Typography variant='h6'>
+                                  O-
+                                  <Button style={{ marginLeft: '301px' }}>
+                                    SELECT
+                                    <ArrowDownwardIcon />
+                                  </Button>
+                                </Typography>
                               </td>
                             </tr>
                             <tr>
                               <td style={{ paddingLeft: '345px' }}>
-                                B-
-                                <Button>
-                                  SELECT
-                                  <ArrowDownwardIcon />
-                                </Button>
+                                <Typography variant='h6'>
+                                  {' '}
+                                  B-
+                                  <Button style={{ marginLeft: '302px' }}>
+                                    SELECT
+                                    <ArrowDownwardIcon />
+                                  </Button>
+                                </Typography>
                               </td>
                             </tr>
                             <tr>
                               <td style={{ paddingLeft: '345px' }}>
-                                AB-
-                                <Button>
-                                  SELECT
-                                  <ArrowDownwardIcon />
-                                </Button>
+                                <Typography variant='h6'>
+                                  AB-
+                                  <Button style={{ marginLeft: '291px' }}>
+                                    SELECT
+                                    <ArrowDownwardIcon />
+                                  </Button>
+                                </Typography>
                               </td>
                             </tr>
                           </AccordionDetails>
