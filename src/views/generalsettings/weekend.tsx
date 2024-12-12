@@ -1,40 +1,17 @@
 'use client'
-import { useRef } from 'react'
 
 import Link from 'next/link'
 
-import { Typography, MenuItem, TextField, InputAdornment, Switch } from '@mui/material'
+import { Typography, Switch } from '@mui/material'
 import Card from '@mui/material/Card'
 import CardContent from '@mui/material/CardContent'
 
 import Button from '@mui/material/Button'
 
-import SearchSharpIcon from '@mui/icons-material/SearchSharp'
-import AddSharpIcon from '@mui/icons-material/AddSharp'
-import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
-import ButtonGroup from '@mui/material/ButtonGroup'
-
-import { Icon } from '@iconify/react/dist/iconify.js'
-
-import CustomTextField from '@core/components/mui/TextField'
 
 const WeekendLayout = () => {
-  const textFieldRef = useRef<HTMLInputElement>(null)
-
-  const handleFocus = () => {
-    if (textFieldRef.current) {
-      textFieldRef.current.placeholder = ''
-    }
-  }
-
-  const handleBlur = () => {
-    if (textFieldRef.current && textFieldRef.current.value === '') {
-      textFieldRef.current.placeholder = 'SEARCH'
-    }
-  }
-
   return (
     <>
       <div className='flex'>
@@ -57,7 +34,7 @@ const WeekendLayout = () => {
       </div>
 
       {/* ---- Table Section ----*/}
-      <div className='studentList mt-4 ' style={{ flex: 1 }}>
+      <div className='weekendList mt-4 ' style={{ flex: 1 }}>
         <Card sx={{ width: '100%', height: '105%' }}>
           <CardContent>
             <div style={{ display: 'flex', alignItems: 'center' }}>

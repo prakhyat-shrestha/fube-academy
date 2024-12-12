@@ -27,20 +27,6 @@ import CloudUploadIcon from '@mui/icons-material/CloudUpload'
 import CustomTextField from '@/@core/components/mui/TextField'
 
 const BackupLayout = () => {
-  const textFieldRef = useRef<HTMLInputElement>(null)
-
-  const handleFocus = () => {
-    if (textFieldRef.current) {
-      textFieldRef.current.placeholder = ''
-    }
-  }
-
-  const handleBlur = () => {
-    if (textFieldRef.current && textFieldRef.current.value === '') {
-      textFieldRef.current.placeholder = 'SEARCH'
-    }
-  }
-
   const theme = createTheme({
     palette: {
       primary: {
