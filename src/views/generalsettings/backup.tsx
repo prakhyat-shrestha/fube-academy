@@ -5,26 +5,28 @@ import { useRef } from 'react'
 
 import Link from 'next/link'
 
+import { styled, createTheme } from '@mui/material/styles'
+
 import Typography from '@mui/material/Typography'
 import CheckSharpIcon from '@mui/icons-material/CheckSharp'
-import { TextField, InputAdornment, MenuItem } from '@mui/material'
-import SearchSharpIcon from '@mui/icons-material/SearchSharp'
-import ButtonGroup from '@mui/material/ButtonGroup'
-import { styled, createTheme } from '@mui/material/styles'
+
 import Button from '@mui/material/Button'
 import CardContent from '@mui/material/CardContent'
 import CardActions from '@mui/material/CardActions'
 import Card from '@mui/material/Card'
-import { Icon } from '@iconify/react/dist/iconify.js'
+
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
 
+import { InputAdornment } from '@mui/material'
+
+import ExpandCircleDownIcon from '@mui/icons-material/ExpandCircleDown'
 import CloudUploadIcon from '@mui/icons-material/CloudUpload'
 
 import CustomTextField from '@/@core/components/mui/TextField'
 
-const IncomeLayout = () => {
+const BackupLayout = () => {
   const textFieldRef = useRef<HTMLInputElement>(null)
 
   const handleFocus = () => {
@@ -63,7 +65,7 @@ const IncomeLayout = () => {
     <>
       <div className='flex '>
         <Typography variant='h5' component='h3'>
-          Add Income
+          Backup
         </Typography>
         <nav style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center' }}>
           <Typography variant='h6' component='h3' style={{ display: 'flex', alignItems: 'center' }}>
@@ -72,61 +74,19 @@ const IncomeLayout = () => {
             </Link>
             <span style={{ marginRight: '10px' }}>|</span>
             <Link href='#' style={{ marginRight: '35px' }}>
-              Accounts
+              System Settings
             </Link>
             <span style={{ marginRight: '35px' }}>|</span>
-            <Link href='/income'>Income</Link>
+            <Link href='#'>Backup</Link>
           </Typography>
         </nav>
       </div>
       <div className='flex' style={{ display: 'flex' }}>
-        {/* Add Income first card */}
-        <div className='questionGroup mt-4'>
-          <Card sx={{ width: 350, height: 775 }}>
+        {/* Add category first card */}
+        <div className='backupGroup mt-4'>
+          <Card sx={{ width: 280, height: 245 }}>
             <CardContent>
-              <Typography variant='h5' component='h3'>
-                Add Income
-              </Typography>
-
-              <Typography variant='body2' component='div'>
-                <CustomTextField required label='NAME' style={{ marginTop: 10, width: '100%' }} />
-              </Typography>
-              <Typography variant='body2' component='div'>
-                <CustomTextField
-                  required
-                  label='A/C HEAD'
-                  select
-                  defaultValue={'acchead'}
-                  style={{ marginTop: 20, width: '100%' }}
-                >
-                  <CustomTextField placeholder='Search...' style={{ padding: '0 6px 8px 6px', width: '100%' }} />
-                  <MenuItem value='acchead'>A/C Head*</MenuItem>
-                  <MenuItem value='feescollection'>Fees Collection</MenuItem>
-                </CustomTextField>
-              </Typography>
-
-              <Typography variant='body2' component='div'>
-                <CustomTextField
-                  required
-                  label='PAYMENT METHOD'
-                  select
-                  defaultValue={'payment'}
-                  style={{ marginTop: 20, width: '100%' }}
-                >
-                  <CustomTextField placeholder='Search...' style={{ padding: '0 6px 8px 6px', width: '100%' }} />
-                  <MenuItem value='payment'>Payment Method*</MenuItem>
-                  <MenuItem value='cash'>Cash</MenuItem>
-                  <MenuItem value='cheque'>Cheque</MenuItem>
-                  <MenuItem value='bank'>Bank</MenuItem>
-                </CustomTextField>
-              </Typography>
-
-              <Typography variant='body2' component='div'>
-                <CustomTextField label='DATE' type='date' style={{ marginTop: 20, width: '100%' }} />
-              </Typography>
-              <Typography variant='body2' component='div' style={{ display: 'flex', width: '100%', marginTop: '20px' }}>
-                <CustomTextField required label='AMOUNT (Rs)' variant='outlined' fullWidth />
-              </Typography>
+              <Typography variant='h4'>Upload From Local Directory</Typography>
               <Typography variant='h5' style={{ width: '47.5%', marginRight: '5%' }}>
                 <CustomTextField
                   value='File'
@@ -142,7 +102,7 @@ const IncomeLayout = () => {
                           tabIndex={-1}
                           startIcon={<CloudUploadIcon />}
                         >
-                          Upload files
+                          Browse
                           <VisuallyHiddenInput
                             type='file'
                             onChange={event => console.log(event.target.files)}
@@ -154,96 +114,33 @@ const IncomeLayout = () => {
                   }}
                 />
               </Typography>
-              <Typography variant='h6' color='blue'>
-                (PDF,DOC,DOCX,JPG,JPEG,PNG are allowed for upload)
-              </Typography>
-              <Typography variant='body2' component='div' style={{ display: 'flex', width: '100%' }}>
-                <CustomTextField
-                  required
-                  label='DESCRIPTION'
-                  multiline
-                  rows={4}
-                  style={{ marginTop: 20, width: '100%' }}
-                />
-              </Typography>
             </CardContent>
             <CardActions style={{ justifyContent: 'center' }}>
               <Button variant='contained'>
                 <CheckSharpIcon style={{ marginRight: 5 }} />
-                SAVE INCOME
+                UPDATE FILE
               </Button>
             </CardActions>
           </Card>
         </div>
 
-        {/* Income Group list 2nd card */}
-        <div className='studentCategoryList mt-4 mx-6' style={{ flex: 1 }}>
-          <Card sx={{ width: '102%', height: 270 }}>
+        {/* Group list 2nd card */}
+        <div className='backupCategoryList mt-4 mx-6' style={{ flex: 1 }}>
+          <Card sx={{ width: '102%', height: 280 }}>
             <CardContent>
               <div style={{ display: 'flex', alignItems: 'center' }}>
-                <Typography variant='h5' component='h3' style={{ flex: 1, marginRight: '12%' }}>
-                  Income List
+                <Typography variant='h4' component='h3' style={{ flex: 1, marginRight: '12%' }}>
+                  Database Backup List
                 </Typography>
-                <div style={{ flexGrow: 1 }}>
-                  <TextField
-                    id='standard-search'
-                    variant='standard'
-                    placeholder='SEARCH'
-                    inputRef={textFieldRef}
-                    onFocus={handleFocus}
-                    onBlur={handleBlur}
-                    InputProps={{
-                      startAdornment: (
-                        <InputAdornment position='start'>
-                          <SearchSharpIcon />
-                        </InputAdornment>
-                      )
-                    }}
-                  />
-                </div>
-                <div style={{ display: 'flex', justifyContent: 'center' }}>
-                  <ButtonGroup
-                    variant='outlined'
-                    aria-label='Basic button group'
-                    sx={{
-                      '& .MuiButton-root': {
-                        fontSize: '1.2rem',
-                        padding: '4px 8px',
-                        backgroundColor: 'transparent',
-                        borderColor: 'currentColor',
-                        color: 'currentColor',
-                        '&:hover': {
-                          backgroundColor: 'rgba(0, 0, 0, 0.08)',
-                          borderColor: 'currentColor'
-                        },
-                        boxShadow: 'none'
-                      }
-                    }}
-                  >
-                    <Button title='Copy Table'>
-                      <Icon icon='material-symbols:file-copy-outline-sharp' />
-                    </Button>
-                    <Button title='Export to Excel'>
-                      <Icon icon='mdi:file-excel-outline' />
-                    </Button>
-                    <Button title='Export to CSV'>
-                      <Icon icon='mdi:file-document-outline' />
-                    </Button>
-                    <Button title='Export to PDF'>
-                      <Icon icon='mdi:file-pdf-outline' />
-                    </Button>
-                    <Button title='Print'>
-                      <Icon icon='fa:print' style={{ fontSize: '1rem' }} />
-                    </Button>
-                    <Button title='Action'>
-                      <Icon
-                        icon='mdi:table'
-                        style={{
-                          fontSize: '1.3rem'
-                        }}
-                      />
-                    </Button>
-                  </ButtonGroup>
+                <div style={{ display: 'flex' }}>
+                  <Button variant='contained' style={{ height: '10%' }}>
+                    <ExpandCircleDownIcon />
+                    UPLOAD FILE BACKUP
+                  </Button>
+                  <Button variant='contained' style={{ marginLeft: '10px' }}>
+                    <ExpandCircleDownIcon />
+                    DATABASE BACKUP
+                  </Button>
                 </div>
               </div>
               {/* Table */}
@@ -256,12 +153,13 @@ const IncomeLayout = () => {
                           padding: '8px',
                           textAlign: 'left',
                           backgroundColor: 'lightgray',
-                          borderRadius: '5px 0 0 5px'
+                          borderRadius: '5px 0 0 5px',
+                          position: 'relative' // Required for rounded corners
                         }}
                       >
                         <div style={{ display: 'flex', alignItems: 'center' }}>
                           <ArrowDownwardIcon style={{ marginRight: '8px' }} />
-                          <span>SI</span>
+                          <span>SIZE</span>
                         </div>
                       </th>
                       <th
@@ -273,7 +171,7 @@ const IncomeLayout = () => {
                       >
                         <div style={{ display: 'flex', alignItems: 'center' }}>
                           <ArrowDownwardIcon style={{ marginRight: '8px' }} />
-                          <span>Name</span>
+                          <span>CREATED DATE TIME</span>
                         </div>
                       </th>
                       <th
@@ -285,7 +183,7 @@ const IncomeLayout = () => {
                       >
                         <div style={{ display: 'flex', alignItems: 'center' }}>
                           <ArrowDownwardIcon style={{ marginRight: '8px' }} />
-                          <span>Payment Method</span>
+                          <span>BACKUP FILES</span>
                         </div>
                       </th>
                       <th
@@ -297,34 +195,9 @@ const IncomeLayout = () => {
                       >
                         <div style={{ display: 'flex', alignItems: 'center' }}>
                           <ArrowDownwardIcon style={{ marginRight: '8px' }} />
-                          <span>Date</span>
+                          <span>FILE TYPE</span>
                         </div>
-                      </th>
-
-                      <th
-                        style={{
-                          padding: '8px',
-                          textAlign: 'left',
-                          backgroundColor: 'lightgray'
-                        }}
-                      >
-                        <div style={{ display: 'flex', alignItems: 'center' }}>
-                          <ArrowDownwardIcon style={{ marginRight: '8px' }} />
-                          <span>A/C Head</span>
-                        </div>
-                      </th>
-                      <th
-                        style={{
-                          padding: '8px',
-                          textAlign: 'left',
-                          backgroundColor: 'lightgray'
-                        }}
-                      >
-                        <div style={{ display: 'flex', alignItems: 'center' }}>
-                          <ArrowDownwardIcon style={{ marginRight: '8px' }} />
-                          <span>Amount</span>
-                        </div>
-                      </th>
+                      </th>{' '}
                       <th
                         style={{
                           padding: '8px',
@@ -341,16 +214,7 @@ const IncomeLayout = () => {
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td>No Data Available</td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                    </tr>
+                    <tr style={{ borderBottom: '1px solid #ddd' }}></tr>
                   </tbody>
                 </table>
               </div>
@@ -358,7 +222,7 @@ const IncomeLayout = () => {
             {/* Pagination */}
             <div style={{ display: 'flex', justifyContent: 'space-between', padding: '16px' }}>
               <Typography variant='body2' style={{ marginLeft: '16px' }}>
-                Showing 0 to 0 of 0 entries
+                Showing 1 to 3 of 3 entries
               </Typography>
               <div
                 style={{
@@ -416,4 +280,4 @@ const IncomeLayout = () => {
   )
 }
 
-export default IncomeLayout
+export default BackupLayout

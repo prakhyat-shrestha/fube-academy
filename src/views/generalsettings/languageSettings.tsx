@@ -101,7 +101,7 @@ const LanguageSettingsLayout = () => {
       </div>
       <div className='flex' style={{ display: 'flex' }}>
         {/* Add category first card */}
-        <div className='studentGroup mt-4'>
+        <div className='languageGroup mt-4'>
           <Card sx={{ width: 280, height: 220 }}>
             <CardContent>
               <Typography variant='h5' component='h3'>
@@ -134,8 +134,8 @@ const LanguageSettingsLayout = () => {
           </Card>
         </div>
 
-        {/* Fees Group list 2nd card */}
-        <div className='studentCategoryList mt-4 mx-6' style={{ flex: 1 }}>
+        {/*  Group list 2nd card */}
+        <div className='CategoryList mt-4 mx-6' style={{ flex: 1 }}>
           <Card sx={{ width: '102%', height: 615 }}>
             <CardContent>
               <div style={{ display: 'flex', alignItems: 'center' }}>
