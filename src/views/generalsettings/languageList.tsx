@@ -1,4 +1,6 @@
 'use client'
+import { text } from 'stream/consumers'
+
 import * as React from 'react'
 
 import { useRef, useState } from 'react'
@@ -19,7 +21,8 @@ import {
   TableRow,
   MenuItem,
   TextField,
-  InputAdornment
+  InputAdornment,
+  Menu
 } from '@mui/material'
 import Button from '@mui/material/Button'
 import CardContent from '@mui/material/CardContent'
@@ -32,14 +35,10 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward'
 
+import CustomTextField from '@/@core/components/mui/TextField'
+
 const LanguageListLayout = () => {
   const textFieldRef = useRef<HTMLInputElement>(null)
-
-  const [language, setLanguage] = useState('')
-
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setLanguage(event.target.value)
-  }
 
   const languages = [
     { sn: 1, name: 'English', code: 'en', textAlignment: 'LTL', native: 'English' },
@@ -120,27 +119,61 @@ const LanguageListLayout = () => {
       <div className='flex' style={{ display: 'flex' }}>
         {/* Add category first card */}
         <div className='languageGroup mt-4'>
-          <Card sx={{ width: 280, height: 220 }}>
+          <Card sx={{ width: 320, height: 'auto' }}>
             <CardContent>
               <Typography variant='h5' component='h3'>
                 Add Language
               </Typography>
               <Typography variant='body2' component='div'>
-                <TextField
+                <CustomTextField
+                  fullWidth
+                  required
+                  label='NAME'
+                  style={{ marginTop: 20, width: '100%' }}
+                  sx={{
+                    '& .MuiInputBase-root': {
+                      height: '50px'
+                    }
+                  }}
+                />
+                <CustomTextField
+                  fullWidth
+                  required
+                  label='CODE'
+                  style={{ marginTop: 20, width: '100%' }}
+                  sx={{
+                    '& .MuiInputBase-root': {
+                      height: '50px'
+                    }
+                  }}
+                />
+                <CustomTextField
+                  fullWidth
+                  required
+                  label='NATIVE'
+                  style={{ marginTop: 20, width: '100%' }}
+                  sx={{
+                    '& .MuiInputBase-root': {
+                      height: '50px'
+                    }
+                  }}
+                />
+                <CustomTextField
                   select
                   fullWidth
-                  label='Select Language'
-                  value={language}
-                  onChange={handleChange}
-                  variant='outlined'
+                  required
+                  defaultValue={'LTL'}
+                  label='TEXT ALIGNMENT'
                   style={{ marginTop: 20, width: '100%' }}
+                  sx={{
+                    '& .MuiInputBase-root': {
+                      height: '50px'
+                    }
+                  }}
                 >
-                  {languages.map((lang, index) => (
-                    <MenuItem key={index} value={lang.name}>
-                      {`${lang.name} - ${lang.native}`}
-                    </MenuItem>
-                  ))}
-                </TextField>
+                  <MenuItem value='LTL'>LTL</MenuItem>
+                  <MenuItem value='RTL'>RTL</MenuItem>
+                </CustomTextField>
               </Typography>
             </CardContent>
             <CardActions style={{ justifyContent: 'center' }}>
@@ -236,14 +269,12 @@ const LanguageListLayout = () => {
                         </TableCell>
                         <TableCell>
                           <Typography variant='h5'>
-                            {' '}
                             <ArrowDownwardIcon />
                             Name
                           </Typography>
                         </TableCell>
                         <TableCell>
                           <Typography variant='h5'>
-                            {' '}
                             <ArrowDownwardIcon />
                             Code
                           </Typography>
@@ -260,25 +291,47 @@ const LanguageListLayout = () => {
                             Text Alignment
                           </Typography>
                         </TableCell>
+                        <TableCell>
+                          <Typography variant='h5'>
+                            <ArrowDownwardIcon />
+                            Action
+                          </Typography>
+                        </TableCell>
                       </TableRow>
                     </TableHead>
                     <TableBody>
                       {paginatedRows.map(language => (
                         <TableRow key={language.sn}>
                           <TableCell>
-                            <Typography variant='h6'>{language.sn}</Typography>
+                            <Typography variant='h6' style={{ marginLeft: '35px' }}>
+                              {language.sn}
+                            </Typography>
                           </TableCell>
                           <TableCell>
-                            <Typography variant='h6'>{language.name}</Typography>
+                            <Typography variant='h6' style={{ marginLeft: '22px' }}>
+                              {language.name}
+                            </Typography>
                           </TableCell>
                           <TableCell>
-                            <Typography variant='h6'>{language.code}</Typography>
+                            <Typography variant='h6' style={{ marginLeft: '35px' }}>
+                              {language.code}
+                            </Typography>
                           </TableCell>
                           <TableCell>
-                            <Typography variant='h6'>{language.native}</Typography>
+                            <Typography variant='h6' style={{ marginLeft: '25px' }}>
+                              {language.native}
+                            </Typography>
                           </TableCell>
                           <TableCell>
-                            <Typography variant='h6'>{language.textAlignment}</Typography>
+                            <Typography variant='h6' style={{ marginLeft: '35px' }}>
+                              {language.textAlignment}
+                            </Typography>
+                          </TableCell>
+                          <TableCell>
+                            <Button variant='outlined' style={{ borderRadius: '25px' }}>
+                              <ArrowDownwardIcon />
+                              SELECT
+                            </Button>
                           </TableCell>
                         </TableRow>
                       ))}
