@@ -139,7 +139,7 @@ const LanguageSettingsLayout = () => {
           <Card sx={{ width: '102%', height: 615 }}>
             <CardContent>
               <div style={{ display: 'flex', alignItems: 'center' }}>
-                <Typography variant='h4' component='h3' style={{ flex: 1, marginRight: '12%' }}>
+                <Typography variant='h5' component='h3' style={{ flex: 1, marginRight: '12%' }}>
                   Language List
                 </Typography>
                 <div style={{ flexGrow: 1 }}>

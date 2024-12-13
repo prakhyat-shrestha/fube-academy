@@ -1,5 +1,4 @@
 'use client'
-import { text } from 'stream/consumers'
 
 import * as React from 'react'
 
@@ -21,8 +20,7 @@ import {
   TableRow,
   MenuItem,
   TextField,
-  InputAdornment,
-  Menu
+  InputAdornment
 } from '@mui/material'
 import Button from '@mui/material/Button'
 import CardContent from '@mui/material/CardContent'
@@ -190,7 +188,7 @@ const LanguageListLayout = () => {
           <Card sx={{ width: '102%', height: 'auto' }}>
             <CardContent>
               <div style={{ display: 'flex', alignItems: 'center' }}>
-                <Typography variant='h4' component='h3' style={{ flex: 1, marginRight: '12%' }}>
+                <Typography variant='h5' component='h3' style={{ flex: 1, marginRight: '12%' }}>
                   Language List
                 </Typography>
                 <div style={{ flexGrow: 1 }}>

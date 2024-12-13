@@ -1,4 +1,5 @@
 'use client'
+import type { ChangeEvent } from 'react'
 import { useRef, useState } from 'react'
 
 import Link from 'next/link'
@@ -7,7 +8,7 @@ import { Typography } from '@mui/material'
 import Card from '@mui/material/Card'
 import CardContent from '@mui/material/CardContent'
 import Button from '@mui/material/Button'
-import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward'
+
 import ArrowBackIcon from '@mui/icons-material/ArrowBack'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
 import FormGroup from '@mui/material/FormGroup'
