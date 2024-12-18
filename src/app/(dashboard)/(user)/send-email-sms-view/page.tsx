@@ -1,5 +1,12 @@
-const SendEmailSmsView = () => {
-  return <div>SendEmailSmsView</div>
+'use client'
+import SendEmailSmsLayout from '@/views/communicate/sendEmailSms'
+
+const SendEmailSmsDisplay = () => {
+  return (
+    <>
+      <SendEmailSmsLayout />
+    </>
+  )
 }
 
-export default SendEmailSmsView
+export default SendEmailSmsDisplay

@@ -17,16 +17,11 @@ import TabList from '@mui/lab/TabList'
 import TabPanel from '@mui/lab/TabPanel'
 import CardContent from '@mui/material/CardContent'
 
-import Divider from '@mui/material/Divider'
-
 // Components Imports
-import { FormControl, FormControlLabel, InputAdornment, Radio, RadioGroup, Typography } from '@mui/material'
+import { Typography } from '@mui/material'
 import CheckSharpIcon from '@mui/icons-material/CheckSharp'
 import ImageList from '@mui/material/ImageList'
 import ImageListItem from '@mui/material/ImageListItem'
-import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward'
-import ArrowBackIcon from '@mui/icons-material/ArrowBack'
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
 
 import CustomTextField from '@core/components/mui/TextField'
 
@@ -68,7 +63,7 @@ type FormDataType = {
   quora: string
 }
 
-function srcset(image, size, rows = 1, cols = 1) {
+function srcset(image: any, size: any, rows = 1, cols = 1) {
   return {
     src: `${image}?w=${size * cols}&h=${size * rows}&fit=crop&auto=format`,
     srcSet: `${image}?w=${size * cols}&h=${size * rows}&fit=crop&auto=format&dpr=2 2x`
@@ -292,7 +287,6 @@ const SmsSettingsLayout = () => {
               <TabPanel value='select_a_sms_service'>
                 <div className='container' style={{ display: 'flex', justifyContent: 'space-between' }}>
                   <div className='academic mt-8 mx-4 mb-4' style={{ width: '100%' }}>
-                    {/* <Divider sx={{ borderBottomWidth: 1, borderColor: '#D3D3D3', marginTop: 1 }} /> */}
                     <div
                       className='sectionOne'
                       style={{ marginTop: '-30px', display: 'flex', width: '100%', height: 'auto' }}
