@@ -136,7 +136,7 @@ const LanguageSettingsLayout = () => {
 
         {/*  Group list 2nd card */}
         <div className='CategoryList mt-4 mx-6' style={{ flex: 1 }}>
-          <Card sx={{ width: '102%', height: 615 }}>
+          <Card sx={{ width: '102%', height: 'auto' }}>
             <CardContent>
               <div style={{ display: 'flex', alignItems: 'center' }}>
                 <Typography variant='h5' component='h3' style={{ flex: 1, marginRight: '12%' }}>

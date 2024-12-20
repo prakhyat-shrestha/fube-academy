@@ -1,7 +1,9 @@
+import EmailSmsLogLayout from '@/views/communicate/emailSmsLog'
+
 const EmailSmsLog = () => {
   return (
     <>
-      <h1>Email & SMS Log</h1>
+      <EmailSmsLogLayout />
     </>
   )
 }

@@ -161,7 +161,7 @@ const VerticalMenu = ({ dictionary, scrollMenu }: Props) => {
         <SubMenu label={dictionary['navigation'].communicate} icon={<SatelliteAltIcon />}>
           <MenuItem href={'/notice-list'}>Notice List</MenuItem>
           <MenuItem href={'/send-email-sms-view'}>Send Email/SMS</MenuItem>
-          <MenuItem href={'/email-sms-log'}>Notice List</MenuItem>
+          <MenuItem href={'/email-sms-log'}>Email SMS Log</MenuItem>
           <MenuItem href={'/events'}>Event List</MenuItem>
           <MenuItem href={'/academic-calendar'}>Calendar</MenuItem>
           <MenuItem href={'/email-template'}>Email Template</MenuItem>
