@@ -49,7 +49,7 @@ const EmailSmsLogLayout = () => {
     <>
       <div className='flex '>
         <Typography variant='h5' component='h3'>
-          Language Settings
+          Email/SMS Log List
         </Typography>
         <nav style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center' }}>
           <Typography variant='h6' component='h3' style={{ display: 'flex', alignItems: 'center' }}>
@@ -58,17 +58,14 @@ const EmailSmsLogLayout = () => {
             </Link>
             <span style={{ marginRight: '10px' }}>|</span>
             <Link href='#' style={{ marginRight: '35px' }}>
-              System Settings
+              Communicate
             </Link>
             <span style={{ marginRight: '35px' }}>|</span>
-            <Link href='#'>Language Settings</Link>
+            <Link href='#'>Email/SMS Log</Link>
           </Typography>
         </nav>
       </div>
       <div className='CategoryList mt-4 mr-6' style={{ flex: 1 }}>
-        <Typography variant='h5' component='h3' style={{ flex: 1, marginRight: '12%' }}>
-          Email/SMS Log List
-        </Typography>
         <Card sx={{ width: '102%', height: 'auto' }}>
           <CardContent>
             <div style={{ display: 'flex', alignItems: 'center' }}>
