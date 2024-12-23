@@ -46,7 +46,7 @@ const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
   }
 }))
 
-// Inspired by the former Facebook spinners.
+// Facebook spinners.
 function FacebookCircularProgress(props: CircularProgressProps) {
   return (
     <Box sx={{ position: 'relative' }}>
@@ -132,7 +132,7 @@ const PreloaderSettingsLayout = () => {
   })
 
   //For conditional rendering of animated or image loader
-  const [animated, setAnimated] = useState(false)
+  const [animated, setAnimated] = useState(true)
   const [image, setImage] = useState(false)
 
   const handleAnimated = () => {
@@ -175,7 +175,7 @@ const PreloaderSettingsLayout = () => {
         </nav>
       </div>
       <div className='flex' style={{ display: 'flex' }}>
-        <div className='languageGroup mt-4'>
+        <div className='preloaderGroup mt-4'>
           <Card sx={{ width: '1389px', height: 'auto' }}>
             <CardContent>
               <div className='container' style={{ display: 'flex' }}>

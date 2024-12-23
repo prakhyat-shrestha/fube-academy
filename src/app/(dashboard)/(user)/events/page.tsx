@@ -1,7 +1,9 @@
+import EventLayout from '@/views/communicate/event'
+
 const EventDisplay = () => {
   return (
     <>
-      <h1>Event</h1>
+      <EventLayout />
     </>
   )
 }
