@@ -1,166 +1,90 @@
-'use client'
 import * as React from 'react'
-import {
-  Button,
-  Card,
-  CardActions,
-  CardContent,
-  TextField,
-  InputAdornment,
-  ButtonGroup,
-  createTheme,
-  FormControlLabel,
-  Radio,
-  RadioGroup,
-  MenuItem
-} from '@mui/material'
+import { Button, Card, CardActions, CardContent, TextField, InputAdornment, ButtonGroup, MenuItem } from '@mui/material'
 import CustomTextField from '@/@core/components/mui/TextField'
 import Typography from '@mui/material/Typography'
 import CheckSharpIcon from '@mui/icons-material/CheckSharp'
 import SearchSharpIcon from '@mui/icons-material/SearchSharp'
-import { useRef } from 'react'
 import Link from 'next/link'
 import { Icon } from '@iconify/react/dist/iconify.js'
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
 
-const UploadContentLayout = () => {
+const AcademicYearLayout = () => {
   return (
     <>
       <div className='flex '>
         <Typography variant='h6' component='h3'>
-          Upload Content List
+          Academic Year
         </Typography>
-        <nav style={{ marginLeft: '60.1%' }}>
+        <nav style={{ marginLeft: 'auto' }}>
           <Typography variant='h6' component='h3' style={{ display: 'flex', alignItems: 'center' }}>
             <Link href='#' style={{ marginRight: '25px' }}>
               Dashboard
             </Link>
             <span style={{ marginRight: '10px' }}>|</span>
             <Link href='#' style={{ marginRight: '25px' }}>
-              Study Material
+              General Settings
             </Link>
             <span style={{ marginRight: '25px' }}>|</span>
-            <Link href='#'>Upload Content List</Link>
+            <Link href='#'>Academic Year</Link>
           </Typography>
         </nav>
       </div>
       <div className='flex' style={{ display: 'flex' }}>
-        {/* Upload content first card */}
-        <div className='upLoadContent mt-4'>
-          <Card sx={{ width: 300, height: 940 }}>
+        {/* Academic Year first card */}
+        <div className='academic mt-4'>
+          <Card sx={{ width: 320, height: 505 }}>
             <CardContent>
               <Typography variant='h6' component='h3'>
-                Upload Content
+                Add Academic Year
               </Typography>
               <CustomTextField
                 fullWidth
-                label='CONTENT TITLE*'
-                id='custom-select'
-                style={{ margin: '20px 40px 0 0 ', width: '100%' }}
-              />
-              <CustomTextField
-                select
-                fullWidth
-                defaultValue='contenttype'
-                label='CONTENT TYPE*'
-                id='custom-select'
-                style={{ margin: '20px 40px 0 0 ', width: '100%' }}
-              >
-                <CustomTextField placeholder='Search...' style={{ padding: '0 6px 8px 6px', width: '100%' }} />
-                <MenuItem value='contenttype'>
-                  <span style={{ fontStyle: 'normal' }}>CONTENT TYPE *</span>
-                </MenuItem>
-                <MenuItem value='assignment'>
-                  <span style={{ fontStyle: 'normal' }}>Assignment</span>
-                </MenuItem>
-                <MenuItem value='syllabus'>
-                  <span style={{ fontStyle: 'normal' }}>Syllabus</span>
-                </MenuItem>
-                <MenuItem value='other'>
-                  <span style={{ fontStyle: 'normal' }}>Other Downloads</span>
-                </MenuItem>
-              </CustomTextField>
-              <div style={{ marginTop: '20px' }}>
-                <span>AVAILABLE FOR *</span>
-                <RadioGroup row aria-label='sizes' name='sizes' defaultValue='one' style={{ flexDirection: 'column' }}>
-                  <FormControlLabel value='one' control={<Radio />} label='All Admin' />
-                  <FormControlLabel value='two' control={<Radio />} label='Student' />
-                  <FormControlLabel value='three' control={<Radio />} label='Available for all classes' disabled />
-                </RadioGroup>
-              </div>
-              <CustomTextField
-                select
-                fullWidth
-                defaultValue='class'
-                label='CLASS *'
-                id='custom-select'
-                style={{ margin: '20px 40px 0 0 ', width: '100%' }}
-                disabled
-              >
-                <CustomTextField placeholder='Search...' style={{ padding: '0 6px 8px 6px', width: '100%' }} />
-                <MenuItem value='class'>
-                  <span style={{ fontStyle: 'normal' }}>CLASS *</span>
-                </MenuItem>
-                <MenuItem value='eced'>
-                  <span style={{ fontStyle: 'normal' }}>ECED</span>
-                </MenuItem>
-                <MenuItem value='one'>
-                  <span style={{ fontStyle: 'normal' }}>1</span>
-                </MenuItem>
-                <MenuItem value='two'>
-                  <span style={{ fontStyle: 'normal' }}>2</span>
-                </MenuItem>
-              </CustomTextField>
-              <CustomTextField
-                select
-                fullWidth
-                defaultValue='section'
-                label='SECTION *'
-                id='custom-select'
-                style={{ margin: '20px 40px 0 0 ', width: '100%' }}
-                disabled
-              >
-                <CustomTextField placeholder='Search...' style={{ padding: '0 6px 8px 6px', width: '100%' }} />
-                <MenuItem value='section'>
-                  <span style={{ fontStyle: 'normal' }}>SECTION *</span>
-                </MenuItem>
-              </CustomTextField>
-              <CustomTextField
-                label='DATE'
-                type='date'
-                style={{ margin: '20px 40px 0 0 ', width: '100%' }}
-                InputLabelProps={{ shrink: true }}
-              />
-              <CustomTextField
-                label='DESCRIPTION'
-                multiline
-                rows={2}
-                disabled
-                style={{ margin: '20px 40px 0 0 ', width: '100%' }}
-              />
-              <CustomTextField
-                fullWidth
-                label='SOURCE URL'
-                id='custom-select'
-                style={{ margin: '20px 40px 0 0 ', width: '100%' }}
-              />
-              <CustomTextField
+                label='YEAR'
                 required
-                value='File'
+                id='custom-select'
                 style={{ margin: '20px 40px 0 0 ', width: '100%' }}
-                InputProps={{
-                  endAdornment: (
-                    <InputAdornment position='end'>
-                      <Button variant='contained' style={{ height: '25px', width: '90px', fontSize: '0.75rem' }}>
-                        BROWSE
-                      </Button>
-                    </InputAdornment>
-                  )
-                }}
               />
-              <span>(jpg,png,jpeg,pdf,doc,docx,mp4,mp3, txt are allowed for upload)</span>
+              <CustomTextField
+                fullWidth
+                label='YEAR TITLE'
+                required
+                id='custom-select'
+                style={{ margin: '20px 40px 0 0 ', width: '100%' }}
+              />
+              <CustomTextField
+                type='date'
+                fullWidth
+                defaultValue={'startingDate'}
+                label='STARTING DATE '
+                required
+                id='custom-select'
+                style={{ margin: '20px 40px 0 0 ', width: '100%' }}
+              />
+
+              <CustomTextField
+                type='date'
+                fullWidth
+                defaultValue={'endingDate'}
+                label='ENDING DATE '
+                required
+                id='custom-select'
+                style={{ margin: '20px 40px 0 0 ', width: '100%' }}
+              />
+              <CustomTextField
+                select
+                fullWidth
+                label='COPY WITH ACADEMIC YEAR'
+                defaultValue='select'
+                id='custom-select'
+                style={{ margin: '20px 40px 0 0 ', width: '100%' }}
+              >
+                <CustomTextField placeholder='Search...' style={{ padding: '0 6px 8px 6px', width: '100%' }} />
+                <MenuItem value='select'>
+                  <span style={{ fontStyle: 'normal' }}>SELECT</span>
+                </MenuItem>
+              </CustomTextField>
             </CardContent>
             <CardActions style={{ justifyContent: 'center' }}>
               <Button variant='contained'>
@@ -171,13 +95,13 @@ const UploadContentLayout = () => {
           </Card>
         </div>
 
-        {/* Upload Content List 2nd card */}
-        <div className='uploadContentList mt-4 mx-6' style={{ flex: 1 }}>
-          <Card sx={{ width: '102.3%', height: 290 }}>
+        {/* Academic Year List Card */}
+        <div className='academicYearList mt-4 mx-6' style={{ flex: 1 }}>
+          <Card sx={{ width: '102.3%', height: 270 }}>
             <CardContent>
               <div style={{ display: 'flex', alignItems: 'center' }}>
                 <Typography variant='h6' component='h3' style={{ flex: 1, marginRight: '10%' }}>
-                  Upload Content List
+                  Academic Year List
                 </Typography>
                 <div style={{ flexGrow: 1 }}>
                   <TextField
@@ -240,7 +164,7 @@ const UploadContentLayout = () => {
               </div>
               {/* Table */}
               <div style={{ marginTop: '20px' }}>
-                <table style={{ width: '100%', borderCollapse: 'collapse' }}>
+                <table style={{ width: '103%', borderCollapse: 'collapse' }}>
                   <thead>
                     <tr>
                       <th
@@ -254,7 +178,7 @@ const UploadContentLayout = () => {
                       >
                         <div style={{ display: 'flex', alignItems: 'center' }}>
                           <ArrowDownwardIcon style={{ marginRight: '8px' }} />
-                          <span>SL</span>
+                          <span>Year</span>
                         </div>
                       </th>
                       <th
@@ -268,7 +192,7 @@ const UploadContentLayout = () => {
                       >
                         <div style={{ display: 'flex', alignItems: 'center' }}>
                           <ArrowDownwardIcon style={{ marginRight: '8px' }} />
-                          <span>Content Title</span>
+                          <span>Title</span>
                         </div>
                       </th>
                       <th
@@ -282,7 +206,7 @@ const UploadContentLayout = () => {
                       >
                         <div style={{ display: 'flex', alignItems: 'center' }}>
                           <ArrowDownwardIcon style={{ marginRight: '8px' }} />
-                          <span>Type</span>
+                          <span>Starting Date</span>
                         </div>
                       </th>
                       <th
@@ -296,35 +220,7 @@ const UploadContentLayout = () => {
                       >
                         <div style={{ display: 'flex', alignItems: 'center' }}>
                           <ArrowDownwardIcon style={{ marginRight: '8px' }} />
-                          <span>Date</span>
-                        </div>
-                      </th>
-                      <th
-                        style={{
-                          padding: '8px',
-                          textAlign: 'left',
-                          backgroundColor: 'lightgray',
-                          borderRadius: '0',
-                          position: 'relative'
-                        }}
-                      >
-                        <div style={{ display: 'flex', alignItems: 'center' }}>
-                          <ArrowDownwardIcon style={{ marginRight: '8px' }} />
-                          <span>Available For </span>
-                        </div>
-                      </th>
-                      <th
-                        style={{
-                          padding: '8px',
-                          textAlign: 'left',
-                          backgroundColor: 'lightgray',
-                          borderRadius: '0',
-                          position: 'relative'
-                        }}
-                      >
-                        <div style={{ display: 'flex', alignItems: 'center' }}>
-                          <ArrowDownwardIcon style={{ marginRight: '8px' }} />
-                          <span>Class(Section)</span>
+                          <span>Ending Date</span>
                         </div>
                       </th>
                       <th
@@ -344,7 +240,7 @@ const UploadContentLayout = () => {
                   </thead>
                   <tbody>
                     <tr style={{ borderBottom: '1px solid #ddd' }}>
-                      <td style={{ paddingLeft: '4%' }}></td>
+                      <td style={{ padding: '8px' }}></td>
                       <td style={{ padding: '8px' }}></td>
                       <td style={{ padding: '8px' }}></td>
                       <td style={{ padding: '8px' }}>No Data Available In Table</td>
@@ -415,4 +311,4 @@ const UploadContentLayout = () => {
   )
 }
 
-export default UploadContentLayout
+export default AcademicYearLayout

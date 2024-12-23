@@ -326,6 +326,36 @@ const VerticalMenu = ({ dictionary, scrollMenu }: Props) => {
           <MenuItem href={'/staffRegistration'}>Staff Registration</MenuItem>
         </SubMenu>
 
+        <SubMenu label={dictionary['navigation'].generalSettings} icon={<i className='tabler-server-cog' />}>
+          <MenuItem href={'/studentSettings'}>Student Settings</MenuItem>
+          <MenuItem href={'/twoFactorSetting'}>Two Factor Setting</MenuItem>
+          <MenuItem href={'/lessonPlanSetting'}>Lesson Plan Setting</MenuItem>
+          <MenuItem href={'/staffSettings'}>Staff Settings</MenuItem>
+          <MenuItem href={'/chatSettings'}>Chat Settings</MenuItem>
+          <MenuItem href={'/generalSettings'}>General Settings</MenuItem>
+          <MenuItem href={'/optionalSubjectGeneral'}>Optional Subject</MenuItem>
+          <MenuItem href={'/academicYear'}>Academic Year</MenuItem>
+          <MenuItem href={'/holiday'}>Holiday</MenuItem>
+          <MenuItem href={'/moduleManager'}>Module Manager</MenuItem>
+          <MenuItem href={'/notificationSetting'}>Notification Setting</MenuItem>
+          <MenuItem href={'/tawkTochat'}>Tawk To Chat</MenuItem>
+          <MenuItem href={'/messengerChat'}>Messenger Chat</MenuItem>
+          <MenuItem href={'/manageCurrency'}>Manage Currency</MenuItem>
+          <MenuItem href={'/emailSettings'}>Email Settings</MenuItem>
+          <MenuItem href={'/paymentSettings'}>Payment Settings</MenuItem>
+          <MenuItem href={'/baseSetup'}>Base Setup</MenuItem>
+          <MenuItem href={'/smsSettings'}>Sms Settings</MenuItem>
+          <MenuItem href={'/weekEnd'}>Weekend </MenuItem>
+          <MenuItem href={'/languageSettings'}>Language Settings</MenuItem>
+          <MenuItem href={'/backupSettings'}>Backup</MenuItem>
+          <MenuItem href={'/dashboard'}>Dashboard</MenuItem>
+          <MenuItem href={'/aboutAndUpdate'}>About & Update</MenuItem>
+          <MenuItem href={'/apiPermission'}>API Permission</MenuItem>
+          <MenuItem href={'/languageGeneral'}>Language</MenuItem>
+          <MenuItem href={'/preLoaderSettings'}>Preloader Settings</MenuItem>
+          <MenuItem href={'/utilitiesGeneral'}>Utilities</MenuItem>
+        </SubMenu>
+
         <SubMenu label={dictionary['navigation'].feesSettings} icon={<i className='tabler-building-bank' />}>
           <MenuItem href={'/feesInvoiceSettings'}>Fees Invoice Settings</MenuItem>
         </SubMenu>

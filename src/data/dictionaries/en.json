@@ -111,6 +111,7 @@
     "accountsReport": "Accounts Report",
     "customField": "Custom Field",
     "feesSettings": "Fees Settings",
-    "examSettings": "Exam Settings"
+    "examSettings": "Exam Settings",
+    "generalSettings": "General Settings"
   }
 }

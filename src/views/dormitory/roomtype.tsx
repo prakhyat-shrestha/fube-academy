@@ -1,50 +1,16 @@
-'use client'
 import * as React from 'react'
 import CustomTextField from '@/@core/components/mui/TextField'
 import CheckSharpIcon from '@mui/icons-material/CheckSharp'
 import SearchSharpIcon from '@mui/icons-material/SearchSharp'
 import ButtonGroup from '@mui/material/ButtonGroup'
-import { useRef } from 'react'
 import Link from 'next/link'
 import { Icon } from '@iconify/react/dist/iconify.js'
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
-import {
-  Button,
-  Card,
-  CardContent,
-  Typography,
-  MenuItem,
-  CardActions,
-  TextField,
-  InputAdornment,
-  createTheme
-} from '@mui/material'
+import { Button, Card, CardContent, Typography, CardActions, TextField, InputAdornment } from '@mui/material'
 
 const RoomTypeLayout = () => {
-  const textFieldRef = useRef<HTMLInputElement>(null)
-
-  const handleFocus = () => {
-    if (textFieldRef.current) {
-      textFieldRef.current.placeholder = ''
-    }
-  }
-
-  const handleBlur = () => {
-    if (textFieldRef.current && textFieldRef.current.value === '') {
-      textFieldRef.current.placeholder = 'SEARCH'
-    }
-  }
-
-  const theme = createTheme({
-    palette: {
-      primary: {
-        main: '#1976d2'
-      }
-    }
-  })
-
   return (
     <>
       <div className='flex '>
@@ -102,9 +68,6 @@ const RoomTypeLayout = () => {
                     id='standard-search'
                     variant='standard'
                     placeholder='SEARCH'
-                    inputRef={textFieldRef}
-                    onFocus={handleFocus}
-                    onBlur={handleBlur}
                     InputProps={{
                       startAdornment: (
                         <InputAdornment position='start'>
@@ -265,7 +228,7 @@ const RoomTypeLayout = () => {
                     color: 'white',
                     padding: '4px 16px',
                     borderRadius: '4px',
-                    background: theme.palette.primary.main,
+                    background: '#8c7cf7',
                     cursor: 'pointer'
                   }}
                 >
