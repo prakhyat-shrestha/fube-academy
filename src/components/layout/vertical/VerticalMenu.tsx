@@ -164,8 +164,8 @@ const VerticalMenu = ({ dictionary, scrollMenu }: Props) => {
           <MenuItem href={'/email-sms-log'}>Email SMS Log</MenuItem>
           <MenuItem href={'/events'}>Event List</MenuItem>
           <MenuItem href={'/academic-calendar'}>Calendar</MenuItem>
-          <MenuItem href={'/email-template'}>Email Template</MenuItem>
-          <MenuItem href={'/sms-template'}>SMS Template</MenuItem>
+          <MenuItem href={'/templatesettings/email-template'}>Email Template</MenuItem>
+          <MenuItem href={'/templatesettings/sms-template'}>SMS Template</MenuItem>
         </SubMenu>
       </Menu>
       {/* <Menu
