@@ -6,10 +6,13 @@ import ArticleIcon from '@mui/icons-material/Article'
 import DialpadIcon from '@mui/icons-material/Dialpad'
 import SchoolIcon from '@mui/icons-material/School'
 
+import SettingsIcon from '@mui/icons-material/Settings'
 import QuizIcon from '@mui/icons-material/Quiz'
 import OnlinePredictionIcon from '@mui/icons-material/OnlinePrediction'
 import SensorOccupiedIcon from '@mui/icons-material/SensorOccupied'
 import AccountBalanceIcon from '@mui/icons-material/AccountBalance'
+import ChatBubbleIcon from '@mui/icons-material/ChatBubble'
+import SatelliteAltIcon from '@mui/icons-material/SatelliteAlt'
 
 // Third-party Imports
 import PerfectScrollbar from 'react-perfect-scrollbar'

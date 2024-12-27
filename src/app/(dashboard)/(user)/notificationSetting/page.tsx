@@ -1,9 +1,9 @@
-import NotificationSettingLayout from '@/views/generalSettings/notificationSetting'
+import NotificationSettingsLayout from '@/views/generalSettings/notificationSettings'
 
 const NotificationSetting = () => {
   return (
     <>
-      <NotificationSettingLayout />
+      <NotificationSettingsLayout />
     </>
   )
 }

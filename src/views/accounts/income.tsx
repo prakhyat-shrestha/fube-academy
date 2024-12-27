@@ -10,16 +10,17 @@ import CheckSharpIcon from '@mui/icons-material/CheckSharp'
 import { TextField, InputAdornment, MenuItem } from '@mui/material'
 import SearchSharpIcon from '@mui/icons-material/SearchSharp'
 import ButtonGroup from '@mui/material/ButtonGroup'
-
+import { styled, createTheme } from '@mui/material/styles'
 import Button from '@mui/material/Button'
 import CardContent from '@mui/material/CardContent'
 import CardActions from '@mui/material/CardActions'
 import Card from '@mui/material/Card'
 import { Icon } from '@iconify/react/dist/iconify.js'
-import { createTheme } from '@mui/material/styles'
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
+
+import CloudUploadIcon from '@mui/icons-material/CloudUpload'
 
 import CustomTextField from '@/@core/components/mui/TextField'
 
@@ -46,10 +47,22 @@ const IncomeLayout = () => {
     }
   })
 
+  const VisuallyHiddenInput = styled('input')({
+    clip: 'rect(0 0 0 0)',
+    clipPath: 'inset(50%)',
+    height: 1,
+    overflow: 'hidden',
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    whiteSpace: 'nowrap',
+    width: 1
+  })
+
   return (
     <>
       <div className='flex '>
-        <Typography variant='h6' component='h3'>
+        <Typography variant='h5' component='h3'>
           Add Income
         </Typography>
         <nav style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center' }}>
@@ -68,10 +81,10 @@ const IncomeLayout = () => {
       </div>
       <div className='flex' style={{ display: 'flex' }}>
         {/* Add Income first card */}
-        <div className='income mt-4'>
-          <Card sx={{ width: 350, height: 750 }}>
+        <div className='questionGroup mt-4'>
+          <Card sx={{ width: 350, height: 775 }}>
             <CardContent>
-              <Typography variant='h6' component='h3'>
+              <Typography variant='h5' component='h3'>
                 Add Income
               </Typography>
 
@@ -121,8 +134,20 @@ const IncomeLayout = () => {
                   InputProps={{
                     endAdornment: (
                       <InputAdornment position='end'>
-                        <Button variant='contained' style={{ height: '27px', width: '90px', fontSize: '0.75rem' }}>
-                          BROWSE
+                        <Button
+                          component='label'
+                          role={undefined}
+                          variant='contained'
+                          size='small'
+                          tabIndex={-1}
+                          startIcon={<CloudUploadIcon />}
+                        >
+                          Upload files
+                          <VisuallyHiddenInput
+                            type='file'
+                            onChange={event => console.log(event.target.files)}
+                            multiple
+                          />
                         </Button>
                       </InputAdornment>
                     )
@@ -151,12 +176,12 @@ const IncomeLayout = () => {
           </Card>
         </div>
 
-        {/* Income List 2nd card */}
-        <div className='incomeList mt-4 mx-6' style={{ flex: 1 }}>
-          <Card sx={{ width: '102.4%', height: 270 }}>
+        {/* Income Group list 2nd card */}
+        <div className='studentCategoryList mt-4 mx-6' style={{ flex: 1 }}>
+          <Card sx={{ width: '102%', height: 270 }}>
             <CardContent>
               <div style={{ display: 'flex', alignItems: 'center' }}>
-                <Typography variant='h6' component='h3' style={{ flex: 1, marginRight: '12%' }}>
+                <Typography variant='h5' component='h3' style={{ flex: 1, marginRight: '12%' }}>
                   Income List
                 </Typography>
                 <div style={{ flexGrow: 1 }}>

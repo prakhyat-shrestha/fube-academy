@@ -67,7 +67,7 @@ const LessonLayout = () => {
       <div className='flex' style={{ display: 'flex' }}>
         {/* Lesson first card */}
         <div className='lesson mt-4'>
-          <Card sx={{ width: 300, height: 360 }}>
+          <Card sx={{ width: 300, height: 380 }}>
             <CardContent>
               <Typography variant='h6' component='h3'>
                 Add Lesson
@@ -108,33 +108,49 @@ const LessonLayout = () => {
                 </MenuItem>
               </CustomTextField>
               <div className='title'>
-                <span style={{ fontWeight: 'bolder', float: 'left', margin: '20px 40px 0 0 ' }}>Add Lesson Name</span>
-                <button
-                  style={{
-                    backgroundColor: 'blue',
-                    color: 'white',
-                    borderRadius: '50%',
-                    width: '10%',
-                    fontSize: '1.5em',
-                    float: 'right',
-                    margin: '20px 5px 0 0 '
-                  }}
-                >
-                  +
-                </button>
-                <div>
-                  <CustomTextField style={{ margin: '5px 5px 0 0 ', width: '50%' }} placeholder='Title' />
-                  <button
+                <div className='combo' style={{ display: 'flex', marginTop: '20px', justifyContent: 'space-between' }}>
+                  <span style={{ fontWeight: 'bolder' }}>Add Lesson Name</span>
+                  <Button
+                    variant='contained'
                     style={{
-                      backgroundColor: 'blue',
-                      margin: '9px 0 0 0',
-                      color: 'white',
-                      borderRadius: '5px',
-                      paddingTop: '2.5px'
+                      borderRadius: '50%',
+                      width: '25px',
+                      height: '25px',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      fontSize: '25px',
+                      padding: '0',
+                      minWidth: '0',
+                      minHeight: '0',
+                      cursor: 'pointer'
+                    }}
+                  >
+                    +
+                  </Button>
+                </div>
+
+                <div style={{ display: 'flex', marginTop: '20px' }}>
+                  <CustomTextField style={{ width: '50%' }} placeholder='Title' />
+                  <Button
+                    variant='contained'
+                    style={{
+                      borderRadius: '15%',
+                      width: '25px',
+                      height: '25px',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      fontSize: '25px',
+                      padding: '0',
+                      minWidth: '0',
+                      minHeight: '0',
+                      cursor: 'pointer',
+                      margin: '6px '
                     }}
                   >
                     {<i className='tabler-trash' />}
-                  </button>
+                  </Button>
                 </div>
               </div>
             </CardContent>

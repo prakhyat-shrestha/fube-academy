@@ -1,4 +1,4 @@
-import UploadContentLayout from '@/views/studyMaterial/uploadContent'
+import UploadContentLayout from '@/views/studyMaterial/uploadcontent'
 
 const UploadContent = () => {
   return (
