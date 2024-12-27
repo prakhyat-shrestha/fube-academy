@@ -1,5 +1,7 @@
+import CalendarLayout from '@/views/communicate/calendar'
+
 const AcademicCalendar = () => {
-  return <h1>Academic Calendar</h1>
+  return <CalendarLayout />
 }
 
 export default AcademicCalendar
