@@ -43,8 +43,8 @@ type TempTypes = {
 }
 
 const EmailTemplateLayout = () => {
-  const [selectedTemplate, setSelectedTemplate] = useState('')
-  const [selectedValue, setSelectedValue] = useState('')
+  const [selectedTemplate, setSelectedTemplate] = useState('Test Mail')
+  const [selectedValue, setSelectedValue] = useState('testMail')
 
   const template: TempTypes = {
     'Test Mail': 'testMail',
@@ -118,7 +118,7 @@ const EmailTemplateLayout = () => {
             <Typography>
               <div style={{ display: 'flex' }}>
                 <Typography sx={{ fontWeight: 'bold' }}>Variables:</Typography> &nbsp;
-                <Typography sx={{ color: 'blue', fontWeight: 'bold' }}>{selectedTemplate || 'None'}</Typography>{' '}
+                <Typography sx={{ color: 'blue', fontWeight: 'bold' }}>{selectedValue || 'None'}</Typography>{' '}
                 <FormControl sx={{ position: 'fixed', marginTop: '-5px', marginLeft: '48.9%' }}>
                   <FormGroup>
                     <FormControlLabel
@@ -170,9 +170,9 @@ const EmailTemplateLayout = () => {
                 }
               }}
               fullWidth
-              value={selectedValue}
+              value={selectedTemplate}
             >
-              {selectedValue || 'None'}
+              {selectedTemplate || 'None'}
             </CustomTextField>
             <Typography sx={{ marginTop: '3%' }}>BODY</Typography>
             {/* // EMAIL TEMPLATE TOOL */}
@@ -328,7 +328,7 @@ const EmailTemplateLayout = () => {
                         gutterBottom
                         mt={3}
                       >
-                        Leave Applied
+                        {selectedTemplate}
                       </Typography>
                       <Box px={3} py={2}>
                         <Typography

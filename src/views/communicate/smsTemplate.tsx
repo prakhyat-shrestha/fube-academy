@@ -23,8 +23,8 @@ type TempTypes = {
 }
 
 const SmsTemplateLayout = () => {
-  const [selectedTemplate, setSelectedTemplate] = useState('None')
-  const [selectedValue, setSelectedValue] = useState('None')
+  const [selectedTemplate, setSelectedTemplate] = useState('Student Admission')
+  const [selectedValue, setSelectedValue] = useState('admission')
 
   const template: TempTypes = {
     'Student Admission': 'admission',
@@ -114,7 +114,7 @@ const SmsTemplateLayout = () => {
             <Typography>
               <div style={{ display: 'flex' }}>
                 <Typography sx={{ fontWeight: 'bold' }}>Variables:</Typography> &nbsp;
-                <Typography sx={{ color: 'blue', fontWeight: 'bold' }}>{selectedTemplate || 'None'}</Typography>{' '}
+                <Typography sx={{ color: 'blue', fontWeight: 'bold' }}>{selectedValue || 'None'}</Typography>{' '}
                 <FormControl sx={{ position: 'fixed', marginTop: '-5px', marginLeft: '48.9%' }}>
                   <FormGroup>
                     <FormControlLabel
@@ -166,9 +166,9 @@ const SmsTemplateLayout = () => {
                 }
               }}
               fullWidth
-              value={selectedValue}
+              value={selectedTemplate}
             >
-              {selectedValue || 'None'}
+              {selectedTemplate || 'None'}
             </CustomTextField>
             <Button variant='contained' sx={{ marginTop: '40px', marginLeft: '45%' }}>
               <CheckIcon />
