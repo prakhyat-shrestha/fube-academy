@@ -151,9 +151,9 @@ const VerticalMenu = ({ dictionary, scrollMenu }: Props) => {
         <SubMenu label={dictionary['navigation'].generalsettings} icon={<SettingsIcon />}>
           <MenuItem href={'/notification_settings'}>Notification Settings</MenuItem>
           <MenuItem href={'/basesetup'}>Base Setup</MenuItem>
-          <MenuItem href={'/sms_settings'}>SMS Settings</MenuItem>
+          <MenuItem href={'/sms-settings'}>SMS Settings</MenuItem>
           <MenuItem href={'/weekend'}>Weekend</MenuItem>
-          <MenuItem href={'/language_settings'}>Language Settings</MenuItem>
+          <MenuItem href={'/language-settings'}>Language Settings</MenuItem>
           <MenuItem href={'/backup_settings'}>Backup</MenuItem>
           <MenuItem href={'/language-list'}>Language</MenuItem>
           <MenuItem href={'/preloader-settings'}>Preloader Settings</MenuItem>

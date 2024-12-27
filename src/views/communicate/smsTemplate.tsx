@@ -23,8 +23,8 @@ type TempTypes = {
 }
 
 const SmsTemplateLayout = () => {
-  const [selectedTemplate, setSelectedTemplate] = useState('')
-  const [selectedValue, setSelectedValue] = useState('')
+  const [selectedTemplate, setSelectedTemplate] = useState('None')
+  const [selectedValue, setSelectedValue] = useState('None')
 
   const template: TempTypes = {
     'Student Admission': 'admission',
@@ -63,7 +63,7 @@ const SmsTemplateLayout = () => {
     'Staff Birthday': 'staffBirthday',
     'Student Dues Fees': 'studentDuesFees',
     'Student Dues Fees For Parent': 'studentDuesFeesForParent',
-    'Student Absent Notification': 'studentAbsentNotfication',
+    'Student Absent Notification': 'studentAbsentNotification',
     'Two Factor Code': 'twoFactorCode',
     'Behaviour Record Update': 'behaviourRecordUpdate'
   }
@@ -76,7 +76,7 @@ const SmsTemplateLayout = () => {
   return (
     <>
       <div className='flex '>
-        <Typography variant='h5'>Sms Template</Typography>
+        <Typography variant='h5'>SMS Template</Typography>
         <nav style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center' }}>
           <Typography variant='h6' component='h3' style={{ display: 'flex', alignItems: 'center' }}>
             <Link href='#' style={{ marginRight: '15px' }}>
@@ -87,7 +87,7 @@ const SmsTemplateLayout = () => {
               Communicate
             </Link>
             <span style={{ marginRight: '15px' }}>|</span>
-            <Link href='#'> Sms Template</Link>
+            <Link href='#'> SMS Template</Link>
           </Typography>
         </nav>
       </div>
@@ -113,7 +113,8 @@ const SmsTemplateLayout = () => {
           <CardContent>
             <Typography>
               <div style={{ display: 'flex' }}>
-                <b>Variables:</b> &nbsp;<b style={{ color: 'blue' }}>{selectedTemplate || 'None'}</b>{' '}
+                <Typography sx={{ fontWeight: 'bold' }}>Variables:</Typography> &nbsp;
+                <Typography sx={{ color: 'blue', fontWeight: 'bold' }}>{selectedTemplate || 'None'}</Typography>{' '}
                 <FormControl sx={{ position: 'fixed', marginTop: '-5px', marginLeft: '48.9%' }}>
                   <FormGroup>
                     <FormControlLabel
@@ -121,7 +122,6 @@ const SmsTemplateLayout = () => {
                       control={
                         <Checkbox
                           name='student'
-                          sx={{}}
                           icon={
                             <span
                               style={{
@@ -158,8 +158,16 @@ const SmsTemplateLayout = () => {
                 </FormControl>
               </div>
             </Typography>
-            <Typography sx={{ marginTop: '7%' }}>BODY</Typography>
-            <CustomTextField multiline rows={4} fullWidth value={selectedValue}>
+            <Typography sx={{ marginTop: '5%' }}>SUBJECT*</Typography>
+            <CustomTextField
+              InputProps={{
+                sx: {
+                  height: 45
+                }
+              }}
+              fullWidth
+              value={selectedValue}
+            >
               {selectedValue || 'None'}
             </CustomTextField>
             <Button variant='contained' sx={{ marginTop: '40px', marginLeft: '45%' }}>
