@@ -15,7 +15,7 @@ const StudentAttendanceLayout = () => {
   return (
     <>
       <div className='flex'>
-        <Typography variant='h6' component='h3'>
+        <Typography variant='h5' component='h3'>
           Student Attendance
         </Typography>
         <nav style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center' }}>
@@ -35,11 +35,9 @@ const StudentAttendanceLayout = () => {
       <div className='attend mt-4' style={{ flex: 1 }}>
         <Card sx={{ width: '100%', height: '105%' }}>
           <CardContent>
-            <div className='container' style={{ display: 'flex', gap: '72%' }}>
-              <Typography variant='h6' component='h4'>
-                Select Criteria
-              </Typography>
-              <Button variant='contained' startIcon={<AddSharpIcon />}>
+            <div className='container' style={{ display: 'flex', gap: '71%' }}>
+              <Typography variant='h5'>Select Criteria</Typography>
+              <Button variant='contained' startIcon={<AddSharpIcon />} style={{ marginLeft: '42px' }}>
                 IMPORT ATTENDANCE
               </Button>
             </div>
@@ -82,7 +80,7 @@ const StudentAttendanceLayout = () => {
                 style={{ margin: '20px 35px 0 0 ', marginRight: '10px', width: '65%' }}
               />
             </div>
-            <div className='container' style={{ display: 'flex', marginLeft: '89%', marginTop: '20px' }}>
+            <div className='container' style={{ display: 'flex', marginLeft: '90%', marginTop: '20px' }}>
               <Button variant='contained' startIcon={<SearchSharpIcon />}>
                 SEARCH
               </Button>
