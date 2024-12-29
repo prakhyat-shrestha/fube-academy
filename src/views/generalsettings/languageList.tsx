@@ -98,7 +98,7 @@ const LanguageListLayout = () => {
     <>
       <div className='flex '>
         <Typography variant='h5' component='h3'>
-          Language Settings
+          Language
         </Typography>
         <nav style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center' }}>
           <Typography variant='h6' component='h3' style={{ display: 'flex', alignItems: 'center' }}>
