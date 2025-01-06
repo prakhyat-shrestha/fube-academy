@@ -204,7 +204,7 @@ const AcademicYearLayout = () => {
                 <Table sx={{ minWidth: 650 }} stickyHeader aria-label='sticky table'>
                   <TableHead>
                     <TableRow>
-                      {['SL', 'Class Name', 'GPA Above', 'Actions'].map(header => (
+                      {['Year', 'Title', 'Starting Date', 'Ending Date', 'Actions'].map(header => (
                         <TableCell align='left' sx={{ padding: 2, fontSize: '.8rem' }} key={header}>
                           <Box sx={{ display: 'flex', alignItems: 'center' }}>
                             <ArrowDownwardIcon style={{ fontSize: '1rem' }} />
@@ -219,6 +219,7 @@ const AcademicYearLayout = () => {
                       <TableCell></TableCell>
                       <TableCell></TableCell>
                       <TableCell>No Data Available In Table</TableCell>
+                      <TableCell></TableCell>
                       <TableCell></TableCell>
                     </TableRow>
                   </TableBody>

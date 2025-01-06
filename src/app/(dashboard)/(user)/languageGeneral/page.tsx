@@ -1,9 +1,9 @@
-import LanguageGeneralLayout from '@/views/generalSettings/languageGeneral'
+import LanguageListLayout from '@/views/generalsettings/languageList'
 
 const LanguageGeneral = () => {
   return (
     <>
-      <LanguageGeneralLayout />
+      <LanguageListLayout />
     </>
   )
 }

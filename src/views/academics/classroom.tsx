@@ -93,7 +93,7 @@ const ClassRoomLayout = () => {
       <div className='flex' style={{ display: 'flex' }}>
         {/* Add classroom first card */}
         <div className='classRoom mt-4'>
-          <Card sx={{ width: 280, height: 275 }}>
+          <Card sx={{ width: 350, height: 275 }}>
             <CardContent>
               <Typography variant='h6' component='h3'>
                 Add Class Room

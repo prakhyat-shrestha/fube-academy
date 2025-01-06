@@ -1,50 +1,51 @@
 'use client'
 import * as React from 'react'
-
-import { useRef } from 'react'
-
+import {
+  Typography,
+  TextField,
+  InputAdornment,
+  Table,
+  TableContainer,
+  TableRow,
+  Paper,
+  TableHead,
+  TableBody,
+  TableCell,
+  Box,
+  Stack,
+  Pagination,
+  Card,
+  Button,
+  CardContent,
+  ButtonGroup,
+  CardActions
+} from '@mui/material'
+import { useState } from 'react'
 import Link from 'next/link'
-
-import Typography from '@mui/material/Typography'
 import CheckSharpIcon from '@mui/icons-material/CheckSharp'
-import { TextField, InputAdornment } from '@mui/material'
 import SearchSharpIcon from '@mui/icons-material/SearchSharp'
-import ButtonGroup from '@mui/material/ButtonGroup'
-
-import Button from '@mui/material/Button'
-import CardContent from '@mui/material/CardContent'
-import CardActions from '@mui/material/CardActions'
-import Card from '@mui/material/Card'
 import { Icon } from '@iconify/react/dist/iconify.js'
-import { createTheme } from '@mui/material/styles'
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward'
-import ArrowBackIcon from '@mui/icons-material/ArrowBack'
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
-
 import CustomTextField from '@/@core/components/mui/TextField'
 
+const records = Array.from({ length: 0 }, (_, index) => ({}))
+
 const StudentGroupLayout = () => {
-  const textFieldRef = useRef<HTMLInputElement>(null)
+  const [page, setPage] = useState(1) // Page starts at 1
+  const [rowsPerPage, setRowsPerPage] = useState(5) // Show 5 rows per page
 
-  const handleFocus = () => {
-    if (textFieldRef.current) {
-      textFieldRef.current.placeholder = ''
-    }
+  const handlePageChange = (event: React.ChangeEvent<unknown>, value: number) => {
+    setPage(value)
   }
 
-  const handleBlur = () => {
-    if (textFieldRef.current && textFieldRef.current.value === '') {
-      textFieldRef.current.placeholder = 'SEARCH'
-    }
+  const handleRowsPerPageChange = (event: React.ChangeEvent<{ value: string }>) => {
+    setRowsPerPage(parseInt(event.target.value, 10))
+    setPage(1) // Reset to first page when changing rows per page
   }
 
-  const theme = createTheme({
-    palette: {
-      primary: {
-        main: '#1976d2'
-      }
-    }
-  })
+  // const startIndex = (page - 1) * rowsPerPage + 1
+  const startIndex = (page - 1) * rowsPerPage
+  const endIndex = Math.min(page * rowsPerPage, records.length)
 
   return (
     <>
@@ -67,9 +68,9 @@ const StudentGroupLayout = () => {
         </nav>
       </div>
       <div className='flex' style={{ display: 'flex' }}>
-        {/* Add student group first card */}
+        {/* Add Student first card */}
         <div className='studentGroup mt-4'>
-          <Card sx={{ width: 280, height: 200 }}>
+          <Card sx={{ width: 350, height: 200 }}>
             <CardContent>
               <Typography variant='h6' component='h3'>
                 Add Student Group
@@ -89,7 +90,7 @@ const StudentGroupLayout = () => {
 
         {/* Student Group list 2nd card */}
         <div className='studentGroupList mt-4 mx-6' style={{ flex: 1 }}>
-          <Card sx={{ width: '102.3%', height: 370 }}>
+          <Card sx={{ width: '102%', height: 'auto' }}>
             <CardContent>
               <div style={{ display: 'flex', alignItems: 'center' }}>
                 <Typography variant='h6' component='h3' style={{ flex: 1, marginRight: '12%' }}>
@@ -100,9 +101,6 @@ const StudentGroupLayout = () => {
                     id='standard-search'
                     variant='standard'
                     placeholder='SEARCH'
-                    inputRef={textFieldRef}
-                    onFocus={handleFocus}
-                    onBlur={handleBlur}
                     InputProps={{
                       startAdornment: (
                         <InputAdornment position='start'>
@@ -158,137 +156,44 @@ const StudentGroupLayout = () => {
                 </div>
               </div>
               {/* Table */}
-              <div style={{ marginTop: '20px' }}>
-                <table style={{ width: '100%', borderCollapse: 'collapse' }}>
-                  <thead>
-                    <tr>
-                      <th
-                        style={{
-                          padding: '8px',
-                          textAlign: 'left',
-                          backgroundColor: 'lightgray',
-                          borderRadius: '5px 0 0 5px',
-                          position: 'relative' // Required for rounded corners
-                        }}
-                      >
-                        <div style={{ display: 'flex', alignItems: 'center' }}>
-                          <ArrowDownwardIcon style={{ marginRight: '8px' }} />
-                          <span>Group</span>
-                        </div>
-                      </th>
-                      <th
-                        style={{
-                          padding: '8px',
-                          textAlign: 'left',
-                          backgroundColor: 'lightgray'
-                        }}
-                      >
-                        <div style={{ display: 'flex', alignItems: 'center' }}>
-                          <ArrowDownwardIcon style={{ marginRight: '8px' }} />
-                          <span>Students</span>
-                        </div>
-                      </th>
-                      <th
-                        style={{
-                          padding: '8px',
-                          textAlign: 'left',
-                          backgroundColor: 'lightgray',
-                          borderRadius: '0 5px 5px 0'
-                        }}
-                      >
-                        <div style={{ display: 'flex', alignItems: 'center' }}>
-                          <ArrowDownwardIcon style={{ marginRight: '8px' }} />
-                          <span>Action</span>
-                        </div>
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr style={{ borderBottom: '1px solid #ddd' }}>
-                      <td style={{ padding: '8px' }}>Dalit</td>
-                      <td style={{ padding: '8px' }}>0</td>
-                      <td style={{ padding: '8px' }}>
-                        <Button variant='outlined' size='small' style={{ borderRadius: '20px' }}>
-                          SELECT <ArrowDownwardIcon />
-                        </Button>
-                      </td>
-                    </tr>
-                    <tr style={{ borderBottom: '1px solid #ddd' }}>
-                      <td style={{ padding: '8px' }}>Janajati</td>
-                      <td style={{ padding: '8px' }}>0</td>
-                      <td style={{ padding: '8px' }}>
-                        <Button variant='outlined' size='small' style={{ borderRadius: '20px' }}>
-                          SELECT <ArrowDownwardIcon />
-                        </Button>
-                      </td>
-                    </tr>
-                    <tr style={{ borderBottom: '1px solid #ddd' }}>
-                      <td style={{ padding: '8px' }}>Dalit</td>
-                      <td style={{ padding: '8px' }}>0</td>
-                      <td style={{ padding: '8px' }}>
-                        <Button variant='outlined' size='small' style={{ borderRadius: '20px' }}>
-                          SELECT <ArrowDownwardIcon />
-                        </Button>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </CardContent>
-            {/* Pagination */}
-            <div style={{ display: 'flex', justifyContent: 'space-between', padding: '16px' }}>
-              <Typography variant='body2' style={{ marginLeft: '16px' }}>
-                Showing 1 to 3 of 3 entries
-              </Typography>
-              <div
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  margin: 'auto',
-                  cursor: 'pointer'
-                }}
-              >
-                <Button
-                  size='small'
-                  style={{
-                    color: 'black',
-                    marginRight: '10px',
-                    padding: '4px 8px',
-                    width: '30px',
-                    minWidth: 'auto',
-                    border: 'none'
-                  }}
-                >
-                  <ArrowBackIcon style={{ fontSize: '16px' }} />
-                </Button>
-                <Typography
-                  variant='body2'
-                  sx={{
-                    color: 'white',
-                    padding: '4px 16px',
-                    borderRadius: '4px',
-                    background: theme.palette.primary.main,
-                    cursor: 'pointer'
-                  }}
-                >
-                  1
+              <TableContainer className='mt-4' component={Paper}>
+                <Table sx={{ minWidth: 650 }} stickyHeader aria-label='sticky table'>
+                  <TableHead>
+                    <TableRow>
+                      {['Group', 'Students', 'Actions'].map(header => (
+                        <TableCell align='left' sx={{ padding: 2, fontSize: '.8rem' }} key={header}>
+                          <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                            <ArrowDownwardIcon style={{ fontSize: '1rem' }} />
+                            {header}
+                          </Box>
+                        </TableCell>
+                      ))}
+                    </TableRow>
+                  </TableHead>
+                  <TableBody>
+                    <TableRow>
+                      <TableCell></TableCell>
+                      <TableCell>No Data Available In Table</TableCell>
+                      <TableCell></TableCell>
+                    </TableRow>
+                  </TableBody>
+                </Table>
+              </TableContainer>
+
+              {/* Pagination Section */}
+              <Stack spacing={2} direction='row' style={{ display: 'flex', marginTop: '20px' }}>
+                <Typography component='h3' variant='h6' style={{ fontSize: '.8rem' }}>
+                  Showing {startIndex} to {endIndex} of {records.length} entries
                 </Typography>
-                <Button
-                  size='small'
-                  style={{
-                    color: 'black',
-                    marginLeft: '10px',
-                    padding: '4px 8px',
-                    width: '30px',
-                    minWidth: 'auto',
-                    border: 'none'
-                  }}
-                >
-                  <ArrowForwardIcon style={{ transform: 'scale(0.8)' }} />
-                </Button>
-              </div>
-            </div>
+                <Pagination
+                  count={Math.ceil(records.length / rowsPerPage)} // Calculate number of pages based on total records and rows per page
+                  page={page}
+                  onChange={handlePageChange}
+                  shape='rounded'
+                  style={{ marginTop: '-10px', marginLeft: '35%' }}
+                />
+              </Stack>
+            </CardContent>
           </Card>
         </div>
       </div>
