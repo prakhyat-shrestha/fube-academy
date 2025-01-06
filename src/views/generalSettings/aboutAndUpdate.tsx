@@ -83,7 +83,7 @@ const AboutAndUpdateLayout = () => {
 
       <div className='aboutAndUpdate mt-4 ' style={{ display: 'flex' }}>
         {/* Upload From Local Directory Card */}
-        <Card sx={{ width: '40%', height: '20%' }}>
+        <Card sx={{ width: '35%', height: '20%' }}>
           <CardContent>
             <Typography variant='h6' component='h4'>
               Upload From Local Directory

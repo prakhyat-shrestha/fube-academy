@@ -34,7 +34,7 @@ const ItemReceiveLayout = () => {
       <div className='flex' style={{ display: 'flex' }}>
         {/* Receive Details card */}
         <div className='receiveDetail mt-4'>
-          <Card sx={{ width: 320, height: '98%' }}>
+          <Card sx={{ width: 350, height: '98%' }}>
             <CardContent>
               <Typography variant='h6' component='h4'>
                 Receive Details

@@ -1,37 +1,16 @@
 'use client'
-import React, { useRef } from 'react'
-
+import React from 'react'
 import Link from 'next/link'
-
-import { Typography, MenuItem } from '@mui/material'
-import Card from '@mui/material/Card'
-import CardContent from '@mui/material/CardContent'
-
-import Button from '@mui/material/Button'
+import { Typography, MenuItem, Card, CardContent, Button } from '@mui/material'
 import AddSharpIcon from '@mui/icons-material/AddSharp'
 import SearchSharpIcon from '@mui/icons-material/SearchSharp'
-
 import CustomTextField from '@core/components/mui/TextField'
 
 const StaffAttendanceLayout = () => {
-  const textFieldRef = useRef<HTMLInputElement>(null)
-
-  const handleFocus = () => {
-    if (textFieldRef.current) {
-      textFieldRef.current.placeholder = ''
-    }
-  }
-
-  const handleBlur = () => {
-    if (textFieldRef.current && textFieldRef.current.value === '') {
-      textFieldRef.current.placeholder = 'SEARCH'
-    }
-  }
-
   return (
     <>
       <div className='flex'>
-        <Typography variant='h5' component='h3'>
+        <Typography variant='h6' component='h3'>
           Staff Attendance
         </Typography>
         <nav style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center' }}>
@@ -49,10 +28,10 @@ const StaffAttendanceLayout = () => {
         </nav>
       </div>
       <div className='attend mt-4' style={{ flex: 1 }}>
-        <Card sx={{ width: '100%', height: '105%' }}>
+        <Card sx={{ width: '100%', height: 'auto' }}>
           <CardContent>
-            <div className='container' style={{ display: 'flex', gap: '79.5%' }}>
-              <Typography variant='h5' component='h4'>
+            <div className='container' style={{ display: 'flex', gap: '81.9%' }}>
+              <Typography variant='h6' component='h4'>
                 Select Criteria
               </Typography>
               <Button variant='contained' startIcon={<AddSharpIcon />}>
@@ -89,10 +68,10 @@ const StaffAttendanceLayout = () => {
                 label='Attendance Date'
                 id='custom-select'
                 type='date'
-                style={{ margin: '20px 35px 0 0 ', marginRight: '10px', width: '65%' }}
+                style={{ margin: '20px 0 0 0 ', width: '65%' }}
               />
             </div>
-            <div className='container' style={{ display: 'flex', marginLeft: '90%', marginTop: '20px' }}>
+            <div className='container' style={{ display: 'flex', justifyContent: 'flex-end', marginTop: '20px' }}>
               <Button variant='contained' startIcon={<SearchSharpIcon />}>
                 SEARCH
               </Button>

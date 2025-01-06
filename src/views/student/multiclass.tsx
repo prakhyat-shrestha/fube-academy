@@ -1,14 +1,10 @@
 import Link from 'next/link'
-
 import { Typography, MenuItem } from '@mui/material'
 import Card from '@mui/material/Card'
 import CardContent from '@mui/material/CardContent'
-
 import Button from '@mui/material/Button'
-
 import SearchSharpIcon from '@mui/icons-material/SearchSharp'
 import AddSharpIcon from '@mui/icons-material/AddSharp'
-
 import CustomTextField from '@core/components/mui/TextField'
 
 const MultiClassLayout = () => {
@@ -33,9 +29,9 @@ const MultiClassLayout = () => {
         </nav>
       </div>
       <div className='multiclass mt-4' style={{ flex: 1 }}>
-        <Card sx={{ width: '100%', height: '105%' }}>
+        <Card sx={{ width: '100%', height: 'auto' }}>
           <CardContent>
-            <div className='container' style={{ display: 'flex', gap: '73%' }}>
+            <div className='container' style={{ display: 'flex', gap: '73.4%' }}>
               <Typography variant='h6' component='h4'>
                 Select Criteria
               </Typography>
@@ -101,7 +97,7 @@ const MultiClassLayout = () => {
                 defaultValue='student'
                 label='STUDENT'
                 id='custom-select'
-                style={{ margin: '20px 35px 0 0 ', marginRight: '10px', width: '65%' }}
+                style={{ margin: '20px 0 0 0 ', width: '65%' }}
               >
                 <CustomTextField placeholder='Search...' style={{ padding: '0 6px 8px 6px', width: '100%' }} />
                 <MenuItem value='student'>
@@ -109,7 +105,7 @@ const MultiClassLayout = () => {
                 </MenuItem>
               </CustomTextField>
             </div>
-            <div className='container' style={{ display: 'flex', marginLeft: '90%', marginTop: '20px' }}>
+            <div className='container' style={{ display: 'flex', marginLeft: '90.8%', marginTop: '20px' }}>
               <Button variant='contained' startIcon={<SearchSharpIcon />}>
                 SEARCH
               </Button>

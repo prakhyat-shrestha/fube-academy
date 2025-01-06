@@ -1,40 +1,140 @@
 'use client'
 import * as React from 'react'
-import Card from '@mui/material/Card'
-import CardContent from '@mui/material/CardContent'
-import Button from '@mui/material/Button'
-import Typography from '@mui/material/Typography'
-import { TextField, InputAdornment } from '@mui/material'
+import {
+  Typography,
+  TextField,
+  InputAdornment,
+  Table,
+  TableContainer,
+  TableRow,
+  Paper,
+  TableHead,
+  TableBody,
+  TableCell,
+  Box,
+  Stack,
+  Pagination,
+  Card,
+  Button,
+  CardContent,
+  ButtonGroup
+} from '@mui/material'
 import SearchSharpIcon from '@mui/icons-material/SearchSharp'
-import ButtonGroup from '@mui/material/ButtonGroup'
-import { useRef } from 'react'
+import { useState } from 'react'
 import Link from 'next/link'
 import { Icon } from '@iconify/react/dist/iconify.js'
-import { createTheme } from '@mui/material/styles'
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward'
-import ArrowBackIcon from '@mui/icons-material/ArrowBack'
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
+
+const createStatusButton = (amount: string, paid: string) => {
+  // Convert amount and paid to numbers for comparison
+  const amountValue = parseFloat(amount)
+  const paidValue = parseFloat(paid)
+
+  // Determine the button content and style based on the conditions
+  if (amountValue === paidValue) {
+    return (
+      <Button
+        variant='contained'
+        sx={{
+          fontSize: '.8rem',
+          borderRadius: '5px',
+          padding: '4px 8px',
+          minWidth: 'auto',
+          backgroundColor: 'green', // Success color
+          color: 'white'
+        }}
+      >
+        Paid
+      </Button>
+    )
+  } else if (paidValue === 0) {
+    return (
+      <Button
+        variant='outlined'
+        sx={{
+          fontSize: '.8rem',
+          borderRadius: '5px',
+          padding: '4px 8px',
+          minWidth: 'auto',
+          backgroundColor: 'red', // Danger color
+          color: 'white'
+        }}
+      >
+        Unpaid
+      </Button>
+    )
+  } else {
+    return (
+      <Button
+        variant='outlined'
+        sx={{
+          fontSize: '.8rem',
+          borderRadius: '5px',
+          padding: '4px 8px',
+          minWidth: 'auto',
+          backgroundColor: 'yellow', // Warning color
+          color: 'black'
+        }}
+      >
+        Partial
+      </Button>
+    )
+  }
+}
+
+const records = Array.from({ length: 10 }, (_, index) => {
+  // Define Amount and Paid arrays
+  const amounts = ['150.00', '75.00', '150.00', '75.00', '300.00', '500.00', '120.00', '200.00', '350.00', '100.00']
+  const paid = ['140.00', '75.00', '140.00', '00.00', '250.00', '450.00', '105.00', '00.00', '315.00', '100.00']
+
+  // Calculate balance dynamically by subtracting Amount from Paid
+  const balance = (parseFloat(amounts[index]) - parseFloat(paid[index])).toFixed(2)
+
+  return {
+    SL: index + 1, // Sequential index for SL
+    Name: ['Test 1', 'Test 2', 'Test 3', 'Test 4', 'Test 5', 'Test 6', 'Test 7', 'Test 8', 'Test 9', 'Test 10'][index], // Dynamic Name based on index
+    Amount: amounts[index], // Dynamic Amount based on index
+    Waiver: '0.00',
+    Fine: '0.00',
+    Paid: paid[index], // Dynamic Paid based on index
+    Balance: balance, // Dynamically calculated Balance
+    Date: '2081/09/15',
+    Action: (
+      <Button
+        variant='outlined'
+        startIcon={<ArrowDownwardIcon />}
+        sx={{
+          fontSize: '.8rem',
+          borderRadius: '20px',
+          padding: '4px 8px',
+          minWidth: 'auto',
+          '& .MuiButton-startIcon': {
+            marginRight: 0
+          }
+        }}
+      >
+        SELECT
+      </Button>
+    )
+  }
+})
+
 const FeesInvoiceList = () => {
-  const textFieldRef = useRef<HTMLInputElement>(null)
+  const [page, setPage] = useState(1) // Page starts at 1
+  const [rowsPerPage, setRowsPerPage] = useState(5) // Show 5 rows per page
 
-  const handleFocus = () => {
-    if (textFieldRef.current) {
-      textFieldRef.current.placeholder = ''
-    }
+  const handlePageChange = (event: React.ChangeEvent<unknown>, value: number) => {
+    setPage(value)
   }
 
-  const handleBlur = () => {
-    if (textFieldRef.current && textFieldRef.current.value === '') {
-      textFieldRef.current.placeholder = 'SEARCH'
-    }
+  const handleRowsPerPageChange = (event: React.ChangeEvent<{ value: string }>) => {
+    setRowsPerPage(parseInt(event.target.value, 10))
+    setPage(1) // Reset to first page when changing rows per page
   }
-  const theme = createTheme({
-    palette: {
-      primary: {
-        main: '#1976d2'
-      }
-    }
-  })
+
+  const startIndex = (page - 1) * rowsPerPage + 1
+  const endIndex = Math.min(page * rowsPerPage, records.length)
+
   return (
     <>
       <div className='flex '>
@@ -58,7 +158,7 @@ const FeesInvoiceList = () => {
 
       {/* Fees Invoice list 1st card */}
       <div className='feesInvoiceList mt-4 ' style={{ flex: 1 }}>
-        <Card sx={{ width: '100%', height: '105%' }}>
+        <Card sx={{ width: '100%', height: 'auto' }}>
           <CardContent>
             <div style={{ display: 'flex', alignItems: 'center' }}>
               <Typography variant='h6' component='h3' style={{ flex: 1, marginRight: '16%' }}>
@@ -69,9 +169,6 @@ const FeesInvoiceList = () => {
                   id='standard-search'
                   variant='standard'
                   placeholder='QUICK SEARCH'
-                  inputRef={textFieldRef}
-                  onFocus={handleFocus}
-                  onBlur={handleBlur}
                   InputProps={{
                     startAdornment: (
                       <InputAdornment position='start'>
@@ -116,469 +213,61 @@ const FeesInvoiceList = () => {
                     <Icon icon='fa:print' style={{ fontSize: '1rem' }} />
                   </Button>
                   <Button title='Action'>
-                    <Icon
-                      icon='mdi:table'
-                      style={{
-                        fontSize: '1.3rem'
-                      }}
-                    />
+                    <Icon icon='mdi:table' style={{ fontSize: '1.3rem' }} />
                   </Button>
                 </ButtonGroup>
               </div>
             </div>
             {/* Table */}
-            <div style={{ marginTop: '20px' }}>
-              <table style={{ width: '100%', borderCollapse: 'collapse' }}>
-                <thead>
-                  <tr>
-                    <th
-                      style={{
-                        padding: '8px',
-                        textAlign: 'left',
-                        backgroundColor: 'lightgray',
-                        borderRadius: '5px 0 0 5px',
-                        position: 'relative' // Required for rounded corners
-                      }}
-                    >
-                      <div style={{ display: 'flex', alignItems: 'center' }}>
-                        <ArrowDownwardIcon style={{ marginRight: '8px' }} />
-                        <span>SL</span>
-                      </div>
-                    </th>
-                    <th
-                      style={{
-                        padding: '8px',
-                        textAlign: 'left',
-                        backgroundColor: 'lightgray',
-                        position: 'relative' // Required for rounded corners
-                      }}
-                    >
-                      <div style={{ display: 'flex', alignItems: 'center' }}>
-                        <ArrowDownwardIcon style={{ marginRight: '8px' }} />
-                        <span>Student</span>
-                      </div>
-                    </th>
-                    <th
-                      style={{
-                        padding: '8px',
-                        textAlign: 'left',
-                        backgroundColor: 'lightgray'
-                      }}
-                    >
-                      <div style={{ display: 'flex', alignItems: 'center' }}>
-                        <ArrowDownwardIcon style={{ marginRight: '8px' }} />
-                        <span>Amount</span>
-                      </div>
-                    </th>
-                    <th
-                      style={{
-                        padding: '8px',
-                        textAlign: 'left',
-                        backgroundColor: 'lightgray'
-                      }}
-                    >
-                      <div style={{ display: 'flex', alignItems: 'center' }}>
-                        <ArrowDownwardIcon style={{ marginRight: '8px' }} />
-                        <span>Waiver</span>
-                      </div>
-                    </th>
-                    <th
-                      style={{
-                        padding: '8px',
-                        textAlign: 'left',
-                        backgroundColor: 'lightgray'
-                      }}
-                    >
-                      <div style={{ display: 'flex', alignItems: 'center' }}>
-                        <ArrowDownwardIcon style={{ marginRight: '8px' }} />
-                        <span>Fine</span>
-                      </div>
-                    </th>
-                    <th
-                      style={{
-                        padding: '8px',
-                        textAlign: 'left',
-                        backgroundColor: 'lightgray'
-                      }}
-                    >
-                      <div style={{ display: 'flex', alignItems: 'center' }}>
-                        <ArrowDownwardIcon style={{ marginRight: '8px' }} />
-                        <span>Paid</span>
-                      </div>
-                    </th>
-                    <th
-                      style={{
-                        padding: '8px',
-                        textAlign: 'left',
-                        backgroundColor: 'lightgray'
-                      }}
-                    >
-                      <div style={{ display: 'flex', alignItems: 'center' }}>
-                        <ArrowDownwardIcon style={{ marginRight: '8px' }} />
-                        <span>Balance</span>
-                      </div>
-                    </th>
-                    <th
-                      style={{
-                        padding: '8px',
-                        textAlign: 'left',
-                        backgroundColor: 'lightgray'
-                      }}
-                    >
-                      <div style={{ display: 'flex', alignItems: 'center' }}>
-                        <ArrowDownwardIcon style={{ marginRight: '8px' }} />
-                        <span>Status</span>
-                      </div>
-                    </th>
+            <TableContainer className='mt-4' component={Paper}>
+              <Table sx={{ minWidth: 650 }} stickyHeader aria-label='sticky table'>
+                <TableHead>
+                  <TableRow>
+                    {['SL', 'Student', 'Amount', 'Waiver', 'Fine', 'Paid', 'Balance', 'Status', 'Date', 'Action'].map(
+                      header => (
+                        <TableCell align='left' sx={{ padding: 2, fontSize: '.8rem' }} key={header}>
+                          <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                            <ArrowDownwardIcon style={{ fontSize: '1rem' }} />
+                            {header}
+                          </Box>
+                        </TableCell>
+                      )
+                    )}
+                  </TableRow>
+                </TableHead>
+                <TableBody>
+                  {records.slice((page - 1) * rowsPerPage, page * rowsPerPage).map(record => (
+                    <TableRow key={record.SL}>
+                      <TableCell>{record.SL}</TableCell>
+                      <TableCell>{record.Name}</TableCell>
+                      <TableCell>{record.Amount}</TableCell>
+                      <TableCell>{record.Waiver}</TableCell>
+                      <TableCell>{record.Fine}</TableCell>
+                      <TableCell>{record.Paid}</TableCell>
+                      <TableCell>{record.Balance}</TableCell>
+                      <TableCell>{createStatusButton(record.Amount, record.Paid)}</TableCell>
+                      <TableCell>{record.Date}</TableCell>
+                      <TableCell>{record.Action}</TableCell>
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
+            </TableContainer>
 
-                    <th
-                      style={{
-                        padding: '8px',
-                        textAlign: 'left',
-                        backgroundColor: 'lightgray'
-                      }}
-                    >
-                      <div style={{ display: 'flex', alignItems: 'center' }}>
-                        <ArrowDownwardIcon style={{ marginRight: '8px' }} />
-                        <span>Date</span>
-                      </div>
-                    </th>
-                    <th
-                      style={{
-                        padding: '8px',
-                        textAlign: 'left',
-                        backgroundColor: 'lightgray',
-                        borderRadius: '0 5px 5px 0'
-                      }}
-                    >
-                      <div style={{ display: 'flex', alignItems: 'center' }}>
-                        <ArrowDownwardIcon style={{ marginRight: '8px' }} />
-                        <span>Action</span>
-                      </div>
-                    </th>
-                  </tr>
-                </thead>
-                {/*------ Body Section ------ */}
-                <tbody>
-                  <tr style={{ borderBottom: '1px solid #ddd' }}>
-                    <td style={{ padding: '8px', display: 'flex', alignItems: 'center' }}>
-                      <span style={{ marginLeft: 8 }}>1</span> {/* Adjust margin for spacing */}
-                    </td>
-                    <td style={{ padding: '8px' }}>STUDENT NAME</td>
-                    <td style={{ padding: '8px' }}>AMOUNT</td>
-                    <td style={{ padding: '8px' }}>WAIVER</td>
-                    <td style={{ padding: '8px' }}>FINE </td>
-                    <td style={{ padding: '8px' }}>PAID</td>
-                    <td style={{ padding: '8px' }}>BALANCE</td>
-                    <td style={{ padding: '5px' }}>
-                      <Button variant='outlined' size='small' style={{ borderRadius: '5px' }}>
-                        STATUS
-                      </Button>
-                    </td>
-                    <td style={{ padding: '8px' }}>DATE</td>
-                    <td style={{ padding: '8px' }}>ACTIONS</td>
-                  </tr>
-                  <tr style={{ borderBottom: '1px solid #ddd' }}>
-                    <td style={{ padding: '8px', display: 'flex', alignItems: 'center' }}>
-                      <span style={{ marginLeft: 8 }}>2</span> {/* Adjust margin for spacing */}
-                    </td>
-                    <td style={{ padding: '8px' }}>STUDENT NAME</td>
-                    <td style={{ padding: '8px' }}>AMOUNT</td>
-                    <td style={{ padding: '8px' }}>WAIVER</td>
-                    <td style={{ padding: '8px' }}>FINE </td>
-                    <td style={{ padding: '8px' }}>PAID</td>
-                    <td style={{ padding: '8px' }}>BALANCE</td>
-                    <td style={{ padding: '5px' }}>
-                      <Button variant='outlined' size='small' style={{ borderRadius: '5px' }}>
-                        STATUS
-                      </Button>
-                    </td>
-                    <td style={{ padding: '8px' }}>DATE</td>
-                    <td style={{ padding: '8px' }}>ACTIONS</td>
-                  </tr>
-                  <tr style={{ borderBottom: '1px solid #ddd' }}>
-                    <td style={{ padding: '8px', display: 'flex', alignItems: 'center' }}>
-                      <span style={{ marginLeft: 8 }}>3</span> {/* Adjust margin for spacing */}
-                    </td>
-                    <td style={{ padding: '8px' }}>STUDENT NAME</td>
-                    <td style={{ padding: '8px' }}>AMOUNT</td>
-                    <td style={{ padding: '8px' }}>WAIVER</td>
-                    <td style={{ padding: '8px' }}>FINE </td>
-                    <td style={{ padding: '8px' }}>PAID</td>
-                    <td style={{ padding: '8px' }}>BALANCE</td>
-                    <td style={{ padding: '5px' }}>
-                      <Button variant='outlined' size='small' style={{ borderRadius: '5px' }}>
-                        STATUS
-                      </Button>
-                    </td>
-                    <td style={{ padding: '8px' }}>DATE</td>
-                    <td style={{ padding: '8px' }}>ACTIONS</td>
-                  </tr>
-                  <tr style={{ borderBottom: '1px solid #ddd' }}>
-                    <td style={{ padding: '8px', display: 'flex', alignItems: 'center' }}>
-                      <span style={{ marginLeft: 8 }}>4</span> {/* Adjust margin for spacing */}
-                    </td>
-                    <td style={{ padding: '8px' }}>STUDENT NAME</td>
-                    <td style={{ padding: '8px' }}>AMOUNT</td>
-                    <td style={{ padding: '8px' }}>WAIVER</td>
-                    <td style={{ padding: '8px' }}>FINE </td>
-                    <td style={{ padding: '8px' }}>PAID</td>
-                    <td style={{ padding: '8px' }}>BALANCE</td>
-                    <td style={{ padding: '5px' }}>
-                      <Button variant='outlined' size='small' style={{ borderRadius: '5px' }}>
-                        STATUS
-                      </Button>
-                    </td>
-                    <td style={{ padding: '8px' }}>DATE</td>
-                    <td style={{ padding: '8px' }}>ACTIONS</td>
-                  </tr>
-                  <tr style={{ borderBottom: '1px solid #ddd' }}>
-                    <td style={{ padding: '8px', display: 'flex', alignItems: 'center' }}>
-                      <span style={{ marginLeft: 8 }}>5</span> {/* Adjust margin for spacing */}
-                    </td>
-                    <td style={{ padding: '8px' }}>STUDENT NAME</td>
-                    <td style={{ padding: '8px' }}>AMOUNT</td>
-                    <td style={{ padding: '8px' }}>WAIVER</td>
-                    <td style={{ padding: '8px' }}>FINE </td>
-                    <td style={{ padding: '8px' }}>PAID</td>
-                    <td style={{ padding: '8px' }}>BALANCE</td>
-                    <td style={{ padding: '5px' }}>
-                      <Button variant='outlined' size='small' style={{ borderRadius: '5px' }}>
-                        STATUS
-                      </Button>
-                    </td>
-                    <td style={{ padding: '8px' }}>DATE</td>
-                    <td style={{ padding: '8px' }}>ACTIONS</td>
-                  </tr>
-                  <tr style={{ borderBottom: '1px solid #ddd' }}>
-                    <td style={{ padding: '8px', display: 'flex', alignItems: 'center' }}>
-                      <span style={{ marginLeft: 8 }}>6</span> {/* Adjust margin for spacing */}
-                    </td>
-                    <td style={{ padding: '8px' }}>STUDENT NAME</td>
-                    <td style={{ padding: '8px' }}>AMOUNT</td>
-                    <td style={{ padding: '8px' }}>WAIVER</td>
-                    <td style={{ padding: '8px' }}>FINE </td>
-                    <td style={{ padding: '8px' }}>PAID</td>
-                    <td style={{ padding: '8px' }}>BALANCE</td>
-                    <td style={{ padding: '5px' }}>
-                      <Button variant='outlined' size='small' style={{ borderRadius: '5px' }}>
-                        STATUS
-                      </Button>
-                    </td>
-                    <td style={{ padding: '8px' }}>DATE</td>
-                    <td style={{ padding: '8px' }}>ACTIONS</td>
-                  </tr>
-                  <tr style={{ borderBottom: '1px solid #ddd' }}>
-                    <td style={{ padding: '8px', display: 'flex', alignItems: 'center' }}>
-                      <span style={{ marginLeft: 8 }}>7</span> {/* Adjust margin for spacing */}
-                    </td>
-                    <td style={{ padding: '8px' }}>STUDENT NAME</td>
-                    <td style={{ padding: '8px' }}>AMOUNT</td>
-                    <td style={{ padding: '8px' }}>WAIVER</td>
-                    <td style={{ padding: '8px' }}>FINE </td>
-                    <td style={{ padding: '8px' }}>PAID</td>
-                    <td style={{ padding: '8px' }}>BALANCE</td>
-                    <td style={{ padding: '5px' }}>
-                      <Button variant='outlined' size='small' style={{ borderRadius: '5px' }}>
-                        STATUS
-                      </Button>
-                    </td>
-                    <td style={{ padding: '8px' }}>DATE</td>
-                    <td style={{ padding: '8px' }}>ACTIONS</td>
-                  </tr>
-                  <tr style={{ borderBottom: '1px solid #ddd' }}>
-                    <td style={{ padding: '8px', display: 'flex', alignItems: 'center' }}>
-                      <span style={{ marginLeft: 8 }}>8</span> {/* Adjust margin for spacing */}
-                    </td>
-                    <td style={{ padding: '8px' }}>STUDENT NAME</td>
-                    <td style={{ padding: '8px' }}>AMOUNT</td>
-                    <td style={{ padding: '8px' }}>WAIVER</td>
-                    <td style={{ padding: '8px' }}>FINE </td>
-                    <td style={{ padding: '8px' }}>PAID</td>
-                    <td style={{ padding: '8px' }}>BALANCE</td>
-                    <td style={{ padding: '5px' }}>
-                      <Button variant='outlined' size='small' style={{ borderRadius: '5px' }}>
-                        STATUS
-                      </Button>
-                    </td>
-                    <td style={{ padding: '8px' }}>DATE</td>
-                    <td style={{ padding: '8px' }}>ACTIONS</td>
-                  </tr>
-                  <tr style={{ borderBottom: '1px solid #ddd' }}>
-                    <td style={{ padding: '8px', display: 'flex', alignItems: 'center' }}>
-                      <span style={{ marginLeft: 8 }}>9</span> {/* Adjust margin for spacing */}
-                    </td>
-                    <td style={{ padding: '8px' }}>STUDENT NAME</td>
-                    <td style={{ padding: '8px' }}>AMOUNT</td>
-                    <td style={{ padding: '8px' }}>WAIVER</td>
-                    <td style={{ padding: '8px' }}>FINE </td>
-                    <td style={{ padding: '8px' }}>PAID</td>
-                    <td style={{ padding: '8px' }}>BALANCE</td>
-                    <td style={{ padding: '5px' }}>
-                      <Button variant='outlined' size='small' style={{ borderRadius: '5px' }}>
-                        STATUS
-                      </Button>
-                    </td>
-                    <td style={{ padding: '8px' }}>DATE</td>
-                    <td style={{ padding: '8px' }}>ACTIONS</td>
-                  </tr>
-                  <tr style={{ borderBottom: '1px solid #ddd' }}>
-                    <td style={{ padding: '8px', display: 'flex', alignItems: 'center' }}>
-                      <span style={{ marginLeft: 8 }}>10</span> {/* Adjust margin for spacing */}
-                    </td>
-                    <td style={{ padding: '8px' }}>STUDENT NAME</td>
-                    <td style={{ padding: '8px' }}>AMOUNT</td>
-                    <td style={{ padding: '8px' }}>WAIVER</td>
-                    <td style={{ padding: '8px' }}>FINE </td>
-                    <td style={{ padding: '8px' }}>PAID</td>
-                    <td style={{ padding: '8px' }}>BALANCE</td>
-                    <td style={{ padding: '5px' }}>
-                      <Button variant='outlined' size='small' style={{ borderRadius: '5px' }}>
-                        STATUS
-                      </Button>
-                    </td>
-                    <td style={{ padding: '8px' }}>DATE</td>
-                    <td style={{ padding: '8px' }}>ACTIONS</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+            {/* Pagination Section */}
+            <Stack spacing={2} direction='row' style={{ display: 'flex', marginTop: '20px' }}>
+              <Typography component='h3' variant='h6' style={{ fontSize: '.8rem' }}>
+                Showing {startIndex} to {endIndex} of {records.length} entries
+              </Typography>
+              <Pagination
+                count={Math.ceil(records.length / rowsPerPage)} // Calculate number of pages based on total records and rows per page
+                page={page}
+                onChange={handlePageChange}
+                shape='rounded'
+                style={{ marginTop: '-10px', marginLeft: '25%' }}
+              />
+            </Stack>
           </CardContent>
-          {/* Pagination */}
-          <div style={{ display: 'flex', justifyContent: 'space-between', padding: '16px' }}>
-            <Typography variant='body2' style={{ marginLeft: '16px' }}>
-              Showing 1 to 10 of 55 entries
-            </Typography>
-            <div
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                margin: 'auto',
-                cursor: 'pointer'
-              }}
-            >
-              <Button
-                size='small'
-                style={{
-                  color: 'black',
-                  marginRight: '10px',
-                  padding: '4px 8px',
-                  width: '30px',
-                  minWidth: 'auto',
-                  border: 'none'
-                }}
-              >
-                <ArrowBackIcon style={{ fontSize: '16px' }} />
-              </Button>
-              <Typography
-                variant='body2'
-                sx={{
-                  color: 'white',
-                  padding: '8px 16px',
-                  borderRadius: '4px',
-                  cursor: 'pointer',
-                  fontSize: '0.75rem',
-                  marginRight: '8px',
-                  background: theme.palette.primary.main,
-                  '&:hover': {
-                    background: theme.palette.primary.main
-                  }
-                }}
-              >
-                1
-              </Typography>
-              <Typography
-                variant='body2'
-                sx={{
-                  color: 'black',
-                  padding: '8px 16px',
-                  borderRadius: '4px',
-                  background: 'transparent',
-                  cursor: 'pointer',
-                  fontSize: '0.75rem',
-                  marginRight: '8px',
-                  transition: 'background 0.3s ease',
-                  '&:hover': {
-                    color: 'white',
-                    background: theme.palette.primary.main
-                  }
-                }}
-              >
-                2
-              </Typography>
-              <Typography
-                variant='body2'
-                sx={{
-                  color: 'black',
-                  padding: '8px 16px',
-                  borderRadius: '4px',
-                  background: 'transparent',
-                  cursor: 'pointer',
-                  fontSize: '0.75rem',
-                  marginRight: '8px',
-                  transition: 'background 0.3s ease',
-                  '&:hover': {
-                    color: 'white',
-                    background: theme.palette.primary.main
-                  }
-                }}
-              >
-                3
-              </Typography>
-              <Typography
-                variant='body2'
-                sx={{
-                  color: 'black',
-                  padding: '8px 16px',
-                  borderRadius: '4px',
-                  background: 'transparent',
-                  cursor: 'pointer',
-                  fontSize: '0.75rem',
-                  marginRight: '8px',
-                  transition: 'background 0.3s ease',
-                  '&:hover': {
-                    color: 'white',
-                    background: theme.palette.primary.main
-                  }
-                }}
-              >
-                4
-              </Typography>
-              <Typography
-                variant='body2'
-                sx={{
-                  color: 'black',
-                  padding: '8px 16px',
-                  borderRadius: '4px',
-                  background: 'transparent',
-                  cursor: 'pointer',
-                  fontSize: '0.75rem',
-                  transition: 'background 0.3s ease',
-                  '&:hover': {
-                    color: 'white',
-                    background: theme.palette.primary.main
-                  }
-                }}
-              >
-                5
-              </Typography>
-
-              <Button
-                size='small'
-                style={{
-                  color: 'black',
-                  marginLeft: '10px',
-                  padding: '4px 8px',
-                  width: '30px',
-                  minWidth: 'auto',
-                  border: 'none'
-                }}
-              >
-                <ArrowForwardIcon style={{ transform: 'scale(0.8)' }} />
-              </Button>
-            </div>
-          </div>
         </Card>
       </div>
     </>

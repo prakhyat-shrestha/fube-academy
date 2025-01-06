@@ -1,37 +1,15 @@
 'use client'
-import React, { useRef } from 'react'
-
+import React from 'react'
 import Link from 'next/link'
-
-import { Typography, MenuItem } from '@mui/material'
-import Card from '@mui/material/Card'
-import CardContent from '@mui/material/CardContent'
-
-import Button from '@mui/material/Button'
-import AddSharpIcon from '@mui/icons-material/AddSharp'
+import { Typography, MenuItem, Button, Card, CardContent } from '@mui/material'
 import SearchSharpIcon from '@mui/icons-material/SearchSharp'
-
 import CustomTextField from '@core/components/mui/TextField'
 
 const StaffPayrollLayout = () => {
-  const textFieldRef = useRef<HTMLInputElement>(null)
-
-  const handleFocus = () => {
-    if (textFieldRef.current) {
-      textFieldRef.current.placeholder = ''
-    }
-  }
-
-  const handleBlur = () => {
-    if (textFieldRef.current && textFieldRef.current.value === '') {
-      textFieldRef.current.placeholder = 'SEARCH'
-    }
-  }
-
   return (
     <>
       <div className='flex'>
-        <Typography variant='h5' component='h3'>
+        <Typography variant='h6' component='h3'>
           Generate Payroll
         </Typography>
         <nav style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center' }}>
@@ -52,7 +30,7 @@ const StaffPayrollLayout = () => {
         <Card sx={{ width: '100%', height: '105%' }}>
           <CardContent>
             <div className='container' style={{ display: 'flex', gap: '72%' }}>
-              <Typography variant='h5' component='h4'>
+              <Typography variant='h6' component='h4'>
                 Select Criteria
               </Typography>
             </div>
@@ -113,7 +91,7 @@ const StaffPayrollLayout = () => {
                 defaultValue='year'
                 label='YEAR'
                 id='custom-select'
-                style={{ margin: '20px 35px 0 0 ', width: '65%' }}
+                style={{ margin: '20px 0 0 0 ', width: '65%' }}
               >
                 <CustomTextField required placeholder='Search...' style={{ padding: '0 6px 8px 6px', width: '100%' }} />
                 <MenuItem value='selectmth'>
@@ -124,7 +102,7 @@ const StaffPayrollLayout = () => {
                 <MenuItem value='2079'>2079</MenuItem>
               </CustomTextField>
             </div>
-            <div className='container' style={{ display: 'flex', marginLeft: '90%', marginTop: '20px' }}>
+            <div className='container' style={{ display: 'flex', justifyContent: 'flex-end', marginTop: '20px' }}>
               <Button variant='contained' startIcon={<SearchSharpIcon />}>
                 SEARCH
               </Button>

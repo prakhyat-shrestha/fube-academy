@@ -1,16 +1,53 @@
+'use client'
 import * as React from 'react'
 import CustomTextField from '@/@core/components/mui/TextField'
 import CheckSharpIcon from '@mui/icons-material/CheckSharp'
 import SearchSharpIcon from '@mui/icons-material/SearchSharp'
-import ButtonGroup from '@mui/material/ButtonGroup'
 import Link from 'next/link'
 import { Icon } from '@iconify/react/dist/iconify.js'
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward'
-import ArrowBackIcon from '@mui/icons-material/ArrowBack'
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
-import { Button, Card, CardContent, Typography, CardActions, TextField, InputAdornment } from '@mui/material'
+import { useState } from 'react'
+import {
+  Typography,
+  TextField,
+  InputAdornment,
+  Table,
+  TableContainer,
+  TableRow,
+  Paper,
+  TableHead,
+  TableBody,
+  TableCell,
+  Box,
+  Stack,
+  Pagination,
+  CardContent,
+  Card,
+  Button,
+  ButtonGroup,
+  CardActions,
+  MenuItem
+} from '@mui/material'
+
+const records = Array.from({ length: 0 }, (_, index) => ({}))
 
 const RoomTypeLayout = () => {
+  const [page, setPage] = useState(1) // Page starts at 1
+  const [rowsPerPage, setRowsPerPage] = useState(5) // Show 5 rows per page
+
+  const handlePageChange = (event: React.ChangeEvent<unknown>, value: number) => {
+    setPage(value)
+  }
+
+  const handleRowsPerPageChange = (event: React.ChangeEvent<{ value: string }>) => {
+    setRowsPerPage(parseInt(event.target.value, 10))
+    setPage(1) // Reset to first page when changing rows per page
+  }
+
+  // const startIndex = (page - 1) * rowsPerPage + 1
+  const startIndex = (page - 1) * rowsPerPage
+  const endIndex = Math.min(page * rowsPerPage, records.length)
+
   return (
     <>
       <div className='flex '>
@@ -34,7 +71,7 @@ const RoomTypeLayout = () => {
       <div className='flex' style={{ display: 'flex' }}>
         {/* Add Room Type  first card */}
         <div className='roomType mt-4'>
-          <Card sx={{ width: 280, height: 325 }}>
+          <Card sx={{ width: 350, height: 325 }}>
             <CardContent>
               <Typography variant='h6' component='h3'>
                 Add Room Type
@@ -57,7 +94,7 @@ const RoomTypeLayout = () => {
 
         {/* Room Type 2nd card */}
         <div className='roomTypeList mt-4 mx-6' style={{ flex: 1 }}>
-          <Card sx={{ width: '102.3%', height: 275 }}>
+          <Card sx={{ width: '102.3%', height: 'auto' }}>
             <CardContent>
               <div style={{ display: 'flex', alignItems: 'center' }}>
                 <Typography variant='h6' component='h3' style={{ flex: 1, marginRight: '12%' }}>
@@ -123,132 +160,45 @@ const RoomTypeLayout = () => {
                 </div>
               </div>
               {/* Table */}
-              <div style={{ marginTop: '20px' }}>
-                <table style={{ width: '100%', borderCollapse: 'collapse' }}>
-                  <thead>
-                    <tr>
-                      <th
-                        style={{
-                          padding: '8px',
-                          textAlign: 'left',
-                          backgroundColor: 'lightgray',
-                          borderRadius: '5px 0 0 5px',
-                          position: 'relative' // Required for rounded corners
-                        }}
-                      >
-                        <div style={{ display: 'flex', alignItems: 'center' }}>
-                          <ArrowDownwardIcon style={{ marginRight: '8px' }} />
-                          <span>SL</span>
-                        </div>
-                      </th>
-                      <th
-                        style={{
-                          padding: '8px',
-                          textAlign: 'left',
-                          backgroundColor: 'lightgray'
-                        }}
-                      >
-                        <div style={{ display: 'flex', alignItems: 'center' }}>
-                          <ArrowDownwardIcon style={{ marginRight: '8px' }} />
-                          <span>Room Type</span>
-                        </div>
-                      </th>
-                      <th
-                        style={{
-                          padding: '8px',
-                          textAlign: 'left',
-                          backgroundColor: 'lightgray'
-                        }}
-                      >
-                        <div style={{ display: 'flex', alignItems: 'center' }}>
-                          <ArrowDownwardIcon style={{ marginRight: '8px' }} />
-                          <span>Description</span>
-                        </div>
-                      </th>
-                      <th
-                        style={{
-                          padding: '8px',
-                          textAlign: 'left',
-                          backgroundColor: 'lightgray',
-                          borderRadius: '0 5px 5px 0'
-                        }}
-                      >
-                        <div style={{ display: 'flex', alignItems: 'center' }}>
-                          <ArrowDownwardIcon style={{ marginRight: '8px' }} />
-                          <span>Action</span>
-                        </div>
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr style={{ borderBottom: '1px solid #ddd' }}>
-                      <td style={{ padding: '5px 15px 5px 25px' }}>Sample 1</td>
-                      <td style={{ padding: '5px 15px 5px 25px' }}>Sample 1</td>
-                      <td style={{ padding: '5px 15px 5px 25px' }}>Sample 1</td>
-                      <td style={{ padding: '5px 15px 5px 25px' }}>
-                        <Button variant='outlined' size='small' style={{ borderRadius: '20px' }}>
-                          SELECT <ArrowDownwardIcon />
-                        </Button>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </CardContent>
-            {/* Pagination */}
-            <div style={{ display: 'flex', justifyContent: 'space-between', padding: '16px' }}>
-              <Typography variant='body2' style={{ marginLeft: '16px' }}>
-                Showing 1 to 1 of 1 entries
-              </Typography>
-              <div
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  margin: 'auto',
-                  cursor: 'pointer'
-                }}
-              >
-                <Button
-                  size='small'
-                  style={{
-                    color: 'black',
-                    marginRight: '10px',
-                    padding: '4px 8px',
-                    width: '30px',
-                    minWidth: 'auto',
-                    border: 'none'
-                  }}
-                >
-                  <ArrowBackIcon style={{ fontSize: '16px' }} />
-                </Button>
-                <Typography
-                  variant='body2'
-                  sx={{
-                    color: 'white',
-                    padding: '4px 16px',
-                    borderRadius: '4px',
-                    background: '#8c7cf7',
-                    cursor: 'pointer'
-                  }}
-                >
-                  1
+              <TableContainer className='mt-4' component={Paper}>
+                <Table sx={{ minWidth: 650 }} stickyHeader aria-label='sticky table'>
+                  <TableHead>
+                    <TableRow>
+                      {['SL', 'Room Type', 'Description', 'Action'].map(header => (
+                        <TableCell align='left' sx={{ padding: 2, fontSize: '.8rem' }} key={header}>
+                          <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                            <ArrowDownwardIcon style={{ fontSize: '1rem' }} />
+                            {header}
+                          </Box>
+                        </TableCell>
+                      ))}
+                    </TableRow>
+                  </TableHead>
+                  <TableBody>
+                    <TableRow>
+                      <TableCell></TableCell>
+                      <TableCell></TableCell>
+                      <TableCell>No Data Available In Table</TableCell>
+                      <TableCell></TableCell>
+                    </TableRow>
+                  </TableBody>
+                </Table>
+              </TableContainer>
+
+              {/* Pagination Section */}
+              <Stack spacing={2} direction='row' style={{ display: 'flex', marginTop: '20px' }}>
+                <Typography component='h3' variant='h6' style={{ fontSize: '.8rem' }}>
+                  Showing {startIndex} to {endIndex} of {records.length} entries
                 </Typography>
-                <Button
-                  size='small'
-                  style={{
-                    color: 'black',
-                    marginLeft: '10px',
-                    padding: '4px 8px',
-                    width: '30px',
-                    minWidth: 'auto',
-                    border: 'none'
-                  }}
-                >
-                  <ArrowForwardIcon style={{ transform: 'scale(0.8)' }} />
-                </Button>
-              </div>
-            </div>
+                <Pagination
+                  count={Math.ceil(records.length / rowsPerPage)} // Calculate number of pages based on total records and rows per page
+                  page={page}
+                  onChange={handlePageChange}
+                  shape='rounded'
+                  style={{ marginTop: '-10px', marginLeft: '35%' }}
+                />
+              </Stack>
+            </CardContent>
           </Card>
         </div>
       </div>

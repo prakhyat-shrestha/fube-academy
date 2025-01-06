@@ -161,7 +161,7 @@ const AddStaffLayout = () => {
   return (
     <>
       <div className='flex '>
-        <Typography variant='h5' component='h3'>
+        <Typography variant='h6' component='h3'>
           Add New Staff
         </Typography>
         <nav style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center' }}>
@@ -189,7 +189,7 @@ const AddStaffLayout = () => {
         }}
       >
         <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-          <Typography variant='h5' style={{ margin: '20px' }}>
+          <Typography variant='h6' style={{ margin: '20px' }}>
             Staff Information
           </Typography>
 
@@ -392,7 +392,7 @@ const AddStaffLayout = () => {
                 <div className='container' style={{ display: 'flex', justifyContent: 'space-between' }}>
                   <div className='academic mx-4 mb-4 ' style={{ width: '50%' }}>
                     <div className='sectionOne' style={{ display: 'flex', width: '100%' }}>
-                      <Typography variant='h5' style={{ width: '47.5%', marginRight: '5%' }}>
+                      <Typography variant='h6' style={{ width: '47.5%', marginRight: '5%' }}>
                         <CustomTextField
                           value='Staff Photo'
                           label='STAFF PHOTO'
@@ -582,7 +582,7 @@ const AddStaffLayout = () => {
               <TabPanel value='document_info'>
                 <div className='container' style={{ display: 'flex', justifyContent: 'space-between' }}>
                   <div className='sectionOne' style={{ display: 'flex', width: '100%' }}>
-                    <Typography variant='h5' style={{ width: '47.5%', marginRight: '5%' }}>
+                    <Typography variant='h6' style={{ width: '47.5%', marginRight: '5%' }}>
                       <CustomTextField
                         placeholder='Resume'
                         label='RESUME'
@@ -602,7 +602,7 @@ const AddStaffLayout = () => {
                       />
                     </Typography>
 
-                    <Typography variant='h5' style={{ width: '47.5%', marginRight: '5%' }}>
+                    <Typography variant='h6' style={{ width: '47.5%', marginRight: '5%' }}>
                       <CustomTextField
                         placeholder='Joining Letter'
                         label='JOINING LETTER'
@@ -621,7 +621,7 @@ const AddStaffLayout = () => {
                         }}
                       />
                     </Typography>
-                    <Typography variant='h5' style={{ width: '47.5%', marginRight: '1%' }}>
+                    <Typography variant='h6' style={{ width: '47.5%', marginRight: '1%' }}>
                       <CustomTextField
                         placeholder='Other Document'
                         label='OTHER DOCUMENT'
@@ -646,7 +646,9 @@ const AddStaffLayout = () => {
               <TabPanel value='custom_field'>
                 <div className='container' style={{ display: 'flex', justifyContent: 'space-between' }}>
                   <div className='customField mt-4 mx-4 mb-4 ' style={{ width: '50%' }}>
-                    <Typography variant='h6'>CUSTOM FIELD</Typography>
+                    <Typography variant='h6' component='h3' style={{ fontSize: '.7rem' }}>
+                      CUSTOM FIELD
+                    </Typography>
                     <Divider sx={{ borderBottomWidth: 1, borderColor: '#D3D3D3', marginTop: 1, width: '95%' }} />
 
                     <div className='sectionOne' style={{ display: 'flex', width: '100%' }}>

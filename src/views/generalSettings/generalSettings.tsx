@@ -89,7 +89,7 @@ const GeneralSettingsLayout = () => {
       <div className='flex' style={{ display: 'flex' }}>
         {/* Logo and Favivon Section*/}
         <div className='changeLogo mt-4'>
-          <Card sx={{ width: 400, height: 'auto' }}>
+          <Card sx={{ width: 350, height: 'auto' }}>
             <CardContent>
               <Typography variant='h6' component='h3'>
                 Change Logo
@@ -116,7 +116,7 @@ const GeneralSettingsLayout = () => {
             </CardActions>
           </Card>
 
-          <Card sx={{ width: 400, height: 'auto', marginTop: '25px' }}>
+          <Card sx={{ width: 350, height: 'auto', marginTop: '25px' }}>
             <CardContent>
               <Typography variant='h6' component='h3'>
                 Change Favicon

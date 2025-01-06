@@ -1,21 +1,16 @@
 import Link from 'next/link'
-
 import { Typography, MenuItem } from '@mui/material'
 import Card from '@mui/material/Card'
 import CardContent from '@mui/material/CardContent'
-
 import Button from '@mui/material/Button'
-
 import SearchSharpIcon from '@mui/icons-material/SearchSharp'
-import AddSharpIcon from '@mui/icons-material/AddSharp'
-
 import CustomTextField from '@core/components/mui/TextField'
 
 const SubjectWiseAttendanceLayout = () => {
   return (
     <>
       <div className='flex'>
-        <Typography variant='h5' component='h3'>
+        <Typography variant='h6' component='h3'>
           Subject Wise Attendance
         </Typography>
         <nav style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center' }}>
@@ -94,10 +89,10 @@ const SubjectWiseAttendanceLayout = () => {
                 required
                 label='Attendance Date'
                 id='custom-select'
-                style={{ margin: '20px 35px 0 0 ', marginRight: '10px', width: '65%' }}
+                style={{ margin: '20px 0 0 0 ', width: '65%' }}
               />
             </div>
-            <div className='container' style={{ display: 'flex', marginLeft: '90%', marginTop: '20px' }}>
+            <div className='container' style={{ display: 'flex', marginLeft: '90.9%', marginTop: '20px' }}>
               <Button variant='contained' startIcon={<SearchSharpIcon />}>
                 SEARCH
               </Button>

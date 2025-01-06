@@ -2,49 +2,104 @@
 import * as React from 'react'
 import CustomTextField from '@/@core/components/mui/TextField'
 import CheckSharpIcon from '@mui/icons-material/CheckSharp'
-import { TextField, InputAdornment, Card, CardActions, CardContent, Button, Typography, Checkbox } from '@mui/material'
+import {
+  Typography,
+  TextField,
+  InputAdornment,
+  Table,
+  TableContainer,
+  TableRow,
+  Paper,
+  TableHead,
+  TableBody,
+  TableCell,
+  Box,
+  Stack,
+  Pagination,
+  Card,
+  Button,
+  CardActions,
+  CardContent,
+  ButtonGroup,
+  Checkbox
+} from '@mui/material'
 import SearchSharpIcon from '@mui/icons-material/SearchSharp'
-import ButtonGroup from '@mui/material/ButtonGroup'
-import { useRef, useState } from 'react'
+import { useState } from 'react'
 import Link from 'next/link'
 import { Icon } from '@iconify/react/dist/iconify.js'
 import { createTheme } from '@mui/material/styles'
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward'
-import ArrowBackIcon from '@mui/icons-material/ArrowBack'
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
 import AddSharpIcon from '@mui/icons-material/AddSharp'
 import FormControlLabel from '@mui/material/FormControlLabel'
 import SettingsIcon from '@mui/icons-material/Settings'
 
+const createActionButton = () => (
+  <div className='btn' style={{ display: 'flex' }}>
+    <Button
+      variant='outlined'
+      startIcon={<ArrowDownwardIcon />}
+      sx={{
+        fontSize: '.8rem',
+        borderRadius: '20px',
+        padding: '4px 8px',
+        minWidth: 'auto',
+        '& .MuiButton-startIcon': {
+          marginRight: 0
+        }
+      }}
+    >
+      SELECT
+    </Button>
+
+    <Button
+      variant='outlined'
+      startIcon={<SettingsIcon />}
+      sx={{
+        fontSize: '.8rem',
+        borderRadius: '5px',
+        padding: '4px 8px',
+        marginLeft: '10px',
+        minWidth: 'auto',
+        '& .MuiButton-startIcon': {
+          marginRight: 0
+        }
+      }}
+    >
+      EXAM SETUP
+    </Button>
+  </div>
+)
+
+const records = Array.from({ length: 3 }, (_, index) => ({
+  SL: index + 1,
+  ExamName: ['Test 1', 'Test 2', 'Test 3'][index],
+  AveragePassing: ['No', 'No', 'Yes'][index],
+  AverageMark: '0.00',
+  Action: createActionButton()
+}))
+
 const ExamTypeLayout = () => {
-  const textFieldRef = useRef<HTMLInputElement>(null)
   const [isChecked, setIsChecked] = useState(false)
-  const [cardHeight, setCardHeight] = useState(270)
-
-  const handleFocus = () => {
-    if (textFieldRef.current) {
-      textFieldRef.current.placeholder = ''
-    }
-  }
-
-  const handleBlur = () => {
-    if (textFieldRef.current && textFieldRef.current.value === '') {
-      textFieldRef.current.placeholder = 'SEARCH'
-    }
-  }
-
-  const theme = createTheme({
-    palette: {
-      primary: {
-        main: '#1976d2'
-      }
-    }
-  })
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setIsChecked(event.target.checked)
-    setCardHeight(event.target.checked ? 350 : 270)
   }
+
+  const [page, setPage] = useState(1) // Page starts at 1
+  const [rowsPerPage, setRowsPerPage] = useState(5) // Show 5 rows per page
+
+  const handlePageChange = (event: React.ChangeEvent<unknown>, value: number) => {
+    setPage(value)
+  }
+
+  const handleRowsPerPageChange = (event: React.ChangeEvent<{ value: string }>) => {
+    setRowsPerPage(parseInt(event.target.value, 10))
+    setPage(1) // Reset to first page when changing rows per page
+  }
+
+  const startIndex = (page - 1) * rowsPerPage + 1
+  // const startIndex = (page - 1) * rowsPerPage
+  const endIndex = Math.min(page * rowsPerPage, records.length)
 
   return (
     <>
@@ -69,7 +124,7 @@ const ExamTypeLayout = () => {
       <div className='flex' style={{ display: 'flex' }}>
         {/* Add exam type first card */}
         <div className='examType mt-4'>
-          <Card sx={{ width: 280, height: cardHeight }}>
+          <Card sx={{ width: 350, height: 'auto' }}>
             <CardContent>
               <Typography variant='h6' component='h3'>
                 Add Exam Type
@@ -77,30 +132,34 @@ const ExamTypeLayout = () => {
               <Typography variant='body2' component='div'>
                 <CustomTextField required label='NAME' style={{ marginTop: 20, width: '100%' }} />
               </Typography>
-              <Typography variant='body2' component='div' style={{ marginTop: '10px' }}>
-                <span style={{ fontSize: '1rem' }}>Average Passing Examination</span>
-                <FormControlLabel
-                  label='Yes'
-                  value='yes'
-                  control={
-                    <Checkbox
-                      name='size-small'
-                      checked={isChecked}
-                      checkedIcon={<i className='tabler-circle-check-filled' />}
-                      onChange={handleChange}
-                      icon={<i className='tabler-circle' />}
-                    />
-                  }
-                />
-                {isChecked && (
-                  <CustomTextField
-                    label='Average Marks'
-                    required
-                    style={{ marginTop: 20, width: '100%', fontSize: '1rem' }}
-                    InputLabelProps={{ style: { fontSize: '1rem' } }}
-                  />
-                )}
+              <Typography
+                variant='body2'
+                component='div'
+                style={{ fontSize: '1rem', color: '#444544', marginTop: '10px' }}
+              >
+                Average Passing Examination
               </Typography>
+              <FormControlLabel
+                label='Yes'
+                value='yes'
+                control={
+                  <Checkbox
+                    name='size-small'
+                    checked={isChecked}
+                    checkedIcon={<i className='tabler-circle-check-filled' />}
+                    onChange={handleChange}
+                    icon={<i className='tabler-circle' />}
+                  />
+                }
+              />
+              {isChecked && (
+                <CustomTextField
+                  label='Average Marks'
+                  required
+                  style={{ marginTop: 20, width: '100%', fontSize: '1rem' }}
+                  InputLabelProps={{ style: { fontSize: '1rem' } }}
+                />
+              )}
             </CardContent>
             <CardActions style={{ justifyContent: 'center' }}>
               <Button variant='contained'>
@@ -113,7 +172,7 @@ const ExamTypeLayout = () => {
 
         {/* Exam Type list 2nd card */}
         <div className='examTypeList mt-4 mx-6' style={{ flex: 1 }}>
-          <Card sx={{ width: '102.3%', height: 525 }}>
+          <Card sx={{ width: '102.3%', height: 'auto' }}>
             <CardContent>
               <div style={{ display: 'flex', justifyContent: 'flex-end', alignContent: 'flex-end' }}>
                 <Button
@@ -134,9 +193,6 @@ const ExamTypeLayout = () => {
                     id='standard-search'
                     variant='standard'
                     placeholder='SEARCH'
-                    inputRef={textFieldRef}
-                    onFocus={handleFocus}
-                    onBlur={handleBlur}
                     InputProps={{
                       startAdornment: (
                         <InputAdornment position='start'>
@@ -192,185 +248,48 @@ const ExamTypeLayout = () => {
                 </div>
               </div>
               {/* Table */}
-              <div style={{ marginTop: '20px' }}>
-                <table style={{ width: '100%', borderCollapse: 'collapse' }}>
-                  <thead>
-                    <tr>
-                      <th
-                        style={{
-                          padding: '8px',
-                          textAlign: 'left',
-                          backgroundColor: 'lightgray',
-                          borderRadius: '5px 0 0 5px',
-                          position: 'relative' // Required for rounded corners
-                        }}
-                      >
-                        <div style={{ display: 'flex', alignItems: 'center' }}>
-                          <ArrowDownwardIcon style={{ marginRight: '8px' }} />
-                          <span>SL</span>
-                        </div>
-                      </th>
-                      <th
-                        style={{
-                          padding: '8px',
-                          textAlign: 'left',
-                          backgroundColor: 'lightgray'
-                        }}
-                      >
-                        <div style={{ display: 'flex', alignItems: 'center' }}>
-                          <ArrowDownwardIcon style={{ marginRight: '8px' }} />
-                          <span>Exam Name</span>
-                        </div>
-                      </th>
-                      <th
-                        style={{
-                          padding: '8px',
-                          textAlign: 'left',
-                          backgroundColor: 'lightgray'
-                        }}
-                      >
-                        <div style={{ display: 'flex', alignItems: 'center' }}>
-                          <ArrowDownwardIcon style={{ marginRight: '8px' }} />
-                          <span>Is Average Passing Exam</span>
-                        </div>
-                      </th>
-                      <th
-                        style={{
-                          padding: '8px',
-                          textAlign: 'left',
-                          backgroundColor: 'lightgray'
-                        }}
-                      >
-                        <div style={{ display: 'flex', alignItems: 'center' }}>
-                          <ArrowDownwardIcon style={{ marginRight: '8px' }} />
-                          <span>Average Mark</span>
-                        </div>
-                      </th>
-                      <th
-                        style={{
-                          padding: '8px',
-                          textAlign: 'left',
-                          backgroundColor: 'lightgray',
-                          borderRadius: '0 5px 5px 0'
-                        }}
-                      >
-                        <div style={{ display: 'flex', alignItems: 'center' }}>
-                          <ArrowDownwardIcon style={{ marginRight: '8px' }} />
-                          <span>Action</span>
-                        </div>
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr style={{ borderBottom: '1px solid #ddd' }}>
-                      <td style={{ padding: '2% 0 2% 3%' }}>Sample Name 1</td>
-                      <td style={{ padding: '2% 0 2% 3%' }}>Sample Description 1</td>
-                      <td style={{ padding: '2% 0 2% 3%' }}>Sample Description 1</td>
-                      <td style={{ padding: '2% 0 2% 3%' }}>Sample Description 1</td>
-                      <td style={{ padding: '2% 0 2% 3%' }}>
-                        <div className='btn' style={{ display: 'flex', justifyContent: 'space-between' }}>
-                          <Button variant='outlined' size='small' style={{ borderRadius: '20px' }}>
-                            SELECT <ArrowDownwardIcon />
-                          </Button>
-                          <Button variant='outlined' href='/examsetup' size='small' style={{ borderRadius: '20px' }}>
-                            <SettingsIcon />
-                            EXAM SETUP
-                          </Button>
-                        </div>
-                      </td>
-                    </tr>
-                    <tr style={{ borderBottom: '1px solid #ddd' }}>
-                      <td style={{ padding: '2% 0 2% 3%' }}>Sample Name 2</td>
-                      <td style={{ padding: '2% 0 2% 3%' }}>Sample Description 2</td>
-                      <td style={{ padding: '2% 0 2% 3%' }}>Sample Description 2</td>
-                      <td style={{ padding: '2% 0 2% 3%' }}>Sample Description 2</td>
-                      <td style={{ padding: '2% 0 2% 3%' }}>
-                        <div className='btn' style={{ display: 'flex', justifyContent: 'space-between' }}>
-                          <Button variant='outlined' size='small' style={{ borderRadius: '20px' }}>
-                            SELECT <ArrowDownwardIcon />
-                          </Button>
-                          <Button variant='outlined' size='small' href='/examsetup' style={{ borderRadius: '20px' }}>
-                            <SettingsIcon />
-                            EXAM SETUP
-                          </Button>
-                        </div>
-                      </td>
-                    </tr>
-                    <tr style={{ borderBottom: '1px solid #ddd' }}>
-                      <td style={{ padding: '2% 0 2% 3%' }}>Sample Name 3</td>
-                      <td style={{ padding: '2% 0 2% 3%' }}>Sample Description 3</td>
-                      <td style={{ padding: '2% 0 2% 3%' }}>Sample Description 3</td>
-                      <td style={{ padding: '2% 0 2% 3%' }}>Sample Description 3</td>
-                      <td style={{ padding: '2% 0 2% 3%' }}>
-                        <div className='btn' style={{ display: 'flex', justifyContent: 'space-between' }}>
-                          <Button variant='outlined' size='small' style={{ borderRadius: '20px' }}>
-                            SELECT <ArrowDownwardIcon />
-                          </Button>
-                          <Button variant='outlined' size='small' href='/examsetup' style={{ borderRadius: '20px' }}>
-                            <SettingsIcon />
-                            EXAM SETUP
-                          </Button>
-                        </div>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </CardContent>
-            {/* Pagination */}
-            <div style={{ display: 'flex', justifyContent: 'space-between', padding: '16px' }}>
-              <Typography variant='body2' style={{ marginLeft: '16px' }}>
-                Showing 1 to 3 of 3 entries
-              </Typography>
-              <div
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  margin: 'auto',
-                  cursor: 'pointer'
-                }}
-              >
-                <Button
-                  size='small'
-                  style={{
-                    color: 'black',
-                    marginRight: '10px',
-                    padding: '4px 8px',
-                    width: '30px',
-                    minWidth: 'auto',
-                    border: 'none'
-                  }}
-                >
-                  <ArrowBackIcon style={{ fontSize: '16px' }} />
-                </Button>
-                <Typography
-                  variant='body2'
-                  sx={{
-                    color: 'white',
-                    padding: '4px 16px',
-                    borderRadius: '4px',
-                    background: theme.palette.primary.main,
-                    cursor: 'pointer'
-                  }}
-                >
-                  1
+              <TableContainer className='mt-4' component={Paper}>
+                <Table sx={{ minWidth: 650 }} stickyHeader aria-label='sticky table'>
+                  <TableHead>
+                    <TableRow>
+                      {['SL', 'Exam Name', 'Is Average Passing Exam', 'Average Mark', 'Action'].map(header => (
+                        <TableCell align='left' sx={{ padding: 2, fontSize: '.8rem' }} key={header}>
+                          <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                            <ArrowDownwardIcon style={{ fontSize: '1rem' }} />
+                            {header}
+                          </Box>
+                        </TableCell>
+                      ))}
+                    </TableRow>
+                  </TableHead>
+                  <TableBody>
+                    {records.slice((page - 1) * rowsPerPage, page * rowsPerPage).map(record => (
+                      <TableRow key={record.SL}>
+                        <TableCell>{record.SL}</TableCell>
+                        <TableCell>{record.ExamName}</TableCell>
+                        <TableCell>{record.AveragePassing}</TableCell>
+                        <TableCell>{record.AverageMark}</TableCell>
+                        <TableCell>{record.Action}</TableCell>
+                      </TableRow>
+                    ))}
+                  </TableBody>
+                </Table>
+              </TableContainer>
+
+              {/* Pagination Section */}
+              <Stack spacing={2} direction='row' style={{ display: 'flex', marginTop: '20px' }}>
+                <Typography component='h3' variant='h6' style={{ fontSize: '.8rem' }}>
+                  Showing {startIndex} to {endIndex} of {records.length} entries
                 </Typography>
-                <Button
-                  size='small'
-                  style={{
-                    color: 'black',
-                    marginLeft: '10px',
-                    padding: '4px 8px',
-                    width: '30px',
-                    minWidth: 'auto',
-                    border: 'none'
-                  }}
-                >
-                  <ArrowForwardIcon style={{ transform: 'scale(0.8)' }} />
-                </Button>
-              </div>
-            </div>
+                <Pagination
+                  count={Math.ceil(records.length / rowsPerPage)} // Calculate number of pages based on total records and rows per page
+                  page={page}
+                  onChange={handlePageChange}
+                  shape='rounded'
+                  style={{ marginTop: '-10px', marginLeft: '25%' }}
+                />
+              </Stack>
+            </CardContent>
           </Card>
         </div>
       </div>

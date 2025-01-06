@@ -22,7 +22,6 @@ import {
 import Link from 'next/link'
 import SearchSharpIcon from '@mui/icons-material/SearchSharp'
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward'
-
 import { Icon } from '@iconify/react/dist/iconify.js'
 
 const records = Array.from({ length: 0 }, (_, index) => ({}))

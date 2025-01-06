@@ -114,7 +114,7 @@ const StudentSettingsLayout = () => {
         </nav>
       </div>
       <div className='studentSettings mt-4' style={{ flex: 1 }}>
-        <Card sx={{ width: '100%', height: '105%' }}>
+        <Card sx={{ width: '100%', height: 'auto' }}>
           <CardContent>
             <Typography variant='h6' component='h3' style={{ textAlign: 'center' }}>
               Student Admission Field
