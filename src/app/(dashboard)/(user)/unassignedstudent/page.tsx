@@ -1,4 +1,4 @@
-import UnassignedStudentLayout from '@/views/student/unassignedstudent'
+import UnassignedStudentLayout from '@/views/student/unAssignedStudent'
 
 const UnassignedStudent = () => {
   return (

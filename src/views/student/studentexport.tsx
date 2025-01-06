@@ -1,7 +1,9 @@
 import Link from 'next/link'
+
 import { Typography } from '@mui/material'
 import Card from '@mui/material/Card'
 import CardContent from '@mui/material/CardContent'
+
 import Button from '@mui/material/Button'
 
 const StudentExportLayout = () => {
@@ -25,7 +27,7 @@ const StudentExportLayout = () => {
           </Typography>
         </nav>
       </div>
-      <div className='multiclass mt-4' style={{ flex: 1 }}>
+      <div className='studentExport mt-4' style={{ flex: 1 }}>
         <Card sx={{ width: '100%', height: '105%' }}>
           <CardContent>
             <div className='container' style={{ display: 'flex', gap: '73%' }}>

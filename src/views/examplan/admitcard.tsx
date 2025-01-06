@@ -7,7 +7,6 @@ import CardContent from '@mui/material/CardContent'
 import Button from '@mui/material/Button'
 
 import SearchSharpIcon from '@mui/icons-material/SearchSharp'
-import AddSharpIcon from '@mui/icons-material/AddSharp'
 
 import CustomTextField from '@core/components/mui/TextField'
 
@@ -15,7 +14,7 @@ const AdmitCardLayout = () => {
   return (
     <>
       <div className='flex'>
-        <Typography variant='h5' component='h3'>
+        <Typography variant='h6' component='h3'>
           Generate Admit Card
         </Typography>
         <nav style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center' }}>
@@ -32,7 +31,7 @@ const AdmitCardLayout = () => {
           </Typography>
         </nav>
       </div>
-      <div className='attend mt-4' style={{ flex: 1 }}>
+      <div className='admitCard mt-4' style={{ flex: 1 }}>
         <Card sx={{ width: '100%', height: '105%' }}>
           <CardContent>
             <div className='container' style={{ display: 'flex', gap: '72%' }}>
@@ -78,16 +77,11 @@ const AdmitCardLayout = () => {
                 <MenuItem value='4'>4</MenuItem>
                 <MenuItem value='5'>5</MenuItem>
               </CustomTextField>
-              <CustomTextField
-                required
-                select
-                defaultValue={'section'}
-                style={{ margin: '20px 35px 0 0 ', marginRight: '10px', width: '65%' }}
-              >
+              <CustomTextField required select defaultValue={'section'} style={{ margin: '20px 0 0 0 ', width: '65%' }}>
                 <MenuItem value='section'>Select Section*</MenuItem>
               </CustomTextField>
             </div>
-            <div className='container' style={{ display: 'flex', marginLeft: '89%', marginTop: '20px' }}>
+            <div className='container' style={{ display: 'flex', marginLeft: '90.8%', marginTop: '20px' }}>
               <Button variant='contained' startIcon={<SearchSharpIcon />}>
                 SEARCH
               </Button>

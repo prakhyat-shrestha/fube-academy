@@ -1,12 +1,33 @@
 'use client'
-import React from 'react'
+import React, { useRef } from 'react'
+
 import Link from 'next/link'
-import { Typography, MenuItem, Card, CardContent, Button } from '@mui/material'
+
+import { Typography, MenuItem } from '@mui/material'
+import Card from '@mui/material/Card'
+import CardContent from '@mui/material/CardContent'
+
+import Button from '@mui/material/Button'
 import AddSharpIcon from '@mui/icons-material/AddSharp'
 import SearchSharpIcon from '@mui/icons-material/SearchSharp'
+
 import CustomTextField from '@core/components/mui/TextField'
 
 const StaffAttendanceLayout = () => {
+  const textFieldRef = useRef<HTMLInputElement>(null)
+
+  const handleFocus = () => {
+    if (textFieldRef.current) {
+      textFieldRef.current.placeholder = ''
+    }
+  }
+
+  const handleBlur = () => {
+    if (textFieldRef.current && textFieldRef.current.value === '') {
+      textFieldRef.current.placeholder = 'SEARCH'
+    }
+  }
+
   return (
     <>
       <div className='flex'>
@@ -27,8 +48,8 @@ const StaffAttendanceLayout = () => {
           </Typography>
         </nav>
       </div>
-      <div className='attend mt-4' style={{ flex: 1 }}>
-        <Card sx={{ width: '100%', height: 'auto' }}>
+      <div className='staffAttendance mt-4' style={{ flex: 1 }}>
+        <Card sx={{ width: '100%', height: '105%' }}>
           <CardContent>
             <div className='container' style={{ display: 'flex', gap: '81.9%' }}>
               <Typography variant='h6' component='h4'>
@@ -71,7 +92,7 @@ const StaffAttendanceLayout = () => {
                 style={{ margin: '20px 0 0 0 ', width: '65%' }}
               />
             </div>
-            <div className='container' style={{ display: 'flex', justifyContent: 'flex-end', marginTop: '20px' }}>
+            <div className='container' style={{ display: 'flex', marginLeft: '90.9%', marginTop: '20px' }}>
               <Button variant='contained' startIcon={<SearchSharpIcon />}>
                 SEARCH
               </Button>

@@ -32,12 +32,14 @@ const StudentAttendanceLayout = () => {
           </Typography>
         </nav>
       </div>
-      <div className='attend mt-4' style={{ flex: 1 }}>
+      <div className='studentAttendance mt-4' style={{ flex: 1 }}>
         <Card sx={{ width: '100%', height: '105%' }}>
           <CardContent>
-            <div className='container' style={{ display: 'flex', gap: '72.8%' }}>
-              <Typography variant='h6'>Select Criteria</Typography>
-              <Button variant='contained' startIcon={<AddSharpIcon />} style={{ marginLeft: '42px' }}>
+            <div className='container' style={{ display: 'flex', gap: '75.95%' }}>
+              <Typography variant='h6' component='h4'>
+                Select Criteria
+              </Typography>
+              <Button variant='contained' startIcon={<AddSharpIcon />}>
                 IMPORT ATTENDANCE
               </Button>
             </div>
@@ -76,7 +78,7 @@ const StudentAttendanceLayout = () => {
               </CustomTextField>
               <CustomTextField type='date' label='Attendance Date*' style={{ margin: '20px 0 0 0 ', width: '65%' }} />
             </div>
-            <div className='container' style={{ display: 'flex', marginLeft: '90.9%', marginTop: '20px' }}>
+            <div className='container' style={{ display: 'flex', marginLeft: '91%', marginTop: '20px' }}>
               <Button variant='contained' startIcon={<SearchSharpIcon />}>
                 SEARCH
               </Button>

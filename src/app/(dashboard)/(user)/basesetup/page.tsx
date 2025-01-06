@@ -1,7 +1,11 @@
 import BaseSetupLayout from '@/views/generalSettings/baseSetup'
 
-const BaseSetupDisplay = () => {
-  return <BaseSetupLayout />
+const BaseSetup = () => {
+  return (
+    <>
+      <BaseSetupLayout />
+    </>
+  )
 }
 
-export default BaseSetupDisplay
+export default BaseSetup

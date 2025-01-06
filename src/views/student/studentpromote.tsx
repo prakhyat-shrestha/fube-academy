@@ -1,9 +1,13 @@
 import Link from 'next/link'
+
 import { Typography, MenuItem } from '@mui/material'
 import Card from '@mui/material/Card'
 import CardContent from '@mui/material/CardContent'
+
 import Button from '@mui/material/Button'
+
 import SearchSharpIcon from '@mui/icons-material/SearchSharp'
+
 import CustomTextField from '@core/components/mui/TextField'
 
 const MultiClassLayout = () => {
@@ -27,8 +31,8 @@ const MultiClassLayout = () => {
           </Typography>
         </nav>
       </div>
-      <div className='multiclass mt-4'>
-        <Card sx={{ width: '100%', height: 'auto' }}>
+      <div className='studentPromote mt-4' style={{ flex: 1 }}>
+        <Card sx={{ width: '100%', height: '105%' }}>
           <CardContent>
             <div className='container' style={{ display: 'flex', gap: '73%' }}>
               <Typography variant='h6' component='h4'>
@@ -98,7 +102,7 @@ const MultiClassLayout = () => {
                 </MenuItem>
               </CustomTextField>
             </div>
-            <div className='container' style={{ display: 'flex', marginLeft: '90.9%', marginTop: '20px' }}>
+            <div className='container' style={{ display: 'flex', marginLeft: '90.8%', marginTop: '20px' }}>
               <Button variant='contained' startIcon={<SearchSharpIcon />}>
                 SEARCH
               </Button>
