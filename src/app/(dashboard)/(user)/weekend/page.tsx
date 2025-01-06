@@ -1,7 +1,11 @@
-import WeekendLayout from '@/views/generalsettings/weekend'
+import WeekendLayout from '@/views/generalSettings/weekEnd'
 
 const Weekend = () => {
-  return <WeekendLayout />
+  return (
+    <>
+      <WeekendLayout />
+    </>
+  )
 }
 
 export default Weekend

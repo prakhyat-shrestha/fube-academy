@@ -1,21 +1,16 @@
 import Link from 'next/link'
 
-import { Typography, MenuItem } from '@mui/material'
+import { Typography } from '@mui/material'
 import Card from '@mui/material/Card'
 import CardContent from '@mui/material/CardContent'
 
 import Button from '@mui/material/Button'
 
-import SearchSharpIcon from '@mui/icons-material/SearchSharp'
-import AddSharpIcon from '@mui/icons-material/AddSharp'
-
-import CustomTextField from '@core/components/mui/TextField'
-
 const StudentExportLayout = () => {
   return (
     <>
       <div className='flex'>
-        <Typography variant='h5' component='h3'>
+        <Typography variant='h6' component='h3'>
           Student Export
         </Typography>
         <nav style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center' }}>
@@ -32,11 +27,11 @@ const StudentExportLayout = () => {
           </Typography>
         </nav>
       </div>
-      <div className='multiclass mt-4' style={{ flex: 1 }}>
+      <div className='studentExport mt-4' style={{ flex: 1 }}>
         <Card sx={{ width: '100%', height: '105%' }}>
           <CardContent>
             <div className='container' style={{ display: 'flex', gap: '73%' }}>
-              <Typography variant='h5' component='h4'>
+              <Typography variant='h6' component='h4'>
                 All Student Export
               </Typography>
             </div>
