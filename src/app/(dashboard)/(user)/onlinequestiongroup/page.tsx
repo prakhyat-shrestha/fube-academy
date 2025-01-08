@@ -1,7 +1,11 @@
 import QuestionGroupLayout from '@/views/onlineExam/questionGroup'
 
 const QuestionGroup = () => {
-  return <QuestionGroupLayout />
+  return (
+    <>
+      <QuestionGroupLayout />
+    </>
+  )
 }
 
 export default QuestionGroup

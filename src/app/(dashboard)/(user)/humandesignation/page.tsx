@@ -1,5 +1,3 @@
-import React from 'react'
-
 import DesignationLayout from '@/views/humanResource/designation'
 
 const HumanDesignation = () => {

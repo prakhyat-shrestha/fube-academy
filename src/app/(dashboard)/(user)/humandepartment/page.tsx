@@ -1,7 +1,11 @@
 import DepartmentLayout from '@/views/humanResource/department'
 
 const Department = () => {
-  return <DepartmentLayout />
+  return (
+    <>
+      <DepartmentLayout />
+    </>
+  )
 }
 
 export default Department

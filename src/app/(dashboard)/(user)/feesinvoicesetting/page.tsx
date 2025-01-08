@@ -1,6 +1,6 @@
 import FeesInvoiceSettingLayout from '@/views/bulkPrint/feesInvoiceSetting'
 
-const FeesInvoiceSetting = () => {
+const FeesInvoiceSettings = () => {
   return (
     <>
       <FeesInvoiceSettingLayout />
@@ -8,4 +8,4 @@ const FeesInvoiceSetting = () => {
   )
 }
 
-export default FeesInvoiceSetting
+export default FeesInvoiceSettings

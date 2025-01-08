@@ -1,9 +1,9 @@
-import PreLoaderSettingsLayout from '@/views/generalSettings/preLoaderSettings'
+import PreloaderSettingsLayout from '@/views/generalSettings/preLoaderSettings'
 
 const PreLoaderSettings = () => {
   return (
     <>
-      <PreLoaderSettingsLayout />
+      <PreloaderSettingsLayout />
     </>
   )
 }

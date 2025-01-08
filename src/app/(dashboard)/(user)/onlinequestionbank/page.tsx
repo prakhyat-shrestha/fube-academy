@@ -1,7 +1,11 @@
 import QuestionBankLayout from '@/views/onlineExam/questionBank'
 
 const QuestionBank = () => {
-  return <QuestionBankLayout />
+  return (
+    <>
+      <QuestionBankLayout />
+    </>
+  )
 }
 
 export default QuestionBank

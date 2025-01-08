@@ -1,4 +1,4 @@
-import LanguageListLayout from '@/views/generalsettings/languageList'
+import LanguageListLayout from '@/views/generalSettings/languageGeneral'
 
 const LanguageGeneral = () => {
   return (
