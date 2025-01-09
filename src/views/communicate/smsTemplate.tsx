@@ -76,7 +76,9 @@ const SmsTemplateLayout = () => {
   return (
     <>
       <div className='flex '>
-        <Typography variant='h5'>SMS Template</Typography>
+        <Typography variant='h6' component='h3'>
+          SMS Template
+        </Typography>
         <nav style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center' }}>
           <Typography variant='h6' component='h3' style={{ display: 'flex', alignItems: 'center' }}>
             <Link href='#' style={{ marginRight: '15px' }}>
@@ -91,7 +93,7 @@ const SmsTemplateLayout = () => {
           </Typography>
         </nav>
       </div>
-      <div style={{ display: 'flex', gap: '35px' }}>
+      <div className='mt-4' style={{ display: 'flex', gap: '35px' }}>
         <Card sx={{ height: 'auto', width: '30%' }}>
           <CardContent>
             {Object.keys(template).map(templateName => (

@@ -278,6 +278,16 @@ const VerticalMenu = ({ dictionary, scrollMenu }: Props) => {
           <MenuItem href={'/blockedUser'}>Blocked User</MenuItem>
         </SubMenu>
 
+        <SubMenu label={dictionary['navigation'].communicate} icon={<SatelliteAltIcon />}>
+          <MenuItem href={'/noticeList'}>Notice List</MenuItem>
+          <MenuItem href={'/sendEmailSmsView'}>Send Email/SMS</MenuItem>
+          <MenuItem href={'/emailSmsLog'}>Email SMS Log</MenuItem>
+          <MenuItem href={'/events'}>Event List</MenuItem>
+          <MenuItem href={'/academicCalendar'}>Calendar</MenuItem>
+          <MenuItem href={'/templateSettings/emailTemplate'}>Email Template</MenuItem>
+          <MenuItem href={'/templateSettings/smsTemplate'}>SMS Template</MenuItem>
+        </SubMenu>
+
         <SubMenu label={dictionary['navigation'].studentReport} icon={<i className='tabler-users-group' />}>
           <MenuItem href={'/studentAttendanceReport'}>Student Attendance Report</MenuItem>
           <MenuItem href={'/subjectAttendanceReport'}>Subject Attendance Report</MenuItem>
@@ -371,15 +381,6 @@ const VerticalMenu = ({ dictionary, scrollMenu }: Props) => {
           <MenuItem href={'/examSignatureSettings'}>Exam Signature Settings</MenuItem>
           <MenuItem href={'/admitCardSetting'}>Admit Card Setting</MenuItem>
           <MenuItem href={'/seatPlanSetting'}>Seat Plan Setting</MenuItem>
-        </SubMenu>
-        <SubMenu label={dictionary['navigation'].communicate} icon={<SatelliteAltIcon />}>
-          <MenuItem href={'/noticeList'}>Notice List</MenuItem>
-          <MenuItem href={'/sendEmailSmsView'}>Send Email/SMS</MenuItem>
-          <MenuItem href={'/emailSmsLog'}>Email SMS Log</MenuItem>
-          <MenuItem href={'/events'}>Event List</MenuItem>
-          <MenuItem href={'/academicCalendar'}>Calendar</MenuItem>
-          <MenuItem href={'/templateSettings/emailTemplate'}>Email Template</MenuItem>
-          <MenuItem href={'/templateSettings/smsTemplate'}>SMS Template</MenuItem>
         </SubMenu>
       </Menu>
       {/* <Menu

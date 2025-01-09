@@ -67,18 +67,20 @@ const SendEmailSmsLayout = () => {
   return (
     <>
       <div className='flex '>
-        <Typography variant='h5'>Send Email/SMS</Typography>
+        <Typography variant='h6' component='h3'>
+          Email/SMS Log List
+        </Typography>
         <nav style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center' }}>
           <Typography variant='h6' component='h3' style={{ display: 'flex', alignItems: 'center' }}>
-            <Link href='#' style={{ marginRight: '15px' }}>
+            <Link href='#' style={{ marginRight: '35px' }}>
               Dashboard
             </Link>
             <span style={{ marginRight: '10px' }}>|</span>
-            <Link href='#' style={{ marginRight: '15px' }}>
+            <Link href='#' style={{ marginRight: '35px' }}>
               Communicate
             </Link>
-            <span style={{ marginRight: '15px' }}>|</span>
-            <Link href='#'> Send Email/SMS</Link>
+            <span style={{ marginRight: '35px' }}>|</span>
+            <Link href='#'>Send Email/SMS </Link>
           </Typography>
         </nav>
       </div>
@@ -86,7 +88,9 @@ const SendEmailSmsLayout = () => {
         <div>
           <Card sx={{ width: '56.5%', height: 'auto', marginTop: '10px' }}>
             <CardContent>
-              <Typography variant='h5'>Send Email/SMS</Typography>
+              <Typography variant='h6' component='h3'>
+                Send Email/SMS
+              </Typography>
               <CustomTextField
                 required
                 fullWidth
@@ -207,12 +211,13 @@ const SendEmailSmsLayout = () => {
           </Card>
         </div>
         <div>
-          <Card sx={{ width: '42%', height: 'auto', marginTop: '-335px', marginLeft: '58%' }}>
+          <Card sx={{ width: '42%', height: 'auto', marginTop: '-10%', marginLeft: '58%' }}>
             <CardContent>
               <TabContext value={value}>
                 <TabList
                   variant='scrollable'
                   onChange={handleTabChange}
+                  TabIndicatorProps={{ style: { display: 'none' } }}
                   sx={{
                     display: 'flex',
                     justifyContent: 'space-between',
@@ -220,7 +225,7 @@ const SendEmailSmsLayout = () => {
                     '& .MuiTab-root': {
                       textTransform: 'none',
                       fontSize: '12px',
-                      fontWeight: 'bold',
+                      fontWeight: 'normal',
                       color: '#666',
                       px: 2,
                       py: 1,

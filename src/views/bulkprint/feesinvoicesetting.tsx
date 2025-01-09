@@ -47,7 +47,7 @@ const FeesInvoiceSettingLayout = () => {
             </div>
             <hr style={{ border: '1px solid #D3D3D3', width: '100%', margin: '5px auto' }} />
             <div className='container' style={{ display: 'flex', gap: '10%', marginTop: '20px' }}>
-              <Typography variant='h6' component='h4' style={{ fontSize: 'medium' }}>
+              <Typography variant='h6' component='h3' style={{ fontSize: 'small', marginTop: '4px' }}>
                 INVOICE TYPE
               </Typography>
               <RadioGroup row aria-label='sizes' name='sizes' value={selectedValue} onChange={handleChange}>

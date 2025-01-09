@@ -1,5 +1,5 @@
 'use client'
-import * as React from 'react'
+import { useState } from 'react'
 import {
   Typography,
   TextField,
@@ -14,21 +14,19 @@ import {
   Box,
   Stack,
   Pagination,
-  CardContent,
   Card,
   Button,
+  CardContent,
   ButtonGroup
 } from '@mui/material'
-import { useState } from 'react'
 import Link from 'next/link'
 import SearchSharpIcon from '@mui/icons-material/SearchSharp'
-import { Icon } from '@iconify/react/dist/iconify.js'
-import AddIcon from '@mui/icons-material/Add'
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward'
+import { Icon } from '@iconify/react/dist/iconify.js'
 
 const records = Array.from({ length: 0 }, (_, index) => ({}))
 
-const EmailSmsLogLayout = () => {
+const UnassignedStudentLayout = () => {
   const [page, setPage] = useState(1) // Page starts at 1
   const [rowsPerPage, setRowsPerPage] = useState(5) // Show 5 rows per page
 
@@ -47,9 +45,9 @@ const EmailSmsLogLayout = () => {
 
   return (
     <>
-      <div className='flex '>
+      <div className='flex'>
         <Typography variant='h6' component='h3'>
-          Email/SMS Log List
+          Unassigned Student List
         </Typography>
         <nav style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center' }}>
           <Typography variant='h6' component='h3' style={{ display: 'flex', alignItems: 'center' }}>
@@ -58,29 +56,27 @@ const EmailSmsLogLayout = () => {
             </Link>
             <span style={{ marginRight: '10px' }}>|</span>
             <Link href='#' style={{ marginRight: '35px' }}>
-              Communicate
+              Student Info
             </Link>
             <span style={{ marginRight: '35px' }}>|</span>
-            <Link href='#'>Email/SMS Log</Link>
+            <Link href='#'>Unassigned Student List</Link>
           </Typography>
         </nav>
       </div>
-      <div className='CategoryList mt-4 mr-6' style={{ flex: 1 }}>
-        <Card sx={{ width: '102%', height: 'auto' }}>
+
+      {/* ---- Table Section ----*/}
+      <div className='studentList mt-4 ' style={{ flex: 1 }}>
+        <Card sx={{ width: '100%', height: 'auto' }}>
           <CardContent>
             <div style={{ display: 'flex', alignItems: 'center' }}>
-              <Button variant='contained'>
-                <AddIcon />
-                <Typography variant='h6' color={'white'}>
-                  SEND EMAIL/SMS
-                </Typography>
-              </Button>
-
-              <div style={{ marginLeft: 'auto', marginRight: 'auto' }}>
+              <Typography variant='h6' component='h3' style={{ flex: 1, marginRight: '16%' }}>
+                Unassigned Student List
+              </Typography>
+              <div style={{ flexGrow: 1 }}>
                 <TextField
                   id='standard-search'
                   variant='standard'
-                  placeholder='Quick Search'
+                  placeholder='QUICK SEARCH'
                   InputProps={{
                     startAdornment: (
                       <InputAdornment position='start'>
@@ -90,6 +86,7 @@ const EmailSmsLogLayout = () => {
                   }}
                 />
               </div>
+              {/*---------- Button Group Section ----------- */}
               <div style={{ display: 'flex', justifyContent: 'center' }}>
                 <ButtonGroup
                   variant='outlined'
@@ -98,7 +95,7 @@ const EmailSmsLogLayout = () => {
                     '& .MuiButton-root': {
                       fontSize: '1.2rem',
                       padding: '4px 8px',
-                      backgroundColor: 'transparent',
+                      backgroundColor: 'tansparent',
                       borderColor: 'currentColor',
                       color: 'currentColor',
                       '&:hover': {
@@ -135,12 +132,23 @@ const EmailSmsLogLayout = () => {
                 </ButtonGroup>
               </div>
             </div>
-            {/* Table */}
+
+            {/*--------- Table section --------*/}
             <TableContainer className='mt-4' component={Paper}>
               <Table sx={{ minWidth: 650 }} stickyHeader aria-label='sticky table'>
                 <TableHead>
                   <TableRow>
-                    {['SL', 'Title', 'Description', 'Date', 'Type'].map(header => (
+                    {[
+                      'EMIS',
+                      'Roll No',
+                      'Name',
+                      'Father Name',
+                      'Date Of Birth',
+                      'Gender',
+                      'Type',
+                      'Phone',
+                      'Action'
+                    ].map(header => (
                       <TableCell align='left' sx={{ padding: 2, fontSize: '.8rem' }} key={header}>
                         <Box sx={{ display: 'flex', alignItems: 'center' }}>
                           <ArrowDownwardIcon style={{ fontSize: '1rem' }} />
@@ -154,7 +162,10 @@ const EmailSmsLogLayout = () => {
                   <TableRow>
                     <TableCell></TableCell>
                     <TableCell></TableCell>
+                    <TableCell></TableCell>
+                    <TableCell></TableCell>
                     <TableCell>No Data Available In Table</TableCell>
+                    <TableCell></TableCell>
                     <TableCell></TableCell>
                     <TableCell></TableCell>
                   </TableRow>
@@ -182,4 +193,4 @@ const EmailSmsLogLayout = () => {
   )
 }
 
-export default EmailSmsLogLayout
+export default UnassignedStudentLayout

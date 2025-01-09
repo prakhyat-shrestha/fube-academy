@@ -1,13 +1,9 @@
 'use client'
 import Link from 'next/link'
-
 import { useRouter } from 'next/navigation'
-
 import { Box, Button, Card, CardContent, Typography } from '@mui/material'
 import { createTheme } from '@mui/material/styles'
-
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
-
 import ArrowBackIcon from '@mui/icons-material/ArrowBack'
 import AddIcon from '@mui/icons-material/Add'
 import Accordion from '@mui/material/Accordion'
@@ -40,7 +36,7 @@ const NoticeList = () => {
   return (
     <>
       <div className='flex '>
-        <Typography variant='h5' component='h3'>
+        <Typography variant='h6' component='h3'>
           Notice Board
         </Typography>
         <nav style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center' }}>
@@ -58,10 +54,10 @@ const NoticeList = () => {
         </nav>
       </div>
       <div className='noticeList mt-4 ml-1' style={{ flex: 1 }}>
-        <Card sx={{ width: '102%', height: 'auto' }}>
+        <Card sx={{ width: '100%', height: 'auto' }}>
           <CardContent>
             <div style={{ display: 'flex', alignItems: 'center' }}>
-              <Typography variant='h5' component='h3' style={{ flex: 1 }}>
+              <Typography variant='h6' component='h3' style={{ flex: 1 }}>
                 All Notices
               </Typography>
               <div>

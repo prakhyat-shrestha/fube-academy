@@ -1,6 +1,5 @@
 'use client'
-import React, { useRef, useState } from 'react'
-
+import React, { useState } from 'react'
 import {
   TextField,
   Typography,
@@ -21,26 +20,16 @@ import CircleIcon from '@mui/icons-material/Circle'
 import Button from '@mui/material/Button'
 import ButtonGroup from '@mui/material/ButtonGroup'
 import SearchSharpIcon from '@mui/icons-material/SearchSharp'
-
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward'
 import AddIcon from '@mui/icons-material/Add'
 
-const ChatBoxLayout = ({ label, isOnline }) => {
-  const textFieldRef = useRef<HTMLInputElement>(null)
+interface ChatBoxLayoutProps {
+  label: string
+  isOnline: boolean
+}
+const ChatBoxLayout: React.FC<ChatBoxLayoutProps> = ({ label, isOnline }) => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null)
   const [anchorEl2, setAnchorEl2] = useState<null | HTMLElement>(null)
-
-  const handleFocus = () => {
-    if (textFieldRef.current) {
-      textFieldRef.current.placeholder = ''
-    }
-  }
-
-  const handleBlur = () => {
-    if (textFieldRef.current && textFieldRef.current.value === '') {
-      textFieldRef.current.placeholder = 'SEARCH'
-    }
-  }
 
   //for 1st upper button
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
@@ -75,7 +64,7 @@ const ChatBoxLayout = ({ label, isOnline }) => {
   return (
     <>
       <div className='flex'>
-        <div style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center' }}>
+        <div style={{ marginLeft: '41.25%', display: 'flex', alignItems: 'center' }}>
           <div>
             <Button
               endIcon={<ArrowDownwardIcon sx={{ color: 'black' }} />}
@@ -127,7 +116,7 @@ const ChatBoxLayout = ({ label, isOnline }) => {
               </MenuItem>
             </Menu>
           </div>
-          <div style={{ marginLeft: '450px' }}>
+          <div style={{ marginLeft: '491px' }}>
             <Button
               endIcon={<ArrowDownwardIcon sx={{ color: 'black' }} />}
               variant='contained'
@@ -189,10 +178,10 @@ const ChatBoxLayout = ({ label, isOnline }) => {
       <div style={{ display: 'flex', marginTop: '-2.5%' }}>
         {/* Chat Box List Group card */}
         <div className='chatListGroup' style={{ display: 'grid', justifyContent: 'space-between' }}>
-          <Card sx={{ width: 550, height: 500 }}>
+          <Card sx={{ width: 550, height: 'auto' }}>
             <CardContent>
               <div>
-                <Typography variant='h5' component='h3'>
+                <Typography variant='h6' component='h3'>
                   Chat List
                 </Typography>
                 <div style={{ marginLeft: '71%', marginTop: '-5%' }}>
@@ -209,9 +198,6 @@ const ChatBoxLayout = ({ label, isOnline }) => {
                     id='standard-search'
                     variant='standard'
                     placeholder='Search People or Group'
-                    inputRef={textFieldRef}
-                    onFocus={handleFocus}
-                    onBlur={handleBlur}
                     InputProps={{
                       startAdornment: (
                         <InputAdornment position='start'>
@@ -249,11 +235,11 @@ const ChatBoxLayout = ({ label, isOnline }) => {
         </div>
 
         {/* ChatlistTextEditor 2nd card */}
-        <div className='ChatListTextEditor mt-20 mx-6' style={{ flex: 1 }}>
-          <Card sx={{ width: '102%', height: 270 }}>
+        <div className='ChatListTextEditor mx-6' style={{ flex: 1, marginTop: '4%' }}>
+          <Card sx={{ width: '102.8%', height: 'auto' }}>
             <CardContent>
               <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                <Typography variant='h6' component='h3' style={{ flex: 1, marginRight: '12%' }}>
+                <Typography variant='h6' component='h3' style={{ flex: 1, marginRight: '9%' }}>
                   Text-Editor Here
                 </Typography>
                 <div style={{ flexGrow: 1 }}>
@@ -261,9 +247,6 @@ const ChatBoxLayout = ({ label, isOnline }) => {
                     id='standard-search'
                     variant='standard'
                     placeholder='SEARCH'
-                    inputRef={textFieldRef}
-                    onFocus={handleFocus}
-                    onBlur={handleBlur}
                     InputProps={{
                       startAdornment: (
                         <InputAdornment position='start'>
