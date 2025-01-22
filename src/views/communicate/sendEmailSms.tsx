@@ -68,7 +68,7 @@ const SendEmailSmsLayout = () => {
     <>
       <div className='flex '>
         <Typography variant='h6' component='h3'>
-          Email/SMS Log List
+          Send Email/SMS
         </Typography>
         <nav style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center' }}>
           <Typography variant='h6' component='h3' style={{ display: 'flex', alignItems: 'center' }}>

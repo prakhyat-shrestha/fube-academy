@@ -134,7 +134,7 @@ const VerticalMenu = ({ dictionary, scrollMenu }: Props) => {
           <MenuItem href={'/certificatePrint'}>Certificate</MenuItem>
           <MenuItem href={'/payRollBulk'}>Payroll Bulk Print</MenuItem>
           <MenuItem href={'/feesInvoiceBulk'}>Fees Invoice Bulk Print</MenuItem>
-          <MenuItem href={'/feesInvoiceSetting'}>Fees Invoice Bulk Print Setting</MenuItem>
+          <MenuItem href={'/feesInvoiceBulkSetting'}>Fees Invoice Bulk Print Setting</MenuItem>
         </SubMenu>
         <SubMenu label={dictionary['navigation'].downloadCenter} icon={<i className='tabler-download' />}>
           <MenuItem href={'/contentType'}>Content Type</MenuItem>
@@ -279,13 +279,13 @@ const VerticalMenu = ({ dictionary, scrollMenu }: Props) => {
         </SubMenu>
 
         <SubMenu label={dictionary['navigation'].communicate} icon={<SatelliteAltIcon />}>
-          <MenuItem href={'/noticeList'}>Notice List</MenuItem>
+          <MenuItem href={'/noticeList'}>Notice Board</MenuItem>
           <MenuItem href={'/sendEmailSmsView'}>Send Email/SMS</MenuItem>
           <MenuItem href={'/emailSmsLog'}>Email SMS Log</MenuItem>
-          <MenuItem href={'/events'}>Event List</MenuItem>
+          <MenuItem href={'/events'}>Event </MenuItem>
           <MenuItem href={'/academicCalendar'}>Calendar</MenuItem>
           <MenuItem href={'/templateSettings/emailTemplate'}>Email Template</MenuItem>
-          <MenuItem href={'/templateSettings/smsTemplate'}>SMS Template</MenuItem>
+          <MenuItem href={'/templateSettings/smsTemplate'}>Sms Template</MenuItem>
         </SubMenu>
 
         <SubMenu label={dictionary['navigation'].studentReport} icon={<i className='tabler-users-group' />}>

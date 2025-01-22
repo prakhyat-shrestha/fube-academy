@@ -67,10 +67,10 @@ const VisitorLayout = () => {
           </Typography>
         </nav>
       </div>
-      <div className='flex' style={{ display: 'flex' }}>
+      <div className='flex' style={{ flex: 1 }}>
         {/* Add visitorBook first card */}
         <div className='visitorBook mt-4'>
-          <Card sx={{ width: 350, height: '99%' }}>
+          <Card sx={{ width: 350, height: 'auto' }}>
             <CardContent>
               <Typography variant='h6' component='h4'>
                 Add Visitor

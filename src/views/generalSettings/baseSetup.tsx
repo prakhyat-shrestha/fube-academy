@@ -169,7 +169,7 @@ const BaseSetupLayout = () => {
                         }}
                       >
                         <div style={{ display: 'flex', alignItems: 'center' }}>
-                          <ArrowDownwardIcon style={{ marginRight: '8px' }} />
+                          <ArrowDownwardIcon style={{ marginRight: '8px', fontSize: '1rem' }} />
                           Base Type
                         </div>
                       </TableCell>
@@ -180,7 +180,7 @@ const BaseSetupLayout = () => {
                         }}
                       >
                         <div style={{ display: 'flex', alignItems: 'center' }}>
-                          <ArrowDownwardIcon style={{ marginRight: '8px' }} />
+                          <ArrowDownwardIcon style={{ marginRight: '8px', fontSize: '1rem' }} />
                           Label
                         </div>
                       </TableCell>
@@ -192,7 +192,7 @@ const BaseSetupLayout = () => {
                         }}
                       >
                         <div style={{ display: 'flex', alignItems: 'center' }}>
-                          <ArrowDownwardIcon style={{ marginRight: '8px' }} />
+                          <ArrowDownwardIcon style={{ marginRight: '8px', fontSize: '1rem' }} />
                           Action
                         </div>
                       </TableCell>

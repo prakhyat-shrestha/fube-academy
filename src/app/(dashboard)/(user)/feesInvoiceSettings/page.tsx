@@ -1,9 +1,9 @@
-import FeesInvoiceSettingLayout from '@/views/bulkPrint/feesInvoiceSetting'
+import FeesInvoiceSettingsLayout from '@/views/feesSettings/feesInvoiceSettings'
 
 const FeesInvoiceSettings = () => {
   return (
     <>
-      <FeesInvoiceSettingLayout />
+      <FeesInvoiceSettingsLayout />
     </>
   )
 }
