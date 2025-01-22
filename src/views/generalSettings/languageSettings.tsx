@@ -1,34 +1,35 @@
 'use client'
 import * as React from 'react'
-
-import { useRef, useState } from 'react'
-
+import { useState } from 'react'
 import Link from 'next/link'
-
-import Typography from '@mui/material/Typography'
 import CheckSharpIcon from '@mui/icons-material/CheckSharp'
-
 import SearchSharpIcon from '@mui/icons-material/SearchSharp'
-import ButtonGroup from '@mui/material/ButtonGroup'
-
-import Button from '@mui/material/Button'
-import CardContent from '@mui/material/CardContent'
-import CardActions from '@mui/material/CardActions'
-import Card from '@mui/material/Card'
 import { Icon } from '@iconify/react/dist/iconify.js'
-import { createTheme } from '@mui/material/styles'
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
 import SettingsIcon from '@mui/icons-material/Settings'
 import DownloadIcon from '@mui/icons-material/Download'
-import { MenuItem, TextField, InputAdornment } from '@mui/material'
+import {
+  MenuItem,
+  TextField,
+  InputAdornment,
+  TableHead,
+  Table,
+  TableRow,
+  TableCell,
+  TableBody,
+  Typography,
+  ButtonGroup,
+  Button,
+  Card,
+  CardActions,
+  CardContent
+} from '@mui/material'
 import UploadIcon from '@mui/icons-material/Upload'
 import CloseIcon from '@mui/icons-material/Close'
 
 const LanguageSettingsLayout = () => {
-  const textFieldRef = useRef<HTMLInputElement>(null)
-
   const [language, setLanguage] = useState('')
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -59,30 +60,10 @@ const LanguageSettingsLayout = () => {
     { name: 'Icelandic', native: 'Íslenska' }
   ]
 
-  const handleFocus = () => {
-    if (textFieldRef.current) {
-      textFieldRef.current.placeholder = ''
-    }
-  }
-
-  const handleBlur = () => {
-    if (textFieldRef.current && textFieldRef.current.value === '') {
-      textFieldRef.current.placeholder = 'SEARCH'
-    }
-  }
-
-  const theme = createTheme({
-    palette: {
-      primary: {
-        main: '#1976d2'
-      }
-    }
-  })
-
   return (
     <>
       <div className='flex '>
-        <Typography variant='h5' component='h3'>
+        <Typography variant='h6' component='h3'>
           Language Settings
         </Typography>
         <nav style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center' }}>
@@ -102,9 +83,9 @@ const LanguageSettingsLayout = () => {
       <div className='flex' style={{ display: 'flex' }}>
         {/* Add category first card */}
         <div className='languageGroup mt-4'>
-          <Card sx={{ width: 280, height: 220 }}>
+          <Card sx={{ width: 350, height: 'auto' }}>
             <CardContent>
-              <Typography variant='h5' component='h3'>
+              <Typography variant='h6' component='h3'>
                 Add Language
               </Typography>
               <Typography variant='body2' component='div'>
@@ -135,11 +116,11 @@ const LanguageSettingsLayout = () => {
         </div>
 
         {/*  Group list 2nd card */}
-        <div className='CategoryList mt-4 mx-6' style={{ flex: 1 }}>
+        <div className='languageList mt-4 mx-6' style={{ flex: 1 }}>
           <Card sx={{ width: '102%', height: 'auto' }}>
             <CardContent>
               <div style={{ display: 'flex', alignItems: 'center' }}>
-                <Typography variant='h5' component='h3' style={{ flex: 1, marginRight: '12%' }}>
+                <Typography variant='h6' component='h3' style={{ flex: 1, marginRight: '12%' }}>
                   Language List
                 </Typography>
                 <div style={{ flexGrow: 1 }}>
@@ -147,9 +128,6 @@ const LanguageSettingsLayout = () => {
                     id='standard-search'
                     variant='standard'
                     placeholder='SEARCH'
-                    inputRef={textFieldRef}
-                    onFocus={handleFocus}
-                    onBlur={handleBlur}
                     InputProps={{
                       startAdornment: (
                         <InputAdornment position='start'>
@@ -206,94 +184,89 @@ const LanguageSettingsLayout = () => {
               </div>
               {/* Table */}
               <div style={{ marginTop: '20px' }}>
-                <table style={{ width: '100%', borderCollapse: 'collapse' }}>
-                  <thead>
-                    <tr>
-                      <th
+                <Table style={{ width: '100%', borderCollapse: 'collapse' }} stickyHeader aria-label='sticky table'>
+                  <TableHead>
+                    <TableRow>
+                      <TableCell
                         style={{
                           padding: '8px',
                           textAlign: 'left',
-                          backgroundColor: 'lightgray',
                           borderRadius: '5px 0 0 5px',
                           position: 'relative' // Required for rounded corners
                         }}
                       >
                         <div style={{ display: 'flex', alignItems: 'center' }}>
-                          <ArrowDownwardIcon style={{ marginRight: '8px' }} />
+                          <ArrowDownwardIcon style={{ marginRight: '8px', fontSize: '1rem' }} />
                           <span>SL</span>
                         </div>
-                      </th>
-                      <th
+                      </TableCell>
+                      <TableCell
                         style={{
                           padding: '8px',
-                          textAlign: 'left',
-                          backgroundColor: 'lightgray'
+                          textAlign: 'left'
                         }}
                       >
                         <div style={{ display: 'flex', alignItems: 'center' }}>
-                          <ArrowDownwardIcon style={{ marginRight: '8px' }} />
+                          <ArrowDownwardIcon style={{ marginRight: '8px', fontSize: '1rem' }} />
                           <span>Language</span>
                         </div>
-                      </th>
-                      <th
+                      </TableCell>
+                      <TableCell
                         style={{
                           padding: '8px',
-                          textAlign: 'left',
-                          backgroundColor: 'lightgray'
+                          textAlign: 'left'
                         }}
                       >
                         <div style={{ display: 'flex', alignItems: 'center' }}>
-                          <ArrowDownwardIcon style={{ marginRight: '8px' }} />
+                          <ArrowDownwardIcon style={{ marginRight: '8px', fontSize: '1rem' }} />
                           <span>Native</span>
                         </div>
-                      </th>
-                      <th
+                      </TableCell>
+                      <TableCell
                         style={{
                           padding: '8px',
-                          textAlign: 'left',
-                          backgroundColor: 'lightgray'
+                          textAlign: 'left'
                         }}
                       >
                         <div style={{ display: 'flex', alignItems: 'center' }}>
-                          <ArrowDownwardIcon style={{ marginRight: '8px' }} />
+                          <ArrowDownwardIcon style={{ marginRight: '8px', fontSize: '1rem' }} />
                           <span>Universal</span>
                         </div>
-                      </th>{' '}
-                      <th
+                      </TableCell>
+                      <TableCell
                         style={{
                           padding: '8px',
-                          textAlign: 'left',
-                          backgroundColor: 'lightgray'
+                          textAlign: 'left'
                         }}
                       >
                         <div style={{ display: 'flex', alignItems: 'center' }}>
-                          <ArrowDownwardIcon style={{ marginRight: '8px' }} />
+                          <ArrowDownwardIcon style={{ marginRight: '8px', fontSize: '1rem' }} />
                           <span>Status</span>
                         </div>
-                      </th>
-                      <th
+                      </TableCell>
+                      <TableCell
                         style={{
                           padding: '8px',
                           textAlign: 'left',
-                          backgroundColor: 'lightgray',
+
                           borderRadius: '0 5px 5px 0'
                         }}
                       >
                         <div style={{ display: 'flex', alignItems: 'center' }}>
-                          <ArrowDownwardIcon style={{ marginRight: '8px' }} />
+                          <ArrowDownwardIcon style={{ marginRight: '8px', fontSize: '1rem' }} />
                           <span>Action</span>
                         </div>
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr style={{ borderBottom: '1px solid #ddd' }}>
-                      <td style={{ padding: '8px' }}> 1</td>
-                      <td style={{ padding: '8px' }}>English</td>
-                      <td style={{ padding: '8px' }}>English</td>
-                      <td style={{ padding: '8px' }}>en</td>
-                      <td style={{ padding: '8px' }}>Active</td>
-                      <td style={{ padding: '8px' }}>
+                      </TableCell>
+                    </TableRow>
+                  </TableHead>
+                  <TableBody>
+                    <TableRow style={{ borderBottom: '1px solid #ddd' }}>
+                      <TableCell style={{ padding: '8px' }}> 1</TableCell>
+                      <TableCell style={{ padding: '8px' }}>English</TableCell>
+                      <TableCell style={{ padding: '8px' }}>English</TableCell>
+                      <TableCell style={{ padding: '8px' }}>en</TableCell>
+                      <TableCell style={{ padding: '8px' }}>Active</TableCell>
+                      <TableCell style={{ padding: '8px' }}>
                         <div style={{ display: 'flex', gap: '10px' }}>
                           <Button variant='contained' style={{ borderRadius: '10px' }}>
                             <CheckSharpIcon />
@@ -314,15 +287,15 @@ const LanguageSettingsLayout = () => {
                             Import
                           </Button>
                         </div>
-                      </td>
-                    </tr>
-                    <tr style={{ borderBottom: '1px solid #ddd' }}>
-                      <td style={{ padding: '8px' }}> 2</td>
-                      <td style={{ padding: '8px' }}>Spanish</td>
-                      <td style={{ padding: '8px' }}>Español</td>
-                      <td style={{ padding: '8px' }}>es</td>
-                      <td style={{ padding: '8px' }}>In Active</td>
-                      <td style={{ padding: '8px' }}>
+                      </TableCell>
+                    </TableRow>
+                    <TableRow style={{ borderBottom: '1px solid #ddd' }}>
+                      <TableCell style={{ padding: '8px' }}> 2</TableCell>
+                      <TableCell style={{ padding: '8px' }}>Spanish</TableCell>
+                      <TableCell style={{ padding: '8px' }}>Español</TableCell>
+                      <TableCell style={{ padding: '8px' }}>es</TableCell>
+                      <TableCell style={{ padding: '8px' }}>In Active</TableCell>
+                      <TableCell style={{ padding: '8px' }}>
                         <Button variant='outlined' style={{ borderRadius: '10px' }}>
                           <CheckSharpIcon />
                           MAKE DEFAULT
@@ -347,15 +320,15 @@ const LanguageSettingsLayout = () => {
                             REMOVE
                           </Button>
                         </div>
-                      </td>
-                    </tr>
-                    <tr style={{ borderBottom: '1px solid #ddd' }}>
-                      <td style={{ padding: '8px' }}>3</td>
-                      <td style={{ padding: '8px' }}>French</td>
-                      <td style={{ padding: '8px' }}>Français</td>
-                      <td style={{ padding: '8px' }}>fr</td>
-                      <td style={{ padding: '8px' }}>In Active</td>
-                      <td style={{ padding: '8px' }}>
+                      </TableCell>
+                    </TableRow>
+                    <TableRow style={{ borderBottom: '1px solid #ddd' }}>
+                      <TableCell style={{ padding: '16px' }}>3</TableCell>
+                      <TableCell style={{ padding: '16px' }}>French</TableCell>
+                      <TableCell style={{ padding: '16px' }}>Français</TableCell>
+                      <TableCell style={{ padding: '8px' }}>fr</TableCell>
+                      <TableCell style={{ padding: '8px' }}>In Active</TableCell>
+                      <TableCell style={{ padding: '8px' }}>
                         <Button variant='outlined' style={{ borderRadius: '10px' }}>
                           <CheckSharpIcon />
                           MAKE DEFAULT
@@ -380,10 +353,10 @@ const LanguageSettingsLayout = () => {
                             REMOVE
                           </Button>
                         </div>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
+                      </TableCell>
+                    </TableRow>
+                  </TableBody>
+                </Table>
               </div>
             </CardContent>
             {/* Pagination */}
@@ -419,7 +392,7 @@ const LanguageSettingsLayout = () => {
                     color: 'white',
                     padding: '4px 16px',
                     borderRadius: '4px',
-                    background: theme.palette.primary.main,
+                    background: '#5659fc',
                     cursor: 'pointer'
                   }}
                 >

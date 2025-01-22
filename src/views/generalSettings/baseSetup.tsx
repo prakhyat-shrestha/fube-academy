@@ -1,17 +1,22 @@
 'use client'
 import * as React from 'react'
-
-import { useRef } from 'react'
-
+import { useEffect, useState } from 'react'
 import Link from 'next/link'
-
 import Typography from '@mui/material/Typography'
 import CheckSharpIcon from '@mui/icons-material/CheckSharp'
-import { TextField, InputAdornment } from '@mui/material'
+import {
+  TextField,
+  InputAdornment,
+  Table,
+  TableHead,
+  TableRow,
+  TableCell,
+  TableBody,
+  TableContainer
+} from '@mui/material'
 import SearchSharpIcon from '@mui/icons-material/SearchSharp'
 import ButtonGroup from '@mui/material/ButtonGroup'
 import Accordion from '@mui/material/Accordion'
-
 import AccordionSummary from '@mui/material/AccordionSummary'
 import AccordionDetails from '@mui/material/AccordionDetails'
 import Button from '@mui/material/Button'
@@ -19,40 +24,26 @@ import CardContent from '@mui/material/CardContent'
 import CardActions from '@mui/material/CardActions'
 import Card from '@mui/material/Card'
 import { Icon } from '@iconify/react/dist/iconify.js'
-import { createTheme } from '@mui/material/styles'
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
-
 import CustomTextField from '@/@core/components/mui/TextField'
 
 const BaseSetupLayout = () => {
-  const textFieldRef = useRef<HTMLInputElement>(null)
+  const [isClient, setIsClient] = useState(false)
 
-  const handleFocus = () => {
-    if (textFieldRef.current) {
-      textFieldRef.current.placeholder = ''
-    }
+  useEffect(() => {
+    setIsClient(true)
+  }, [])
+
+  if (!isClient) {
+    return null
   }
-
-  const handleBlur = () => {
-    if (textFieldRef.current && textFieldRef.current.value === '') {
-      textFieldRef.current.placeholder = 'SEARCH'
-    }
-  }
-
-  const theme = createTheme({
-    palette: {
-      primary: {
-        main: '#1976d2'
-      }
-    }
-  })
 
   return (
     <>
       <div className='flex '>
-        <Typography variant='h5' component='h3'>
+        <Typography variant='h6' component='h3'>
           Base Setup
         </Typography>
         <nav style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center' }}>
@@ -72,7 +63,7 @@ const BaseSetupLayout = () => {
       <div className='flex' style={{ display: 'flex' }}>
         {/* Add category first card */}
         <div className='baseSetupGroup mt-4'>
-          <Card sx={{ width: 280, height: 300 }}>
+          <Card sx={{ width: 350, height: 'auto' }}>
             <CardContent>
               <Typography variant='h6' component='h3'>
                 Add Base Setup
@@ -98,7 +89,7 @@ const BaseSetupLayout = () => {
           <Card sx={{ width: 'auto', height: 'auto' }}>
             <CardContent>
               <div style={{ display: 'flex', alignItems: 'center' }}>
-                <Typography variant='h5' component='h3' style={{ flex: 1, marginRight: '12%' }}>
+                <Typography variant='h6' component='h3' style={{ flex: 1, marginRight: '12%' }}>
                   Base Setup List
                 </Typography>
                 <div style={{ flexGrow: 1 }}>
@@ -106,9 +97,6 @@ const BaseSetupLayout = () => {
                     id='standard-search'
                     variant='standard'
                     placeholder='SEARCH'
-                    inputRef={textFieldRef}
-                    onFocus={handleFocus}
-                    onBlur={handleBlur}
                     InputProps={{
                       startAdornment: (
                         <InputAdornment position='start'>
@@ -164,80 +152,90 @@ const BaseSetupLayout = () => {
                 </div>
               </div>
               {/* Table */}
-              <div style={{ marginTop: '20px' }}>
-                <table style={{ width: '100%', borderCollapse: 'collapse', tableLayout: 'fixed' }}>
-                  <thead>
-                    <tr>
-                      <th
-                        style={{
+              <TableContainer sx={{ marginTop: '20px' }}>
+                <Table
+                  sx={{ width: '100%', borderCollapse: 'collapse', tableLayout: 'fixed' }}
+                  stickyHeader
+                  aria-label='sticky table'
+                >
+                  <TableHead>
+                    <TableRow>
+                      <TableCell
+                        sx={{
                           padding: '8px',
                           textAlign: 'left',
-                          backgroundColor: 'lightgray',
                           borderRadius: '5px 0 0 5px',
                           position: 'relative' // Required for rounded corners
                         }}
                       >
                         <div style={{ display: 'flex', alignItems: 'center' }}>
                           <ArrowDownwardIcon style={{ marginRight: '8px' }} />
-                          <span>Base Type</span>
+                          Base Type
                         </div>
-                      </th>
-                      <th
+                      </TableCell>
+                      <TableCell
                         style={{
                           padding: '8px',
-                          textAlign: 'left',
-                          backgroundColor: 'lightgray'
+                          textAlign: 'left'
                         }}
                       >
                         <div style={{ display: 'flex', alignItems: 'center' }}>
                           <ArrowDownwardIcon style={{ marginRight: '8px' }} />
-                          <span>Label</span>
+                          Label
                         </div>
-                      </th>
-                      <th
-                        style={{
+                      </TableCell>
+                      <TableCell
+                        sx={{
                           padding: '8px',
                           textAlign: 'left',
-                          backgroundColor: 'lightgray',
                           borderRadius: '0 5px 5px 0'
                         }}
                       >
                         <div style={{ display: 'flex', alignItems: 'center' }}>
                           <ArrowDownwardIcon style={{ marginRight: '8px' }} />
-                          <span>Action</span>
+                          Action
                         </div>
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr style={{ borderBottom: '1px solid #ddd' }}>
-                      <td style={{ padding: '8px' }}>
+                      </TableCell>
+                    </TableRow>
+                  </TableHead>
+                  <TableBody>
+                    <TableRow>
+                      <TableCell sx={{ padding: '9px' }}>
                         <Accordion
                           sx={{
                             width: '312.5%',
-                            backgroundColor: 'skyblue',
+                            backgroundColor: 'white',
                             borderRadius: '8px',
                             boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.2)',
                             overflow: 'hidden'
                           }}
                         >
                           <AccordionSummary
+                            sx={{
+                              minHeight: '40px', // Reduce the height here
+                              padding: '10px' // Remove padding to reduce height
+                            }}
                             expandIcon={
                               <Button
                                 variant='contained'
                                 sx={{
-                                  minWidth: '36px',
-                                  minHeight: '36px',
-                                  borderRadius: '50%',
-                                  backgroundColor: 'skyblue',
+                                  width: '25px', // Fixed width
+                                  height: '25px', // Fixed height
+                                  borderRadius: '50%', // Ensures the button is a circle
+                                  padding: 0, // Removes padding that might distort the shape
+                                  minWidth: 0, // Prevents Material-UI from enforcing a larger minWidth
+                                  backgroundColor: '#7367F0',
                                   color: 'white',
                                   boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.2)',
+                                  display: 'flex', // Centers the content
+                                  alignItems: 'center',
+                                  justifyContent: 'center',
                                   '&:hover': {
                                     backgroundColor: 'lightblue'
                                   }
                                 }}
                               >
-                                <ArrowDownwardIcon />
+                                <ArrowDownwardIcon style={{ fontSize: '20px' }} /> {/* Icon scaled down to fit */}
                               </Button>
                             }
                           >
@@ -245,71 +243,80 @@ const BaseSetupLayout = () => {
                           </AccordionSummary>
 
                           <AccordionDetails>
-                            <tr>
-                              <td style={{ paddingLeft: '345px' }}>
+                            <TableRow>
+                              <TableCell sx={{ paddingLeft: '345px' }}>
                                 <Typography variant='h6'>
                                   Male
-                                  <Button style={{ marginLeft: '290px' }}>
+                                  <Button sx={{ marginLeft: '290px' }}>
                                     SELECT
                                     <ArrowDownwardIcon />
                                   </Button>
                                 </Typography>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td style={{ paddingLeft: '345px' }}>
+                              </TableCell>
+                            </TableRow>
+                            <TableRow>
+                              <TableCell sx={{ paddingLeft: '345px' }}>
                                 <Typography variant='h6'>
-                                  Female{' '}
-                                  <Button style={{ marginLeft: '270px' }}>
+                                  Female
+                                  <Button sx={{ marginLeft: '270px' }}>
                                     SELECT
                                     <ArrowDownwardIcon />
                                   </Button>
                                 </Typography>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td style={{ paddingLeft: '345px' }}>
+                              </TableCell>
+                            </TableRow>
+                            <TableRow>
+                              <TableCell sx={{ paddingLeft: '345px' }}>
                                 <Typography variant='h6'>
                                   Others
-                                  <Button style={{ marginLeft: '276px' }}>
+                                  <Button sx={{ marginLeft: '276px' }}>
                                     SELECT
                                     <ArrowDownwardIcon />
                                   </Button>
                                 </Typography>
-                              </td>
-                            </tr>
+                              </TableCell>
+                            </TableRow>
                           </AccordionDetails>
                         </Accordion>
-                      </td>
-                    </tr>
-                    <tr style={{ borderBottom: '1px solid #ddd' }}>
-                      <td style={{ padding: '8px' }}>
+                      </TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell sx={{ padding: '9px' }}>
                         <Accordion
                           sx={{
                             width: '312.5%',
-                            backgroundColor: 'skyblue',
+                            backgroundColor: 'white',
                             borderRadius: '8px',
                             boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.2)',
                             overflow: 'hidden'
                           }}
                         >
                           <AccordionSummary
+                            sx={{
+                              minHeight: '40px', // Reduce the height here
+                              padding: '10px' // Remove padding to reduce height
+                            }}
                             expandIcon={
                               <Button
                                 variant='contained'
                                 sx={{
-                                  minWidth: '36px',
-                                  minHeight: '36px',
-                                  borderRadius: '50%',
-                                  backgroundColor: 'skyblue',
+                                  width: '25px', // Fixed width
+                                  height: '25px', // Fixed height
+                                  borderRadius: '50%', // Ensures the button is a circle
+                                  padding: 0, // Removes padding that might distort the shape
+                                  minWidth: 0, // Prevents Material-UI from enforcing a larger minWidth
+                                  backgroundColor: '#7367F0',
                                   color: 'white',
                                   boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.2)',
+                                  display: 'flex', // Centers the content
+                                  alignItems: 'center',
+                                  justifyContent: 'center',
                                   '&:hover': {
                                     backgroundColor: 'lightblue'
                                   }
                                 }}
                               >
-                                <ArrowDownwardIcon />
+                                <ArrowDownwardIcon style={{ fontSize: '20px' }} /> {/* Icon scaled down to fit */}
                               </Button>
                             }
                           >
@@ -317,107 +324,113 @@ const BaseSetupLayout = () => {
                           </AccordionSummary>
 
                           <AccordionDetails>
-                            <tr>
-                              <td style={{ paddingLeft: '345px' }}>
+                            <TableRow>
+                              <TableCell sx={{ paddingLeft: '345px' }}>
                                 <Typography variant='h6'>
-                                  {' '}
-                                  Islam{' '}
-                                  <Button style={{ marginLeft: '280px' }}>
+                                  Islam
+                                  <Button sx={{ marginLeft: '280px' }}>
                                     SELECT
                                     <ArrowDownwardIcon />
                                   </Button>
                                 </Typography>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td style={{ paddingLeft: '345px' }}>
+                              </TableCell>
+                            </TableRow>
+                            <TableRow>
+                              <TableCell sx={{ paddingLeft: '345px' }}>
                                 <Typography variant='h6'>
-                                  {' '}
                                   Hinduism
-                                  <Button style={{ marginLeft: '255px' }}>
+                                  <Button sx={{ marginLeft: '255px' }}>
                                     SELECT
                                     <ArrowDownwardIcon />
                                   </Button>
                                 </Typography>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td style={{ paddingLeft: '345px' }}>
+                              </TableCell>
+                            </TableRow>
+                            <TableRow>
+                              <TableCell sx={{ paddingLeft: '345px' }}>
                                 <Typography variant='h6'>
                                   Sikhism
-                                  <Button style={{ marginLeft: '265px' }}>
+                                  <Button sx={{ marginLeft: '265px' }}>
                                     SELECT
                                     <ArrowDownwardIcon />
                                   </Button>
                                 </Typography>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td style={{ paddingLeft: '345px' }}>
+                              </TableCell>
+                            </TableRow>
+                            <TableRow>
+                              <TableCell sx={{ paddingLeft: '345px' }}>
                                 <Typography variant='h6'>
-                                  {' '}
                                   Buddhism
-                                  <Button style={{ marginLeft: '250px' }}>
+                                  <Button sx={{ marginLeft: '250px' }}>
                                     SELECT
                                     <ArrowDownwardIcon />
                                   </Button>
                                 </Typography>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td style={{ paddingLeft: '345px' }}>
+                              </TableCell>
+                            </TableRow>
+                            <TableRow>
+                              <TableCell sx={{ paddingLeft: '345px' }}>
                                 <Typography variant='h6'>
                                   Sikhism
-                                  <Button style={{ marginLeft: '265px' }}>
+                                  <Button sx={{ marginLeft: '265px' }}>
                                     SELECT
                                     <ArrowDownwardIcon />
                                   </Button>
                                 </Typography>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td style={{ paddingLeft: '345px' }}>
+                              </TableCell>
+                            </TableRow>
+                            <TableRow>
+                              <TableCell sx={{ paddingLeft: '345px' }}>
                                 <Typography variant='h6'>
                                   Protestantism
-                                  <Button style={{ marginLeft: '223px' }}>
+                                  <Button sx={{ marginLeft: '223px' }}>
                                     SELECT
                                     <ArrowDownwardIcon />
                                   </Button>
                                 </Typography>
-                              </td>
-                            </tr>
+                              </TableCell>
+                            </TableRow>
                           </AccordionDetails>
                         </Accordion>
-                      </td>
-                    </tr>
-                    <tr style={{ borderBottom: '1px solid #ddd' }}>
-                      <td style={{ padding: '8px' }}>
+                      </TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell sx={{ padding: '9px' }}>
                         <Accordion
                           sx={{
                             width: '312.5%',
-                            backgroundColor: 'skyblue',
+                            backgroundColor: 'white',
                             borderRadius: '8px',
                             boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.2)',
                             overflow: 'hidden'
                           }}
                         >
                           <AccordionSummary
+                            sx={{
+                              minHeight: '40px', // Reduce the height here
+                              padding: '10px' // Remove padding to reduce height
+                            }}
                             expandIcon={
                               <Button
                                 variant='contained'
                                 sx={{
-                                  minWidth: '36px',
-                                  minHeight: '36px',
-                                  borderRadius: '50%',
-                                  backgroundColor: 'skyblue',
+                                  width: '25px', // Fixed width
+                                  height: '25px', // Fixed height
+                                  borderRadius: '50%', // Ensures the button is a circle
+                                  padding: 0, // Removes padding that might distort the shape
+                                  minWidth: 0, // Prevents Material-UI from enforcing a larger minWidth
+                                  backgroundColor: '#7367F0',
                                   color: 'white',
                                   boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.2)',
+                                  display: 'flex', // Centers the content
+                                  alignItems: 'center',
+                                  justifyContent: 'center',
                                   '&:hover': {
                                     backgroundColor: 'lightblue'
                                   }
                                 }}
                               >
-                                <ArrowDownwardIcon />
+                                <ArrowDownwardIcon style={{ fontSize: '20px' }} /> {/* Icon scaled down to fit */}
                               </Button>
                             }
                           >
@@ -425,107 +438,107 @@ const BaseSetupLayout = () => {
                           </AccordionSummary>
 
                           <AccordionDetails>
-                            <tr>
-                              <td style={{ paddingLeft: '345px' }}>
+                            <TableRow>
+                              <TableCell sx={{ paddingLeft: '345px' }}>
                                 <Typography variant='h6'>
                                   {' '}
                                   A+{' '}
-                                  <Button style={{ marginLeft: '295px' }}>
+                                  <Button sx={{ marginLeft: '295px' }}>
                                     SELECT
                                     <ArrowDownwardIcon />
                                   </Button>
                                 </Typography>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td style={{ paddingLeft: '345px' }}>
+                              </TableCell>
+                            </TableRow>
+                            <TableRow>
+                              <TableCell sx={{ paddingLeft: '345px' }}>
                                 <Typography variant='h6'>
                                   {' '}
                                   O+
-                                  <Button style={{ marginLeft: '299px' }}>
+                                  <Button sx={{ marginLeft: '299px' }}>
                                     SELECT
                                     <ArrowDownwardIcon />
                                   </Button>
                                 </Typography>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td style={{ paddingLeft: '345px' }}>
+                              </TableCell>
+                            </TableRow>
+                            <TableRow>
+                              <TableCell sx={{ paddingLeft: '345px' }}>
                                 <Typography variant='h6'>
                                   {' '}
                                   B+
-                                  <Button style={{ marginLeft: '299px' }}>
+                                  <Button sx={{ marginLeft: '299px' }}>
                                     SELECT
                                     <ArrowDownwardIcon />
                                   </Button>
                                 </Typography>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td style={{ paddingLeft: '345px' }}>
+                              </TableCell>
+                            </TableRow>
+                            <TableRow>
+                              <TableCell sx={{ paddingLeft: '345px' }}>
                                 <Typography variant='h6'>
                                   {' '}
                                   AB+
-                                  <Button style={{ marginLeft: '288px' }}>
+                                  <Button sx={{ marginLeft: '288px' }}>
                                     SELECT
                                     <ArrowDownwardIcon />
                                   </Button>
                                 </Typography>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td style={{ paddingLeft: '345px' }}>
+                              </TableCell>
+                            </TableRow>
+                            <TableRow>
+                              <TableCell sx={{ paddingLeft: '345px' }}>
                                 <Typography variant='h6'>
                                   {' '}
                                   A-
-                                  <Button style={{ marginLeft: '302px' }}>
+                                  <Button sx={{ marginLeft: '302px' }}>
                                     SELECT
                                     <ArrowDownwardIcon />
                                   </Button>
                                 </Typography>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td style={{ paddingLeft: '345px' }}>
+                              </TableCell>
+                            </TableRow>
+                            <TableRow>
+                              <TableCell sx={{ paddingLeft: '345px' }}>
                                 <Typography variant='h6'>
                                   O-
-                                  <Button style={{ marginLeft: '301px' }}>
+                                  <Button sx={{ marginLeft: '301px' }}>
                                     SELECT
                                     <ArrowDownwardIcon />
                                   </Button>
                                 </Typography>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td style={{ paddingLeft: '345px' }}>
+                              </TableCell>
+                            </TableRow>
+                            <TableRow>
+                              <TableCell sx={{ paddingLeft: '345px' }}>
                                 <Typography variant='h6'>
                                   {' '}
                                   B-
-                                  <Button style={{ marginLeft: '302px' }}>
+                                  <Button sx={{ marginLeft: '302px' }}>
                                     SELECT
                                     <ArrowDownwardIcon />
                                   </Button>
                                 </Typography>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td style={{ paddingLeft: '345px' }}>
+                              </TableCell>
+                            </TableRow>
+                            <TableRow>
+                              <TableCell sx={{ paddingLeft: '345px' }}>
                                 <Typography variant='h6'>
                                   AB-
-                                  <Button style={{ marginLeft: '291px' }}>
+                                  <Button sx={{ marginLeft: '291px' }}>
                                     SELECT
                                     <ArrowDownwardIcon />
                                   </Button>
                                 </Typography>
-                              </td>
-                            </tr>
+                              </TableCell>
+                            </TableRow>
                           </AccordionDetails>
                         </Accordion>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
+                      </TableCell>
+                    </TableRow>
+                  </TableBody>
+                </Table>
+              </TableContainer>
             </CardContent>
             {/* Pagination */}
             <div style={{ display: 'flex', justifyContent: 'space-between', padding: '16px', marginTop: '0px' }}>
@@ -560,8 +573,8 @@ const BaseSetupLayout = () => {
                     color: 'white',
                     padding: '4px 16px',
                     borderRadius: '4px',
-                    background: theme.palette.primary.main,
-                    cursor: 'pointer'
+                    cursor: 'pointer',
+                    background: '#b3a8f7'
                   }}
                 >
                   1

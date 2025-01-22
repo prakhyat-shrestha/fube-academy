@@ -1,16 +1,9 @@
 'use client'
-
 import * as React from 'react'
-
-import { useRef, useState } from 'react'
-
+import { useState } from 'react'
 import Link from 'next/link'
-
-import Typography from '@mui/material/Typography'
 import CheckSharpIcon from '@mui/icons-material/CheckSharp'
-
 import SearchSharpIcon from '@mui/icons-material/SearchSharp'
-import ButtonGroup from '@mui/material/ButtonGroup'
 import {
   Table,
   TableBody,
@@ -20,24 +13,21 @@ import {
   TableRow,
   MenuItem,
   TextField,
-  InputAdornment
+  InputAdornment,
+  Typography,
+  ButtonGroup
 } from '@mui/material'
 import Button from '@mui/material/Button'
 import CardContent from '@mui/material/CardContent'
 import CardActions from '@mui/material/CardActions'
 import Card from '@mui/material/Card'
 import { Icon } from '@iconify/react/dist/iconify.js'
-import { createTheme } from '@mui/material/styles'
-
 import ArrowBackIcon from '@mui/icons-material/ArrowBack'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward'
-
 import CustomTextField from '@/@core/components/mui/TextField'
 
 const LanguageListLayout = () => {
-  const textFieldRef = useRef<HTMLInputElement>(null)
-
   const languages = [
     { sn: 1, name: 'English', code: 'en', textAlignment: 'LTL', native: 'English' },
     { sn: 2, name: 'Spanish', code: 'es', textAlignment: 'LTL', native: 'Español' },
@@ -64,26 +54,6 @@ const LanguageListLayout = () => {
 
   const rowsPerPage = 10
 
-  const handleFocus = () => {
-    if (textFieldRef.current) {
-      textFieldRef.current.placeholder = ''
-    }
-  }
-
-  const handleBlur = () => {
-    if (textFieldRef.current && textFieldRef.current.value === '') {
-      textFieldRef.current.placeholder = 'SEARCH'
-    }
-  }
-
-  const theme = createTheme({
-    palette: {
-      primary: {
-        main: '#1976d2'
-      }
-    }
-  })
-
   //For Table Pagination
   const [page, setPage] = useState(0)
 
@@ -97,7 +67,7 @@ const LanguageListLayout = () => {
   return (
     <>
       <div className='flex '>
-        <Typography variant='h5' component='h3'>
+        <Typography variant='h6' component='h3'>
           Language Settings
         </Typography>
         <nav style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center' }}>
@@ -117,9 +87,9 @@ const LanguageListLayout = () => {
       <div className='flex' style={{ display: 'flex' }}>
         {/* Add category first card */}
         <div className='languageGroup mt-4'>
-          <Card sx={{ width: 320, height: 'auto' }}>
+          <Card sx={{ width: 350, height: 'auto' }}>
             <CardContent>
-              <Typography variant='h5' component='h3'>
+              <Typography variant='h6' component='h3'>
                 Add Language
               </Typography>
               <Typography variant='body2' component='div'>
@@ -188,7 +158,7 @@ const LanguageListLayout = () => {
           <Card sx={{ width: '102%', height: 'auto' }}>
             <CardContent>
               <div style={{ display: 'flex', alignItems: 'center' }}>
-                <Typography variant='h5' component='h3' style={{ flex: 1, marginRight: '12%' }}>
+                <Typography variant='h6' component='h3' style={{ flex: 1, marginRight: '12%' }}>
                   Language List
                 </Typography>
                 <div style={{ flexGrow: 1 }}>
@@ -196,9 +166,6 @@ const LanguageListLayout = () => {
                     id='standard-search'
                     variant='standard'
                     placeholder='SEARCH'
-                    inputRef={textFieldRef}
-                    onFocus={handleFocus}
-                    onBlur={handleBlur}
                     InputProps={{
                       startAdornment: (
                         <InputAdornment position='start'>
@@ -254,46 +221,79 @@ const LanguageListLayout = () => {
                 </div>
               </div>
               {/* Table */}
-              <div style={{ marginTop: '20px' }}>
+              <div style={{ marginTop: '10px' }}>
                 <TableContainer>
-                  <Table>
+                  <Table style={{ width: '100%', borderCollapse: 'collapse' }} stickyHeader aria-label='sticky table'>
                     <TableHead>
                       <TableRow>
-                        <TableCell>
-                          <Typography variant='h5'>
-                            <ArrowDownwardIcon />
-                            SN
-                          </Typography>
+                        <TableCell
+                          style={{
+                            padding: '8px',
+                            textAlign: 'left',
+                            borderRadius: '5px 0 0 5px',
+                            position: 'relative' // Required for rounded corners
+                          }}
+                        >
+                          <div style={{ display: 'flex', alignItems: 'center' }}>
+                            <ArrowDownwardIcon style={{ marginRight: '8px', fontSize: '1rem' }} />
+                            <span>SL</span>
+                          </div>
                         </TableCell>
-                        <TableCell>
-                          <Typography variant='h5'>
-                            <ArrowDownwardIcon />
-                            Name
-                          </Typography>
+                        <TableCell
+                          style={{
+                            padding: '8px',
+                            textAlign: 'left'
+                          }}
+                        >
+                          <div style={{ display: 'flex', alignItems: 'center' }}>
+                            <ArrowDownwardIcon style={{ marginRight: '8px', fontSize: '1rem' }} />
+                            <span>Name</span>
+                          </div>
                         </TableCell>
-                        <TableCell>
-                          <Typography variant='h5'>
-                            <ArrowDownwardIcon />
-                            Code
-                          </Typography>
+                        <TableCell
+                          style={{
+                            padding: '8px',
+                            textAlign: 'left'
+                          }}
+                        >
+                          <div style={{ display: 'flex', alignItems: 'center' }}>
+                            <ArrowDownwardIcon style={{ marginRight: '8px', fontSize: '1rem' }} />
+                            <span>Code</span>
+                          </div>
                         </TableCell>
-                        <TableCell>
-                          <Typography variant='h5'>
-                            <ArrowDownwardIcon />
-                            Native
-                          </Typography>
+                        <TableCell
+                          style={{
+                            padding: '8px',
+                            textAlign: 'left'
+                          }}
+                        >
+                          <div style={{ display: 'flex', alignItems: 'center' }}>
+                            <ArrowDownwardIcon style={{ marginRight: '8px', fontSize: '1rem' }} />
+                            <span>Native</span>
+                          </div>
                         </TableCell>
-                        <TableCell>
-                          <Typography variant='h5'>
-                            <ArrowDownwardIcon />
-                            Text Alignment
-                          </Typography>
+
+                        <TableCell
+                          style={{
+                            padding: '8px',
+                            textAlign: 'left'
+                          }}
+                        >
+                          <div style={{ display: 'flex', alignItems: 'center' }}>
+                            <ArrowDownwardIcon style={{ marginRight: '8px', fontSize: '1rem' }} />
+                            <span>Text Alignment</span>
+                          </div>
                         </TableCell>
-                        <TableCell>
-                          <Typography variant='h5'>
-                            <ArrowDownwardIcon />
-                            Action
-                          </Typography>
+                        <TableCell
+                          style={{
+                            padding: '8px',
+                            textAlign: 'left'
+                          }}
+                        >
+                          <div style={{ display: 'flex', alignItems: 'center' }}>
+                            <ArrowDownwardIcon style={{ marginRight: '8px', fontSize: '1rem' }} />
+                            <span>Action</span>
+                          </div>
                         </TableCell>
                       </TableRow>
                     </TableHead>
@@ -301,29 +301,19 @@ const LanguageListLayout = () => {
                       {paginatedRows.map(language => (
                         <TableRow key={language.sn}>
                           <TableCell>
-                            <Typography variant='h6' style={{ marginLeft: '35px' }}>
-                              {language.sn}
-                            </Typography>
+                            <Typography style={{ marginLeft: '35px' }}>{language.sn}</Typography>
                           </TableCell>
                           <TableCell>
-                            <Typography variant='h6' style={{ marginLeft: '22px' }}>
-                              {language.name}
-                            </Typography>
+                            <Typography style={{ marginLeft: '22px' }}>{language.name}</Typography>
                           </TableCell>
                           <TableCell>
-                            <Typography variant='h6' style={{ marginLeft: '35px' }}>
-                              {language.code}
-                            </Typography>
+                            <Typography style={{ marginLeft: '35px' }}>{language.code}</Typography>
                           </TableCell>
                           <TableCell>
-                            <Typography variant='h6' style={{ marginLeft: '25px' }}>
-                              {language.native}
-                            </Typography>
+                            <Typography style={{ marginLeft: '25px' }}>{language.native}</Typography>
                           </TableCell>
                           <TableCell>
-                            <Typography variant='h6' style={{ marginLeft: '35px' }}>
-                              {language.textAlignment}
-                            </Typography>
+                            <Typography style={{ marginLeft: '35px' }}>{language.textAlignment}</Typography>
                           </TableCell>
                           <TableCell>
                             <Button variant='outlined' style={{ borderRadius: '25px' }}>
@@ -374,7 +364,7 @@ const LanguageListLayout = () => {
                     color: 'white',
                     padding: '4px 16px',
                     borderRadius: '4px',
-                    background: theme.palette.primary.main,
+                    background: '#5659fc',
                     cursor: 'pointer'
                   }}
                 >
