@@ -26,6 +26,7 @@ import { Icon } from '@iconify/react/dist/iconify.js'
 import ButtonGroup from '@mui/material/ButtonGroup'
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward'
 import { useState } from 'react'
+import AddDialogComponent from './dialogComponent/addDialogComponent'
 
 const createActionButton = () => (
   <Button
@@ -64,6 +65,16 @@ const AdmissionQueryLayout = () => {
   const startIndex = (page - 1) * rowsPerPage
   const endIndex = Math.min(page * rowsPerPage, records.length)
 
+  //For Add Button Dialog
+  const [isDialogOpen, setIsDialogOpen] = useState(false)
+  const openDialog = () => {
+    setIsDialogOpen(true)
+  }
+
+  const closeDialog = () => {
+    setIsDialogOpen(false) // Close the dialog
+  }
+
   return (
     <>
       <div className='flex'>
@@ -94,9 +105,10 @@ const AdmissionQueryLayout = () => {
               <Typography variant='h6' component='h4'>
                 Select Criteria
               </Typography>
-              <Button variant='contained' startIcon={<AddSharpIcon />}>
+              <Button variant='contained' startIcon={<AddSharpIcon />} onClick={openDialog}>
                 ADD
               </Button>
+              {isDialogOpen && <AddDialogComponent onClose={closeDialog} open={isDialogOpen} />}
             </div>
 
             <div
@@ -169,7 +181,7 @@ const AdmissionQueryLayout = () => {
       </div>
 
       {/* ---- Table Section ----*/}
-      <div className='queryList mt-4 ' style={{ flex: 1 }}>
+      <div className='queryList mt-7 ' style={{ flex: 1 }}>
         <Card sx={{ width: '100%', height: 'auto' }}>
           <CardContent>
             <div style={{ display: 'flex', alignItems: 'center' }}>

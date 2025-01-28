@@ -70,7 +70,7 @@ const IDCardlayout = () => {
         <Card sx={{ width: '100%', height: 'auto' }}>
           <CardContent>
             <div className='container' style={{ marginLeft: '86.5%', marginBottom: '15px' }}>
-              <Button variant='contained' startIcon={<AddSharpIcon />}>
+              <Button variant='contained' startIcon={<AddSharpIcon />} href='createIdCard'>
                 CREATE ID CARD
               </Button>
             </div>

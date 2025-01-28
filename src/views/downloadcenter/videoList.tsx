@@ -1,3 +1,5 @@
+'use client'
+import { useState } from 'react'
 import { Typography, MenuItem } from '@mui/material'
 import Link from 'next/link'
 import Card from '@mui/material/Card'
@@ -6,8 +8,17 @@ import CustomTextField from '@core/components/mui/TextField'
 import Button from '@mui/material/Button'
 import SearchSharpIcon from '@mui/icons-material/SearchSharp'
 import AddSharpIcon from '@mui/icons-material/AddSharp'
+import VideoDialogComponent from './dialogComponent/videoDialogComponent'
 
 const VideoListLayout = () => {
+  const [isDialogOpen, setIsDialogOpen] = useState(false)
+  const openDialog = () => {
+    setIsDialogOpen(true)
+  }
+
+  const closeDialog = () => {
+    setIsDialogOpen(false) // Close the dialog
+  }
   return (
     <>
       <div className='flex'>
@@ -35,9 +46,10 @@ const VideoListLayout = () => {
               <Typography variant='h6' component='h4'>
                 Search
               </Typography>
-              <Button variant='contained' startIcon={<AddSharpIcon />}>
+              <Button variant='contained' startIcon={<AddSharpIcon />} onClick={openDialog}>
                 ADD
               </Button>
+              {isDialogOpen && <VideoDialogComponent onClose={closeDialog} open={isDialogOpen} />}
             </div>
 
             <div className='container' style={{ display: 'flex' }}>

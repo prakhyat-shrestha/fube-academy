@@ -4,12 +4,12 @@ import SearchSharpIcon from '@mui/icons-material/SearchSharp'
 import AddSharpIcon from '@mui/icons-material/AddSharp'
 import Link from 'next/link'
 
-const AssignSubjectLayout = () => {
+const AddAssignSubjectLayout = () => {
   return (
     <>
       <div className='flex'>
         <Typography variant='h6' component='h4'>
-          Assign Subject
+          Assign Subject Create
         </Typography>
         <nav style={{ marginLeft: 'auto' }}>
           <Typography variant='h6' component='h4' style={{ display: 'flex', alignItems: 'center' }}>
@@ -21,23 +21,21 @@ const AssignSubjectLayout = () => {
               Admin Section
             </Link>
             <span style={{ marginRight: '25px' }}>|</span>
-            <Link href='#'>Assign Subject</Link>
+            <Link href='#' style={{ marginRight: '25px' }}>
+              Admin Subject
+            </Link>
+            <span style={{ marginRight: '25px' }}>|</span>
+            <Link href='#'>Assign Subject Create</Link>
           </Typography>
         </nav>
       </div>
       <div className='assignSubject mt-4' style={{ flex: 1 }}>
         <Card sx={{ width: '100%', height: '105%' }}>
           <CardContent>
-            <div
-              className='container'
-              style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '15px' }}
-            >
+            <div className='container' style={{ marginBottom: '15px' }}>
               <Typography variant='h6' component='h4'>
                 Select Criteria
               </Typography>
-              <Button variant='contained' startIcon={<AddSharpIcon />} href='addAssignSubject'>
-                ASSIGN SUBJECT
-              </Button>
             </div>
 
             <div className='container' style={{ display: 'flex', alignItems: 'center', gap: '30px' }}>
@@ -84,4 +82,4 @@ const AssignSubjectLayout = () => {
   )
 }
 
-export default AssignSubjectLayout
+export default AddAssignSubjectLayout
