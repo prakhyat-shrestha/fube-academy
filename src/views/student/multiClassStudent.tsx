@@ -39,7 +39,7 @@ const MultiClassLayout = () => {
               <Typography variant='h6' component='h4'>
                 Select Criteria
               </Typography>
-              <Button variant='contained' startIcon={<AddSharpIcon />}>
+              <Button variant='contained' startIcon={<AddSharpIcon />} href='deleteStudentRecord'>
                 DELETE STUDENT RECORD
               </Button>
             </div>

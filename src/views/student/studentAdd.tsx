@@ -183,7 +183,11 @@ const AddStudent = () => {
             Add Student
           </Typography>
 
-          <Button variant='contained' style={{ marginTop: '20px', height: '35px', marginRight: '1.7%' }}>
+          <Button
+            variant='contained'
+            style={{ marginTop: '20px', height: '35px', marginRight: '1.7%' }}
+            href='importStudent'
+          >
             <AddSharpIcon />
             Import Student
           </Button>

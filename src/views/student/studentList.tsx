@@ -73,7 +73,7 @@ const StudentList = () => {
               <Typography variant='h6' component='h4'>
                 Select Criteria
               </Typography>
-              <Button variant='contained' startIcon={<AddSharpIcon />}>
+              <Button variant='contained' startIcon={<AddSharpIcon />} href='studentAdd'>
                 ADD STUDENT
               </Button>
             </div>

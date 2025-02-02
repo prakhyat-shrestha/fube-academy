@@ -37,7 +37,12 @@ const StudentAttendanceLayout = () => {
           <CardContent>
             <div className='container' style={{ display: 'flex', gap: '72.8%' }}>
               <Typography variant='h6'>Select Criteria</Typography>
-              <Button variant='contained' startIcon={<AddSharpIcon />} style={{ marginLeft: '42px' }}>
+              <Button
+                variant='contained'
+                startIcon={<AddSharpIcon />}
+                style={{ marginLeft: '42px' }}
+                href='importAttendance'
+              >
                 IMPORT ATTENDANCE
               </Button>
             </div>

@@ -28,6 +28,7 @@ import SearchSharpIcon from '@mui/icons-material/SearchSharp'
 import { Icon } from '@iconify/react/dist/iconify.js'
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward'
 import CustomTextField from '@/@core/components/mui/TextField'
+import CronCommand from './dialogComponent/cronCommand'
 
 const records = Array.from({ length: 0 }, (_, index) => ({}))
 
@@ -47,6 +48,16 @@ const SMSSendingTimeLayout = () => {
   // const startIndex = (page - 1) * rowsPerPage + 1
   const startIndex = (page - 1) * rowsPerPage
   const endIndex = Math.min(page * rowsPerPage, records.length)
+
+  //For dialog
+  const [isDialogOpen, setIsDialogOpen] = useState(false)
+  const openDialog = () => {
+    setIsDialogOpen(true)
+  }
+
+  const closeDialog = () => {
+    setIsDialogOpen(false) // Close the dialog
+  }
 
   return (
     <>
@@ -69,9 +80,14 @@ const SMSSendingTimeLayout = () => {
         </nav>
       </div>
       <div className='flex' style={{ justifyContent: 'flex-end' }}>
-        <Button style={{ justifyContent: 'flex-end', marginTop: '15px', marginBottom: '15px' }} variant='contained'>
+        <Button
+          style={{ justifyContent: 'flex-end', marginTop: '15px', marginBottom: '15px' }}
+          variant='contained'
+          onClick={openDialog}
+        >
           CRON COMMAND
         </Button>
+        {isDialogOpen && <CronCommand onClose={closeDialog} open={isDialogOpen} />}
       </div>
       <div className='flex' style={{ display: 'flex' }}>
         {/* Add Timesetup card */}
