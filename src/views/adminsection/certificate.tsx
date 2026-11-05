@@ -16,6 +16,7 @@ import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
 import SearchSharpIcon from '@mui/icons-material/SearchSharp'
 import ButtonGroup from '@mui/material/ButtonGroup'
 import { Icon } from '@iconify/react/dist/iconify.js'
+import CertificateComponent from '@/CustomUI/certificateComponents'
 
 const CertificateLayout = () => {
   const textFieldRef = useRef<HTMLInputElement>(null)
@@ -40,6 +41,9 @@ const CertificateLayout = () => {
   })
   return (
     <>
+      <div>
+        <CertificateComponent />
+      </div>
       <div className='flex'>
         <Typography variant='h6' component='h3'>
           Certificate

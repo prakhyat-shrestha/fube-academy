@@ -1,9 +1,180 @@
-import { CardContent, Typography, Card, Button, CardActions, MenuItem } from '@mui/material'
+'use client'
+import {
+  CardContent,
+  Typography,
+  Card,
+  InputAdornment,
+  Button,
+  CardActions,
+  TextField,
+  IconButton,
+  MenuItem
+} from '@mui/material'
 import Link from 'next/link'
 import CustomTextField from '@/@core/components/mui/TextField'
 import CheckSharpIcon from '@mui/icons-material/CheckSharp'
+import SearchSharpIcon from '@mui/icons-material/SearchSharp'
+import ClearIcon from '@mui/icons-material/Clear'
+import ButtonGroup from '@mui/material/ButtonGroup'
+import { Icon } from '@iconify/react'
+import { createTheme } from '@mui/material/styles'
+import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward'
+import ArrowBackIcon from '@mui/icons-material/ArrowBack'
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
+import { useState, useEffect } from 'react'
+import { useForm, SubmitHandler, Controller } from 'react-hook-form'
+import { adminSetupTypes, AdminType } from '@/types/adminSetup'
+import { useAdminSetupStore } from '@/stores/adminSetupStore'
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: '#1976d2'
+    }
+  }
+})
+
+const InitialForm: Partial<adminSetupTypes> = {
+  type: undefined,
+  name: '',
+  Description: ''
+}
+
+const ADMIN_TYPE_OPTIONS: AdminType[] = [
+  'SUPER_ADMIN',
+  'SCHOOL_ADMIN',
+  'PRINCIPAL',
+  'VICE_PRINCIPAL',
+  'ACADEMIC_ADMIN',
+  'ACCOUNTANT',
+  'HR_ADMIN',
+  'ADMISSION_ADMIN',
+  'EXAM_CONTROLLER',
+  'LIBRARIAN',
+  'TRANSPORT_ADMIN',
+  'HOSTEL_ADMIN'
+]
+
+const TABLE_HEADERS = ['SL', 'Type', 'Name', 'Description', 'Actions']
+
+// SUPER_ADMIN -> Super Admin
+const formatType = (value?: string) =>
+  value
+    ? value
+        .split('_')
+        .map(w => w.charAt(0) + w.slice(1).toLowerCase())
+        .join(' ')
+    : '-'
 
 const AdminSetupLayout = () => {
+  const [editingId, setEditingId] = useState<number | null>(null)
+  const [searchText, setSearchText] = useState('')
+  // null = not searching (show store list), array = search results
+  const [searchResults, setSearchResults] = useState<adminSetupTypes[] | null>(null)
+
+  const {
+    adminSetup,
+    pagination,
+    isLoading,
+    listOfAdminSetup,
+    addAdminSetup,
+    updateAdminSetup,
+    deleteAdminSetup,
+    searchAdminSetup
+  } = useAdminSetupStore()
+
+  const { page, limit, total, totalPages } = pagination
+  const isSearching = searchResults !== null
+  const rows: adminSetupTypes[] = isSearching ? searchResults : (adminSetup ?? [])
+
+  const startEntry = total === 0 ? 0 : (page - 1) * limit + 1
+  const endEntry = Math.min(page * limit, total)
+
+  const {
+    handleSubmit,
+    control,
+    reset,
+    formState: { errors, isSubmitting }
+  } = useForm<Partial<adminSetupTypes>>({
+    defaultValues: InitialForm
+  })
+
+  // load admin setup list
+  useEffect(() => {
+    listOfAdminSetup()
+  }, [listOfAdminSetup])
+
+  // ---- Pagination ----
+  const handlePageChange = (newPage: number) => {
+    if (isSearching) return
+    if (newPage < 1 || newPage > totalPages || newPage === page) return
+    listOfAdminSetup(newPage, limit)
+  }
+
+  const getPageNumber = () => {
+    const windowSize = 5
+    let start = Math.max(1, page - Math.floor(windowSize / 2))
+    const end = Math.min(totalPages, start + windowSize - 1)
+    start = Math.max(1, end - windowSize + 1)
+    return Array.from({ length: end - start + 1 }, (_, i) => start + i)
+  }
+
+  // ---- Search ----
+  const handleSearch = async () => {
+    const term = searchText.trim()
+
+    // empty search -> go back to the normal list
+    if (!term) {
+      handleClearSearch()
+      return
+    }
+
+    const res = await searchAdminSetup(term)
+    // store returns undefined when nothing is found / request fails
+    setSearchResults(res ?? [])
+  }
+
+  const handleClearSearch = () => {
+    setSearchText('')
+    setSearchResults(null)
+  }
+
+  const handleSearchKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
+    if (e.key === 'Enter') {
+      e.preventDefault()
+      handleSearch()
+    }
+  }
+
+  // ---- Form handlers ----
+  const handleCancelEdit = () => {
+    setEditingId(null)
+    reset(InitialForm)
+  }
+
+  const handleEdit = (item: adminSetupTypes) => {
+    setEditingId(item.id)
+    reset({
+      type: item.type,
+      name: item.name ?? '',
+      Description: item.Description ?? ''
+    })
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
+
+  const handleDelete = async (id: number) => {
+    if (!window.confirm('Are you sure you want to delete this admin setup?')) return
+    await deleteAdminSetup(id)
+    handleClearSearch() // list was refreshed, drop stale search results
+  }
+
+  const onSubmit: SubmitHandler<Partial<adminSetupTypes>> = async data => {
+    editingId !== null ? await updateAdminSetup(editingId, data) : await addAdminSetup(data)
+
+    handleCancelEdit()
+    handleClearSearch()
+  }
+
   return (
     <>
       <div className='flex'>
@@ -24,45 +195,311 @@ const AdminSetupLayout = () => {
           </Typography>
         </nav>
       </div>
+
       <div className='flex' style={{ display: 'flex' }}>
-        {/* Add fees group first card */}
+        {/* ---------------- Add / Edit Admin Setup card ---------------- */}
         <div className='adminSetup mt-4'>
           <Card sx={{ width: 280, height: 'auto' }}>
-            <CardContent>
-              <Typography variant='h6' component='h4'>
-                Add Admin Setup
-              </Typography>
-              <CustomTextField label='TYPE ' defaultValue='type' required select fullWidth sx={{ marginTop: '20px' }}>
-                <CustomTextField placeholder='Search' style={{ padding: '0 6px 8px 6px', width: '100%' }} />
-                <MenuItem value='type'>
-                  <span>Complaint Type*</span>
-                </MenuItem>
-                <MenuItem>
-                  <span> Source</span>
-                </MenuItem>
-                <MenuItem>
-                  <span>Reference</span>
-                </MenuItem>
-              </CustomTextField>
-              <CustomTextField label='NAME' required fullWidth sx={{ marginTop: '20px' }} />
-              <CustomTextField label='DESCRIPTION' multiline rows={3} fullWidth sx={{ marginTop: '20px' }} />
-            </CardContent>
-            <CardActions sx={{ justifyContent: 'center' }}>
-              <Button variant='contained' sx={{ display: 'flex', alignItems: 'center', fontSize: 'small' }}>
-                <CheckSharpIcon sx={{ marginRight: 1 }} />
-                SAVE SETUP
-              </Button>
-            </CardActions>
+            <form onSubmit={handleSubmit(onSubmit)} noValidate>
+              <CardContent>
+                <Typography variant='h6' component='h4'>
+                  {editingId !== null ? 'Edit Admin Setup' : 'Add Admin Setup'}
+                </Typography>
+
+                {/* Type */}
+                <Controller
+                  name='type'
+                  control={control}
+                  rules={{ required: 'Please select admin type' }}
+                  render={({ field }) => (
+                    <CustomTextField
+                      {...field}
+                      select
+                      label='TYPE'
+                      required
+                      fullWidth
+                      sx={{ marginTop: '20px' }}
+                      value={field.value || ''}
+                      SelectProps={{ displayEmpty: true }}
+                      InputLabelProps={{ shrink: true }}
+                      error={!!errors.type}
+                      helperText={errors.type?.message}
+                    >
+                      <MenuItem value='' disabled>
+                        <span style={{ fontStyle: 'normal' }}>Select Type *</span>
+                      </MenuItem>
+                      {ADMIN_TYPE_OPTIONS.map(t => (
+                        <MenuItem key={t} value={t}>
+                          {formatType(t)}
+                        </MenuItem>
+                      ))}
+                    </CustomTextField>
+                  )}
+                />
+
+                {/* Name */}
+                <Controller
+                  name='name'
+                  control={control}
+                  rules={{ required: 'Please enter name' }}
+                  render={({ field }) => (
+                    <CustomTextField
+                      {...field}
+                      label='NAME'
+                      required
+                      fullWidth
+                      sx={{ marginTop: '20px' }}
+                      value={field.value || ''}
+                      error={!!errors.name}
+                      helperText={errors.name?.message}
+                    />
+                  )}
+                />
+
+                {/* Description */}
+                <Controller
+                  name='Description'
+                  control={control}
+                  rules={{ required: 'Please enter description' }}
+                  render={({ field }) => (
+                    <CustomTextField
+                      {...field}
+                      label='DESCRIPTION'
+                      multiline
+                      rows={3}
+                      required
+                      fullWidth
+                      sx={{ marginTop: '20px' }}
+                      value={field.value || ''}
+                      error={!!errors.Description}
+                      helperText={errors.Description?.message}
+                    />
+                  )}
+                />
+              </CardContent>
+
+              <CardActions sx={{ justifyContent: 'center', gap: 1 }}>
+                {editingId !== null && (
+                  <Button variant='outlined' color='secondary' onClick={handleCancelEdit}>
+                    CANCEL
+                  </Button>
+                )}
+                <Button type='submit' variant='contained' disabled={isSubmitting || isLoading}>
+                  <CheckSharpIcon sx={{ mr: 1 }} />
+                  {editingId !== null ? 'UPDATE ADMIN SETUP' : 'SAVE ADMIN SETUP'}
+                </Button>
+              </CardActions>
+            </form>
           </Card>
         </div>
-        {/*  2nd card */}
+
+        {/* ---------------- Admin Setup list card ---------------- */}
         <div className='adminSetupList mt-4 mx-6' style={{ flex: 1 }}>
-          <Card sx={{ width: '102.65%', height: '35%' }}>
+          <Card sx={{ width: '102.65%', height: '80%', overflowY: 'auto' }}>
             <CardContent>
-              <Typography variant='h6' component='h4'>
-                Admin Setup List
-              </Typography>
+              <div style={{ display: 'flex', alignItems: 'center' }}>
+                <Typography variant='h6' component='h3' style={{ flex: 1, marginRight: '16%' }}>
+                  Admin Setup List
+                </Typography>
+                <div style={{ flexGrow: 1 }}>
+                  <TextField
+                    id='standard-search'
+                    variant='standard'
+                    placeholder='QUICK SEARCH'
+                    value={searchText}
+                    onChange={e => setSearchText(e.target.value)}
+                    onKeyDown={handleSearchKeyDown}
+                    InputProps={{
+                      startAdornment: (
+                        <InputAdornment position='start'>
+                          <IconButton size='small' onClick={handleSearch} disabled={isLoading} title='Search'>
+                            <SearchSharpIcon />
+                          </IconButton>
+                        </InputAdornment>
+                      ),
+                      endAdornment: searchText ? (
+                        <InputAdornment position='end'>
+                          <IconButton size='small' onClick={handleClearSearch} title='Clear search'>
+                            <ClearIcon fontSize='small' />
+                          </IconButton>
+                        </InputAdornment>
+                      ) : null
+                    }}
+                  />
+                </div>
+                <div style={{ display: 'flex', justifyContent: 'center' }}>
+                  <ButtonGroup
+                    variant='outlined'
+                    aria-label='Basic button group'
+                    sx={{
+                      '& .MuiButton-root': {
+                        fontSize: '1.2rem',
+                        padding: '4px 8px',
+                        backgroundColor: 'transparent',
+                        borderColor: 'currentColor',
+                        color: 'currentColor',
+                        '&:hover': {
+                          backgroundColor: 'rgba(0, 0, 0, 0.08)',
+                          borderColor: 'currentColor'
+                        },
+                        boxShadow: 'none'
+                      }
+                    }}
+                  >
+                    <Button title='Copy Table'>
+                      <Icon icon='material-symbols:file-copy-outline-sharp' />
+                    </Button>
+                    <Button title='Export to Excel'>
+                      <Icon icon='mdi:file-excel-outline' />
+                    </Button>
+                    <Button title='Export to CSV'>
+                      <Icon icon='mdi:file-document-outline' />
+                    </Button>
+                    <Button title='Export to PDF'>
+                      <Icon icon='mdi:file-pdf-outline' />
+                    </Button>
+                    <Button title='Print'>
+                      <Icon icon='fa:print' style={{ fontSize: '1rem' }} />
+                    </Button>
+                    <Button title='Action'>
+                      <Icon icon='mdi:table' style={{ fontSize: '1.3rem' }} />
+                    </Button>
+                  </ButtonGroup>
+                </div>
+              </div>
+
+              {/* Table */}
+              <div style={{ marginTop: '20px' }}>
+                <table style={{ width: '100%', borderCollapse: 'collapse' }}>
+                  <thead>
+                    <tr>
+                      {TABLE_HEADERS.map((title, i) => (
+                        <th
+                          key={title}
+                          style={{
+                            padding: '8px',
+                            textAlign: 'left',
+                            backgroundColor: 'lightgray',
+                            position: 'relative',
+                            borderRadius:
+                              i === 0 ? '5px 0 0 5px' : i === TABLE_HEADERS.length - 1 ? '0 5px 5px 0' : undefined
+                          }}
+                        >
+                          <div style={{ display: 'flex', alignItems: 'center' }}>
+                            <ArrowDownwardIcon style={{ marginRight: '8px' }} />
+                            <span>{title}</span>
+                          </div>
+                        </th>
+                      ))}
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {rows.length === 0 ? (
+                      <tr style={{ borderBottom: '1px solid #ddd' }}>
+                        <td colSpan={TABLE_HEADERS.length} style={{ padding: '8px', textAlign: 'center' }}>
+                          No Data Available in Table
+                        </td>
+                      </tr>
+                    ) : (
+                      rows.map((item: adminSetupTypes, index: number) => (
+                        <tr key={item.id} style={{ borderBottom: '1px solid #ddd' }}>
+                          <td style={{ padding: '8px' }}>{isSearching ? index + 1 : (page - 1) * limit + index + 1}</td>
+                          <td style={{ padding: '8px' }}>{formatType(item.type)}</td>
+                          <td style={{ padding: '8px' }}>{item.name}</td>
+                          <td style={{ padding: '8px' }}>{item.Description}</td>
+                          <td style={{ padding: '8px' }}>
+                            <Button
+                              variant='outlined'
+                              size='small'
+                              onClick={() => handleEdit(item)}
+                              disabled={isLoading}
+                              style={{ borderRadius: '20px' }}
+                            >
+                              EDIT
+                            </Button>
+                            <Button
+                              className='m-3 bg-red-300'
+                              size='small'
+                              onClick={() => handleDelete(item.id)}
+                              disabled={isLoading}
+                              style={{ borderRadius: '20px' }}
+                            >
+                              DELETE
+                            </Button>
+                          </td>
+                        </tr>
+                      ))
+                    )}
+                  </tbody>
+                </table>
+              </div>
             </CardContent>
+
+            {/* Pagination */}
+            <div style={{ display: 'flex', justifyContent: 'space-between', padding: '16px' }}>
+              <Typography variant='body2' style={{ marginLeft: '16px' }}>
+                {isSearching
+                  ? `Showing ${rows.length} search result${rows.length === 1 ? '' : 's'}`
+                  : `Showing ${startEntry} to ${endEntry} of ${total} entries`}
+              </Typography>
+              <div
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  margin: 'auto',
+                  cursor: 'pointer'
+                }}
+              >
+                <Button
+                  size='small'
+                  onClick={() => handlePageChange(page - 1)}
+                  disabled={isSearching || page <= 1 || isLoading}
+                  style={{
+                    color: 'black',
+                    marginRight: '10px',
+                    padding: '4px 8px',
+                    width: '30px',
+                    minWidth: 'auto',
+                    border: 'none'
+                  }}
+                >
+                  <ArrowBackIcon style={{ fontSize: '16px' }} />
+                </Button>
+                {(isSearching ? [1] : getPageNumber()).map(p => (
+                  <Button
+                    key={p}
+                    size='small'
+                    variant={p === (isSearching ? 1 : page) ? 'contained' : 'text'}
+                    onClick={() => handlePageChange(p)}
+                    disabled={isSearching || isLoading}
+                    style={{ minWidth: '32px', padding: '4px 16px' }}
+                    sx={
+                      p === (isSearching ? 1 : page)
+                        ? { background: theme.palette.primary.main, color: 'white' }
+                        : undefined
+                    }
+                  >
+                    {p}
+                  </Button>
+                ))}
+                <Button
+                  size='small'
+                  onClick={() => handlePageChange(page + 1)}
+                  disabled={isSearching || page >= totalPages || isLoading}
+                  style={{
+                    color: 'black',
+                    marginLeft: '10px',
+                    padding: '4px 8px',
+                    width: '30px',
+                    minWidth: 'auto',
+                    border: 'none'
+                  }}
+                >
+                  <ArrowForwardIcon style={{ transform: 'scale(0.8)' }} />
+                </Button>
+              </div>
+            </div>
           </Card>
         </div>
       </div>

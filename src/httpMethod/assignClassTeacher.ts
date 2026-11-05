@@ -19,7 +19,7 @@ export const listAssignClassTeacher = async (page: number, limit: number) => {
 
     return res.data
   } catch (err) {
-    throw getErrorMessage(err)
+    throw new Error(getErrorMessage(err))
   }
 }
 
@@ -37,7 +37,7 @@ export const addAssignClassTeacher = async (formData: Partial<AssignClassTeacher
     })
     return res.data
   } catch (err) {
-    throw getErrorMessage(err)
+    throw new Error(getErrorMessage(err))
   }
 }
 
@@ -55,7 +55,7 @@ export const updateAssignClassTeacher = async (id: number, formData: Partial<Ass
     })
     return res.data
   } catch (err) {
-    throw getErrorMessage(err)
+    throw new Error(getErrorMessage(err))
   }
 }
 
@@ -67,7 +67,7 @@ export const deleteAssignClassTeacher = async (id: number) => {
     })
     return res.data
   } catch (err) {
-    throw getErrorMessage(err)
+    throw new Error(getErrorMessage(err))
   }
 }
 

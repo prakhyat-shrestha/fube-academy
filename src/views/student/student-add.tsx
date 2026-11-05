@@ -1,8 +1,8 @@
 'use client'
 
 // React Imports
-import { useState } from 'react'
-import type { SyntheticEvent } from 'react'
+import { useEffect, useState } from 'react'
+import type { ClassType, SyntheticEvent } from 'react'
 
 // MUI Imports
 import Card from '@mui/material/Card'
@@ -16,239 +16,287 @@ import TabPanel from '@mui/lab/TabPanel'
 import CardContent from '@mui/material/CardContent'
 import CardActions from '@mui/material/CardActions'
 import Divider from '@mui/material/Divider'
-import InputAdornment from '@mui/material/InputAdornment'
-import IconButton from '@mui/material/IconButton'
-
+import { useClassStore } from '@/stores/classStore'
+import { useParentsStore } from '@/stores/parentStore'
+import { useStudentStore } from '@/stores/studentStores'
 // Components Imports
 import CustomTextField from '@core/components/mui/TextField'
+import { studentTypes } from '@/types/student'
+import { ParentsTypes } from '@/types/parents'
+import { ClassTypes, SecTypes } from '@/types/class'
+import {
+  Autocomplete,
+  MenuList,
+  Paper,
+  styled,
+  Table,
+  TableBody,
+  TableCell,
+  tableCellClasses,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Typography
+} from '@mui/material'
+import Parents_and_guardian_Info from './parents_and_guardian_Info'
+import { useFullscreen } from 'react-use'
+import { useSearchParams } from 'next/navigation'
 
-// Styled Component Imports
-// import AppReactDatepicker from '@/libs/styles/AppReactDatepicker'
-
-type FormDataType = {
-  firstName: string
-  lastName: string
-  country: string
-  language: string[]
-  date: Date | null
-  phoneNumber: string
-  address1: string
-  address2: string
-  postal: string
-  username: string
-  studylevel: string
-  gender: string
-  email: string
-  password: string
-  isPasswordShown: boolean
-  confirmPassword: string
-  setIsConfirmPasswordShown: boolean
-  twitter: string
-  facebook: string
-  google: string
-  linkedin: string
-  instagram: string
-  quora: string
+const studentInitialForm: Partial<studentTypes> = {
+  IEMISNumber: '',
+  classSectionId: undefined,
+  admissionNumber: '',
+  admissionDate: '',
+  rollNumber: '',
+  group: '',
+  name: '',
+  gender: '',
+  DOB: '',
+  religion: '',
+  caste: '',
+  studentPhoto: null,
+  email: '',
+  phoneNumber: '',
+  currentAddress: '',
+  permanentAddress: '',
+  bloodGroup: '',
+  category: '',
+  height: '',
+  weight: '',
+  NID: null,
+  nidNumber: '',
+  birthCertificateNumber: '',
+  citizenship: null,
+  citizenshipNumber: '',
+  additionalNotes: '',
+  bankName: '',
+  bankAccountNumber: '',
+  IFSCcode: '',
+  previousSchoolDetails: '',
+  RouteList: '',
+  vehicleNumber: '',
+  dormitoryName: '',
+  roomNumber: '',
+  parentId: undefined
 }
 
 const AddStudent = () => {
   // States
-  const [value, setValue] = useState('personal_info')
+  const [value, setValue] = useState('academic')
 
-  const [formData, setFormData] = useState<FormDataType>({
-    firstName: '',
-    lastName: '',
-    country: '',
-    language: [],
-    date: null,
-    phoneNumber: '',
-    address1: '',
-    address2: '',
-     postal: '',
-    username: '',
-    studylevel: '',//primary,secondary level,etc
-    gender: '',
-    email: '',
-    password: '',
-    
-   
-    isPasswordShown: false,
-    confirmPassword: '',
-    setIsConfirmPasswordShown: false,
-    twitter: '',
-    facebook: '',
-    google: '',
-    linkedin: '',
-    instagram: '',
-    quora: ''
-  })
+  const [formData, setFormData] = useState<Partial<studentTypes>>(studentInitialForm)
+  const searchParams = useSearchParams()
+  const [classId, setClassId] = useState<number | 'selectClass'>('selectClass')
+  const { classes, listOfClass } = useClassStore()
+  const { student, isLoading, addStudent, listOfStudent, updateStudent } = useStudentStore()
 
-  const handleClickShowPassword = () => setFormData(show => ({ ...show, isPasswordShown: !show.isPasswordShown }))
+  const { searchParents, listOfParents, updateParents, addParents, parents } = useParentsStore()
+  // const handleClickShowPassword = () => setFormData(show => ({ ...show, isPasswordShown: !show.isPasswordShown }))
 
-  const handleClickShowConfirmPassword = () =>
-    setFormData(show => ({ ...show, setIsConfirmPasswordShown: !show.setIsConfirmPasswordShown }))
+  // const handleClickShowConfirmPassword = () =>
+  //   setFormData(show => ({ ...show, setIsConfirmPasswordShown: !show.setIsConfirmPasswordShown }))
+  const idFromUrl = searchParams.get('id')
+  useEffect(() => {
+    listOfClass()
+    listOfParents()
+    listOfStudent()
+  }, [listOfClass, listOfParents, listOfStudent])
+
+  useEffect(() => {
+    if (!idFromUrl || !student?.length) return
+    const editStudent = (student ?? []).find((s: studentTypes) => s.id === Number(idFromUrl))
+    if (!editStudent) return
+
+    setClassId(editStudent.classSection.class.id)
+    setFormData({
+      IEMISNumber: editStudent.IEMISNumber,
+      classSectionId: editStudent.classSectionId,
+      admissionNumber: editStudent.admissionNumber,
+      admissionDate: editStudent.admissionDate.split('T')[0],
+      rollNumber: editStudent.rollNumber,
+      group: editStudent.group,
+      name: editStudent.name,
+      gender: editStudent.gender,
+      DOB: editStudent.DOB.split('T')[0],
+      religion: editStudent.religion,
+      caste: editStudent.caste,
+      studentPhoto: editStudent.studentPhoto,
+      email: editStudent.email,
+      phoneNumber: editStudent.phoneNumber,
+      currentAddress: editStudent.currentAddress,
+      permanentAddress: editStudent.permanentAddress,
+      bloodGroup: editStudent.bloodGroup,
+      category: editStudent.category,
+      height: editStudent.height,
+      weight: editStudent.weight,
+      NID: editStudent.NID,
+      nidNumber: editStudent.nidNumber,
+      birthCertificateNumber: editStudent.birthCertificateNumber,
+      citizenship: editStudent.citizenship,
+      citizenshipNumber: editStudent.citizenshipNumber,
+      additionalNotes: editStudent.additionalNotes,
+      bankName: editStudent.bankName,
+      bankAccountNumber: editStudent.bankAccountNumber,
+      IFSCcode: editStudent.IFSCcode,
+      previousSchoolDetails: editStudent.previousSchoolDetails,
+      RouteList: editStudent.RouteList,
+      vehicleNumber: editStudent.vehicleNumber,
+      dormitoryName: editStudent.dormitoryName,
+      roomNumber: editStudent.roomNumber,
+      parentId: editStudent.parentId
+    })
+  }, [idFromUrl, student])
 
   const handleTabChange = (event: SyntheticEvent, newValue: string) => {
     setValue(newValue)
   }
 
   const handleReset = () => {
-    setFormData({
-      firstName: '',
-      lastName: '',
-      country: '',
-      language: [],
-      date: null,
-      phoneNumber: '',
-      address1: '',
-      address2: '',
-      postal: '',
-      username: '',
-      studylevel: '',
-      gender: '',
-      email: '',
-      password: '',
-      isPasswordShown: false,
-      confirmPassword: '',
-      setIsConfirmPasswordShown: false,
-      twitter: '',
-      facebook: '',
-      google: '',
-      linkedin: '',
-      instagram: '',
-      quora: ''
-    })
+    setFormData(studentInitialForm)
+
+    setClassId('selectClass')
   }
-  const handleAddStudent = async e => {
+
+  const StyledTableCell = styled(TableCell)(({ theme }) => ({
+    [`&.${tableCellClasses.head}`]: {
+      backgroundColor: theme.palette.common.black,
+      color: theme.palette.common.white
+    },
+    [`&.${tableCellClasses.body}`]: {
+      fontSize: 14
+    }
+  }))
+
+  const handleClassChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const v = Number(e.target.value)
+    setClassId(v)
+    setFormData(prev => ({ ...prev, classSectionId: '' }))
+  }
+  const handleSectionChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const v = e.target.value === '' ? undefined : Number(e.target.value)
+    setFormData(prev => ({ ...formData, classSectionId: v }))
+  }
+
+  const sections: SecTypes[] = (classes ?? []).find((cls: ClassTypes) => cls.id === classId)?.sections ?? []
+
+  const handleAddStudent = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
+    if (!formData.parentId) {
+      alert('please add your parents. ')
+      return
+    }
+    if (idFromUrl) {
+      await updateStudent(Number(idFromUrl), formData)
+    } else {
+      const res = await addStudent(formData)
+    }
+
+    handleReset()
   }
 
   return (
     <Card>
       <TabContext value={value}>
         <TabList variant='scrollable' onChange={handleTabChange} className='border-be'>
-          <Tab label='Personal Info' value='personal_info' />
-          <Tab label='Account Details' value='account_details' />
-          <Tab label='Social Links' value='social_links' />
+          <Tab label='Academic' value='academic' />
+          <Tab label='Personal & Contact' value='personal_&_contact' />
+          <Tab label='Medical & Documents' value='medical_&_documents' />
+          <Tab label='Parents' value='parents' />
+
+          <Tab label='Other Info' value='other_info' />
         </TabList>
         <form onSubmit={handleAddStudent}>
           <CardContent>
-            <TabPanel value='personal_info'>
+            <TabPanel value='academic'>
               <Grid container spacing={6}>
                 <Grid item xs={12} sm={6}>
                   <CustomTextField
                     fullWidth
-                    label='First Name'
-                    placeholder='Mister'
+                    label='Enter Your IEMISNumber'
                     required
-                    value={formData.firstName}
-                    onChange={e => setFormData({ ...formData, firstName: e.target.value })}
-                  />
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                  <CustomTextField
-                    fullWidth
-                    label='Last Name'
-                    required
-                    placeholder='Cat'
-                    value={formData.lastName}
-                    onChange={e => setFormData({ ...formData, lastName: e.target.value })}
+                    value={formData.IEMISNumber}
+                    onChange={e => setFormData({ ...formData, IEMISNumber: e.target.value })}
                   />
                 </Grid>
                 <Grid item xs={12} sm={6}>
                   <CustomTextField
                     select
                     fullWidth
-                    label='Country'
-                    value={formData.country}
-                    onChange={e => setFormData({ ...formData, country: e.target.value })}
+                    label='Select Class'
+                    required
+                    value={classId}
+                    onChange={handleClassChange}
                   >
-                    <MenuItem value=''>Select Country</MenuItem>
-                    <MenuItem value='UK'>UK</MenuItem>
-                    <MenuItem value='USA'>USA</MenuItem>
-                    <MenuItem value='Nepal'>Nepal</MenuItem>
-                    <MenuItem value='Australia'>Australia</MenuItem>
-                    <MenuItem value='Germany'>Germany</MenuItem>
+                    <MenuItem value='selectClass'>Select Class</MenuItem>
+                    {(classes ?? []).map((cls: ClassTypes) => (
+                      <MenuItem key={cls.id} value={cls.id}>
+                        {cls.name}
+                      </MenuItem>
+                    ))}
                   </CustomTextField>
                 </Grid>
                 <Grid item xs={12} sm={6}>
                   <CustomTextField
                     select
+                    required
                     fullWidth
-                    label='Language'
-                    value={formData.language}
-                    SelectProps={{
-                      multiple: true,
-                      onChange: e => setFormData({ ...formData, language: e.target.value as string[] })
-                    }}
+                    label='Select Section'
+                    disabled={classId === 'selectClass'}
+                    value={formData.classSectionId ?? ''}
+                    onChange={handleSectionChange}
                   >
-                    <MenuItem value=''>Select Language</MenuItem>
-                    <MenuItem value='English'>English</MenuItem>
-                    <MenuItem value='Nepali'>Nepali</MenuItem>
-                    <MenuItem value='Spanish'>Spanish</MenuItem>
-                    <MenuItem value='Chinese'>Chinese</MenuItem>
-                    <MenuItem value='Italian'>Italian</MenuItem>
-                    <MenuItem value='German'>German</MenuItem>
-                    <MenuItem value='Arabic'>Arabic</MenuItem>
+                    <MenuItem value=''>Select Section</MenuItem>
+                    {sections.map((sec: SecTypes) => (
+                      <MenuItem value={sec.classSectionId} key={sec.id}>
+                        {sec.name}
+                      </MenuItem>
+                    ))}
                   </CustomTextField>
                 </Grid>
-                {/* <Grid item xs={12} sm={6}>
-                  <AppReactDatepicker
-                    selected={formData.date}
-                    showYearDropdown
-                    showMonthDropdown
-                    onChange={(date: Date) => setFormData({ ...formData, date })}
-                    placeholderText='MM/DD/YYYY'
-                    customInput={<CustomTextField fullWidth label='Birth Date' placeholder='MM-DD-YYYY' />}
-                  />
-                </Grid> */}
+
                 <Grid item xs={12} sm={6}>
                   <CustomTextField
                     fullWidth
-                    label='Phone Number'
-                    type='number'
-                    placeholder='123-456-7890'
-                    value={formData.phoneNumber}
-                    onChange={e => setFormData({ ...formData, phoneNumber: e.target.value })}
+                    required
+                    label='Enter Your Admission Number'
+                    value={formData.admissionNumber}
+                    onChange={e => setFormData({ ...formData, admissionNumber: e.target.value })}
                   />
                 </Grid>
                 <Grid item xs={12} sm={6}>
                   <CustomTextField
                     fullWidth
-                    label='Address 1'
-                    type='number'
-                    placeholder='Enter address 1'
-                    value={formData.address1}
-                    onChange={e => setFormData({ ...formData, address1: e.target.value })}
-                  />
-                </Grid>{' '}
-                <Grid item xs={12} sm={6}>
-                  <CustomTextField
-                    fullWidth
-                    label='Address 2'
-                    type='number'
-                    placeholder='Enter address 2'
-                    value={formData.address2}
-                    onChange={e => setFormData({ ...formData, address2: e.target.value })}
+                    required
+                    label='Enter Your Admission Date'
+                    type='date'
+                    value={formData.admissionDate}
+                    onChange={e => setFormData({ ...formData, admissionDate: e.target.value })}
                   />
                 </Grid>
                 <Grid item xs={12} sm={6}>
                   <CustomTextField
                     fullWidth
-                    label='Postal code'
-                    type='number'
-                    placeholder='Enter postal code'
-                    value={formData.postal}
-                    onChange={e => setFormData({ ...formData, postal: e.target.value })}
+                    label='Enter you Roll Number'
+                    value={formData.rollNumber}
+                    onChange={e => setFormData({ ...formData, rollNumber: e.target.value })}
+                  />
+                </Grid>
+                <Grid item xs={12} sm={6}>
+                  <CustomTextField
+                    fullWidth
+                    label='Group'
+                    value={formData.group}
+                    onChange={e => setFormData({ ...formData, group: e.target.value })}
                   />
                 </Grid>
               </Grid>
+
               <CardActions>
                 <Button
-                  type='submit'
+                  type='button'
                   variant='contained'
                   sx={{ marginLeft: 'auto' }}
-                  onClick={() => setValue('account_details')}
+                  onClick={() => setValue('personal_&_contact')}
                 >
                   Next
                 </Button>
@@ -258,15 +306,79 @@ const AddStudent = () => {
                 </Button>
               </CardActions>
             </TabPanel>
-            <TabPanel value='account_details'>
+            <TabPanel value='personal_&_contact'>
               <Grid container spacing={6}>
                 <Grid item xs={12} sm={6}>
                   <CustomTextField
                     fullWidth
-                    label='Username'
-                    placeholder='Enter username'
-                    value={formData.username}
-                    onChange={e => setFormData({ ...formData, username: e.target.value })}
+                    required
+                    label='Enter Your Full Name'
+                    value={formData.name}
+                    onChange={e => setFormData({ ...formData, name: e.target.value })}
+                  />
+                </Grid>
+                <Grid item xs={12} sm={6}>
+                  <CustomTextField
+                    select
+                    fullWidth
+                    required
+                    label='Select Your Gender'
+                    value={formData.gender}
+
+                    onChange={e => setFormData({ ...formData, gender: e.target.value })}
+                  >
+                    <MenuItem value=''>Select Gender</MenuItem>
+                    <MenuItem value='MALE'>Male</MenuItem>
+                    <MenuItem value='FEMALE'>FEMALE</MenuItem>
+                    <MenuItem value='OTHER'>OTHER</MenuItem>
+                  </CustomTextField>
+                </Grid>
+                <Grid item xs={12} sm={6}>
+                  <CustomTextField
+                    fullWidth
+                    required
+                    label='Select Your Date of Birth'
+                    type='date'
+                    value={formData.DOB}
+                    onChange={e => setFormData({ ...formData, DOB: e.target.value })}
+                  />
+                </Grid>
+                <Grid item xs={12} sm={6}>
+                  <CustomTextField
+                    select
+                    fullWidth
+
+                    label='Select Your Religion'
+                    placeholder='Select You Religion'
+                    value={formData.religion ?? ''}
+                    onChange={e => setFormData({ ...formData, religion: e.target.value })}
+                  >
+                    <MenuItem value='HINDUISM'>HINDUISM</MenuItem>
+                    <MenuItem value='ISLAM'>ISLAM</MenuItem>
+                    <MenuItem value='SIKHISM'>SIKHISM</MenuItem>
+                    <MenuItem value='BUDDHISM'>BUDDHISM</MenuItem>
+                    <MenuItem value='PROTESTANTISM'>PROTESTANTISM</MenuItem>
+                    <MenuItem value='OTHERS'>OTHERS</MenuItem>
+                  </CustomTextField>
+                </Grid>
+                <Grid item xs={12} sm={6}>
+                  <CustomTextField
+                    fullWidth
+                    label='Enter Your Caste'
+                    value={formData.caste}
+                    onChange={e => setFormData({ ...formData, caste: e.target.value })}
+                  />
+                </Grid>
+                <Grid item xs={12} sm={6}>
+                  <CustomTextField
+                    fullWidth
+                    label='Photo'
+                    type='file'
+                    InputLabelProps={{ shrink: true }}
+                    inputProps={{ accept: 'image/*,.pdf' }}
+                    onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                      setFormData({ ...formData, studentPhoto: e.target.files?.[0] ?? null })
+                    }
                   />
                 </Grid>
                 <Grid item xs={12} sm={6}>
@@ -281,89 +393,35 @@ const AddStudent = () => {
                 </Grid>
                 <Grid item xs={12} sm={6}>
                   <CustomTextField
-                    select
                     fullWidth
-                    label='Study level'
-                    value={formData.studylevel}
-                    onChange={e => setFormData({ ...formData, studylevel: e.target.value })}
-                  >
-                    <MenuItem value=''>Select Study</MenuItem>
-                    <MenuItem value='PrePrimary'>Pre Primary</MenuItem>
-                    <MenuItem value='Primary'>Primary</MenuItem>
-                    <MenuItem value='LowerSecondary'>Lower Secondary</MenuItem>
-                    <MenuItem value='HighSecondary'>High Secondary</MenuItem>
-                  </CustomTextField>
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                  <CustomTextField
-                    select
-                    fullWidth
-                    label='Gender'
-                    value={formData.gender}
-                    onChange={e => setFormData({ ...formData, gender: e.target.value })}
-                  >
-                    <MenuItem value=''>Select Gender</MenuItem>
-                    <MenuItem value='Male'>Male</MenuItem>
-                    <MenuItem value='Female'>Female</MenuItem>
-                  </CustomTextField>
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                  <CustomTextField
-                    fullWidth
-                    label='Password'
-                    placeholder='············'
-                    id='form-layout-tabs-password'
-                    type={formData.isPasswordShown ? 'text' : 'password'}
-                    value={formData.password}
-                    onChange={e => setFormData({ ...formData, password: e.target.value })}
-                    InputProps={{
-                      endAdornment: (
-                        <InputAdornment position='end'>
-                          <IconButton
-                            edge='end'
-                            onClick={handleClickShowPassword}
-                            onMouseDown={e => e.preventDefault()}
-                            aria-label='toggle password visibility'
-                          >
-                            <i className={formData.isPasswordShown ? 'tabler-eye-off' : 'tabler-eye'} />
-                          </IconButton>
-                        </InputAdornment>
-                      )
-                    }}
+                    label='Phone Number'
+                    value={formData.phoneNumber}
+                    onChange={e => setFormData({ ...formData, phoneNumber: e.target.value })}
                   />
                 </Grid>
                 <Grid item xs={12} sm={6}>
                   <CustomTextField
                     fullWidth
-                    label='Confirm Password'
-                    placeholder='············'
-                    id='form-layout-tabs-confirm-password'
-                    type={formData.setIsConfirmPasswordShown ? 'text' : 'password'}
-                    value={formData.confirmPassword}
-                    onChange={e => setFormData({ ...formData, confirmPassword: e.target.value })}
-                    InputProps={{
-                      endAdornment: (
-                        <InputAdornment position='end'>
-                          <IconButton
-                            edge='end'
-                            onClick={handleClickShowConfirmPassword}
-                            onMouseDown={e => e.preventDefault()}
-                            aria-label='toggle password visibility'
-                          >
-                            <i className={formData.setIsConfirmPasswordShown ? 'tabler-eye-off' : 'tabler-eye'} />
-                          </IconButton>
-                        </InputAdornment>
-                      )
-                    }}
+                    label='Current Address'
+                    value={formData.currentAddress}
+                    onChange={e => setFormData({ ...formData, currentAddress: e.target.value })}
                   />
                 </Grid>
               </Grid>
+              <Grid item xs={12} sm={6}>
+                <CustomTextField
+                  fullWidth
+                  label='permanent Address'
+                  value={formData.permanentAddress}
+                  onChange={e => setFormData({ ...formData, permanentAddress: e.target.value })}
+                />
+              </Grid>
               <CardActions>
                 <Button
-                  type='submit'
+                  type='button'
                   variant='contained'
                   sx={{ marginLeft: 'auto' }}
-                  onClick={() => setValue('social_links')}
+                  onClick={() => setValue('medical_&_documents')}
                 >
                   Next
                 </Button>
@@ -373,52 +431,243 @@ const AddStudent = () => {
                 </Button>
               </CardActions>
             </TabPanel>
-            <TabPanel value='social_links'>
+            <TabPanel value='medical_&_documents'>
               <Grid container spacing={6}>
                 <Grid item xs={12} sm={6}>
                   <CustomTextField
                     fullWidth
-                    label='Twitter'
-                    placeholder='https://twitter.com/robin'
-                    value={formData.twitter}
-                    onChange={e => setFormData({ ...formData, twitter: e.target.value })}
+                    label='Blood Group'
+
+                    value={formData.bloodGroup}
+                    onChange={e => setFormData({ ...formData, bloodGroup: e.target.value })}
                   />
                 </Grid>
                 <Grid item xs={12} sm={6}>
                   <CustomTextField
                     fullWidth
-                    label='Facebook'
-                    placeholder='https://facebook.com/robin'
-                    value={formData.facebook}
-                    onChange={e => setFormData({ ...formData, facebook: e.target.value })}
+                    label='Category'
+                    placeholder='Enter your category'
+                    value={formData.category}
+                    onChange={e => setFormData({ ...formData, category: e.target.value })}
                   />
                 </Grid>
 
                 <Grid item xs={12} sm={6}>
                   <CustomTextField
                     fullWidth
-                    label='LinkedIn'
-                    placeholder='https://linkedin.com/robin'
-                    value={formData.linkedin}
-                    onChange={e => setFormData({ ...formData, linkedin: e.target.value })}
+                    label='height'
+                    placeholder='Enter Your actual Height'
+                    value={formData.height}
+                    onChange={e => setFormData({ ...formData, height: e.target.value })}
                   />
                 </Grid>
                 <Grid item xs={12} sm={6}>
                   <CustomTextField
                     fullWidth
-                    label='Instagram'
-                    placeholder='https://instagram.com/robin'
-                    value={formData.instagram}
-                    onChange={e => setFormData({ ...formData, instagram: e.target.value })}
+                    label='weight'
+                    placeholder='Enter you actual weight'
+                    value={formData.weight}
+                    onChange={e => setFormData({ ...formData, weight: e.target.value })}
                   />
                 </Grid>
                 <Grid item xs={12} sm={6}>
                   <CustomTextField
                     fullWidth
-                    label='Quora'
-                    placeholder='https://quora.com/robin'
-                    value={formData.quora}
-                    onChange={e => setFormData({ ...formData, quora: e.target.value })}
+                    label='NID'
+                    type='file'
+                    InputLabelProps={{ shrink: true }}
+                    inputProps={{ accept: 'image/*,.pdf' }}
+                    onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                      setFormData({ ...formData, NID: e.target.files?.[0] ?? null })
+                    }
+                  />
+                </Grid>
+                <Grid item xs={12} sm={6}>
+                  <CustomTextField
+                    fullWidth
+                    label='Nid Number'
+                    value={formData.nidNumber}
+                    onChange={e => setFormData({ ...formData, nidNumber: e.target.value })}
+                  />
+                </Grid>
+                <Grid item xs={12} sm={6}>
+                  <CustomTextField
+                    fullWidth
+                    label='Enter Your Birth Certificate Number'
+                    value={formData.birthCertificateNumber}
+                    onChange={e => setFormData({ ...formData, birthCertificateNumber: e.target.value })}
+                  />
+                </Grid>
+                <Grid item xs={12} sm={6}>
+                  <CustomTextField
+                    fullWidth
+                    label='Upload Citizenship'
+                    type='file'
+                    InputLabelProps={{ shrink: true }}
+                    inputProps={{ accept: 'image/*,.pdf' }}
+
+                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                      const file = e.target.files?.[0] ?? null
+                      setFormData({ ...formData, citizenship: file })
+                    }}
+                  />
+                </Grid>
+                {/* <Grid item xs={12} sm={6}>
+                  <CustomTextField
+                    fullWidth
+                    label='Citizenship'
+                    type='file'
+
+                    onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                      setFormData({ ...formData, citizenship: e.target.files?.[0] ?? null })
+                    }
+                  />
+                </Grid> */}
+                <Grid item xs={12} sm={6}>
+                  <CustomTextField
+                    fullWidth
+                    label='Citizenship Number'
+                    value={formData.citizenshipNumber}
+                    onChange={e => setFormData({ ...formData, citizenshipNumber: e.target.value })}
+                  />
+                </Grid>
+                <Grid item xs={12} sm={6}>
+                  <CustomTextField
+                    fullWidth
+                    label='additional Notes'
+                    value={formData.additionalNotes}
+                    onChange={e => setFormData({ ...formData, additionalNotes: e.target.value })}
+                  />
+                </Grid>
+              </Grid>
+              <CardActions>
+                <Button
+                  type='button'
+                  variant='contained'
+                  sx={{ marginLeft: 'auto' }}
+                  onClick={() => setValue('parents')}
+                >
+                  Next
+                </Button>
+                <Button type='reset' variant='tonal' color='secondary' onClick={() => handleReset()}>
+                  Reset
+                </Button>
+              </CardActions>
+            </TabPanel>
+            <TabPanel value='parents'>
+              {!formData.parentId ? (
+                <Parents_and_guardian_Info onParentSaved={id => setFormData(prev => ({ ...prev, parentId: id }))} />
+              ) : (
+                <div>
+                  <TableContainer component={Paper}>
+                    <Table sx={{ maxWidth: '100%' }} aria-label='customized table'>
+                      <TableHead>
+                        <TableRow>
+                          <StyledTableCell>Guardian Name</StyledTableCell>
+                          <StyledTableCell>Guardian Email</StyledTableCell>
+                          <StyledTableCell>Guardian Phone</StyledTableCell>
+                          <StyledTableCell>Guardian Occupation</StyledTableCell>
+                          <StyledTableCell>Guardian Address</StyledTableCell>
+                        </TableRow>
+                      </TableHead>
+                      <TableBody>
+                        {(parents ?? [])
+                          .filter((p: ParentsTypes) => p.id === formData.parentId)
+                          .map((parent: ParentsTypes) => (
+                            <TableRow key={parent.id}>
+                              <StyledTableCell component='th' scope='row'>
+                                {parent.guardianName}
+                              </StyledTableCell>
+                              <StyledTableCell>{parent.guardianEmail}</StyledTableCell>
+                              <StyledTableCell>{parent.guardianPhone}</StyledTableCell>
+                              <StyledTableCell>{parent.guardianOccupation}</StyledTableCell>
+                              <StyledTableCell>{parent.guardianAddress}</StyledTableCell>
+                            </TableRow>
+                          ))}
+                      </TableBody>
+                    </Table>
+                  </TableContainer>
+                </div>
+              )}
+
+              <CardActions>
+                <Button
+                  type='button'
+                  variant='contained'
+                  sx={{ marginLeft: 'auto' }}
+                  onClick={() => setValue('other_info')}
+                >
+                  Next
+                </Button>
+                <Button type='reset' variant='tonal' color='secondary' onClick={() => handleReset()}>
+                  Reset
+                </Button>
+              </CardActions>
+            </TabPanel>
+            <TabPanel value='other_info'>
+              <Grid container spacing={6}>
+                <Grid item xs={12} sm={6}>
+                  <CustomTextField
+                    fullWidth
+                    label='bank Name'
+                    value={formData.bankName}
+                    onChange={e => setFormData({ ...formData, bankName: e.target.value })}
+                  />
+                </Grid>
+                <Grid item xs={12} sm={6}>
+                  <CustomTextField
+                    fullWidth
+                    label='bank Account Number'
+                    value={formData.bankAccountNumber}
+                    onChange={e => setFormData({ ...formData, bankAccountNumber: e.target.value })}
+                  />
+                </Grid>
+                <Grid item xs={12} sm={6}>
+                  <CustomTextField
+                    fullWidth
+                    label='IFSC code'
+                    value={formData.IFSCcode}
+                    onChange={e => setFormData({ ...formData, IFSCcode: e.target.value })}
+                  />
+                </Grid>
+                <Grid item xs={12} sm={6}>
+                  <CustomTextField
+                    fullWidth
+                    label='Previous School Details'
+                    value={formData.previousSchoolDetails}
+                    onChange={e => setFormData({ ...formData, previousSchoolDetails: e.target.value })}
+                  />
+                </Grid>
+                <Grid item xs={12} sm={6}>
+                  <CustomTextField
+                    fullWidth
+                    label='RouteList'
+                    value={formData.RouteList}
+                    onChange={e => setFormData({ ...formData, RouteList: e.target.value })}
+                  />
+                </Grid>
+                <Grid item xs={12} sm={6}>
+                  <CustomTextField
+                    fullWidth
+                    label='vehicleNumber'
+                    value={formData.vehicleNumber}
+                    onChange={e => setFormData({ ...formData, vehicleNumber: e.target.value })}
+                  />
+                </Grid>
+                <Grid item xs={12} sm={6}>
+                  <CustomTextField
+                    fullWidth
+                    label='dormitoryName'
+                    value={formData.dormitoryName}
+                    onChange={e => setFormData({ ...formData, dormitoryName: e.target.value })}
+                  />
+                </Grid>
+                <Grid item xs={12} sm={6}>
+                  <CustomTextField
+                    fullWidth
+                    label='roomNumber'
+                    value={formData.roomNumber}
+                    onChange={e => setFormData({ ...formData, roomNumber: e.target.value })}
                   />
                 </Grid>
               </Grid>
@@ -426,7 +675,7 @@ const AddStudent = () => {
           </CardContent>
 
           <Divider />
-          <CardActions sx={{ display: value === 'social_links' ? 'flex' : 'none' }}>
+          <CardActions sx={{ display: value === 'other_info' ? 'flex' : 'none' }}>
             <Button type='submit' variant='contained' sx={{ marginLeft: 'auto' }}>
               Submit
             </Button>
